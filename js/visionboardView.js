@@ -1,0 +1,196 @@
+
+
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    // Using the Require.js text! plugin, we are loaded raw text
+    // which will be used as our views primary template
+    'text!../Templates/visionboard0.html',
+    'text!../Templates/visionboard1.html',
+    'text!../Templates/visionboard2.html',
+    'visionModel',
+    'text!../Templates/summary.html',
+    'text!../Templates/headerandpanel.html',
+    'jquerymobile'
+  
+    ], function($, _, Backbone, visionboard0, visionboard1, visionboard2, visionModel, summary, headerandpanel){
+
+
+
+        visionboardView = Backbone.View.extend({
+  
+            events:{
+                "click #addphotovision":"addphotovision",
+                "click #shareb":"share",
+                "click .savevision":"checksave",
+                "click #getgalleryphoto":"getfromgallery"
+            },
+	 
+            render: function(id, historycollection){
+                this.$el.attr('data-role', 'page');
+                this.$el.attr('data-theme', 'a');
+                this.$el.attr('class', 'page visionheight');
+
+                this.collection=historycollection;
+	
+                switch(id)
+                {
+                    case '0':
+                        compiledTemplate = _.template( visionboard0 );
+		
+                        break;
+                    case '1':
+                        compiledTemplate = _.template( visionboard1 );
+			  
+                        break;
+                    case '2':
+                        compiledTemplate = _.template( visionboard2 );
+                        this.model.set("tool", "vision");
+                        this.model.set("description",$('#textareadesctransfer').val());
+                        this.model.set("title",$('#visiontitle').val());
+                        historycollection.create(this.model);
+                        console.log("Saved");
+		
+			 
+                        break;
+                }
+			
+                if(id>19){
+                    compiledTemplate = _.template( visionboard2 );
+                    index=id-20;
+                    this.model=this.collection.at(index);
+                }
+			
+                var self=this;
+                historycollection.get("languages").set("helppanel",historycollection.get("languages").get("dic_vision_helppanel"));
+                result= _.extend(historycollection.get("languages").toJSON(),self.model.toJSON());
+                compiledheaderandpanel=_.template( headerandpanel );
+                this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+	
+                if(id=='0'){
+	
+                    historycollection.forEach(this.getvisions, this);
+	
+                }
+		
+            },
+	
+            voidfunc: function(){},
+	
+            checksave: function(){
+                var self=this;
+                if($('#visiontitle').val()=="" || this.model.get("uri")==""){
+                    try{
+                        navigator.notification.alert(self.collection.get("languages").get("dic_vision_alert"), function(){
+                            self.voidfunc();
+                        }, "", "Ok");
+                    }
+                    catch(e){
+                        console.log(e);
+                        Backbone.history.navigate("#visionboard2", {
+                            trigger: true
+                        });
+                    }
+                }
+                else
+                    Backbone.history.navigate("#visionboard2", {
+                        trigger: true
+                    });
+	
+            },
+	
+            share: function(){
+                var self=this;
+                if(this.model.get("fromgallery")){
+                    console.log("fromgallery, transforming...");
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    var img = new Image();
+                    img.src = this.model.get("uri");
+                    ctx.drawImage(img,0,0, img.width, img.height);
+                    self.model.set("uri",c.toDataURL("image/png"));
+
+                }
+                try{
+                    window.plugins.socialsharing.share(self.model.get("title"), null, self.model.get("uri"), null);
+                }
+                catch(e){
+                    alert(e);
+                }
+            },
+	
+            getfromgallery:function(){
+                var self=this;
+                try{
+                    if (!navigator.camera) {
+                        alert("Camera API not supported");
+                        return;
+                    }
+                    else
+                        navigator.camera.getPicture(function(imageData){
+                            self.onPhotoDataSuccess(imageData, true);
+                        }, this.onFail, {
+                            quality: 50,
+							destinationType: 0, //Camera.DestinationType.DATA_URL,
+                            correctOrientation: true,
+                            sourceType: 0,
+							allowEdit: true
+                        });
+                }
+                catch(e){
+                    console.log(e);
+                }
+            },
+	
+            getvisions: function(elemento){
+	
+                if(elemento.get("tool")=="vision"){
+                    var index = this.collection.indexOf(elemento);
+                    neoindex=index+20;
+                    this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#visionboard" + neoindex +"' data-transition='none'><img class='imagenesminiaturasummary' src='"+ elemento.get("uri") +"' /><h3>"+ elemento.get("title") +"</h3></a></li>");
+                }
+	
+            },
+	
+            addphotovision: function(){
+                self = this;
+                if (!navigator.camera) {
+                    alert("Camera API not supported");
+                    return;
+                }
+                else
+                    navigator.camera.getPicture(function(imageData){
+                        self.onPhotoDataSuccess(imageData, false);
+                    }, this.onFail, {
+                        quality: 50,
+                        correctOrientation: true,
+						allowEdit: true
+                    });
+		 
+       
+	
+            },
+	
+            onPhotoDataSuccess: function(imageData, base64){
+				console.log("onPhotoDataSuccess, imagedata: ");
+				console.log(imageData);
+                var visionphoto = document.getElementById('visionphoto');
+                visionphoto.style.display = 'block'; 
+				if(base64)
+					imageData = "data:image/png;base64," + imageData;
+				visionphoto.src = imageData;
+                this.model.set("uri",imageData);
+		
+            },
+	
+            onFail: function(message){
+	
+            //alert('Failed because: ' + message);
+	
+            }
+
+        });
+
+        return visionboardView;
+    });

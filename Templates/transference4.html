@@ -1,0 +1,31 @@
+ <div data-role="content">
+ <div class="hojacuaderno">
+      <div class="headerhojacuaderno transfer" data-role="header">
+       <h2>
+        <%= dic_transf_header %>
+       </h2>
+      </div>
+<div data-role="content">
+    <div data-controltype="textblock">
+     <p class="primerPcuaderno">
+       <span>
+        <%= dic_transf_p4_text1 %>
+       </span>
+       <br />
+     </p>
+    </div>
+    <div data-controltype="htmlblock">
+     <ul id="listreacorig" data-role="listview" data-split-icon="none" data-inset="true">
+     </ul>
+    </div>
+   </div>
+   </div>
+</div>
+  <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <a class="botonprev" data-role="button" data-transition="none" href="#transference3" data-icon="arrow-l">
+    <%= dic_prev %>
+   </a>
+   <a class="botonnext" data-role="button" data-transition="none" href="#<%= transVersion %>" data-icon="arrow-r" data-iconpos="right">
+    <%= dic_next %>
+   </a>
+    </div>

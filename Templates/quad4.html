@@ -1,0 +1,33 @@
+<div data-role="content">
+   <div class="hojacuaderno">
+   <div class="headerhojacuaderno headerquad" data-role="header">
+       <h3>
+         <%= dic_quad_header %>
+       </h3>
+      </div>
+	  <div data-role="content">
+	  <label class="fasequad"> <%= dic_quad_p4_title %> </label>
+    <div data-role="fieldcontain" data-controltype="textarea" class="primerLcuaderno">
+     <label for="quadInput8">
+      <%= dic_quad_p4_text1 %>
+     </label>
+     <textarea name="" id="quadInput8" class="mandatory" placeholder=""><%= answer8 %></textarea>
+    </div>
+    <div data-role="fieldcontain" data-controltype="textarea">
+     <label for="quadInput9">
+       <%= dic_quad_p4_text2 %>
+     </label>
+     <textarea name="" id="quadInput9" class="mandatory" placeholder="<%= dic_quad_p4_placeholder2 %>"><%= answer9 %></textarea>
+    </div>
+    </div>
+   </div>
+   </div>
+   <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <a class="botonprev debugtrigger" data-role="button" data-transition="none" href="#quadcheck3" data-icon="arrow-l">
+    <%= dic_prev %>
+   </a>
+		<a id="botonnext" class="botonnext quadcommit" data-role="button" data-transition="none" rel="external" href="#quadcheck5" data-icon="check" data-iconpos="right">
+    <%= dic_next %>
+   </a>
+    </div>
+  

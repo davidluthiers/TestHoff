@@ -1,0 +1,31 @@
+  <div data-role="content">
+   <div class="hojacuaderno" data-controltype="htmlblock">
+   <div class="headerhojacuaderno recycling" data-role="header">
+       <h3>
+        <%= dic_recycling_header %>
+       </h3>
+      </div>
+    <div data-role="content">
+     <div data-controltype="textblock">
+      <p class="primerPcuaderno">
+       <span >
+	   <%= dic_recycling_p0_text1 %>
+        </span>
+      </p>
+     </div>
+     <div id="checkboxes1" data-role="fieldcontain" data-controltype="checkboxes" class="donotshowagain">
+      <fieldset data-role="controlgroup" data-type="vertical">
+       <input id="checkbox1" name="" data-theme="b" type="checkbox" />
+       <label id="checkbox" for="checkbox1">
+        <%= dic_donotshow %>
+       </label>
+      </fieldset>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <a class="botonstart" data-role="button" data-transition="none" href="#recycling1">
+    <%= dic_next %>
+   </a>
+    </div>

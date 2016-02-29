@@ -1,0 +1,1858 @@
+
+		*, *:after, *:before {  /*Eliminación de sombras de texto y bordes alienados de elementos*/
+		
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+-webkit-touch-callout: none;
+-webkit-user-drag: none;
+text-shadow: none !important;
+}
+p{
+line-height: .8em;
+text-align: center;
+	color: rgb(102, 102, 102) !important;
+}
+label.ui-input-text{
+line-height: .8em;
+text-align: center;
+	color: rgb(102, 102, 102) !important;
+}
+label{
+ line-height: .8em;
+text-align: center;
+	color: rgb(102, 102, 102) !important;
+    
+}
+
+#map_module_map {
+    padding: 0;
+    position : absolute !important; 
+    top : 40px !important;  
+    right : 0; 
+    bottom : 40px !important;  
+    left : 0 !important;     
+}
+
+label.audioDesc {
+  color: #aaaaaa !important;
+  font-size: 70%;
+  text-align: center;
+  display: block;
+  margin-bottom: 6px;
+}
+
+#agujeroscuaderno{
+height:30px;
+}
+
+.ui-disabled {
+    opacity: 1;
+}
+
+.hojacuaderno .ui-field-contain{border:none;}
+
+.ui-field-contain{
+padding: 0.1em 0px;
+}
+
+
+.ui-content { /* ajuste para que el contenido de las páginas esté más ajustado arriba, a los agujeros en este caso */
+padding-top:0px;
+}
+
+.ui-btn{font-size:140%;}
+
+label.ui-input-text {font-size:100%;font-weight: 400;}
+
+
+.ui-body-a, .ui-body-a input, .ui-body-a select, .ui-body-a textarea, .ui-body-a button, .ui-btn-up-b, .ui-btn-hover-b, .ui-btn-down-b, .ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a, .ui-btn-text {
+		font-family: "HelveticaNeue-Light";
+		}
+		
+		
+.ui-progressbar .ui-progressbar-value {
+    background-image: url('../img/progressbar.gif')
+}
+
+.ui-btn-up-b {border:none;}
+
+    .ui-panel-content-wrap .menuheader{
+        
+    background: url('../img/Textures/666666.png') repeat
+    
+    }
+	
+		.ui-body-a, .ui-overlay-a, .menuheader{
+		background: url('../img/Textures/666666.png') repeat;
+		
+		}
+		
+		.ui-bar-a{border:0px;}
+
+input[type="text"] {		/* input type transparentes para que se vea la hoja de cuadrícula */
+        background: transparent no-repeat center center;
+        border: none;
+    }
+	
+	#keyspace{
+	height:4em;
+	}
+	
+	.hoffmanfont{
+	font-family: 'wiesbadenswingroman';
+	color: black;
+	font-size: 32px;
+	margin-bottom: 1px;
+	margin-top: -19px;
+	font-weight:normal;
+	}
+	
+	#addphotovision .ui-btn-text {
+		color: rgba(94, 129, 33, 0.71);
+	}
+	#getgalleryphoto {
+         top: -130px;
+    }
+	.whitebackground{
+	background:white;
+	}
+	
+	.ruletaoverflow *{
+	overflow-x:visible;
+	}
+	
+	.timeTag{
+		font-weight: normal;
+		margin: 0px;
+	}
+
+/* Página inicial */
+
+	#logo img{
+	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 47%;
+	margin-bottom: 30px;
+	}
+	
+	/* Summary */
+	
+	.summary{
+	background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.5);
+	}
+	
+	.summaryheader{
+	background: url('../img/Textures/summary.png') repeat
+
+	}
+	
+	.frasediaria {  
+		font-size: 95%;
+		line-height: 0.75em;
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+		}
+		
+	.frasediariaAuthor {  
+		font-size: 75%;
+		line-height: 0.75em;
+		margin-top: 0.0em;
+		margin-bottom: 0.2em;
+		}
+		
+		
+		.journallist .ui-li-heading {
+		margin-left: -6% !important;
+		}
+		
+		#summarylist{
+		margin-top:15px;
+		-webkit-box-shadow: none;
+		list-style:none;
+		margin-bottom: 24px;
+		width:107%;
+		}
+		
+		
+		.sombrafrase{
+		padding: 0.32em;
+		padding-top: 0.1em;
+		margin-top: 7px;
+		margin-bottom: 19px;
+		-webkit-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		}
+		
+		
+		#summarylist .separadortool{
+		margin-left:-16px;
+		width: 121px;
+		padding-right: 0px;
+		padding-left: 15px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-width: 1px 1px 1px 1px;
+		}
+		
+		#listasummarytools .separadortool{
+		margin-left: -16px;
+		width: 133px;
+		padding-right: 0px;
+		padding-left: 23px !important;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-width: 1px 1px 1px 1px !important;
+		font-family: Helvetica, Arial, sans-serif;
+		color: white;
+		border-color: rgba(162, 244, 247);
+		}
+		
+		.imagenesminiaturasummary{
+		height: 50px;
+		width: 53px;
+		top: 5px;
+		left: -5px;
+		}
+		
+		.textoconimagen{
+		
+		}
+		
+		#summarylist li{
+		margin-top:10px;
+		margin-bottom:10px;
+		margin-right:20px;
+		list-style:none;
+		
+		}
+		
+		#summarylist .feed{
+		background: none;
+		padding-left:10px;
+		border-color: rgb(182, 182, 182);
+		border-width: 1px 0px 0px 1px !important; /*top y left los positivos*/
+		
+		}
+		
+		.feed{
+		height:67px;
+		}
+		
+		#summarylist .ui-li-heading{
+		color:rgb(102, 102, 102) !important;
+		margin-left:-41px;
+		font-size:22px;
+		font-weight:normal;
+		overflow:visible;
+		}
+		
+		#listasummarytools li {
+			padding-top: 15px;
+			border-color: rgb(182, 182, 182);
+			border-width: 1px 0px 0px 1px !important;
+			padding-left: 10px;
+			padding-bottom: 5px;
+			margin-left: 13px;
+			margin-bottom: 15px;
+			margin-left: 13px;
+			margin-right: 7px;			
+		}
+		
+		.menuheader .ui-btn-right {
+		-webkit-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		}
+		
+		.menuheader .ui-btn-left {
+		-webkit-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		}
+		
+		#listasummarytools {
+		box-shadow: none !important;
+		position: relative;
+		left: -13px;
+		width:107%;
+		}
+		
+		.fechasummary{
+		background: url(../img/Textures/feelingw.png) 50% 50% no-repeat;
+		position: relative;
+		top: 10px;
+		float: right;
+		height: 17px !important;
+		width: 6.2em;
+		padding-left: 2px !important;
+		margin-bottom: 0px !important;
+		font-size: 22px;
+		word-spacing: 0.35em;
+		}
+		
+		.fechasummarytools {
+		top: -5px;
+		float: right;
+		background: url(../img/Textures/feelingw.png) 50% 50% no-repeat;
+		height: 17px !important;
+		width: 6em;
+		margin-bottom: 0px !important;
+		position: relative;
+		font-size: 22px;
+		word-spacing: 0.35em;
+		}
+		
+		#summarylist a, #summarylist p ,#listasummarytools p{
+		font-family: 'wiesbadenswingroman';
+		color: black;
+		text-align: left !important;
+		}
+		#summarylist a  {
+			width: 95%;
+		}
+		
+		#listasummarytools .ui-btn-text {
+		height: 39px;
+		}
+		
+		#listasummarytools .redondo{
+		border-bottom-right-radius: 19px;
+		border-bottom-left-radius: 19px;
+		border-top-right-radius: 19px;
+		border-top-left-radius: 19px;
+		outline: 0 !important;
+		height: 14px;
+		-moz-box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		-webkit-box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/
+		}
+		
+		#listasummarytools .toolbutton{
+		margin-top: 8px;
+		margin-right: 57px;
+		}
+		
+		
+		#listasummarytools a {
+			border-radius: 7px !important;
+			padding-bottom: 6px;
+			padding-top: 6px;
+			-moz-box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+			-webkit-box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+			box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/ margin-top: 1;
+			width: 13em;
+		}
+	
+	#suggestionbutton .ui-btn-text{
+	margin-left: -8px;
+	}
+	
+	
+	/* Header general */
+
+		.ui-header .ui-title{  /*título de cada página*/
+	font-family: "HelveticaNeue-Light";
+
+
+	}
+	
+
+	
+	.ui-header .ui-btn-icon-left .ui-btn-inner{ 
+
+padding-left: 29px;
+padding-top: 3px;
+padding-bottom: 4px;
+
+}
+
+.ui-header .ui-btn-icon-right .ui-btn-inner{
+
+padding-left: 15px;
+padding-top: 3px;
+padding-bottom: 4px;
+
+}
+
+.ui-header .ui-btn-inner{
+    font-size: 0.7em;
+}
+	
+	
+.ui-btn-right, .ui-btn-left, .panelbutton { /* botones alineados y de panel con color verde y sombra */
+    
+       width: 26%;
+    background: url('../img/Textures/verdeboton.png') repeat;
+	-webkit-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+    
+        }
+		
+
+		
+		
+	.ui-icon-menuicon {
+		
+	background: url(../img/Icons/icono_menu.png) 50% 50% no-repeat;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+	box-shadow: none;
+    -webkit-box-shadow: none;
+    background-position: 0 -2px;	
+		
+		}
+
+.menuheader .ui-shadow{box-shadow: 0px 1px 8px rgba(11, 16, 10, 0.4);}
+		
+		/*Panel lateral izquierdo*/
+	
+	
+			#panelhoffman .ui-li .ui-btn-inner a.ui-link-inherit{ 
+		padding: 0.4em 15px;
+		margin-left: 25px;
+		}
+		
+		#panelhoffman .ui-li-divider{
+		font-family: "HelveticaNeue-Light";
+		font-size: 18px;
+		padding: 0.4em 15px;
+		width: 104%;
+		}
+
+    #panelhoffman .ui-btn-inner   {
+	font-family: "HelveticaNeue-Light";
+    font-size: 18px !important;
+    white-space: nowrap;
+
+}
+
+#panelhoffman .ui-icon { z-index:4;}
+
+
+
+
+#panelhoffman .ui-li {
+border-width: 0px 0px 0px;
+right: 3.7%;
+
+}
+
+#listapanel {
+
+	background: url('../img/Textures/vicious.png') repeat;
+
+}
+		
+ #panelhoffman .quad,  #panelhoffman .summary, #panelhoffman .feeling, #panelhoffman .bashacker, 
+ #panelhoffman .patternr, #panelhoffman .recycling, #panelhoffman .beatyour, #panelhoffman .vicious, 
+ #panelhoffman .transfer, #panelhoffman .history, #panelhoffman .visionboard, #panelhoffman .configuration, 
+ #panelhoffman .support, #panelhoffman .meditations {
+		
+		/* Curvatura y sombras de botones del panel */
+		
+		  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+  border-top-left-radius: 11px !important;
+  border-bottom-left-radius: 11px !important;
+  border-bottom-right-radius: 11px !important;
+  outline: 0 !important;
+
+  -moz-box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	-webkit-box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	box-shadow: 0 1px 6px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/
+
+		
+		}
+		
+		.texturanegra {   
+    background: url('../img/Textures/pruebatexturanegra.jpg') repeat;
+			  
+        }
+		
+		.quad, .headerquad {   
+    background: url('../img/Textures/quad.png') repeat;
+		  
+        }
+		
+		.quadback{
+		
+		background: url('../img/Textures/quad.png') repeat;
+		
+		}
+		
+		
+		.feeling {   
+    background: url('../img/Textures/feelingw.png') repeat;
+			  
+
+        }
+		.bashacker {   
+    background: url('../img/Textures/bashacker.png') repeat;
+        }
+       .quotes {   
+    background: url('../img/Textures/quotes.png') repeat;
+        }
+
+		.patternr {   
+    background: url('../img/Textures/pattern.png') repeat;
+			 
+        }
+		.recycling {   
+    background: url('../img/Textures/recycling.png') repeat;
+			  
+        }        
+		.meditations {   
+    background: url('../img/Textures/vicious.png') repeat;
+			  
+        }
+		.beatyour {   
+    background: url('../img/Textures/beat.png') repeat;
+			
+
+        }
+		.vicious {   
+    background: url('../img/Textures/vicious.png') repeat;
+			 
+
+        }
+		.grisclaro {   
+    background: url('../img/Textures/vicious.png') repeat;
+	padding: 5px;
+	
+        }
+		.transfer {   
+    background: url('../img/Textures/transfer.png') repeat;
+			 
+        }
+		
+		.history {   
+	background: url('../img/Textures/journal.png') repeat;
+ }
+		
+			.colorverde {   
+    background: url('../img/Textures/verdeboton.png') repeat;
+			  
+
+        }
+		.visionboard {   
+    background: url('../img/Textures/vision.png') repeat;
+			
+
+        }
+		.support {   
+    background: url('../img/Textures/verdeboton.png') repeat;
+			
+
+        }
+		.midgray {   
+    background: url('../img/Textures/midgray.png') repeat;
+
+        }
+		.configuration {   
+    background: url('../img/Textures/quad.png') repeat;
+			
+        }
+		
+		.hoffmanseparator {	/* Margen del primer separador del panel */
+    /* Styles */
+	position:relative;
+	margin-bottom:16px;
+	padding: 1px 1px 1px 1px !important;
+	height:35px !important;
+	  	-moz-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	-webkit-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/
+}
+
+.pruebaheight{
+height:0px !important;
+}
+
+		#panelhoffmanlogo{
+		
+		position: relative;
+		left: -48px;
+		height: 36px;
+		top: -0px;
+		
+		}
+
+		.myaccountandsettingsseparator {	/* Separador de zonas en página de config */
+    /* Styles */
+	margin-top:18px;
+	margin-bottom:16px;
+}
+
+		.primermyaccountandsettingsseparator {	/* Separador de zonas en página de config */
+    /* Styles */
+	margin-top:4px;
+	margin-bottom:16px;
+}
+
+		.firstbutton{
+		margin-top: -7px;
+		}
+
+/* Panel lateral derecho de ayuda*/
+	
+	
+	.helpblock{
+	background: url('../img/Textures/vicious.png') repeat; 
+	width:100%;
+	height:600px; 
+	font-size:110% !important;
+	padding: 5px !important;
+	}
+	
+	.helpheader{
+	text-align:center;
+	}
+	
+			.ui-icon-helpicon {
+		
+	background: url(../img/Icons/icono_ayuda.png) 50% 50% no-repeat;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+	box-shadow: none;
+    -webkit-box-shadow: none;
+    background-position: 0 -2px;	
+		
+		}
+		
+		/* Elementos comunes en Tools*/
+		
+		.menuheader .panelbutton{
+		line-height: 100%;
+		min-width: 91px;	
+		}
+		
+		.menuheader .ui-btn-inner{
+		padding-right: 7px;
+		}
+		
+		.menuheader .ui-btn-text {
+		font-size: 100%;
+		}
+		
+		.menuheader  .ui-icon{
+		top: 40% !important;
+		}
+		
+		[data-icon="plus"]{border:0px;}	
+		
+		.shareicons{
+		position: relative;
+		top: 8px;
+		width: 100%;
+		}
+		
+		.noborder{
+		border-bottom:0px;
+		}
+		
+		.hojacuaderno .ui-field-contain{
+		padding-top:0px;
+		margin-bottom: 5px;
+		}
+		
+	.hojacuaderno {
+    margin-top:8px;
+	min-height:470px;
+    width:100%;  
+    background: url('../img/Tile/migrid.png') repeat;
+		font-family: 'wiesbadenswingroman';
+		font-size: 200%;
+		-moz-box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	-webkit-box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/
+
+        }
+		
+		
+		.botonnavegacion .ui-btn-inner{background: url('../img/Textures/verdeboton.png') repeat;}
+
+.headerhojacuaderno  .ui-title{
+font-family: 'ITCNewBaskervilleStdRoman';
+margin: 0.3em 0.3em;
+font-size: 24px;
+font-weight: normal;
+padding-top:0.3em;
+
+
+}
+
+	
+[data-role="footer"] [data-role="button"]{
+background: url('../img/Textures/verdeboton.png') repeat;
+border: 0;
+font-size:154%;
+}
+
+	.donotshowagain .ui-checkbox .ui-btn-icon-left .ui-btn-inner, .donotshowagain .ui-checkbox .ui-btn-icon-right .ui-btn-inner {  /*centrado de Donotshowagain*/
+    padding-left: 39px;
+	padding-right: 0px;
+}
+
+.donotshowagain .ui-checkbox {
+
+    margin-left: 10%;
+}
+
+.donotshowagain .ui-checkbox .ui-btn-inner{
+	color: white !important;
+
+}
+
+.donotshowagain{
+margin-bottom:0px !important;
+}
+
+.donotshowagain label{
+		background: url('../img/Textures/beat.png') repeat;
+		width: 85%;
+		text-align: center;
+		-webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+  border-top-left-radius: 11px !important;
+  border-top-right-radius: 11px !important;
+  border-bottom-left-radius: 11px !important;
+  border-bottom-right-radius: 11px !important;
+		}
+	
+	.agujero1{
+	
+
+text-align: center;
+position: relative;
+left: 21%;
+	}
+	
+	.agujero2{
+
+	text-align: center;
+	position: relative;
+	left: 52%;
+	
+	}
+
+	.botonstart, .botonprev, .botonnext{
+	box-shadow:none !important;
+	}
+	
+	.botonnext{
+	border:0px !important;
+	}
+	
+	.botonstart{
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	height: 84%;
+	}
+	
+	.botonstart  .ui-btn-inner{
+	width: 100% !important;
+	height: 100% !important;
+	}
+	
+	
+/*	[data-role="footer"] .ui-btn-text{
+	padding-top: 0.5em;
+	vertical-align: middle;
+	font-size: 123%;
+	}
+*/	
+
+    [data-role="footer"] .ui-btn-text{
+	line-height: 2.5em;
+	font-size: 140%;
+	}
+
+	[data-role="footer"] .ui-btn-inner{
+	padding: 0;
+	display: table;
+	}
+	
+	.botonprev .ui-btn-inner{
+
+	min-width:50px;
+	padding-right: 2em !important;
+	overflow: visible;
+	width:100%;
+	height:100%;
+	}
+	.botonnext .ui-btn-inner{
+	min-width:50px;
+	padding-right: 3em !important;
+	overflow: visible;
+	width:100%;
+	height:100%;
+	}
+	
+	.botonprev, .botonnext {
+	width: 40%;
+	height: 84%;
+	}
+	
+	.botonprev{
+	margin-right: 3% !important;	
+	}
+
+	[data-role="footer"] .ui-btn-inner{
+	 
+		
+		-moz-box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		-webkit-box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/
+		}
+		
+		
+		
+	[data-role="footer"] {
+	background: url('../img/Textures/666666.png') repeat !important;
+	height: 60px;
+	text-align: center;
+	padding-top: 6px;
+		}	
+
+	[data-role="footer"] [data-role="button"] {
+	line-height: 100%;
+	}
+
+
+
+	.primerPcuaderno {
+		margin-top: 0px;
+	}
+
+	.primerLcuaderno {
+		padding:0;
+	}
+
+	#shareb {
+		width: 34%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	#shareb .ui-btn-inner {
+		padding: 10px;
+	}	
+	.writtingtextarea{
+		height: 10em !important;
+	}
+
+	/*Quad Check In*/
+	
+	.fasequad{
+	color:rgb(83, 83, 102) !important;
+	font-size: 160%;
+	display: block;
+	margin-top: 15px;
+	
+	}
+	
+
+	/*Feeling Wheel*/
+	
+	#page23 .ui-li-heading{
+	position: relative;
+	top: -9px;
+	}
+	
+	#respuestafeeling{
+	list-style: none outside none;
+	margin-left: 1%;
+	font-size: 131%;
+}
+
+	#selectedfeelinghistory {
+		font-size: 1.5em;
+		margin-top: 40px;
+		margin-bottom: 30px;
+	}
+		
+	.ruleta{
+		vertical-align:bottom;
+        border:0;
+		width: 100%;
+		position:relative;
+		bottom: -3px;
+		}
+
+
+.list, #extralist {
+  margin:0;
+  padding:0px 0 0;
+}
+#extralist  > li ,#feelinglist > li {
+  margin: 0px;
+  display:block;
+  background: url('../img/Textures/feelingw.png') repeat; 
+  padding:10px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+
+#extralist .ui-btn-inner{
+	border:none;
+	background:none;
+}
+
+#extralist  img, #feelinglist img {
+  max-width: 100%;
+}
+#extralist a, #feelinglist h3 {
+	font-family: 'HelveticaNeue-Light';
+	color: white;
+	font-size: 20px;
+	margin: 0 0 0rem;
+	font-weight: normal;
+	padding: 0px;
+}
+#feelingco input {
+  margin-bottom:10px
+}
+#feelingco input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+
+#feelingco li{
+	background: url('../img/Textures/feelingw.png') repeat; 
+}
+
+.ruletaoverflow  .ui-input-text{
+	color:black;
+}
+
+.textocentrado {  /* Texto: I feel (de feeling wheel) */
+		list-style:none;
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+		font-size: 160%;
+		}
+		
+		.actionDesc {  /* Texto: I feel (de feeling wheel) */
+		list-style:none;
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+		font-size: 130%;
+		}
+		
+		#linkortool {
+			font-size: 20px;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 40px;
+		}	
+		 /* bashaker */
+		 
+		 .bate{
+			height: 338%;
+			position: relative;
+			top: -49px;
+			margin-right: auto;
+			margin-left: auto;
+			z-index: 0;
+			background-repeat: no-repeat;
+			opacity: 0.6;
+			right: 51%;
+			width: 13.5em;
+			
+		 }
+		 		
+		.meter {
+			height: 70px;
+			width: 320px;
+			margin-top: 50%;
+			padding: 26px 20px 26px 60px;
+			-webkit-transform: translateX(-10px) rotate(-90deg);
+			background-image: url(../bate1.png);
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		.meter > span {
+			display: block;
+			height: 100%;
+			   -webkit-border-top-right-radius: 8px;
+			-webkit-border-bottom-right-radius: 8px;
+			       -moz-border-radius-topright: 8px;
+			    -moz-border-radius-bottomright: 8px;
+			           border-top-right-radius: 8px;
+			        border-bottom-right-radius: 8px;
+			    -webkit-border-top-left-radius: 20px;
+			 -webkit-border-bottom-left-radius: 20px;
+			        -moz-border-radius-topleft: 20px;
+			     -moz-border-radius-bottomleft: 20px;
+			            border-top-left-radius: 20px;
+			         border-bottom-left-radius: 20px;
+			background-color: rgb(43,194,83);
+			background-image: -webkit-gradient(
+			  linear,
+			  left bottom,
+			  left top,
+			  color-stop(0, rgb(43,194,83)),
+			  color-stop(1, rgb(84,240,84))
+			 );
+			background-image: -moz-linear-gradient(
+			  center bottom,
+			  rgb(43,194,83) 37%,
+			  rgb(84,240,84) 69%
+			 );
+			-webkit-box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			-moz-box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			position: relative;
+			overflow: hidden;
+		}
+		.meter > span > .interanim, .animate > span > span {
+			content: "";
+			position: absolute;
+			top: 0; left: 0; bottom: 0; right: 0;
+			background-image: 
+			   -webkit-gradient(linear, 0 0, 100% 100%, 
+			      color-stop(.25, rgba(255, 255, 255, .2)), 
+			      color-stop(.25, transparent), color-stop(.5, transparent), 
+			      color-stop(.5, rgba(255, 255, 255, .2)), 
+			      color-stop(.75, rgba(255, 255, 255, .2)), 
+			      color-stop(.75, transparent), to(transparent)
+			   );
+			-webkit-animation: move 2s linear infinite;
+			z-index: 1;
+			-webkit-background-size: 50px 50px;
+			-moz-background-size: 50px 50px;
+			   -webkit-border-top-right-radius: 8px;
+			-webkit-border-bottom-right-radius: 8px;
+			       -moz-border-radius-topright: 8px;
+			    -moz-border-radius-bottomright: 8px;
+			           border-top-right-radius: 8px;
+			        border-bottom-right-radius: 8px;
+			    -webkit-border-top-left-radius: 20px;
+			 -webkit-border-bottom-left-radius: 20px;
+			        -moz-border-radius-topleft: 20px;
+			     -moz-border-radius-bottomleft: 20px;
+			            border-top-left-radius: 20px;
+			         border-bottom-left-radius: 20px;
+			overflow: hidden;
+		}
+		
+
+		
+		
+		@-webkit-keyframes move{
+		  100% {
+			background-position: 0 0;
+		  }
+		  0% {
+			background-position: 50px 50px;
+		  }
+		}   
+		@keyframes move{
+		  100% {
+			background-position: 0 0;
+		  }
+		  0% {
+			background-position: 50px 50px;
+		  }
+		}
+		
+		.orange > span {
+			background-color: #f1a165;
+			background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
+			background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+			background-image: -webkit-linear-gradient(#f1a165, #f36d0a); 
+		}
+		
+		.red > span {
+			background-color: #f0a3a3;
+			background-image: -moz-linear-gradient(top, #f0a3a3, #f42323);
+			background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f0a3a3),color-stop(1, #f42323));
+			background-image: -webkit-linear-gradient(#f0a3a3, #f42323);
+		}
+	
+	.feelinghistory img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;	
+	}
+	.feelinghistory p {
+		font-family: wiesbadenswingroman;
+		color: rgb(102,102,102);
+		padding-left: 15px;
+		padding-right: 15px;
+		font-size: 110%;
+	}
+	.vicioushistory img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		height: auto;
+		margin-top: 5px;
+	}
+
+	.bashakergratz, .bashakerhistory, .beathistory {
+		font-size: 140%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	
+	.historylist{
+	margin-top: 15px;
+	}
+	
+	/*Pattern Release*/
+	
+		.globo{
+		vertical-align:bottom;
+        border:0;
+		width: 85%;
+		height: 85%;
+		}
+		
+					
+		.textocentradoPatternRelease {  /* Texto: Blow up the balloon */
+
+		font-size: 149%;
+		}
+	
+	/*Recycling*/
+	
+	.recyclinglistpadding{
+	padding:0px;
+	}
+	
+	#recyclinglist{
+	margin-top:0px;
+	}
+	
+	#recyclinglist .ui-btn{
+	background: url('../img/Textures/grayjean.png') repeat !important;
+
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px 10px 5px 15px;
+}
+	
+	#recycling{
+	}
+	
+
+		#recyclinglist a{
+	
+	font-family: 'wiesbadenswingroman';
+	color: black;
+	text-align: left;
+	margin-top: -0.4em;
+	padding-left: 0px;
+}
+	
+	#recyclinglist a, #recyclinglist p{
+	
+	font-family: 'wiesbadenswingroman';
+	color: black;
+	text-align: left;
+	}
+	
+	.languagedesc{
+	font-family: "HelveticaNeue-Light" !important;
+	font-size:14px !important;
+	/* margin-left: 5px; */
+}
+	
+	.secondaryrec{
+	margin-top:-5% !important;
+	}
+	
+	#recyclinglist p{
+	
+padding: 5px 15px 5px 0px;
+margin: -1.3em -10px 0.6em 0px;
+	font-size: 22px;
+	
+	
+width: 98%;
+}
+
+	
+	
+	#recyclinglist .ui-li-heading{
+		font-size: 31px;
+		font-weight: 400;
+		/* margin-left: -41%; */
+		margin-bottom: 6%;
+		margin-top: 1%;
+	
+		float: left;
+}
+	
+
+	
+
+
+#songPositionControl .ui-btn-active {background: url('../img/Textures/verdeboton.png') repeat;}
+#volumePositionControl .ui-btn-active {background: url('../img/Textures/verdeboton.png') repeat;}
+
+#songPositionControl {
+    		padding-left: 1%;
+			padding-bottom: 0px;
+			margin-bottom: -2px;
+            
+    	}
+		
+		.sinmargin{
+		margin-bottom:0px;
+		padding-bottom:0px;
+		}
+		
+		#volumePositionControl{
+		padding: 0em 0px 0px;}
+		
+		#volumePositionControl label{
+		margin-bottom:0px;
+		}
+        
+		#playSoundButton .ui-btn-inner{
+		
+		margin-bottom:0px;
+		}
+		#playSoundButton {
+		margin:auto;
+		margin-top: 6%;
+		margin-bottom: -2%;
+		width: 40%;
+		height: 34px;
+		}
+		
+		#songCurrentTime {
+        	background-color: #F9F9F9;
+    		border: 1px solid #AAAAAA;
+    		color: #333333;
+    		display: block;
+    		float: left;
+    		font-size: 14px;
+    		font-weight: bold;
+    		height: 22px;
+    		line-height: 22px;
+    		margin: 0;
+    		margin-left: 5px;
+    		padding: 0px;
+    		vertical-align: text-bottom;
+    		width: 40px;
+    	}
+    
+    	#volText {
+    		font-size: 14px;
+    		font-weight: bold;
+    		width: 40px;
+    	}
+    
+	/*Beatyourdarkside*/
+	
+	.imagenbeatyour{
+	width: 119%;
+	position: relative;
+	right: 26px;
+	top: 21px;
+	}
+	
+	.completeimage{
+		width:100%;
+	}
+	
+	.ui-grid-c .ui-block-a, .ui-grid-c .ui-block-b, .ui-grid-c .ui-block-c, .ui-grid-c .ui-block-d{
+		margin:10px !important;
+	}
+	
+	
+	/*Vicious Circle*/
+	
+	#feederexitlist .ui-li{
+		background: none repeat scroll 0% 0% transparent;
+		border: 0px none;
+		padding-top:0px;
+		padding-bottom:20px;
+	}
+	
+	.victextocentrado {  
+		list-style:none;
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+		font-size: 120%;
+		}
+	
+	.viciouspage .ui-field-contain {
+	margin-bottom: 5px;
+	padding-top: 0px;
+	}
+	
+	#enterfeeder{
+	top: -22px;
+	}
+	
+	#feederexitlist{
+	box-shadow:none;
+	}
+	
+	#feederexitlist .ui-collapsible-content{
+	padding-bottom:0px;}
+	
+	
+#listfeeders{
+margin-top:-4px;
+}
+
+.listfeeders .ui-btn-text{
+top:-8px;
+}
+	
+	
+	/*Transfer*/
+	
+
+	.finishtool{
+	overflow:visible;
+	}
+	
+	.paddinglistasconorigen .ui-field-contain{
+	margin-bottom: 0px;
+	}
+	
+   .paddinglistasconorigen  .ui-btn-active, .paddinglistasconorigen  .ui-btn-active {
+   border-color: darkgray;
+   }
+   
+   #slidercontainer{
+   margin-bottom:0px;
+   }
+   
+   #slidercontainer [role="application"] {
+    margin-right: auto;
+	margin-left: auto !important;
+	width: 100%;
+	margin-top: 1.5em;
+   }
+	
+	#page41 .ui-btn-active {
+	background: url('../img/Textures/feelingw.png') repeat;
+		border:0px;
+	}
+	
+	.paddinglistasconorigen{
+	padding-top:0px;
+	}
+	
+
+		
+		.elementosfinos { /*elementos de las listas de transfer*/
+            height: 40px;
+    
+            border:0px;
+            font-size:100%;
+            
+            
+    	}
+		
+		#lolo .ui-icon{
+		
+		}
+		
+		#listsusnegas li, #listsusnegas .ui-icon-alt{
+		background: url('../img/Textures/pattern.png') repeat;
+		}
+	
+	#listmisreac li, #listmisreac .ui-icon-alt{
+
+		background: url('../img/Textures/beat.png') repeat;
+		}
+		
+		#listsuscual li, #listsuscual .ui-icon-alt{
+
+	background: url('../img/Textures/verdeboton.png') repeat;
+		}
+		
+		.ui-btn-up-a {
+		background: url('../img/Textures/verdeboton.png') repeat;
+		
+		font-weight: bold;
+		color: #ffffff /*{a-bup-color}*/;
+		text-shadow: 0 /*{a-bup-shadow-x}*/ 0px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #ffffff /*{a-bup-shadow-color}*/;
+		background-image: -webkit-gradient(linear, left top, left bottom, from( #9ab256 /*{a-bup-background-start}*/), to( #a1b959 /*{a-bup-background-end}*/));
+		background-image: -webkit-linear-gradient( #9ab256 /*{a-bup-background-start}*/, #a1b959 /*{a-bup-background-end}*/);
+		background-image: -moz-linear-gradient( #9ab256 /*{a-bup-background-start}*/, #a1b959 /*{a-bup-background-end}*/);
+		background-image: -ms-linear-gradient( #9ab256 /*{a-bup-background-start}*/, #a1b959 /*{a-bup-background-end}*/);
+		background-image: -o-linear-gradient( #9ab256 /*{a-bup-background-start}*/, #a1b959 /*{a-bup-background-end}*/);
+		background-image: linear-gradient( #9ab256 /*{a-bup-background-start}*/, #a1b959 /*{a-bup-background-end}*/);
+		}
+		
+		.ui-btn-up-d { /*Listas generadas transfer*/
+		background: url('../img/Textures/recycling.png') repeat;
+		
+		
+		}
+		
+		.ui-btn-up-b { /*Tabbar colors*/
+		background: url('../img/Textures/verdeboton.png') repeat;
+		border:0px;
+		}
+		
+		.ui-btn-hover-b, .ui-btn-hover-a {
+		background: url('../img/Textures/feelingw.png') repeat;
+		border:0px;
+		}
+		
+		
+		#listadjorig .ui-li-static.ui-li, #listreacorig  .ui-li-static.ui-li{
+		padding: 0.7em 12px;
+		padding-top:0px;
+		padding-bottom:25px;
+		}
+		
+		#listadjremember li{
+		font-family: 'wiesbadenswingroman';
+		font-size:150%;
+		color: rgb(102, 102, 102) !important;
+		-moz-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		-webkit-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+		border:none;
+		padding: 0em 15px;
+		background:none;
+		margin-top: 20px;
+		}
+		
+		#listadjremember{
+		box-shadow: none;
+		border:none;
+		}
+		
+		
+		#listreacorig .ui-checkbox-on, #listadjorig .ui-checkbox-on{
+		background: url('../img/Textures/feelingw.png') repeat;
+		}
+		
+		.ui-controlgroup-horizontal .ui-btn {
+    border-right-width: 1px;
+}
+
+		
+		.checkclass{
+        width: 35px;
+        height: 15px;
+    }
+	
+	        .originbutton{
+            padding-left: 100%;
+            
+        }
+    
+    .transferlistaspect{  /* Imagen cuerpo humano? */
+        padding-left: 10%;
+        position:relative;
+        top: 7px;
+        
+    }
+	
+	#container  canvas {
+ 	margin-top:35px !important;
+	}
+	#container {
+		display: block;
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	#nooverflow{
+	position:relative;
+	overflow:hidden;
+	}
+	.datoshistorytransference {
+		opacity: 0.5;
+		padding-bottom: 25px;
+		padding-top: 5px;
+	}
+	#myexperience {
+		padding-top: 20px;
+	}
+	#listadjorig, #listreacorig {
+		margin-top: 0px;
+		margin-bottom: 10px;
+	}
+	/*Vision Board*/
+	
+	#addvisionbutton{
+	
+	margin-top:0px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 200px;
+	/* left: 63px; */
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+	
+	#addphotovision{
+	position: relative;
+	top: -141px;
+	right: -131px;
+	background: none;
+	box-shadow: none;
+	border: none;
+	}
+	
+	#addphotovision .ui-btn-inner{
+	position: relative;
+	right: 24%;
+	border: none !important;
+
+	}
+	
+	.visionlist a, .visionlist p{
+	
+	font-family: 'wiesbadenswingroman';
+	color: black;
+	text-align: left !important;
+	
+	}
+	
+	#recyclinglist li{
+	margin-bottom: 5%;
+	border:0px;
+	box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	}
+	
+	#recyclinglist{
+	box-shadow:none;
+	margin-top: 20px;
+	margin-bottom: 70px;
+}
+	
+	.visionlist .ui-li-heading{
+	overflow: visible;
+	color: rgb(60,60,60);
+	}
+	
+	.visionlist .ui-li-divider{
+	margin-top:3px;
+	}
+	
+	
+	#sunsetbig{
+	left: 0px;
+	position: relative;
+	top: -12px;
+	width: 100%;
+	}
+	
+	.fechavision{
+	position: relative;
+	top: -10px;
+	left: 16%;
+}
+
+	.visionheight{
+	
+	
+	
+	}
+	
+	.visiondescription{
+	position: relative;
+	top: -21px;
+	text-align: center !important;
+	}
+	
+	/*History*/
+	
+	#historypage #listasummarytools{ /*un poco guarrada pero necesaria por las prisas*/
+	position: absolute;
+	top: 157px;
+	left: 17px;
+	
+	}
+	
+	#historypage #listasummarytools li{
+	width: 232px;
+	}
+	
+	/*Journal*/
+	
+	#journalpage #listasummarytools{ /*un poco guarrada pero necesaria por las prisas*/
+	position: absolute;
+	top: 157px;
+	left: 17px;
+	
+	}
+	
+	#journallist{
+	margin-top: 4px;
+	}
+	
+	#journallist p{
+	margin-left: -102px;
+	font-size:120%;
+	}
+	
+	#journalpage #listasummarytools li{
+	width: 232px;
+	}
+	
+	/*Profile*/
+	
+	.socialblock{
+	
+padding: 5px;
+overflow: hidden;
+border: 1px solid rgb(204, 204, 204) !important;
+margin-bottom: 10px;
+margin-top: 10px;
+	}
+	
+	#ocultando .ui-input-text, #ocultando2 .ui-input-text{
+	display:none;
+	height:37px;
+	}
+	
+	#buscoajacks, #twitterpass{
+	position: relative;
+	bottom: 7px !important;
+	left: -9px;
+	}
+	
+	#page5 #agujeroscuaderno .ui-content{
+	margin-top: -31px;
+	}
+	
+	#facebookentry, #twitterentry{
+	position: relative;
+	left: -9px;
+	}
+	
+	.socialblock>.ui-input-text{
+	margin-top: 0px;
+	}
+
+	
+	/*Configuration*/
+	    
+    .hojaconfig {  /* Estructura homónima a hoja cuaderno para la página de configuration */
+    margin-top:8px;
+	min-height:475px;
+    width:100%;  
+    background: url('../img/Textures/grayjean.png') repeat;
+	background-size: 100% 100%;
+		font-family: 'wiesbadenswingroman';
+		font-size: 200%;
+		-moz-box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	-webkit-box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
+	box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/
+
+        }
+		
+		#languageTag{
+		font-size: 1.2em;
+		font-weight: normal;
+		margin: 0px;
+		margin-left: 4%;
+		margin-bottom: -4%;
+		}
+		
+		
+		.miscontroles .ui-slider-label {
+		background: url('../img/Textures/feelingw.png') repeat;
+		}
+		
+		.miscontroles .ui-slider-label ~ .ui-slider-label{
+		background: url('../img/Textures/verdeboton.png') repeat;
+		}
+		
+		#volumetag{
+		text-align: left;
+		}
+        
+			#configlist >li{ /* Fondo de la lista de elementos eliminada para que se pueda ver el fondo de la página */
+		background:none;
+		}
+		
+		#configlist li, #configlist label,#configlist a{ /* Letras negras en la página configuration */
+		color:black;
+		}
+		
+		label.ui-slider {
+		font-size: 100%;
+		font-weight: 400;
+		}
+		
+		.miscontroles{
+		padding-bottom:0px;
+		border:0px;
+		}
+		
+		#idiomaconfig {
+		border:0px;
+		margin-top:20px;
+		}
+		
+		#theme1, #theme1 .ui-btn-inner{
+			background: url('../img/Textures/00598E.png') repeat !important;
+		}
+		
+		#theme2, #theme2 .ui-btn-inner{
+			background: url('../img/Textures/verdeboton.png') repeat !important;
+		}
+		
+		#theme3, #theme3 .ui-btn-inner{
+			background: url('../img/Textures/AE0436.png') repeat !important;
+		}
+		
+		.miscontroles [role="application"]{
+margin-left: 157px !important;
+position: relative;
+top: -33px !important;
+		}
+		
+		div.ui-slider-switch.ui-mini {
+		width: 35%;
+		}
+		
+		
+		
+    /* Fuentes */       
+		
+		@font-face {			/* Fuente principal */
+
+    font-family: "HelveticaNeue-Light";
+    src: url('../fonts/helvetica_neue_light.ttf') format('truetype');
+
+	
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+		
+		@font-face {			/* Letra tipo Hoffman */
+    font-family: 'wiesbadenswingroman';
+    src: url('../fonts/wiesbadenswing-roman_copia-webfont.eot');
+    src: url('../fonts/wiesbadenswing-roman_copia-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/wiesbadenswing-roman_copia-webfont.woff') format('woff'),
+         url('../fonts/wiesbadenswing-roman_copia-webfont.ttf') format('truetype'),
+         url('../fonts/wiesbadenswing-roman_copia-webfont.svg#wiesbadenswingroman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+    
+}
+		
+@font-face {				/* Letra de cabecera hojacuaderno */
+    font-family: 'ITCNewBaskervilleStdRoman';
+    src: url('../fonts/newbaskervillestd-roman.eot');
+    src: url('../fonts/newbaskervillestd-roman.eot') format('embedded-opentype'),
+         url('../fonts/newbaskervillestd-roman.woff') format('woff'),
+         url('../fonts/newbaskervillestd-roman.ttf') format('truetype'),
+         url('../fonts/newbaskervillestd-roman.svg#ITCNewBaskervilleStdRoman') format('svg');
+}
+
+
+/* Breath Screen */
+
+
+#contenedorbreath {
+padding-left:0px!important;
+}
+
+
+		
+        
+        input[type="radio"] + label
+    { background: url('../img/Textures/verdeboton.png') repeat
+    }
+        
+         .helpmenu { /*A borrar cuando haya maquetado las páginas de Transfer*/
+            position:absolute;
+    right:25px;
+    top:23px;
+            
+    	}
+        
+        #pruebaheader {
+    
+       
+    background: url('../img/Textures/quad.png') repeat
+    
+    
+        }
+	       
+
+    
+        
+        #startprotbutton {
+    
+        margin-right:36%;
+        width:35%;
+        height: 80%;
+    
+    
+        }
+        
+        #textareadesctransfer {
+        	height: 170px;
+            
+    	}
+        
+         #pruebaheader {
+            width: 50px;
+            
+    	}
+        
+        #textareaotrasareas {
+            height: 100px;
+            
+    	}
+        
+            #textareadarkside {
+            height: 80px;
+            
+        }
+        
+
+    
+    .loleiro{
+        
+       position:relative;
+    top: 30px; 
+        
+    }
+    
+
+    
+        .letraselementosfinos {
+            
+    font-size:100%;
+    position:relative;
+    top:-10px;
+            
+            
+        }
+
+/* Beat your dark side */
+#myCanvas {
+	display: block;
+}
+	
+.titulobeat{
+	color:rgb(83, 83, 102) !important;
+	font-size: 120%;
+	display: block;
+}

@@ -1,0 +1,40 @@
+<div data-role="content">
+<div class="hojacuaderno">
+      <div class="headerhojacuaderno headerquad" data-role="header">
+       <h3>
+        <%= dic_quad_header %>
+       </h3>
+      </div>
+   <div data-role="content">
+   <label class="fasequad"> <%= dic_quad_p3_title %> </label>
+    <div data-role="fieldcontain" data-controltype="textarea" class="primerLcuaderno">
+     <label for="quadInput5">
+      <%= dic_quad_p3_text1 %>
+     </label>
+     <textarea name="" id="quadInput5" class="mandatory" placeholder=""><%= answer5 %></textarea>
+    </div>
+    <div data-role="fieldcontain" class="noborder primerLcuaderno" data-controltype="textarea">
+     <label for="quadInput6">
+      <%= dic_quad_p3_text2 %>
+     </label>
+     <textarea name="" id="quadInput6" class="mandatory" placeholder="<%= dic_quad_p3_placeholder2 %>"><%= answer6 %></textarea>
+    </div>
+    <div data-role="fieldcontain" data-controltype="textarea">
+     <label for="quadInput7">
+      <%= dic_quad_p3_text3 %>
+     </label>
+     <textarea name="" id="quadInput7" class="mandatory" placeholder="<%= dic_quad_p3_placeholder3 %>"><%= answer7 %></textarea>
+    </div>
+   </div>
+   <a id='keyspace' style='display:none;' data-role='button' data-transition='none'>Start</a>
+  </div>
+  </div>
+  <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <a class="botonprev" data-role="button" data-transition="none" href="#quadcheck2" data-icon="arrow-l">
+    <%= dic_prev %>
+   </a>
+   <a id="botonnext" class="botonnext" data-role="button" data-transition="none" href="#quadcheck4" data-icon="arrow-r" data-iconpos="right">
+    <%= dic_next %>
+   </a>
+    </div>
+  

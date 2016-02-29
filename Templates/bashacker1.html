@@ -1,0 +1,35 @@
+ <div data-role="content">
+	<div class="hojacuaderno">
+   <div class="headerhojacuaderno bashacker" data-role="header">
+       <h3>
+         <%= dic_bash_header %>
+       </h3>
+      </div>
+	  <div data-role="content">
+	  <div id="journalcenter" style="margin-left:auto; margin-right:auto; width:100%;">
+		<p id="journaltext" class="bashakergratz" ></p>
+	  </div>
+
+
+	  <div class="meter" style="display: none;">
+			<span style="width: 0% -webkit-keyframes move {0% { background-position: 0 0; }100% { background-position: 50px 50px;  }};">
+			<div class="interanim"> </div>
+			</span>
+			<!--<img class="bate" src="bate1.png" alt="" /> -->
+		</div>
+		
+
+  <a id="startshacking" style="visibility: hidden; height:6em;" data-role="button" data-transition="none">
+    <%= dic_start %>
+   </a>
+   </div>
+  </div>
+  </div>
+  <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
+   <a id="exitbash" class="botonprev cancelac" data-role="button" data-transition="none" data-icon="arrow-l">
+    <%= dic_exit %>
+   </a>
+   <a id="botonnext" class="botonnext" data-role="button" data-transition="none" href="#summary" style="display:none;" data-icon="arrow-r" data-iconpos="right">
+    <%= dic_done %>
+   </a>
+    </div>
