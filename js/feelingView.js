@@ -148,7 +148,7 @@ define([
             share: function(){
                 var self=this;
                 try{
-                    window.plugins.socialsharing.share(self.model.get("result"), null, self.model.get("uri"), null);
+                    //window.plugins.socialsharing.share(self.model.get("result"), null, self.model.get("uri"), null);
                 }
                 catch(e){
                     alert(e);
