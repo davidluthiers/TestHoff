@@ -20,7 +20,6 @@
 	<gap:plugin name="de.phonostar.softkeyboard-custom"  />
 	<gap:plugin name="org.apache.cordova.device"  />
 	<gap:plugin name="org.apache.cordova.vibration"  />
-	<gap:plugin name="nl.x-services.plugins.socialsharing" />
 	<gap:plugin name="com.boyvanderlaak.cordova.plugin.orientationchanger"  />
 	<gap:plugin name="org.apache.cordova.file-transfer"  />
 	<gap:plugin name="org.apache.cordova.file" />
