@@ -191,7 +191,6 @@ define([
 					console.log("setWeeklyNotification");
 					auxdate = new Date();
 					notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
-					/*
 					try{
 						window.plugin.notification.local.add({
 							id:         "HoffmanNotif",  // A unique id of the notifiction
@@ -209,7 +208,6 @@ define([
 					catch(e){
 						console.log("setWeeklyNotification error: " + e);
 					}
-					*/
 				}
 	
             },
