@@ -398,7 +398,7 @@ define([
                 var params_audios = {
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://app.hoffman-international.com/hoffapp/" + "audios.jsonp",
+                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "audios.jsonp",
                     processData: true,
                     success: function(data) {
                         self.history.get("languages").set("quadAudio",false)
@@ -461,7 +461,7 @@ define([
                     beforeSend: function (request) {
                         request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
                     },
-                    url: "http://app.hoffman-international.com/hoffapp/" + "active-languages.jsonp",
+                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "active-languages.jsonp",
                     processData: true,
                     success: function(data) {
                         console.log("languages: ", data);
@@ -544,7 +544,7 @@ define([
             getQuotes: function(LANGUAGE){
 	
                 var self=this;
-                var DRUPAL_SERVER = "http://app.hoffman-international.com/hoffapp/";
+                var DRUPAL_SERVER = "http://hoffmanapp.indret.webfactional.com/hoffapp/";
                 var params_quotes = {
                     type: 'GET',
                     dataType: 'jsonp',
@@ -578,7 +578,7 @@ define([
 	
             gettranslation: function(LANGUAGE){
 		
-                var DRUPAL_SERVER = "http://app.hoffman-international.com/hoffapp/";
+                var DRUPAL_SERVER = "http://hoffmanapp.indret.webfactional.com/hoffapp/";
                 var aux2self=this;
 		
 				console.log("GETTRANSLATION");
@@ -631,7 +631,7 @@ define([
 	
             login: function(){
 		
-                var DRUPAL_SERVER = "http://app.hoffman-international.com/hoffapp/";
+                var DRUPAL_SERVER = "http://hoffmanapp.indret.webfactional.com/hoffapp/";
                 console.log("intenta fer un login d'appuser");
                 var self=this;
                 var params = {
