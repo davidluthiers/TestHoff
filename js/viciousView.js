@@ -190,7 +190,7 @@ define([
                     console.log(canvasimageShare);
                 }
                 try{
-                    //window.plugins.socialsharing.share("", null, canvasimageShare, null);
+                    window.plugins.socialsharing.share("", null, canvasimageShare, null);
                 }
                 catch(e){
                     alert(e);
