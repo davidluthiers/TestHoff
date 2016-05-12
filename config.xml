@@ -37,9 +37,12 @@
 		<false/>
 	</gap:config-file>
 	
-	<gap:plugin name="de.phonostar.softkeyboard-custom"  />
-	<gap:plugin name="nl.x-services.plugins.socialsharing" />
-	<gap:plugin name="de.appplant.cordova.plugin.local-notification" />
+	<!--<gap:plugin name="de.phonostar.softkeyboard-custom"  /> -->
+	<plugin spec="https://github.com/phonostar/PhoneGap-SoftKeyboard.git" />
+	<!--<gap:plugin name="nl.x-services.plugins.socialsharing" />-->
+	<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" />
+	<!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" />-->
+	<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
 	
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
