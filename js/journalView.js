@@ -80,7 +80,7 @@ define([
 	
             share: function(){
                 try{
-                    window.plugins.socialsharing.share(this.model.get("description"));
+                    //window.plugins.socialsharing.share(this.model.get("description"));
                 }
                 catch(e){
                     alert(e);

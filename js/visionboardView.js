@@ -113,7 +113,7 @@ define([
 
                 }
                 try{
-                    window.plugins.socialsharing.share(self.model.get("title"), null, self.model.get("uri"), null);
+                    //window.plugins.socialsharing.share(self.model.get("title"), null, self.model.get("uri"), null);
                 }
                 catch(e){
                     alert(e);
