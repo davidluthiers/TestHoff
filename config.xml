@@ -14,8 +14,9 @@
 		</gap:config-file>
 
 
-		<name>Diasporas</name>
+		<name>Hoffman App</name>
 		<description>
+			Hoffman Process mobile application.
 		</description>
 		<author href="http://phonegap.com" email="support@phonegap.com">
 			DavidLuthiers
