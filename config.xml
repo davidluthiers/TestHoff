@@ -1,126 +1,131 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.hoffman-international.hoffman-app" version="1.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Hoffman App</name>
-    <description>
-        Hoffman Process mobile application.
-    </description>
-    <author email="davidm@luthiersdewebs.com" href="http://luthiersdewebs.com">
-        Luthiers de Webs
-    </author>
-    <preference name="phonegap-version" value="cli-5.2.0" /> 
-    <feature name="http://api.phonegap.com/1.0/device" />
-	 <feature name="App">
-        <param name="android-package" value="org.apache.cordova.App" />
-    </feature>
-	<gap:plugin name="org.apache.cordova.camera"  />
-	<gap:plugin name="org.apache.cordova.media"  />
-	<gap:plugin name="org.apache.cordova.dialogs" />
-	<gap:plugin name="org.apache.cordova.device-motion"  />
-	<gap:plugin name="org.apache.cordova.globalization"  />
-	<gap:plugin name="org.apache.cordova.device"  />
-	<gap:plugin name="org.apache.cordova.vibration"  />
-	<gap:plugin name="com.boyvanderlaak.cordova.plugin.orientationchanger"  />
-	<gap:plugin name="org.apache.cordova.file-transfer"  />
-	<gap:plugin name="org.apache.cordova.file" />
-	<gap:plugin name="org.apache.cordova.inappbrowser" />
-	<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
-	<gap:plugin name="net.yoik.cordova.plugins.screenorientation" />
-	<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" />
-	<gap:plugin name="org.apache.cordova.network-information" />
-	<gap:plugin name="nl.x-services.plugins.insomnia" />
-	<gap:plugin name="org.apache.cordova.splashscreen" />
-	<gap:plugin name="nl.x-services.plugins.backgroundaudio" />
-	<gap:config-file platform="ios" parent="UIStatusBarHidden">
-		<true/>
-	</gap:config-file>
-	<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
-		<false/>
-	</gap:config-file>
+	<widget xmlns = "http://www.w3.org/ns/widgets"
+		xmlns:gap = "http://phonegap.com/ns/1.0"
+		id        = "com.hoffman-international.hoffman-app"
+		versionCode = "1.0.3"
+		version   = "1.0">
 
-	<!--<gap:plugin name="nl.x-services.plugins.socialsharing" />-->
-	<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" />
-	<!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" />-->
-	<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
-	
-    <preference name="permissions" value="none" />
-    <preference name="orientation" value="default" />
-    <preference name="target-device" value="handset" />
-    <gap:config-file platform="android" parent="/manifest">
-	<supports-screens 
-        android:xlargeScreens="false" 
-        android:largeScreens="false" 
-        android:smallScreens="false" />
-    </gap:config-file>
-    <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="true" />
-    <preference name="prerendered-icon" value="true" />
-    <preference name="stay-in-webview" value="true" />
-    <preference name="ios-statusbarstyle" value="black-opaque" />
-	<preference name="AutoHideSplashScreen" value="false" />
-	<preference name="ShowSplashScreenSpinner" value="false" />
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="false" />
-    <preference name="show-splash-screen-spinner" value="false" />
-    <preference name="auto-hide-splash-screen" value="false" />
-    <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="7" />
-    <preference name="android-installLocation" value="auto" />
-	<preference name="DisallowOverscroll" value="true" />
-	<preference name="iosPersistentFileLocation" value="Compatibility" />
-	
-<icon src="icon.png" />
-<icon src="icons/ios/29.png"   gap:platform="ios"          width="29" height="29" />
-<icon src="icons/ios/40.png"   gap:platform="ios"          width="40" height="40" />
-<icon src="icons/ios/50.png"   gap:platform="ios"          width="50" height="50" />
-<icon src="icons/ios/57.png"   gap:platform="ios"          width="57" height="57" />
-<icon src="icons/ios/58.png"   gap:platform="ios"          width="58" height="58" />
-<icon src="icons/ios/60.png"   gap:platform="ios"          width="60" height="60" />
-<icon src="icons/ios/72.png"   gap:platform="ios"          width="72" height="72" />
-<icon src="icons/ios/76.png"   gap:platform="ios"          width="76" height="76" />
-<icon src="icons/ios/80.png"   gap:platform="ios"          width="80" height="80" />
-<icon src="icons/ios/100.png"  gap:platform="ios"          width="100" height="100" />
-<icon src="icons/ios/114.png"  gap:platform="ios"          width="114" height="114" />
-<icon src="icons/ios/120.png"  gap:platform="ios"          width="120" height="120" />
-<icon src="icons/ios/144.png"  gap:platform="ios"          width="144" height="144" />
-<icon src="icons/ios/152.png"  gap:platform="ios"          width="152" height="152" />
-<icon src="icons/android/36.png"   gap:platform="android"      gap:qualifier="ldpi" />
-<icon src="icons/android/48.png"   gap:platform="android"      gap:qualifier="mdpi" />
-<icon src="icons/android/72.png"   gap:platform="android"      gap:qualifier="hdpi" />
-<icon src="icons/android/96.png"   gap:platform="android"      gap:qualifier="xhdpi" />
+<gap:platform name="ios" />
+
+		<gap:config-file platform="ios" parent="CFBundleVersion">
+            <string>3</string>
+        </gap:config-file>
+        <gap:config-file platform="ios" parent="CFBundleShortVersionString">
+    		<string>1.0</string>
+		</gap:config-file>
 
 
+		<name>Diasporas</name>
+		<description>
+		</description>
+		<author href="http://phonegap.com" email="support@phonegap.com">
+			DavidLuthiers
+		</author>
+		<preference name="phonegap-version" value="cli-5.2.0" />
+		<preference name="orientation" value="portrait" />
+		<preference name="fullscreen" value="false" />
+		<preference name="target-device" value="universal" />
+		<preference name="webviewbounce" value="true" />
+		<preference name="prerendered-icon" value="true" />
+		<preference name="stay-in-webview" value="true" />
+		<preference name="ios-statusbarstyle" value="default" />
+		<preference name="detect-data-types" value="true" />
+		<preference name="exit-on-suspend" value="false" />
+		<preference name="show-splash-screen-spinner" value="true" />
+		<preference name="auto-hide-splash-screen" value="true" />
+		<preference name="EnableViewportScale" value="true" />
+		<preference name="MediaPlaybackRequiresUserAction" value="false" />
+		<preference name="AllowInlineMediaPlayback" value="false" />
+		<preference name="BackupWebStorage" value="cloud" />
+		<preference name="TopActivityIndicator" value="gray" />
+		<preference name="KeyboardDisplayRequiresUserAction" value="false" />
+		<preference name="HideKeyboardFormAccessoryBar" value="false" />
+		<preference name="SuppressesIncrementalRendering" value="false" />
 
-<!-- Define app splash screen for each platform.    -->
-<gap:splash src="splash.png" />
-<!--<gap:splash src="splash/android/320x426.9.png" gap:platform="android" gap:qualifier="ldpi" />
-<gap:splash src="splash/android/320x470.9.png" gap:platform="android" gap:qualifier="mdpi" />
-<gap:splash src="splash/android/480x640.9.png" gap:platform="android" gap:qualifier="hdpi" />
-<gap:splash src="splash/android/720x960.9.png" gap:platform="android" gap:qualifier="xhdpi" />
--->
+		<preference name="android-installLocation" value="internalOnly" />
+		<preference name="ErrorUrl" value=""/>
+		<preference name="BackgroundColor" value="0x000000"/>
+		<preference name="KeepRunning" value="true"/>
+		<preference name="DisallowOverscroll" value="true"/>
+		<preference name="LoadingDialog" value=","/> 
+		<preference name="LoadUrlTimeoutValue" value="20000" />
+		<preference name="disable-cursor" value="false" />
+		<preference name="android-build-tool" value="gradle" />
+		<preference name="SplashShowOnlyFirstTime" value="false" />
+		
+		
+		<icon src="icon.png" />
+		<icon src="icons/ios/29.png"   gap:platform="ios"          width="29" height="29" />
+		<icon src="icons/ios/40.png"   gap:platform="ios"          width="40" height="40" />
+		<icon src="icons/ios/50.png"   gap:platform="ios"          width="50" height="50" />
+		<icon src="icons/ios/57.png"   gap:platform="ios"          width="57" height="57" />
+		<icon src="icons/ios/58.png"   gap:platform="ios"          width="58" height="58" />
+		<icon src="icons/ios/60.png"   gap:platform="ios"          width="60" height="60" />
+		<icon src="icons/ios/72.png"   gap:platform="ios"          width="72" height="72" />
+		<icon src="icons/ios/76.png"   gap:platform="ios"          width="76" height="76" />
+		<icon src="icons/ios/80.png"   gap:platform="ios"          width="80" height="80" />
+		<icon src="icons/ios/100.png"  gap:platform="ios"          width="100" height="100" />
+		<icon src="icons/ios/114.png"  gap:platform="ios"          width="114" height="114" />
+		<icon src="icons/ios/120.png"  gap:platform="ios"          width="120" height="120" />
+		<icon src="icons/ios/144.png"  gap:platform="ios"          width="144" height="144" />
+		<icon src="icons/ios/152.png"  gap:platform="ios"          width="152" height="152" />
+		<icon src="icons/android/36.png"   gap:platform="android"      gap:qualifier="ldpi" />
+		<icon src="icons/android/48.png"   gap:platform="android"      gap:qualifier="mdpi" />
+		<icon src="icons/android/72.png"   gap:platform="android"      gap:qualifier="hdpi" />
+		<icon src="icons/android/96.png"   gap:platform="android"      gap:qualifier="xhdpi" />
+		<gap:splash src="splash/ios/Default.png"       gap:platform="ios"     width="320" height="480" />
+		<gap:splash src="splash/ios/Default@2x.png"       gap:platform="ios"     width="640" height="960" />
+		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" /> 
 
-<gap:splash src="splash/ios/Default.png"       gap:platform="ios"     width="320" height="480" />
-<gap:splash src="splash/ios/Default@2x.png"       gap:platform="ios"     width="640" height="960" />
-<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" /> 
-<!--<gap:splash src="splash/ios/768x1024.png"      gap:platform="ios"     width="768" height="1024" />
-<gap:splash src="splash/ios/1024x768.png"      gap:platform="ios"     width="1024" height="768" />
+		
+		<gap:plugin name="org.apache.cordova.camera"  />
+		<gap:plugin name="org.apache.cordova.media"  />
+		<gap:plugin name="org.apache.cordova.dialogs" />
+		<gap:plugin name="org.apache.cordova.device-motion"  />
+		<gap:plugin name="org.apache.cordova.globalization"  />
+		<gap:plugin name="org.apache.cordova.device"  />
+		<gap:plugin name="org.apache.cordova.vibration"  />
+		<gap:plugin name="com.boyvanderlaak.cordova.plugin.orientationchanger"  />
+		<gap:plugin name="org.apache.cordova.file-transfer"  />
+		<gap:plugin name="org.apache.cordova.file" />
+		<gap:plugin name="org.apache.cordova.inappbrowser" />
+		<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
+		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" />
+		<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" />
+		<gap:plugin name="org.apache.cordova.network-information" />
+		<gap:plugin name="nl.x-services.plugins.insomnia" />
+		<gap:plugin name="org.apache.cordova.splashscreen" />
+		<gap:plugin name="nl.x-services.plugins.backgroundaudio" />
+		<gap:config-file platform="ios" parent="UIStatusBarHidden">
+			<true/>
+		</gap:config-file>
+		<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
+			<false/>
+		</gap:config-file>
+		
+		<!--
+		<plugin spec="https://github.com/atannus/cordova-plugin-googlemaps.git#develop/multiple-markers">
+			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDMRlmuqND5bWpgW5aLY1VM1CeJH3ng75Q" />
+			<param name="API_KEY_FOR_IOS" value="AIzaSyACzYI5XMtljlOSruLiHoL1WAJWO6YOW6c" />
+		</plugin>-->
 
-<gap:splash src="splash/ios/1536x2008.png"     gap:platform="ios"     width="1536" height="2008" />
-<gap:splash src="splash/ios/1536x2048.png"     gap:platform="ios"     width="1536" height="2048" />
-<gap:splash src="splash/ios/2048x1496.png"     gap:platform="ios"     width="2048" height="1496" />
-<gap:splash src="splash/ios/2048x1536.png"     gap:platform="ios"     width="2048" height="1536" />
--->
+		<gap:splash src="splash.png" />
+		
+		<gap:config-file platform="ios" parent="UIStatusBarHidden">
+			<true/>
+		</gap:config-file>
 
-    
-	<preference name="SplashScreenDelay" value="15000" />
-    <access origin="*" />
-    <content src="index.html" />
-	
-	<allow-navigation href="*" />
-	<access origin="http://hoffmanapp.indret.webfactional.com" subdomains="true"  />
-	<access origin="http://app.hoffman-international.com" subdomains="true"  />
-	<access origin="http://weinre.indret.webfactional.com" subdomains="true"  />
-	<access origin="*.google.com" />
-	<access origin="*.googleapis.com" />
-	<access origin="*.gstatic.com" />
-	<access origin="*.build.phonegap.com" subdomains="true" />
-</widget>
+		<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
+			<false/>
+		</gap:config-file>
+
+		
+		<preference name="SplashScreenDelay" value="15000" />
+		
+		<allow-navigation href="*" />
+		<access origin="http://europeofdiasporas.eu" subdomains="true"  />
+		<access origin="*.google.com" />
+		<access origin="*.googleapis.com" />
+		<access origin="*.gstatic.com" />
+		<access origin="*.build.phonegap.com" subdomains="true" />
+	</widget>
