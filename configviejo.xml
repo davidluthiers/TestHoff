@@ -116,8 +116,8 @@
     <content src="index.html" />
 	
 	<allow-navigation href="*" />
-	<access origin="http://hoffmanapp.indret.webfactional.com" subdomains="true"  />
-	<access origin="http://hoffmanapp.indret.webfactional.com" subdomains="true"  />
+	<access origin="http://app.hoffman-international.com" subdomains="true"  />
+	<access origin="http://app.hoffman-international.com" subdomains="true"  />
 	<access origin="http://weinre.indret.webfactional.com" subdomains="true"  />
 	<access origin="*.google.com" />
 	<access origin="*.googleapis.com" />
