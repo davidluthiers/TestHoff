@@ -6,7 +6,7 @@
 
             // Core Libraries
             "jquery": "jquery-1.9.1.min",
-            "jquerymobile": "jquery.mobile-1.4.5.min",
+            "jquerymobile": "jquery.mobile-1.3.1.min",
             "underscore": "underscoreplugin",
             "backbone": "backbone",
 			"localStorage": "backbone.localStorage",
