@@ -21,7 +21,37 @@
 		<author href="http://phonegap.com" email="support@phonegap.com">
 			DavidLuthiers
 		</author>
+		<preference name="phonegap-version" value="cli-6.1.0" />
+		<preference name="orientation" value="portrait" />
+		<preference name="fullscreen" value="false" />
+		<preference name="target-device" value="universal" />
+		<preference name="webviewbounce" value="true" />
+		<preference name="prerendered-icon" value="true" />
+		<preference name="stay-in-webview" value="true" />
+		<preference name="ios-statusbarstyle" value="default" />
+		<preference name="detect-data-types" value="true" />
+		<preference name="exit-on-suspend" value="false" />
+		<preference name="show-splash-screen-spinner" value="true" />
+		<preference name="auto-hide-splash-screen" value="true" />
+		<preference name="EnableViewportScale" value="true" />
+		<preference name="MediaPlaybackRequiresUserAction" value="false" />
+		<preference name="AllowInlineMediaPlayback" value="false" />
+		<preference name="BackupWebStorage" value="cloud" />
+		<preference name="TopActivityIndicator" value="gray" />
+		<preference name="KeyboardDisplayRequiresUserAction" value="false" />
+		<preference name="HideKeyboardFormAccessoryBar" value="false" />
+		<preference name="SuppressesIncrementalRendering" value="false" />
 
+		<preference name="android-installLocation" value="internalOnly" />
+		<preference name="ErrorUrl" value=""/>
+		<preference name="BackgroundColor" value="0x000000"/>
+		<preference name="KeepRunning" value="true"/>
+		<preference name="DisallowOverscroll" value="true"/>
+		<preference name="LoadingDialog" value=","/> 
+		<preference name="LoadUrlTimeoutValue" value="20000" />
+		<preference name="disable-cursor" value="false" />
+		<preference name="android-build-tool" value="gradle" />
+		<preference name="SplashShowOnlyFirstTime" value="false" />
 		
 		
 		<icon src="icon.png" />
@@ -48,7 +78,30 @@
 		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" /> 
 
 		
-	
+		<gap:plugin name="org.apache.cordova.camera"  />
+		<gap:plugin name="org.apache.cordova.media"  />
+		<gap:plugin name="org.apache.cordova.dialogs" />
+		<gap:plugin name="org.apache.cordova.device-motion"  />
+		<gap:plugin name="org.apache.cordova.globalization"  />
+		<gap:plugin name="org.apache.cordova.device"  />
+		<gap:plugin name="org.apache.cordova.vibration"  />
+		<gap:plugin name="com.boyvanderlaak.cordova.plugin.orientationchanger"  />
+		<gap:plugin name="org.apache.cordova.file-transfer"  />
+		<gap:plugin name="org.apache.cordova.file" />
+		<gap:plugin name="org.apache.cordova.inappbrowser" />
+		<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
+		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" />
+		<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" />
+		<gap:plugin name="org.apache.cordova.network-information" />
+		<gap:plugin name="nl.x-services.plugins.insomnia" />
+		<gap:plugin name="org.apache.cordova.splashscreen" />
+		<gap:plugin name="nl.x-services.plugins.backgroundaudio" />
+		<gap:config-file platform="ios" parent="UIStatusBarHidden">
+			<true/>
+		</gap:config-file>
+		<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
+			<false/>
+		</gap:config-file>
 		
 		<!--
 		<plugin spec="https://github.com/atannus/cordova-plugin-googlemaps.git#develop/multiple-markers">
@@ -74,5 +127,5 @@
 		<access origin="*.google.com" />
 		<access origin="*.googleapis.com" />
 		<access origin="*.gstatic.com" />
-
+		<access origin="*.build.phonegap.com" subdomains="true" />
 	</widget>
