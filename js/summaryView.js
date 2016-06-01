@@ -1,5 +1,4 @@
 
-
 define([
     'jquery',
     'underscore',
@@ -64,98 +63,6 @@ define([
 					console.log(e);
 				}
 
-				
-				
-				try {
-    navigator.geolocation.getCurrentPosition(
-      
-      // Success.
-      function(position) {
-
-        // Set aside the user's position.
-        _map_module_user_latitude = position.coords.latitude;
-        _map_module_user_longitude = position.coords.longitude;
-		
-		console.log("COORDENADAS: " + _map_module_user_latitude + " " + _map_module_user_longitude);
-        
-        // Build the lat lng object from the user's current position.
-        var myLatlng = new google.maps.LatLng(-34.397, 150.644
-          //_map_module_user_latitude,
-          //_map_module_user_longitude
-        );
-        
-        // Set the map's options.
-        var mapOptions = {
-          center: myLatlng,
-          zoom: 11,
-          mapTypeControl: true,
-          mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-          },
-          zoomControl: true,
-          zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL
-          }
-        };
-        
-        // Initialize the map, and set a timeout to resize it properly.
-        _map_module_map = new google.maps.Map(
-          document.getElementById("map_module_map"),
-          mapOptions
-        );
-        setTimeout(function() {
-            google.maps.event.trigger(_map_module_map, 'resize');
-            _map_module_map.setCenter(myLatlng);
-        }, 10000);
-        
-        // Add a marker for the user's current position.
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: _map_module_map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-        });
-        
-      },
-      
-            // Error
-      function(error) {
-        
-        // Provide debug information to developer and user.
-        console.log(error);
-        drupalgap_alert(error.message);
-        
-        // Process error code.
-        switch (error.code) {
-
-          // PERMISSION_DENIED
-          case 1:
-			console.log("PERMISSION_DENIED");
-            break;
-
-          // POSITION_UNAVAILABLE
-          case 2:
-			console.log("POSITION_UNAVAILABLE");
-            break;
-
-          // TIMEOUT
-          case 3:
-			console.log("TIMEOUT");
-            break;
-
-        }
-
-      },
-      
-      // Options
-      { enableHighAccuracy: true }
-      
-    );
-  }
-  catch (error) { console.log('map_module_map_pageshow - ' + error); }
-				
-				
-				
-				
 	
             },
 	
