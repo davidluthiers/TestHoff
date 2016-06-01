@@ -17,7 +17,7 @@
 		</author>
 
 		
-
+		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 
 		
 	
@@ -32,10 +32,8 @@
 
 		
 		
-		<allow-navigation href="*" />
-		<access origin="http://app.hoffman-international.com" subdomains="true"  />
-		<access origin="*.google.com" />
-		<access origin="*.googleapis.com" />
-		<access origin="*.gstatic.com" />
+		<allow-navigation href="http://*/*" />
+		<allow-intent href="https://*/*" />
+		
 
 	</widget>
