@@ -166,7 +166,7 @@ define([
 					var params_audio_node = {
 						type: 'GET',
 						dataType: 'jsonp',
-						url: "http://app.hoffman-international.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
+						url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
 						processData: true,
 						success: function(data) {
 							console.log("Tengo el Quad audioname");
@@ -298,7 +298,7 @@ define([
                             console.log(progressEvent.loaded / progressEvent.total);
                         }
                     };
-                    var uri = encodeURI("http://app.hoffman-international.com/system/files/"+audiofilename);
+                    var uri = encodeURI("http://hoffmanapp.indret.webfactional.com/system/files/"+audiofilename);
                     if(device.platform!='Android'){	//iOS
                         self.my_media = new Media(uri, self.mediasuccess, self.nada, self.onStatus);
                         setTimeout(function() {

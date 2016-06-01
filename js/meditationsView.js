@@ -96,7 +96,7 @@ define([
 								beforeSend: function (request) {
 									request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
 								},
-								url: "http://app.hoffman-international.com/hoffapp/" + "active-languages.jsonp",
+								url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "active-languages.jsonp",
 								processData: true,
 								success: function(data) {
 									self.languages= data;
@@ -218,7 +218,7 @@ define([
                 var params_audios = {
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://app.hoffman-international.com/hoffapp/" + "audios.jsonp",
+                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "audios.jsonp",
                     processData: true,
                     success: function(data) {
                         data.forEach(self.fillrecyclinglist, self);
@@ -315,7 +315,7 @@ define([
                             console.log(progressEvent.loaded / progressEvent.total);
                         }
                     };
-                    var uri = encodeURI("http://app.hoffman-international.com/system/files/"+audiofilename);
+                    var uri = encodeURI("http://hoffmanapp.indret.webfactional.com/system/files/"+audiofilename);
                     if(device.platform!='Android'){	//iOS
                         self.my_media = new Media(uri, self.mediasuccess, self.nada, self.onStatus);
                         setTimeout(function() {
