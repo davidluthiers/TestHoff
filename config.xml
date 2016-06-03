@@ -103,11 +103,10 @@
 			<false/>
 		</gap:config-file>
 		
-		<!--
-		<plugin spec="https://github.com/atannus/cordova-plugin-googlemaps.git#develop/multiple-markers">
-			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDMRlmuqND5bWpgW5aLY1VM1CeJH3ng75Q" />
-			<param name="API_KEY_FOR_IOS" value="AIzaSyACzYI5XMtljlOSruLiHoL1WAJWO6YOW6c" />
-		</plugin>-->
+		<!--<gap:plugin name="nl.x-services.plugins.socialsharing" />-->
+		<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" />
+		<!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" />-->
+		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
 
 		<gap:splash src="splash.png" />
 		
