@@ -878,13 +878,9 @@ define([
                         historial.get("languages").destroy();
                         console.log("DATA: ");
                         console.log(data);
-                        aux.set("quote",data[0].title);
-						console.log("EL TIPO DE DATO QUE DA DRUPAL AHORA ES:");
-						console.log(typeof data[0].node_title);
-						if(typeof data[0].node_title === 'undefined')
-							console.log("ES UNDEFINED");
+                        aux.set("quote",data[0].node_title);
                         aux.set("quoteAuthor",data[0].author);
-                        aux.set("quote2",data[1].title);
+                        aux.set("quote2",data[1].node_title);
                         aux.set("quoteAuthor2",data[1].author);
                         aux.set("downloaded","yes");
 				
