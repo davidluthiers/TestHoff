@@ -192,7 +192,7 @@ define([
 					auxdate = new Date();
 					notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
 					try{
-						window.plugin.notification.local.add({
+						window.plugin.notification.local.schedule({
 							id:         "HoffmanNotif",  // A unique id of the notifiction
 							date:       notifdate,    // This expects a date object
 							message:    historial.get("languages").get("dic_notification_text"),  // The message that is displayed
