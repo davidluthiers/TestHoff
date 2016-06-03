@@ -448,15 +448,14 @@ define([
 	
             matchLanguage: function(elemento){
 				
-                if(this.languageTag==elemento.language || this.languageTag.replace("_", "-")==elemento.language){ //Si es el mismo exactamente
-					if(this.languageTag.replace("_", "-")==elemento.language){
+                if(this.languageTag==elemento.language || this.languageTag.replace("-", "_")==elemento.language){ //Si es el mismo exactamente
+					if(this.languageTag.replace("-", "_")==elemento.language){
 							console.log("Cambiamos _ por -");
-							this.languageTag=this.languageTag.replace("_", "-");
 					}
                     console.log("Exact language found: " + elemento.language);
                     this.languageVar=elemento.language;
                 }
-                else if(this.languageTag.split("_")[0]==elemento.language.split("_")[0]){ //Si tienen el mismo prefijo
+                else if(this.languageTag.split("_")[0]==elemento.language.split("_")[0] || this.languageTag.split("-")[0]==elemento.language.split("-")[0]){ //Si tienen el mismo prefijo
                     if(this.languageVar==""){//si aún no tiene valor
                         console.log("Coincidencia de prefijo, asignando: " + elemento.language);
                         this.languageVar=elemento.language;
