@@ -448,7 +448,7 @@ define([
 	
             matchLanguage: function(elemento){
 				
-                if(this.languageTag==elemento.language or this.languageTag.replace("_", "-")==elemento.language){ //Si es el mismo exactamente
+                if(this.languageTag==elemento.language || this.languageTag.replace("_", "-")==elemento.language){ //Si es el mismo exactamente
 					if(this.languageTag.replace("_", "-")==elemento.language){
 							console.log("Cambiamos _ por -");
 							this.languageTag=this.languageTag.replace("_", "-");
