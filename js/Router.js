@@ -134,7 +134,7 @@ define([
 				innerlog.add("About to choose path, downloaded: " + language.get("downloaded") + " and Checkversion: " + language.get("Checkversion"));
                 if(language.get("downloaded")=="no" && !language.get("Checkversion")){ //si no tienes lenguaje te lo intentas descargar
                     console.log("No hay lenguaje");
-                    language.set("languageAC", "en_GB");
+                    language.set("languageAC", "en-GB");
                     language.set("quadAudio", false);
                     historial.create(language);
                     this.changetheme();
@@ -422,9 +422,9 @@ define([
                         );
                 }
                 catch(e){
-                    console.log("Desktop version, downloading 'en_GB'");
+                    console.log("Desktop version, downloading 'en-GB'");
 					app_router.languageVar="";
-                    app_router.languageTag="en_GB"; //"en_GB";	"pt_BR";
+                    app_router.languageTag="en-GB"; //"en-GB";	"pt_BR";
                     app_router.LookLanguages();
 			
                 }
@@ -448,7 +448,11 @@ define([
 	
             matchLanguage: function(elemento){
 				
-                if(this.languageTag==elemento.language){ //Si es el mismo exactamente
+                if(this.languageTag==elemento.language or this.languageTag.replace("_", "-")==elemento.language){ //Si es el mismo exactamente
+					if(this.languageTag.replace("_", "-")==elemento.language){
+							console.log("Cambiamos _ por -");
+							this.languageTag=this.languageTag.replace("_", "-");
+					}
                     console.log("Exact language found: " + elemento.language);
                     this.languageVar=elemento.language;
                 }
