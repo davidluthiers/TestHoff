@@ -193,15 +193,14 @@ define([
 					notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
 					try{
 						window.plugin.notification.local.schedule({
-							id:         "HoffmanNotif",  // A unique id of the notifiction
-							date:       notifdate,    // This expects a date object
-							message:    historial.get("languages").get("dic_notification_text"),  // The message that is displayed
+							id:         1,  // A unique id of the notifiction
+							firstAt:       notifdate,    // This expects a date object
+							text:    historial.get("languages").get("dic_notification_text"),  // The message that is displayed
 							title:      historial.get("languages").get("dic_notification_title"),  // The title of the message
-							repeat:     "weekly",  // Either 'secondly', 'minutely', 'hourly', 'daily', 'weekly', 'monthly' or 'yearly'
+							every:     "weekly",  // Either 'secondly', 'minutely', 'hourly', 'daily', 'weekly', 'monthly' or 'yearly'
 							//badge:      "0",  // Displays number badge to notification
 							//sound:      "",  // A sound to be played
 							//json:       "pls",  // Data to be passed through the notification
-							autoCancel: true, // Setting this flag and the notification is automatically canceled when the user clicks it
 							ongoing:    false // Prevent clearing of notification (Android only)
 						});
 					}
