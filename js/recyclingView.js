@@ -396,9 +396,6 @@ define([
 				else{
 					lista=$("#recyclinglist");
 				}
-				
-				console.log("ELEMENTOS A DEBUGGAR: ");
-				console.log(elemento);
 			
                 prefijo=elemento.language.split("_")[0];
                 //console.log("Console: Audio type->" + elemento.audio_type + "<-Language->" + elemento.language+"<-");
