@@ -190,12 +190,12 @@ define([
 				if(historial.get("languages").get("notifications")){
 					console.log("setWeeklyNotification");
 					auxdate = new Date();
-					notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
-					alert("actualizado!");
+					notifdate = new Date(auxdate.getTime()+600000);	//604800000 = 1 semana en milisecs
+					alert("actualizado! 1");
 					try{
 						window.plugin.notification.local.schedule({
 							id:         1,  // A unique id of the notifiction
-							firstAt:       notifdate,    // This expects a date object
+							at:       notifdate,    // This expects a date object
 							text:    historial.get("languages").get("dic_notification_text"),  // The message that is displayed
 							title:      historial.get("languages").get("dic_notification_title"),  // The title of the message
 							every:     "weekly",  // Either 'secondly', 'minutely', 'hourly', 'daily', 'weekly', 'monthly' or 'yearly'
