@@ -191,6 +191,7 @@ define([
 					console.log("setWeeklyNotification");
 					auxdate = new Date();
 					notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
+					alert("actualizado!");
 					try{
 						window.plugin.notification.local.schedule({
 							id:         1,  // A unique id of the notifiction

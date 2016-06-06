@@ -250,7 +250,6 @@ define([
 			
 				console.log("getaudioLI");
 				console.log(ev);
-				$(ev.target).attr("cagao","cagao");
 				
 				if(typeof $(ev.target).find("a").attr("hrefA") != "undefined"){
 					var link = $(ev.target).find("a").attr("hrefA");

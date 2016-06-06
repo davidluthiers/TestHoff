@@ -255,7 +255,6 @@ define([
 			
 				console.log("getaudioLI");
 				console.log(ev);
-				$(ev.target).attr("cagao","cagao");
 				
 				if(typeof $(ev.target).find("a").attr("hrefA") != "undefined"){
 					var link = $(ev.target).find("a").attr("hrefA");
@@ -336,51 +335,9 @@ define([
                             }
                         }, 300);
                     }
-                    /*
-				window.requestFileSystem(  
-                    LocalFileSystem.PERSISTENT, 0,  
-                    function onFileSystemSuccess(fileSystem) {  
-						sPath=fileSystem.root.toURL() + "audio/" + audiofilename;
-						console.log("sPath: " + sPath);
-						fileTransfer.download(
-										uri,
-										sPath,
-										function(entry) {
-											console.log("download complete, URL: " + entry.toURL());
-											url=entry.toURL();
-											selfR.my_media = new Media(url, selfR.mediasuccess, selfR.nada, selfR.onStatus);
-											setTimeout(function() {
-											  selfR.preparar();
-											  $("#downloadAndPlay").attr("id","playSoundButton");
-											  try{
-												window.plugins.spinnerDialog.hide();
-												}
-												catch(e){
-													console.log(e);
-												}
-											}, 1500);
-											
-										},
-										function(error) {
-											console.log("download error source " + error.source);
-											console.log("download error target " + error.target);
-											console.log("download error code" + error.code);
-											console.log("download body code: "  + error.body);
-											try{
-												window.plugins.spinnerDialog.hide();
-												}
-											catch(e){
-												console.log(e);
-												}
-										}
-									);  
-                    },  
-                    function onFileSystemFail(fail) { console.log(fail); }); 
-					
-					
-			}*/
+                 
                     else{
-                        target=cordova.file.cacheDirectory+"audios/"+audiofilename;
+                        target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
 				
                         fileTransfer.download(
                             uri,
