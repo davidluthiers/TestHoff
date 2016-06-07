@@ -1814,7 +1814,7 @@ define([
 						mynodelist.save();
 						historial.create(mylanguage);
 						historial.create(mynodelist);
-						console.log("L 684" +"indexans: " + indexans);
+
                         Backbone.history.navigate("#recycling2", {
                         trigger: true
 						});
