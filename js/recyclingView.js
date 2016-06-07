@@ -143,7 +143,7 @@ define([
             },
 	
             backtolist: function(){
-	
+				clearInterval(this.mediaTimer);
 				try{
 					this.my_media.stop();
 					window.plugins.insomnia.allowSleepAgain();
