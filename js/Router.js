@@ -1772,6 +1772,10 @@ define([
 				if(typeof historial.get("nodelist").get(id)!=='undefined'){
 					console.log("Tengo el nombre del nodo guardado");
 					console.log(historial.get("nodelist").get(id));
+					historial.get("languages").set("audioName",historial.get("nodelist").get(id));
+					Backbone.history.navigate("#recycling2", {
+                        trigger: true
+						});
 				}
 				else
 					this.drupaldo(this.getAudioname,id);
