@@ -13,9 +13,6 @@ define([
 
 	nodelistModel = historyModel.extend({
 
-		defaults:{
-			
-		}
 	
 });
 
