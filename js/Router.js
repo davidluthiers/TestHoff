@@ -29,11 +29,12 @@ define([
     'historyView',
     'supportView',
     'configurationView',
+	'nodelistModel',
     'innerLog',
     'jDrupal',
     'fastclick',
     'localStorage'
-    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, innerLog, jDrupal, fastclick){
+    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, nodelistModel, innerLog, jDrupal, fastclick){
   
    
         var AppRouter = Backbone.Router.extend({
@@ -68,6 +69,7 @@ define([
 				historial.fetch();
 				language.fetch();
 				donotshow.fetch();
+				nodelist.fetch();
 	    
                 new FastClick(document.body);
                 FastClick.attach(document.body);
@@ -130,6 +132,11 @@ define([
 			
 			
                 historial.create(donotshow);
+				try{
+					console.log("historial.create(nodelist); :");
+					historial.create(nodelist);
+				}
+				catch(e){console.log(e);}
                 //historial.create(innerlog);
 				innerlog.add("About to choose path, downloaded: " + language.get("downloaded") + " and Checkversion: " + language.get("Checkversion"));
                 if(language.get("downloaded")=="no" && !language.get("Checkversion")){ //si no tienes lenguaje te lo intentas descargar
@@ -1749,7 +1756,22 @@ define([
 				catch(e){
 					console.log(e);
 				}
-				this.drupaldo(this.getAudioname,id);
+				
+				try{
+					console.log("debug búsqueda nodo biblioteca");
+					test=historial.get("nodelist").get(id);
+					console.log(test);
+				}
+				catch(e){
+					console.log(e);
+				}
+				
+				if(typeof historial.get("nodelist").get(id)!=='undefined'){
+					console.log("Tengo el nombre del nodo guardado");
+					console.log(historial.get("nodelist").get(id));
+				}
+				else
+					this.drupaldo(this.getAudioname,id);
 				
 			},
 	
@@ -1769,7 +1791,8 @@ define([
                     success: function(data) {
                         console.log(data.field_audio.und[0]);
                         console.log("audio node filename:->"+ data.field_audio.und[0].uri.split("private://")[1]+ "<-");
-                        historial.get("languages").set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
+						historial.get("languages").set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
+                        historial.get("nodelist").set(id,data.field_audio.und[0].uri.split("private://")[1]);
                         Backbone.history.navigate("#recycling2", {
                         trigger: true
 						});
@@ -2028,6 +2051,9 @@ define([
             mediDoNotShow: false,
             viciousDoNotShow: false
         });
+		
+		var nodelist= new nodelistModel({});
+		
         var logintrys = 8;
         var loaded = false;
         var Checkversion = false;

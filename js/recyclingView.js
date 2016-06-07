@@ -73,28 +73,30 @@ define([
 		
 		
                 if(id=='1'){
-					try{
-						console.log("cached list test");
-						test= selfR.history.get("languages").get("cachedList");
-						console.log(test);
-						
-					}
-					catch(e){console.log(e);}
-                   	if(typeof selfR.history.get("languages").get("cachedList") !== 'undefined' || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
-						console.log("Con este modelo ya ha rellenado la lista, no vuelvo a descargarla");
-						selfR.languages=selfR.history.get("languages").get("cachedLanguages");
-						
-						$(document).one('pageshow', function (event, ui) {
-							selfR.history.get("languages").get("cachedList").forEach(selfR.fillrecyclinglist, selfR);
-							try{
-								window.plugins.spinnerDialog.hide();
-							}
-							catch(e){
-								console.log(e);
-							}
-						});
+					//Lo siguiente usaría siempre la lista guardada y nunca se actualizaría
+					//typeof selfR.history.get("languages").get("cachedList") !== 'undefined'
+					
+                   	if(this.model.get("cachedList") || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
+						if(!this.model.get("cachedList")){
+							alert("No internet connection");
+						}
+						else{
+							console.log("Con este modelo ya ha descargado la lista, no vuelvo a descargarla");
+							selfR.languages=selfR.history.get("languages").get("cachedLanguages");
+							
+							$(document).one('pageshow', function (event, ui) {
+								selfR.history.get("languages").get("cachedList").forEach(selfR.fillrecyclinglist, selfR);
+								try{
+									window.plugins.spinnerDialog.hide();
+								}
+								catch(e){
+									console.log(e);
+								}
+							});
+						}
 					}
 					else{
+						console.log("Descargo la lista");
 						this.history.get("languages").set("audioName","invalid");
 						var params_languages = { //active languages
 							type: 'GET',
