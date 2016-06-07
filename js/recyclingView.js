@@ -73,7 +73,14 @@ define([
 		
 		
                 if(id=='1'){
-                   	if(this.model.get("cachedList")){//si ya he cargado la lista usando este modelo
+					try{
+						console.log("cached list test");
+						test= selfR.history.get("languages").get("cachedList");
+						console.log(test);
+						
+					}
+					catch(e){console.log(e);}
+                   	if(typeof selfR.history.get("languages").get("cachedList") !== 'undefined' || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
 						console.log("Con este modelo ya ha rellenado la lista, no vuelvo a descargarla");
 						selfR.languages=selfR.history.get("languages").get("cachedLanguages");
 						
