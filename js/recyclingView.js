@@ -140,7 +140,7 @@ define([
                     this.$(".panelbutton").hide();
                     this.$(".dic_help").hide();
                     console.log("Tengo el audio filename");
-                    this.model.set("audioname",this.history.get("languages").get("audioName"));
+                    this.model.set("audioname",selfR.history.get("languages").get("audioName"));
 					router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName"));
                     //selfR.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {

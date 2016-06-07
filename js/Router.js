@@ -1760,14 +1760,6 @@ define([
 					console.log(e);
 				}
 				
-				try{
-					console.log("debug búsqueda nodo biblioteca");
-					test=historial.get("nodelist").get(id);
-					console.log(test);
-				}
-				catch(e){
-					console.log(e);
-				}
 				
 				if(typeof historial.get("nodelist").get(id)!=='undefined'){
 					console.log("Tengo el nombre del nodo guardado");
