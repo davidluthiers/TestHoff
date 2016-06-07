@@ -157,7 +157,6 @@ define([
 	
             downloadAndPlay: function(){
 	                
-				this.finallydownloadAndPlay();
 				window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"), this.nodownload, this.finallydownloadAndPlay);
 	
             },
