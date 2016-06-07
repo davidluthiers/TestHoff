@@ -194,6 +194,7 @@ define([
 				catch(e){
 					console.log(e);
 				}
+				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"));
 				selfR.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
 				setTimeout(function() {
 					selfR.preparar();
