@@ -66,6 +66,9 @@ define([
             },
             principal: function(){
 		
+		
+				console.log("Principal");
+				
 				historial.fetch();
 				language.fetch();
 				donotshow.fetch();
@@ -133,7 +136,7 @@ define([
 			
                 historial.create(donotshow);
 				try{
-					console.log("historial.create(nodelist); :");
+					console.log("historial.create(nodelist) :");
 					historial.create(nodelist);
 				}
 				catch(e){console.log(e);}
@@ -1972,6 +1975,11 @@ define([
                     mediDoNotShow: false,
                     viciousDoNotShow: false
                 });
+				
+				var nodelist= new nodelistModel({
+					id: "nodelist"
+				});
+				
                 historial.create(language);
  
                 loaded = false;

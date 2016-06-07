@@ -13,6 +13,8 @@ define([
 
 	nodelistModel = historyModel.extend({
 
+		localStorage: new Backbone.LocalStorage("nodelist"),
+		
 		defaults:{
 			"description":""
 		}
