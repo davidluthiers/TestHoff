@@ -2052,7 +2052,9 @@ define([
             viciousDoNotShow: false
         });
 		
-		var nodelist= new nodelistModel({});
+		var nodelist= new nodelistModel({
+			id: "nodelist"
+		});
 		
         var logintrys = 8;
         var loaded = false;

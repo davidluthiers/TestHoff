@@ -13,6 +13,9 @@ define([
 
 	nodelistModel = historyModel.extend({
 
+		defaults:{
+			"description":""
+		}
 	
 });
 
