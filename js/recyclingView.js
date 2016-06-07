@@ -70,8 +70,6 @@ define([
                 compiledheaderandpanel=_.template( headerandpanel );
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 			
-                this.historicAudiodownloaded=false;
-		
 		
 		
                 if(id=='1'){
@@ -158,12 +156,44 @@ define([
             },
 	
             downloadAndPlay: function(){
+	                
+				this.finallydownloadAndPlay();
+				window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"), this.nodownload, this.finallydownloadAndPlay);
 	
-                if(!this.historicAudiodownloaded){ //download
-					this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioname"));
-                    //this.createMedia(this.model.get("audioname"));
+            },
 			
-                }
+			
+			finallydownloadAndPlay: function(){
+	                
+				console.log("finallydownloadAndPlay, descargamos audio");
+				this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioname"));
+	
+            },
+			
+			
+			nodownload: function(){
+	                
+				console.log("nodownload, fichero de audio ya existente");
+				selfR=this;
+				
+				try{
+					window.plugins.spinnerDialog.hide();
+				}
+				catch(e){
+					console.log(e);
+				}
+				selfR.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
+				setTimeout(function() {
+					selfR.preparar();
+					$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
+					$("#downloadAndPlay").attr("id","playSoundButton");
+					try{
+						window.plugins.spinnerDialog.hide();
+					}
+					catch(e){
+						console.log(e);
+					}
+				}, 300);
 	
             },
 	
@@ -336,7 +366,7 @@ define([
                         }, 300);
                     }
                  
-                    else{
+                    else{//Android
                         target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
 				
                         fileTransfer.download(
