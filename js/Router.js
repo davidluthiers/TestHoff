@@ -1774,7 +1774,7 @@ define([
 					
 					mylanguage=historial.get("languages");
 					historial.get("languages").destroy();
-					mylanguage.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
+					mylanguage.set("audioName",historial.get("nodelist").get(id));
 					mylanguage.save();
 					historial.create(mylanguage);
 					
