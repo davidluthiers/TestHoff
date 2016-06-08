@@ -437,17 +437,33 @@ define([
 					lista=$("#recyclinglist");
 				}
 			
-                prefijo=elemento.language.split("_")[0];
+                prefijo=null;
+				if(elemento.language.indexOf('-') > -1){
+					prefijo=elemento.language.split("-")[0];
+				}
+				else{
+					prefijo=elemento.language.split("_")[0];
+				}
                 //console.log("Console: Audio type->" + elemento.audio_type + "<-Language->" + elemento.language+"<-");
                 if(elemento.audio_type=="Meditation"){
                     if(elemento.language==this.history.get("languages").get("languageAC")){ //si es la lengua usada directo al principio
-                        lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(self.languages,elemento.language) +" </p>    </div><span class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
+                        if(typeof this.history.get("nodelist").get(elemento.nid) != 'undefined'){//Si tengo el nodo descargado
+							lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(self.languages,elemento.language) +" </p>    </div><span style='background-color: green;' class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
+						}
+						else{
+							lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(self.languages,elemento.language) +" </p>    </div><span class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
+						}
                         //$("#recyclinglist").listview("refresh");
                     }
                     else{
 				
-                        if(prefijo==this.history.get("languages").get("languageAC").split("_")[0]){ //si comparten prefijo se añaden al final
-                            lista.append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>   <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(self.languages,elemento.language)+" </p>   </div><span class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
+                        if(prefijo==this.history.get("languages").get("languageAC").split("_")[0] || prefijo==this.history.get("languages").get("languageAC").split("-")[0]){ //si comparten prefijo se añaden al final
+                            if(typeof this.history.get("nodelist").get(elemento.nid) != 'undefined'){
+								lista.append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>   <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(self.languages,elemento.language)+" </p>   </div><span style='background-color: green;' class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
+							}
+							else{
+								lista.append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>   <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(self.languages,elemento.language)+" </p>   </div><span class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
+							}
                             //$("#recyclinglist").listview("refresh");
                         }
                     /*else{ //si son de otras lenguas se añaden a la lista secundaria
