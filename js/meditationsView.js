@@ -406,7 +406,13 @@ define([
                                     self.preparar();
 									$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
                                     $("#downloadAndPlay").attr("id","playSoundButton");
-									self.history.get("nodelist").get("files").push(audiofilename);
+									auxfiles = self.history.get("nodelist");
+									self.history.get("nodelist").destroy();
+									auxfiles= auxfiles.get("files");
+									auxfiles.push(audiofilename);
+									self.history.create(auxfiles)
+									auxfiles.save();
+									auxfiles.fetch();
                                     try{
                                         window.plugins.spinnerDialog.hide();
                                     }

@@ -417,7 +417,13 @@ define([
                                     selfR.preparar();
 									$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
                                     $("#downloadAndPlay").attr("id","playSoundButton");
-									selfR.history.get("nodelist").get("files").push(audiofilename);
+									auxfiles = selfR.history.get("nodelist");
+									selfR.history.get("nodelist").destroy();
+									auxfiles= auxfiles.get("files");
+									auxfiles.push(audiofilename);
+									selfR.history.create(auxfiles)
+									auxfiles.save();
+									auxfiles.fetch();
                                     try{
                                         window.plugins.spinnerDialog.hide();
                                     }
