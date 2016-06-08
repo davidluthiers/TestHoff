@@ -148,7 +148,7 @@ define([
 					for (var key in this.history.get("nodelist")){
 						if(this.history.get("nodelist").get(key)){
 							console.log("Supuestamente tengo el fichero guardado");
-							this.nodownload.bind(this);
+							this.nodownload();
 							keyflag = false;
 							break;
 						}
