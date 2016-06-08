@@ -170,7 +170,7 @@ define([
 	               
 				console.log("downloadAndPlay");
 				console.log(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"));
-				window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload, this.finallydownloadAndPlay);
+				window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.finallydownloadAndPlay.bind(this));
 	
             },
 			
