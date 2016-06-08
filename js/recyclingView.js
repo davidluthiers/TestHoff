@@ -77,7 +77,7 @@ define([
 					//typeof selfR.history.get("languages").get("cachedList") !== 'undefined'
 					
                    	if(this.model.get("cachedList") || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
-						if(!this.model.get("cachedList") && selfR.history.get("languages").get("cachedList")){
+						if(!this.model.get("cachedList") && !selfR.history.get("languages").get("cachedList")){
 							alert("No internet connection");
 						}
 						else{
