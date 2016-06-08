@@ -142,7 +142,8 @@ define([
                     console.log("Tengo el audio filename");
                     this.model.set("audioName",selfR.history.get("languages").get("audioName"));
 					
-					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
+					//window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
+					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.cagao.bind(this)));
 					
                     //selfR.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
@@ -179,6 +180,13 @@ define([
 	                
 				console.log("finallydownloadAndPlay, descargamos audio");
 				this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioName"));
+	
+            },
+			
+			cagao: function(){
+	                
+				console.log("cagao");
+				
 	
             },
 			
