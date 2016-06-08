@@ -201,7 +201,7 @@ define([
 					console.log("setWeeklyNotification");
 					auxdate = new Date();
 					notifdate = new Date(auxdate.getTime()+600000);	//604800000 = 1 semana en milisecs
-					//alert("actualizado! 2");
+					alert("actualizado! 3");
 					try{
 						window.plugin.notification.local.schedule({
 							id:         1,  // A unique id of the notifiction
@@ -1740,6 +1740,7 @@ define([
 					if(this.recyclingmodel.get("cachedList"))//versión cacheada, no drupaldo
 						this.renderRec1(id);
 					else{
+						console.log("navigator.connection.type :" +navigator.connection.type);
 						if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
 							this.recyclingV.render(id,historial, app_router);				
 							this.changePage (this.recyclingV);
