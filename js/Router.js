@@ -1739,8 +1739,16 @@ define([
                     }
 					if(this.recyclingmodel.get("cachedList"))//versión cacheada, no drupaldo
 						this.renderRec1(id);
-					else
-						this.drupaldo(this.renderRec1.bind(this),id);
+					else{
+						if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
+							this.recyclingV.render(id,historial, app_router);				
+							this.changePage (this.recyclingV);
+						}
+						else{
+							this.drupaldo(this.renderRec1.bind(this),id);	
+						}
+						
+					}
 				}
 				else{
 					this.recyclingV.render(id,historial, app_router);
@@ -1922,8 +1930,15 @@ define([
                     }
 					if(this.meditationmodel.get("cachedList"))//versión cacheada, no drupaldo
 						this.renderMed1(id);
-					else
-						this.drupaldo(this.renderMed1.bind(this),id);
+					else{
+						if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
+							this.meditationsV.render(id,historial, app_router);
+							this.changePage (this.meditationsV);
+						}
+						else{
+							this.drupaldo(this.renderMed1.bind(this),id);
+						}
+					}
 				}
 				else{
 					this.meditationsV.render(id,historial, app_router);
