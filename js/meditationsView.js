@@ -144,24 +144,19 @@ define([
                     console.log("Tengo el audio filename");
                     this.model.set("audioName",this.history.get("languages").get("audioName"));
 					
-					//Compruebo si tenemos el fichero físico
-					var reader = new FileReader();
-					var fileSource = cordova.file.externalDataDirectory+"audios/"+selfR.history.get("languages").get("audioName");
-
-					reader.onloadend = function(evt) {
-						if(evt.target.result == null) {
-						   // If you receive a null value the file doesn't exists
-						   console.log("No encuentro el fichero, toca descargarlo");
-						   selfR.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName"));
-						} else {
-							// Otherwise the file exists
+					var keyflag= true;
+					//search in audioName library for the audioname
+					for (var key in this.history.get("nodelist")){
+						if(this.history.get("nodelist").get(key)){
 							console.log("Supuestamente tengo el fichero guardado");
-							selfR.nodownload();
-						}         
-					};
-
-					// We are going to check if the file exists
-					reader.readAsDataURL(fileSource);
+							this.nodownload();
+							keyflag = false;
+							break;
+						}
+					}
+					
+					if(keyflag)
+						this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName"));
 					
 					//window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+selfR.history.get("languages").get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
 					
