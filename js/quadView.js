@@ -169,9 +169,9 @@ define([
 						url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
 						processData: true,
 						success: function(data) {
-							console.log("Tengo el Quad audioname");
+							console.log("Tengo el Quad audioName");
 							console.log("audio node filename:->"+ data.field_audio.und[0].filename+ "<-");
-							self.model.set("audioname",data.field_audio.und[0].uri.split("private://")[1]);
+							self.model.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
 							self.getAudio(data.field_audio.und[0].uri.split("private://")[1]);
 						},
 						error: function(code) {
@@ -257,8 +257,8 @@ define([
                     catch(e){
                         console.log(e);
                     }
-					this.router.drupaldo(this.getAudio.bind(this),this.model.get("audioname"));
-                    //this.getAudio(this.model.get("audioname"));
+					this.router.drupaldo(this.getAudio.bind(this),this.model.get("audioName"));
+                    //this.getAudio(this.model.get("audioName"));
                 }
             },
 	

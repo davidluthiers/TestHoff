@@ -140,9 +140,9 @@ define([
                     this.$(".panelbutton").hide();
                     this.$(".dic_help").hide();
                     console.log("Tengo el audio filename");
-                    this.model.set("audioname",selfR.history.get("languages").get("audioName"));
+                    this.model.set("audioName",selfR.history.get("languages").get("audioName"));
 					
-					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"), this.nodownload, router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
+					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload, router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
 					
                     //selfR.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
@@ -169,8 +169,8 @@ define([
             downloadAndPlay: function(){
 	               
 				console.log("downloadAndPlay");
-				console.log(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"));
-				window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"), this.nodownload, this.finallydownloadAndPlay);
+				console.log(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"));
+				window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload, this.finallydownloadAndPlay);
 	
             },
 			
@@ -178,7 +178,7 @@ define([
 			finallydownloadAndPlay: function(){
 	                
 				console.log("finallydownloadAndPlay, descargamos audio");
-				this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioname"));
+				this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioName"));
 	
             },
 			
@@ -194,8 +194,8 @@ define([
 				catch(e){
 					console.log(e);
 				}
-				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"));
-				selfR.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioname"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
+				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"));
+				selfR.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
 				setTimeout(function() {
 					selfR.preparar();
 					$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));

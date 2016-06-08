@@ -132,7 +132,7 @@ define([
                     this.$(".panelbutton").hide();
                     this.$(".dic_help").hide();
                     console.log("Tengo el audio filename");
-                    this.model.set("audioname",this.history.get("languages").get("audioName"));
+                    this.model.set("audioName",this.history.get("languages").get("audioName"));
 					router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName"));
                     //self.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
@@ -158,8 +158,8 @@ define([
             downloadAndPlay: function(){
 	
                 if(!this.historicAudiodownloaded){ //download
-					this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioname"));
-                    //this.createMedia(this.model.get("audioname"));
+					this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioName"));
+                    //this.createMedia(this.model.get("audioName"));
 			
                 }
 	
