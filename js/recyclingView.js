@@ -186,6 +186,7 @@ define([
 			nodownload: function(){
 	                
 				console.log("nodownload, fichero de audio ya existente");
+				console.log(this.model);
 				selfR=this;
 				
 				try{
@@ -194,7 +195,7 @@ define([
 				catch(e){
 					console.log(e);
 				}
-				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"));
+				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+selfR.model.get("audioName"));
 				selfR.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
 				setTimeout(function() {
 					selfR.preparar();
@@ -563,7 +564,7 @@ define([
                                     console.log("is seeking and slider is: " + $("#songPosition").data("seekTime"));
                                     $("#songCurrentTime").html($("#songPosition").data("seekTime"));
                                 } else {
-                                    console.log("isnt seeking and song time is: " + cur);
+                                    //console.log("isnt seeking and song time is: " + cur);
                                     $("#songCurrentTime").html(curMins + ":" + (curSecs > 9 ? curSecs : "0"+curSecs));//funciona
                                     $('#songPosition').val(cur);
                                 }
