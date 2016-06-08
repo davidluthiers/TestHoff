@@ -146,8 +146,9 @@ define([
 					
 					var keyflag= true;
 
-					for (var audiofile in this.history.get("nodelist").get("files")){
-						if(audiofile == selfR.history.get("languages").get("audioName")){
+					for (for i=0; i<this.history.get("nodelist").get("files").length; i++){
+						console.log("Compruebo si " + this.history.get("nodelist").get("files")[i] + " es igual a " + selfR.history.get("languages").get("audioName"));
+						if(this.history.get("nodelist").get("files")[i] == selfR.history.get("languages").get("audioName")){
 							console.log("Supuestamente tengo el fichero guardado");
 							this.nodownload();
 							keyflag = false;
