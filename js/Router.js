@@ -201,7 +201,7 @@ define([
 					console.log("setWeeklyNotification");
 					auxdate = new Date();
 					notifdate = new Date(auxdate.getTime()+600000);	//604800000 = 1 semana en milisecs
-					alert("actualizado! 3");
+					//alert("actualizado! 3");
 					try{
 						window.plugin.notification.local.schedule({
 							id:         1,  // A unique id of the notifiction
@@ -289,6 +289,9 @@ define([
 					logintrys=6;
 					var self=this;
 					console.log("drupaldo");
+					console.log(job);
+					console.log(param);
+					console.log(fromsummary);
 					try{
 						if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
 							if(typeof fromsummary!="undefined" && fromsummary){
