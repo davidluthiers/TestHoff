@@ -142,7 +142,7 @@ define([
                     console.log("Tengo el audio filename");
                     this.model.set("audioName",selfR.history.get("languages").get("audioName"));
 					
-					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
+					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
 					
                     //selfR.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
