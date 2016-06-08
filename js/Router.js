@@ -30,11 +30,12 @@ define([
     'supportView',
     'configurationView',
 	'nodelistModel',
+	'filelistModel',
     'innerLog',
     'jDrupal',
     'fastclick',
     'localStorage'
-    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, nodelistModel, innerLog, jDrupal, fastclick){
+    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, nodelistModel, filelistModel, innerLog, jDrupal, fastclick){
   
    
         var AppRouter = Backbone.Router.extend({
@@ -73,6 +74,7 @@ define([
 				language.fetch();
 				donotshow.fetch();
 				nodelist.fetch();
+				filelist.fetch();
 	    
                 new FastClick(document.body);
                 FastClick.attach(document.body);
@@ -138,6 +140,7 @@ define([
 				try{
 					console.log("historial.create(nodelist) :");
 					historial.create(nodelist);
+					historial.create(filelist);
 				}
 				catch(e){console.log(e);}
                 //historial.create(innerlog);
@@ -2038,6 +2041,11 @@ define([
 					id: "nodelist"
 				});
 				
+				var filelist= new filelistModel({
+					id: "filelist"
+				});
+				
+				
                 historial.create(language);
  
                 loaded = false;
@@ -2121,6 +2129,11 @@ define([
 		var nodelist= new nodelistModel({
 			id: "nodelist"
 		});
+		
+		var filelist= new filelistModel({
+			id: "filelist"
+		});
+		
 		
         var logintrys = 8;
         var loaded = false;
