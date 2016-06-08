@@ -75,20 +75,30 @@ define([
 		
 		
                 if(id=='1'){
-					if(this.model.get("cachedList")){//si ya he cargado la lista usando este modelo
-						self.languages=self.history.get("languages").get("cachedLanguages");
-						
-						$(document).one('pageshow', function (event, ui) {
-							self.history.get("languages").get("cachedList").forEach(self.fillrecyclinglist, self);
-							try{
-								window.plugins.spinnerDialog.hide();
-							}
-							catch(e){
-								console.log(e);
-							}
-						});
+					//Lo siguiente usaría siempre la lista guardada y nunca se actualizaría
+					//typeof selfR.history.get("languages").get("cachedList") !== 'undefined'
+					
+                   	if(this.model.get("cachedList") || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
+						if(!this.model.get("cachedList")){
+							alert("No internet connection");
+						}
+						else{
+							console.log("Con este modelo ya ha descargado la lista, no vuelvo a descargarla");
+							selfR.languages=selfR.history.get("languages").get("cachedLanguages");
+							
+							$(document).one('pageshow', function (event, ui) {
+								selfR.history.get("languages").get("cachedList").forEach(selfR.fillrecyclinglist, selfR);
+								try{
+									window.plugins.spinnerDialog.hide();
+								}
+								catch(e){
+									console.log(e);
+								}
+							});
+						}
 					}
 					else{
+						console.log("Descargo la lista");
 						this.history.get("languages").set("audioName","invalid");
 						var params_languages = { //active languages
 								type: 'GET',
@@ -133,7 +143,9 @@ define([
                     this.$(".dic_help").hide();
                     console.log("Tengo el audio filename");
                     this.model.set("audioName",this.history.get("languages").get("audioName"));
-					router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName"));
+					
+					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
+					
                     //self.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
 					   $(".ui-slider-track a").removeAttr("href");
@@ -156,12 +168,47 @@ define([
             },
 	
             downloadAndPlay: function(){
+	               
+				console.log("downloadAndPlay");
+				console.log(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"));
+				window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.finallydownloadAndPlay.bind(this));
 	
-                if(!this.historicAudiodownloaded){ //download
-					this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioName"));
-                    //this.createMedia(this.model.get("audioName"));
+            },
 			
-                }
+			
+			finallydownloadAndPlay: function(){
+	                
+				console.log("finallydownloadAndPlay, descargamos audio");
+				this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioName"));
+	
+            },
+			
+			
+			nodownload: function(){
+	                
+				console.log("nodownload, fichero de audio ya existente");
+				console.log(this.model);
+				selfR=this;
+				
+				try{
+					window.plugins.spinnerDialog.hide();
+				}
+				catch(e){
+					console.log(e);
+				}
+				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+selfR.model.get("audioName"));
+				selfR.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
+				setTimeout(function() {
+					selfR.preparar();
+					$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
+					$("#downloadAndPlay").attr("id","playSoundButton");
+					try{
+						window.plugins.spinnerDialog.hide();
+					}
+					catch(e){
+						console.log(e);
+					}
+				}, 300);
 	
             },
 	
@@ -330,7 +377,7 @@ define([
                         }, 300);
                     }
                     else{
-                        target=cordova.file.cacheDirectory+"audios/"+audiofilename;
+                        target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
 				
                         fileTransfer.download(
                             uri,

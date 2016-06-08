@@ -1829,7 +1829,24 @@ define([
 				catch(e){
 					console.log(e);
 				}
-				this.drupaldo(this.getAudionameMedi,id);
+				
+				
+				if(typeof historial.get("nodelist").get(id)!=='undefined'){
+					console.log("Tengo el nombre del nodo guardado");
+					
+					mylanguage=historial.get("languages");
+					historial.get("languages").destroy();
+					mylanguage.set("audioName",historial.get("nodelist").get(id));
+					mylanguage.save();
+					historial.create(mylanguage);
+					
+					console.log(historial.get("nodelist").get(id));
+					Backbone.history.navigate("#recycling2", {
+                        trigger: true
+						});
+				}
+				else
+					this.drupaldo(this.getAudionameMedi,id);
 				
 			},
 	
@@ -1846,8 +1863,19 @@ define([
                     url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
                     processData: true,
                     success: function(data) {
-                        console.log("audio node filename:->"+ data.field_audio.und[0].filename+ "<-");
-                        historial.get("languages").set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
+                        console.log(data.field_audio.und[0]);
+                        console.log("audio node filename:->"+ data.field_audio.und[0].uri.split("private://")[1]+ "<-");
+						mylanguage=historial.get("languages");
+						mynodelist=historial.get("nodelist");
+						historial.get("languages").destroy();
+						historial.get("nodelist").destroy();
+						mylanguage.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
+						mynodelist.set(id,data.field_audio.und[0].uri.split("private://")[1]);
+						mylanguage.save();
+						mynodelist.save();
+						historial.create(mylanguage);
+						historial.create(mynodelist);
+						
                         Backbone.history.navigate("#meditations2", {
                         trigger: true
 						});

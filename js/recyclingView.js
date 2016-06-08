@@ -379,7 +379,6 @@ define([
                             }
                         }, 300);
                     }
-                 
                     else{//Android
                         target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
 				
