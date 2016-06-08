@@ -144,7 +144,21 @@ define([
                     console.log("Tengo el audio filename");
                     this.model.set("audioName",this.history.get("languages").get("audioName"));
 					
-					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+selfR.history.get("languages").get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
+					var keyflag= true;
+					//search in audioName library for the audioname
+					for (var key in this.history.get("nodelist")){
+						if(this.history.get("nodelist").get(key)){
+							console.log("Supuestamente tengo el fichero guardado");
+							this.nodownload();
+							keyflag = false;
+							break;
+						}
+					}
+					
+					if(keyflag)
+						this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName"));
+					
+					//window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+selfR.history.get("languages").get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
 					
                     //self.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
