@@ -408,8 +408,8 @@ define([
                                     $("#downloadAndPlay").attr("id","playSoundButton");
 									auxfiles = self.history.get("nodelist");
 									self.history.get("nodelist").destroy();
-									auxfiles= auxfiles.get("files");
-									auxfiles.push(audiofilename);
+									auxfiles2= auxfiles.get("files");
+									auxfiles2.push(audiofilename);
 									self.history.create(auxfiles)
 									auxfiles.save();
 									auxfiles.fetch();
