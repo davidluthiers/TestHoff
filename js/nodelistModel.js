@@ -16,7 +16,8 @@ define([
 		localStorage: new Backbone.LocalStorage("nodelist"),
 		
 		defaults:{
-			"description":""
+			"description":"",
+			"files": []
 		}
 	
 });

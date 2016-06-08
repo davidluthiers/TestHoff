@@ -145,9 +145,9 @@ define([
                     this.model.set("audioName",this.history.get("languages").get("audioName"));
 					
 					var keyflag= true;
-					//search in audioName library for the audioname
-					for (var key in this.history.get("nodelist")){
-						if(this.history.get("nodelist").get(key)){
+
+					for (var audiofile in this.history.get("nodelist").get("files")){
+						if(audiofile == selfR.history.get("languages").get("audioName")){
 							console.log("Supuestamente tengo el fichero guardado");
 							this.nodownload();
 							keyflag = false;
@@ -406,6 +406,7 @@ define([
                                     self.preparar();
 									$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
                                     $("#downloadAndPlay").attr("id","playSoundButton");
+									self.history.get("nodelist").get("files").push(audiofilename);
                                     try{
                                         window.plugins.spinnerDialog.hide();
                                     }
