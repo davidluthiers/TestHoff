@@ -451,13 +451,7 @@ define([
                 var self=this;
                 console.log(self.languages);
 				
-				if(this.model.get("cachedList")){
-					lista=this.$("#recyclinglist");
-					console.log("using this. (cached)");
-				}
-				else{
-					lista=$("#recyclinglist");
-				}
+				lista=$("#recyclinglist");
 			
                 prefijo=null;
 				if(elemento.language.indexOf('-') > -1){
@@ -471,8 +465,6 @@ define([
                     if(elemento.language==this.history.get("languages").get("languageAC")){ //si es la lengua usada directo al principio
                         if(typeof this.history.get("nodelist").get(elemento.nid) != 'undefined'){//Si tengo el nodo descargado
 							console.log("Elemento cacheado: ");
-							console.log(elemento);
-							console.log(lista);
 							console.log($("#recyclinglist"));
 							lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(self.languages,elemento.language) +" </p>    </div><span style='background-color: green;' class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
 						}
