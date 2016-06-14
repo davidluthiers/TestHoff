@@ -1853,7 +1853,7 @@ define([
 					historial.create(mylanguage);
 					
 					console.log(historial.get("nodelist").get(id));
-					Backbone.history.navigate("#recycling2", {
+					Backbone.history.navigate("#meditations2", {
                         trigger: true
 						});
 				}
