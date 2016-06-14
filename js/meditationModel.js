@@ -16,7 +16,7 @@ define([
 		defaults:{
 			
 			"audioName":"",
-			"cachedList":false
+			"cachedList2":false
 			
 		}
 	

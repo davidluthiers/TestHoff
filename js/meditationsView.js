@@ -75,10 +75,10 @@ define([
 		
                 if(id=='1'){
 					//Lo siguiente usaría siempre la lista guardada y nunca se actualizaría
-					//typeof selfR.history.get("languages").get("cachedList") !== 'undefined'
+					//typeof selfR.history.get("languages").get("cachedList2") !== 'undefined'
 					
-                   	if(this.model.get("cachedList") || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
-						if(!this.model.get("cachedList") && !selfR.history.get("languages").get("cachedList")){
+                   	if(this.model.get("cachedList2") || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
+						if(!this.model.get("cachedList2") && !selfR.history.get("languages").get("cachedList2")){
 							alert("No internet connection");
 						}
 						else{
@@ -86,7 +86,7 @@ define([
 							selfR.languages=selfR.history.get("languages").get("cachedLanguages");
 							
 							$(document).one('pageshow', function (event, ui) {
-								selfR.history.get("languages").get("cachedList").forEach(selfR.fillrecyclinglist, selfR);
+								selfR.history.get("languages").get("cachedList2").forEach(selfR.fillrecyclinglist, selfR);
 								try{
 									window.plugins.spinnerDialog.hide();
 								}
@@ -286,11 +286,11 @@ define([
                         data.forEach(self.fillrecyclinglist, self);
 						auxLang=self.history.get("languages");
 						self.history.get("languages").destroy();
-						auxLang.set("cachedList",data);
+						auxLang.set("cachedList2",data);
 						self.history.create(auxLang)
 						auxLang.save();
 						auxLang.fetch();
-						self.model.set("cachedList",true);
+						self.model.set("cachedList2",true);
                         try{
                             window.plugins.spinnerDialog.hide();
                         }

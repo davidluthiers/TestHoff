@@ -1932,7 +1932,7 @@ define([
                     catch(e){
                         console.log(e);
                     }
-					if(this.meditationmodel.get("cachedList"))//versión cacheada, no drupaldo
+					if(this.meditationmodel.get("cachedList2"))//versión cacheada, no drupaldo
 						this.renderMed1(id);
 					else{
 						if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){

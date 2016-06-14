@@ -388,6 +388,8 @@ define([
                         }
                     };
                     var uri = encodeURI("http://hoffmanapp.indret.webfactional.com/system/files/"+audiofilename);
+					
+					
                     if(device.platform!='Android'){	//iOS
                         selfR.my_media = new Media(uri, selfR.mediasuccess, selfR.nada, selfR.onStatus);
                         setTimeout(function() {
