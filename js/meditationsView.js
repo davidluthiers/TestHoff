@@ -75,18 +75,18 @@ define([
 		
                 if(id=='1'){
 					//Lo siguiente usaría siempre la lista guardada y nunca se actualizaría
-					//typeof selfR.history.get("languages").get("cachedList2") !== 'undefined'
+					//typeof self.history.get("languages").get("cachedList2") !== 'undefined'
 					
                    	if(this.model.get("cachedList2") || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
-						if(!this.model.get("cachedList2") && !selfR.history.get("languages").get("cachedList2")){
+						if(!this.model.get("cachedList2") && !self.history.get("languages").get("cachedList2")){
 							alert("No internet connection");
 						}
 						else{
 							console.log("Con este modelo ya ha descargado la lista, no vuelvo a descargarla");
-							selfR.languages=selfR.history.get("languages").get("cachedLanguages");
+							self.languages=self.history.get("languages").get("cachedLanguages");
 							
 							$(document).one('pageshow', function (event, ui) {
-								selfR.history.get("languages").get("cachedList2").forEach(selfR.fillrecyclinglist, selfR);
+								self.history.get("languages").get("cachedList2").forEach(self.fillrecyclinglist, self);
 								try{
 									window.plugins.spinnerDialog.hide();
 								}
@@ -160,7 +160,7 @@ define([
 					if(keyflag)
 						this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName"));
 					
-					//window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+selfR.history.get("languages").get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
+					//window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+self.history.get("languages").get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
 					
                     //self.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
@@ -203,7 +203,7 @@ define([
 	                
 				console.log("nodownload, fichero de audio ya existente");
 				console.log(this.model);
-				selfR=this;
+				self=this;
 				
 				try{
 					window.plugins.spinnerDialog.hide();
@@ -211,11 +211,11 @@ define([
 				catch(e){
 					console.log(e);
 				}
-				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+selfR.model.get("audioName"));
-				selfR.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
+				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+self.model.get("audioName"));
+				self.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
 				setTimeout(function() {
-					selfR.preparar();
-					$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
+					self.preparar();
+					$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
 					$("#downloadAndPlay").attr("id","playSoundButton");
 					try{
 						window.plugins.spinnerDialog.hide();
