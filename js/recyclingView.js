@@ -462,13 +462,7 @@ define([
                 selfR=this;
                 console.log(selfR.languages);
 			
-				if(this.model.get("cachedList")){
-					lista=this.$("#recyclinglist");
-					console.log("using this. (cached)");
-				}
-				else{
-					lista=$("#recyclinglist");
-				}
+				lista=$("#recyclinglist");
 			
                 prefijo=null;
 				if(elemento.language.indexOf('-') > -1){
