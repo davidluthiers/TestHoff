@@ -37,9 +37,10 @@ define([
                 this.$el.attr('id', 'recyclingpage');
                 this.$el.attr('data-theme', 'a');
                 this.$el.attr('class', 'page');
-	
-                this.history=historycollection;
-                var self=this;
+				
+				this.history=historycollection;
+                
+				var self=this;
 				this.router=router;
 		
                 switch(id)
@@ -70,9 +71,7 @@ define([
                 compiledheaderandpanel=_.template( headerandpanel );
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 			
-                this.historicAudiodownloaded=false;
-		
-		
+	
 		
                 if(id=='1'){
 					//Lo siguiente usaría siempre la lista guardada y nunca se actualizaría
@@ -115,6 +114,8 @@ define([
 								},
 								error: function(code) {
 									console.log("petada, intento loguear", code);
+									
+									self.login();
 								}
 							};
 									
@@ -197,7 +198,6 @@ define([
 				this.router.drupaldo(this.createMedia.bind(this),this.model.get("audioName"));
 	
             },
-			
 			
 			nodownload: function(){
 	                
@@ -473,6 +473,7 @@ define([
 							console.log("Elemento cacheado: ");
 							console.log(elemento);
 							console.log(lista);
+							console.log($("#recyclinglist"));
 							lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(self.languages,elemento.language) +" </p>    </div><span style='background-color: green;' class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
 						}
 						else{
