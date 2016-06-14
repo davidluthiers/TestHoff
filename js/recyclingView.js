@@ -391,7 +391,7 @@ define([
 					
 					
                     if(device.platform!='Android'){	//iOS
-                        selfR.my_media = new Media(uri, selfR.mediasuccess, selfR.nada, selfR.onStatus);
+                        /*selfR.my_media = new Media(uri, selfR.mediasuccess, selfR.nada, selfR.onStatus);
                         setTimeout(function() {
                             selfR.preparar();
 							$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
@@ -402,7 +402,52 @@ define([
                             catch(e){
                                 console.log(e);
                             }
-                        }, 300);
+                        }, 300);*/
+						target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
+				
+                        fileTransfer.download(
+                            uri,
+                            target,
+                            function(entry) {
+                                console.log("download complete, URL: " + entry.toURL());
+                                console.log("entry: ");
+                                console.log(entry);
+                                
+					
+                            },
+                            function(error) {
+                                console.log("download error source " + error.source);
+                                console.log("download error target " + error.target);
+                                console.log("download error code" + error.code);
+                                console.log("download body code: "  + error.body);
+                                try{
+                                    window.plugins.spinnerDialog.hide();
+                                }
+                                catch(e){
+                                    console.log(e);
+                                }
+                            }
+						);
+							
+						selfR.my_media = new Media(target, selfR.mediasuccess, selfR.nada, selfR.onStatus);
+						setTimeout(function() {
+							selfR.preparar();
+							$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
+							$("#downloadAndPlay").attr("id","playSoundButton");
+							auxfiles = selfR.history.get("nodelist");
+							selfR.history.get("nodelist").destroy();
+							auxfiles2= auxfiles.get("files");
+							auxfiles2.push(audiofilename);
+							selfR.history.create(auxfiles)
+							auxfiles.save();
+							auxfiles.fetch();
+							try{
+								window.plugins.spinnerDialog.hide();
+							}
+							catch(e){
+								console.log(e);
+							}
+						}, 300);
                     }
                     else{//Android
                         target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
