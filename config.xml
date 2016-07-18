@@ -87,15 +87,14 @@
 		<gap:plugin name="org.apache.cordova.vibration" source="npm" />
 		<gap:plugin name="org.apache.cordova.file-transfer" source="npm" />
 		<gap:plugin name="org.apache.cordova.file" source="npm" />
-		<gap:plugin name="org.apache.cordova.inappbrowser" source="npm" />
-		<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" source="npm" />
+		<gap:plugin name="org.apache.cordova.inappbrowser" source="npm"/>
+		<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
-		<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" source="npm" />
-		<gap:plugin name="org.apache.cordova.network-information" source="npm" />
+		<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" />
+		<gap:plugin name="org.apache.cordova.network-information" />
 		<gap:plugin name="nl.x-services.plugins.insomnia" source="npm"/>
-		<gap:plugin name="org.apache.cordova.splashscreen" source="npm" />
-		<gap:plugin name="nl.x-services.plugins.backgroundaudio" source="npm" />
-		
+		<gap:plugin name="org.apache.cordova.splashscreen" />
+		<gap:plugin name="nl.x-services.plugins.backgroundaudio" />
 		<gap:config-file platform="ios" parent="UIStatusBarHidden">
 			<true/>
 		</gap:config-file>
