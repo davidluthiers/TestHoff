@@ -85,12 +85,11 @@
 		<gap:plugin name="org.apache.cordova.globalization"  />
 		<gap:plugin name="org.apache.cordova.device"  />
 		<gap:plugin name="org.apache.cordova.vibration"  />
-		<gap:plugin name="cordova-plugin-screen-orientation" source="npm"/>
 		<gap:plugin name="org.apache.cordova.file-transfer"  />
 		<gap:plugin name="org.apache.cordova.file" />
 		<gap:plugin name="org.apache.cordova.inappbrowser" />
 		<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
-		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" />
+		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
 		<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" />
 		<gap:plugin name="org.apache.cordova.network-information" />
 		<gap:plugin name="nl.x-services.plugins.insomnia" source="npm"/>
