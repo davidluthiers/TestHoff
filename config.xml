@@ -93,7 +93,7 @@
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" />
 		<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" />
 		<gap:plugin name="org.apache.cordova.network-information" />
-		<gap:plugin name="nl.x-services.plugins.insomnia" />
+		<gap:plugin name="nl.x-services.plugins.insomnia" source="npm"/>
 		<gap:plugin name="org.apache.cordova.splashscreen" />
 		<gap:plugin name="nl.x-services.plugins.backgroundaudio" />
 		<gap:config-file platform="ios" parent="UIStatusBarHidden">
