@@ -1,0 +1,19 @@
+MP3
+
+- poner los iconos de flecha para abajo y de check, en color gris oscuro.
+- no hacer streaming en ios
+
+CONTRASEÑA
+
+- nueva traducción en el servidor: 
+   - "Proteger con contraseña" "Password protect" 
+   - "Aviso: si olvida la contraseña tendrá que borrar todos los datos de la app para poder utilizarla." "Warning: if you forget your password, you'll have to delete all the app data if you want to use it again."
+
+HISTORIAL:
+
+ - icono de "delete" en todas las listas menos la home
+ - popup para confirmar borrado: "¿Confirma que desea borrar esta entrada?" "Are you sure you want to delete this item?"
+
+GEO:
+
+- te acuerdas
