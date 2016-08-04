@@ -1,7 +1,7 @@
 MP3
 
 - poner los iconos de flecha para abajo y de check, en color gris oscuro.
-- no hacer streaming en ios
+- no hacer streaming en ios // HECHO PERO FALTA TESTEAR EN EL IPHONE
 
 CONTRASEÑA
 

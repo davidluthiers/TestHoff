@@ -377,7 +377,8 @@ define([
                         }
                     };
                     var uri = encodeURI("http://hoffmanapp.indret.webfactional.com/system/files/"+audiofilename);
-                    if(device.platform!='Android'){	//iOS
+					target ="";
+                   /* if(device.platform!='Android'){	//iOS
                         self.my_media = new Media(uri, self.mediasuccess, self.nada, self.onStatus);
                         setTimeout(function() {
                             self.preparar();
@@ -391,9 +392,15 @@ define([
                             }
                         }, 300);
                     }
-                    else{
-                        target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
-				
+                    else{*/
+					 if(device.platform!='Android'){	//iOS
+						target=cordova.file.documentsDirectory+"audios/"+audiofilename;
+					 }
+					 else{
+						 target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
+					 }
+                        
+						documentsDirectory
                         fileTransfer.download(
                             uri,
                             target,
@@ -436,7 +443,7 @@ define([
                                 }
                             }
 						);
-                    }
+                    
                 //}
                 }
 		
