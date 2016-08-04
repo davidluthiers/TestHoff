@@ -394,6 +394,7 @@ define([
                     }
                     else{*/
 					 if(device.platform!='Android'){	//iOS
+						console.log("Mi plataforma es: " + device.platform);
 						target=cordova.file.documentsDirectory+"audios/"+audiofilename;
 					 }
 					 else{
