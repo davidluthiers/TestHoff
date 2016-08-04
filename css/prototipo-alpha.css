@@ -95,6 +95,10 @@ label.ui-input-text {font-size:100%;font-weight: 400;}
 			background-size: 18px 18px;
 		}
 		
+		.ui-icon-padlock-icon{
+			background-image: url('../img/Icons/padlock.png') !important;
+		}
+		
 		.ui-bar-a{border:0px;}
 
 input[type="text"] {		/* input type transparentes para que se vea la hoja de cuadrícula */
