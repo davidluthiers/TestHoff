@@ -352,7 +352,6 @@ define([
             createMedia:function(audiofilename) {
 				
 				selfR=this;
-				
 				try{
 					window.plugins.spinnerDialog.hide();
 				}
