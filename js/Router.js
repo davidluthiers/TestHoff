@@ -235,7 +235,10 @@ define([
 						this.askForPassword();
 					}
                 }else{	//if(results.buttonIndex==1) //botón atrás
-					navigator.device.exitApp();			
+					if(navigator.app)
+						navigator.app.exitApp();
+					else
+						navigator.device.exitApp();
 				}
             },
 	
