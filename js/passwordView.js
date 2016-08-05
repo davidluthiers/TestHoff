@@ -36,7 +36,7 @@ define([
 		
 				console.log("PassV 2");
                 var self=this;
-                historycollection.get("languages").set("helppanel",""); //Aquí en lugar de cadena vacía iría el texto de panel de ayuda de la página password_protect
+                //historycollection.get("languages").set("helppanel",""); //Aquí en lugar de cadena vacía iría el texto de panel de ayuda de la página password_protect
 				console.log("PassV 2.1");
                 result= historycollection.get("languages").toJSON();
                 compiledheaderandpanel=_.template( headerandpanel );
@@ -53,19 +53,19 @@ define([
                     var newpassword1 = $('#textinput60').val();
 					var newpassword2 = $('#textinput70').val();
 					if(newpassword1 != newpassword2){
-						alert(this.history.get("languages").get("dic_passwords_not_match"));//passwords_not_match
+						alert(self.history.get("languages").get("dic_passwords_not_match"));//passwords_not_match
 					}
 					else if (newpassword1.length < 6){
-						alert(this.history.get("languages").get("dic_password_too_short"));//password_too_short
+						alert(self.history.get("languages").get("dic_password_too_short"));//password_too_short
 					}
 					else{
 						console.log("Contraseña: ->"+newpassword1+"<-");
 						console.log("btoa: ->"+btoa(newpassword1)+"<-");
 
-						donot=this.history.get("donotshow");
+						donot=self.history.get("donotshow");
 						donot.set("pass",btoa(newpassword1));
-						this.history.get("donotshow").destroy();
-						this.history.create(donot);
+						self.history.get("donotshow").destroy();
+						self.history.create(donot);
 				
 						//console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
 						
