@@ -73,6 +73,7 @@ define([
                 console.log(index);
 				
 				this.collection.remove(self.collection.at(index));
+				this.collection.sync();
 				$(ev.target).[0].parents('li').remove();
 				
             //$("#listfeeders").listview("refresh");
