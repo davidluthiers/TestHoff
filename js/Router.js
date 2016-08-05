@@ -2050,8 +2050,11 @@ define([
 			
 			passwordProtect:function () {
 				
+				console.log("PassV -1");
                 this.passwordV= new passwordView();
+				console.log("PassV 0");
                 this.passwordV.render(0,historial);
+				console.log("PassV 3");
                 this.changePage (this.passwordV);
         
             },

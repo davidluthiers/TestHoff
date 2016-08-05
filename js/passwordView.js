@@ -21,6 +21,7 @@ define([
             },
    
             render: function(id, historycollection){
+				console.log("PassV 1");
                 this.$el.attr('data-role', 'page');
                 this.$el.attr('data-theme', 'a');
                 this.$el.attr('class', 'page');
@@ -33,7 +34,7 @@ define([
 			
                 }
 		
-
+				console.log("PassV 2");
                 var self=this;
                 historycollection.get("languages").set("helppanel",""); //Aquí en lugar de cadena vacía iría el texto de panel de ayuda de la página password_protect
                 result= historycollection.get("languages").toJSON();
