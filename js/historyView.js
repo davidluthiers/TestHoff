@@ -15,6 +15,10 @@ define([
 
         historyView = Backbone.View.extend({
    
+		events:{
+                "click .deleteEntry":"deleteEntry",
+            },
+			
             render: function(){
                 this.$el.attr('data-role', 'page');
                 this.$el.attr('data-theme', 'a');
@@ -57,6 +61,17 @@ define([
                     this.$("#listasummarytools").prepend(historyElementview.$el);
                 }
 	
+            },
+			
+			deleteEntry: function(ev){
+	
+                var index = $( ".deleteEntry" ).index($(ev.target));
+				console.log($(ev.target));
+				console.log($(ev.target).parent());
+				console.log($(ev.target).parent().parent());
+                console.log($(ev.target).attr("colIndex"));
+            //$("#listfeeders").listview("refresh");
+	 
             }
 	
 
