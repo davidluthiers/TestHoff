@@ -48,12 +48,14 @@ define([
 				if(historycollection.get("donotshow").get("pass")==""){
 					try{
 						this.$("#password_remove_protect_button").hide();
+						this.$("#password_remove_protect_button").refresh();
 					}
 					catch(e){console.log(e);}
 				}
 				else{
 					try{//Activo el botón de borrar pass
 						this.$("#password_remove_protect_button").show();
+						this.$("#password_remove_protect_button").refresh();
 					}
 					catch(e){console.log(e);}
 				}
@@ -83,6 +85,7 @@ define([
 						
 						try{//Activo el botón de borrar pass
 							this.$("#password_remove_protect_button").show();
+							this.$("#password_remove_protect_button").refresh();
 						}
 						catch(e){console.log(e);}
 						//console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
@@ -105,6 +108,7 @@ define([
 				
 				try{
 					this.$("#password_remove_protect_button").hide();
+					this.$("#password_remove_protect_button").refresh();
 				}
 				catch(e){console.log(e);}
 				
