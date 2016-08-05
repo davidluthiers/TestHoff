@@ -171,6 +171,13 @@ define([
                     this.checkDateUpdate(2); //pls
 		
                 }
+				
+				if(historial.get("donotshow").get("pass")!=""){
+					//Tapar pantalla #password_protect
+					$("#checkbox").attr("style","display: block;");
+					this.askForPassword();
+					
+				}
 				 
                 setTimeout(function() {
                     if(language.get("downloaded")=="no"){
@@ -196,6 +203,46 @@ define([
                 }, 10000);
 				
 
+            },
+			
+			askForPassword: function (){
+				
+					//prompt para introducir password
+					
+					try{
+                        navigator.notification.prompt(
+                            historial.get("languages").get("dic_enter_password"),  // message
+                            function(ans){
+                                this.onpassPrompt(ans);
+                            },                  // callback to invoke
+                            historial.get("languages").get("dic_password_protect"),            // title
+                            [historial.get("languages").get("dic_back"),historial.get("languages").get("dic_next")] // buttonLabels
+                            //historial.get("languages").get("dic_beatyour_example")                 // defaultText
+                            );
+                    }
+                    catch(e){
+                        console.log(e);
+                        var obj= new Object();
+                        obj["buttonIndex"]=2;
+                        obj["input1"]="";
+                        this.onpassPrompt(obj);
+                    }
+              
+            },
+			
+			onpassPrompt: function (results){
+                if(results.buttonIndex==2){
+                    if(btoa(results.input1) == historial.get("donotshow").get("pass")){
+						console.log("passwords match");
+						$("#checkbox").attr("style","display: none;");
+					}
+					else{
+						alert(historial.get("languages").get("dic_passwords_not_match"));//passwords_not_match
+						this.askForPassword();
+					}
+                }
+                if(results.buttonIndex==1) //botón atrás
+					navigator.device.exitApp();			
             },
 	
             setWeeklyNotification: function(){
@@ -2041,7 +2088,8 @@ define([
                     beatDoNotShow:false,
                     recyDoNotShow:false,
                     mediDoNotShow: false,
-                    viciousDoNotShow: false
+                    viciousDoNotShow: false,
+					pass: ""
                 });
 				
 				var nodelist= new nodelistModel({
@@ -2125,7 +2173,8 @@ define([
             beatDoNotShow:false,
             recyDoNotShow:false,
             mediDoNotShow: false,
-            viciousDoNotShow: false
+            viciousDoNotShow: false,
+			pass: ""
         });
 		
 		var nodelist= new nodelistModel({

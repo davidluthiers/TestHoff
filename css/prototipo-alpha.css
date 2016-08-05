@@ -357,6 +357,13 @@ input[type="text"] {		/* input type transparentes para que se vea la hoja de cua
 	margin-left: -8px;
 	}
 	
+	#password_protect{
+		height: 100% !important;
+		width: 100% !important;
+		color: white;
+		display:none;
+	}
+	
 	
 	/* Header general */
 

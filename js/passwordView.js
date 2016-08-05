@@ -6,7 +6,6 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-	'XORCipher',
     'text!../Templates/passwordP.html',
     'text!../Templates/headerandpanel.html',
     'jquerymobile'
@@ -58,12 +57,14 @@ define([
 					}
 					else{
 						console.log("Contraseña: ->"+newpassword1+"<-");
-						try{
-							console.log("b64_encode: ->"+b64_encode(newpassword1)+"<-");
-							console.log("b64_decode: ->"+b64_decode(XORCipher.b64_encode(newpassword1))+"<-");
-						}catch(e){}
 						console.log("btoa: ->"+btoa(newpassword1)+"<-");
-						console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
+
+						donot=this.history.get("donotshow");
+						donot.set("pass",btoa(newpassword1));
+						this.history.get("donotshow").destroy();
+						this.history.create(donot);
+				
+						//console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
 						
 					}
                 }
