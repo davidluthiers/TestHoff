@@ -29,12 +29,13 @@ define([
     'historyView',
     'supportView',
     'configurationView',
+	'passwordView',
 	'nodelistModel',
     'innerLog',
     'jDrupal',
     'fastclick',
     'localStorage'
-    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, nodelistModel, innerLog, jDrupal, fastclick){
+    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, passwordView, nodelistModel, innerLog, jDrupal, fastclick){
   
    
         var AppRouter = Backbone.Router.extend({
@@ -62,6 +63,7 @@ define([
                 "historydetail:id":"historydetail",
                 "support":"support",
                 "configuration":"configuration",
+				"passwordProtect":"passwordProtect",
                 "deletehistory":"deletehistory"
             },
             principal: function(){
@@ -1997,6 +1999,14 @@ define([
                 this.changePage (this.configuration);
               
 		
+            },
+			
+			passwordProtect:function () {
+				
+                this.passwordV= new passwordView();
+                this.passwordV.render(0,historial);
+                this.changePage (this.passwordV);
+        
             },
 	
             deletehistory:function () {
