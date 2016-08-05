@@ -1398,6 +1398,7 @@ top:-8px;
 		
 		#password_remove_protect_button{
 			background: url('../img/Textures/beat.png') repeat;
+			margin-top:5%;
 		}
 		
 		#listsusnegas li, #listsusnegas .ui-icon-alt{
