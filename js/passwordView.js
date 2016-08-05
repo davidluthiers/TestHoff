@@ -48,14 +48,12 @@ define([
 				if(historycollection.get("donotshow").get("pass")==""){
 					try{
 						this.$("#password_remove_protect_button").hide();
-						this.$("#password_remove_protect_button").refresh();
 					}
 					catch(e){console.log(e);}
 				}
 				else{
 					try{//Activo el botón de borrar pass
 						this.$("#password_remove_protect_button").show();
-						this.$("#password_remove_protect_button").refresh();
 					}
 					catch(e){console.log(e);}
 				}
@@ -85,8 +83,8 @@ define([
 						
 						try{//Activo el botón de borrar pass
 							self =  this;
-							this.$("#password_remove_protect_button").show();
-							this.$("#password_remove_protect_button").refresh();
+							$("#password_remove_protect_button").show();
+							$("#password_remove_protect_button").button("refresh");
 							
 							try{
 								navigator.notification.confirm(self.history.get("languages").get("dic_done"), function(indexans){}, self.history.get("languages").get("dic_Hoffman"),[self.history.get("languages").get("dic_next")]);
@@ -117,8 +115,8 @@ define([
 				this.history.create(donot);
 				
 				try{
-					this.$("#password_remove_protect_button").hide();
-					this.$("#password_remove_protect_button").refresh();
+					$("#password_remove_protect_button").hide();
+					$("#password_remove_protect_button").button("refresh");
 
 					try{
 						navigator.notification.confirm(self.history.get("languages").get("dic_done"), function(indexans){}, self.history.get("languages").get("dic_Hoffman"),[self.history.get("languages").get("dic_next")]);
