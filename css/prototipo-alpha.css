@@ -357,7 +357,12 @@ input[type="text"] {		/* input type transparentes para que se vea la hoja de cua
 	margin-left: -8px;
 	}
 	
-
+	.deleteEntry{
+		background: none !important;
+		width: 12% !important;
+		height: 70% !important;
+		top: 35% !important;
+	}
 	
 	/* Header general */
 
