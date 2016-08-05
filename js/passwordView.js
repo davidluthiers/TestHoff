@@ -51,15 +51,17 @@ define([
                     var newpassword1 = $('#textinput60').val();
 					var newpassword2 = $('#textinput70').val();
 					if(newpassword1 != newpassword2){
-						alert(historycollection.get("languages").get("dic_passwords_not_match"));//passwords_not_match
+						alert(this.history.get("languages").get("dic_passwords_not_match"));//passwords_not_match
 					}
 					else if (newpassword1.length < 6){
-						alert(historycollection.get("languages").get("dic_password_too_short"));//password_too_short
+						alert(this.history.get("languages").get("dic_password_too_short"));//password_too_short
 					}
 					else{
 						console.log("Contraseña: ->"+newpassword1+"<-");
-						console.log("b64_encode: ->"+XORCipher.b64_encode(newpassword1)+"<-");
-						console.log("b64_decode: ->"+XORCipher.b64_decode(XORCipher.b64_encode(newpassword1))+"<-");
+						try{
+							console.log("b64_encode: ->"+b64_encode(newpassword1)+"<-");
+							console.log("b64_decode: ->"+b64_decode(XORCipher.b64_encode(newpassword1))+"<-");
+						}catch(e){}
 						console.log("btoa: ->"+btoa(newpassword1)+"<-");
 						console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
 						
