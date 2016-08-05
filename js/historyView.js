@@ -67,13 +67,13 @@ define([
 				self = this;
 				
                 var index = $(ev.target).parent().attr("colIndex");
-				console.log($(ev.target));
+				console.log($(ev.target).[0]);
 				console.log($(ev.target).parent());
 				console.log($(ev.target).parent().parent());
                 console.log(index);
 				
 				this.collection.remove(self.collection.at(index));
-				$(ev.target).parents('li').remove();
+				$(ev.target).[0].parents('li').remove();
 				
             //$("#listfeeders").listview("refresh");
 	 
