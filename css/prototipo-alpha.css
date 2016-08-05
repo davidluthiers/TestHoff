@@ -100,6 +100,11 @@ label.ui-input-text {font-size:100%;font-weight: 400;}
 			background-position: 43% 58%;
 		}
 		
+		.ui-icon-open-padlock-icon{
+			background-image: url('../img/Icons/open-padlock.png') !important;
+			background-position: 43% 58%;
+		}
+		
 		.ui-bar-a{border:0px;}
 
 input[type="text"] {		/* input type transparentes para que se vea la hoja de cuadrícula */

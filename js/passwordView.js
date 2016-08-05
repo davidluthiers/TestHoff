@@ -17,7 +17,8 @@ define([
         passwordView = Backbone.View.extend({
   
             events:{
-                "click #password_protect_button":"password_protect"
+                "click #password_protect_button":"password_protect",
+				"click #password_remove_protect_button":"password_remove_protect"
             },
    
             render: function(id, historycollection){
@@ -44,7 +45,18 @@ define([
 	
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 	
-	
+				if(historycollection.get("donotshow").get("pass")==""){
+					try{
+						this.$("#password_remove_protect_button").addClass('ui-disabled');
+					}
+					catch(e){console.log(e);}
+				}
+				else{
+					try{//Activo el botón de borrar pass
+						this.$("#password_remove_protect_button").removeClass('ui-disabled');
+					}
+					catch(e){console.log(e);}
+				}
 	
 	
             },
@@ -65,10 +77,14 @@ define([
 
 						donot=this.history.get("donotshow");
 						donot.set("pass",btoa(newpassword1));
-						console.log("second get");
+						
 						this.history.get("donotshow").destroy();
 						this.history.create(donot);
-				
+						
+						try{//Activo el botón de borrar pass
+							this.$("#password_remove_protect_button").removeClass('ui-disabled');
+						}
+						catch(e){console.log(e);}
 						//console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
 						
 					}
@@ -77,7 +93,22 @@ define([
 					console.log(e);
                     alert(e);
                 }
-            }	
+            },
+			
+			password_remove_protect: function(){
+				
+				donot=this.history.get("donotshow");
+				donot.set("pass","");
+				
+				this.history.get("donotshow").destroy();
+				this.history.create(donot);
+				
+				try{
+					this.$("#password_remove_protect_button").addClass('ui-disabled');
+				}
+				catch(e){console.log(e);}
+				
+			}
 
 
         });
