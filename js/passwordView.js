@@ -36,9 +36,10 @@ define([
 		
 				console.log("PassV 2");
                 var self=this;
-                //historycollection.get("languages").set("helppanel",""); //Aquí en lugar de cadena vacía iría el texto de panel de ayuda de la página password_protect
+                historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_password_protect")); //Aquí en lugar de cadena vacía iría el texto de panel de ayuda de la página password_protect 
 				console.log("PassV 2.1");
                 result= historycollection.get("languages").toJSON();
+				console.log("PassV 2.1.1");
                 compiledheaderandpanel=_.template( headerandpanel );
 				console.log("PassV 2.2");
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
