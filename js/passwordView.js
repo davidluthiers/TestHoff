@@ -84,8 +84,16 @@ define([
 						this.history.create(donot);
 						
 						try{//Activo el botón de borrar pass
+							self =  this;
 							this.$("#password_remove_protect_button").show();
 							this.$("#password_remove_protect_button").refresh();
+							
+							try{
+								navigator.notification.confirm(self.history.get("languages").get("dic_done"), function(indexans){}, self.history.get("languages").get("dic_Hoffman"),[self.history.get("languages").get("dic_next")]);
+							}
+							catch(e){
+								console.log(e);
+							}
 						}
 						catch(e){console.log(e);}
 						//console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
@@ -100,6 +108,8 @@ define([
 			
 			password_remove_protect: function(){
 				
+				self = this;
+				
 				donot=this.history.get("donotshow");
 				donot.set("pass","");
 				
@@ -109,6 +119,13 @@ define([
 				try{
 					this.$("#password_remove_protect_button").hide();
 					this.$("#password_remove_protect_button").refresh();
+
+					try{
+						navigator.notification.confirm(self.history.get("languages").get("dic_done"), function(indexans){}, self.history.get("languages").get("dic_Hoffman"),[self.history.get("languages").get("dic_next")]);
+					}
+					catch(e){
+						console.log(e);
+					}
 				}
 				catch(e){console.log(e);}
 				
