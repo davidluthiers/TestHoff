@@ -362,6 +362,7 @@ input[type="text"] {		/* input type transparentes para que se vea la hoja de cua
 		width: 12% !important;
 		height: 70% !important;
 		top: 35% !important;
+		box-shadow: none !important;
 	}
 	
 	/* Header general */
