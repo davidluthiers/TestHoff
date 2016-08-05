@@ -54,25 +54,27 @@ define([
                     var newpassword1 = $('#textinput60').val();
 					var newpassword2 = $('#textinput70').val();
 					if(newpassword1 != newpassword2){
-						alert(self.history.get("languages").get("dic_passwords_not_match"));//passwords_not_match
+						alert(this.history.get("languages").get("dic_passwords_not_match"));//passwords_not_match
 					}
 					else if (newpassword1.length < 6){
-						alert(self.history.get("languages").get("dic_password_too_short"));//password_too_short
+						alert(this.history.get("languages").get("dic_password_too_short"));//password_too_short
 					}
 					else{
 						console.log("Contraseña: ->"+newpassword1+"<-");
 						console.log("btoa: ->"+btoa(newpassword1)+"<-");
 
-						donot=self.history.get("donotshow");
+						donot=this.history.get("donotshow");
 						donot.set("pass",btoa(newpassword1));
-						self.history.get("donotshow").destroy();
-						self.history.create(donot);
+						console.log("second get");
+						this.history.get("donotshow").destroy();
+						this.history.create(donot);
 				
 						//console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
 						
 					}
                 }
                 catch(e){
+					console.log(e);
                     alert(e);
                 }
             }	
