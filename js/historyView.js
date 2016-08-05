@@ -64,12 +64,16 @@ define([
             },
 			
 			deleteEntry: function(ev){
-	
-                var index = $( ".deleteEntry" ).index($(ev.target));
+				self = this;
+				
+                var index = $(ev.target).parent().attr("colIndex");
 				console.log($(ev.target));
 				console.log($(ev.target).parent());
 				console.log($(ev.target).parent().parent());
-                console.log($(ev.target).parent().attr("colIndex"));
+                console.log(index);
+				
+				this.collection.remove(self.collection.at(index));
+				
             //$("#listfeeders").listview("refresh");
 	 
             }
