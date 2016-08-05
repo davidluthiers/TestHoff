@@ -69,7 +69,7 @@ define([
 				console.log($(ev.target));
 				console.log($(ev.target).parent());
 				console.log($(ev.target).parent().parent());
-                console.log($(ev.target).attr("colIndex"));
+                console.log($(ev.target).parent().attr("colIndex"));
             //$("#listfeeders").listview("refresh");
 	 
             }
