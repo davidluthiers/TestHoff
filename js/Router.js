@@ -202,12 +202,12 @@ define([
 			askForPassword: function (){
 				
 					//prompt para introducir password
-					
+					self = this;
 					try{
                         navigator.notification.prompt(
                             historial.get("languages").get("dic_enter_password"),  // message
                             function(ans){
-                                this.onpassPrompt(ans);
+                                self.onpassPrompt(ans);
                             },                  // callback to invoke
                             historial.get("languages").get("dic_password_protect"),            // title
                             [historial.get("languages").get("dic_back"),historial.get("languages").get("dic_next")] // buttonLabels
@@ -219,7 +219,7 @@ define([
                         var obj= new Object();
                         obj["buttonIndex"]=2;
                         obj["input1"]="";
-                        this.onpassPrompt(obj);
+                        self.onpassPrompt(obj);
                     }
               
             },
