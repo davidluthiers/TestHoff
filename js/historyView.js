@@ -75,7 +75,7 @@ define([
 				//this.collection.remove(self.collection.at(index));
 				self.collection.at(index).destroy();
 
-				this.collection.sync();
+
 				$(ev.target)[0].parents('li').remove();
 				
             //$("#listfeeders").listview("refresh");
