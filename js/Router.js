@@ -174,7 +174,7 @@ define([
 				
 				if(historial.get("donotshow").get("pass")!=""){
 					//Tapar pantalla #password_protect
-					$("#checkbox").attr("style","display: block;");
+					$(".page").attr("style","display: none;");
 					this.askForPassword();
 					
 				}
@@ -193,12 +193,6 @@ define([
                         catch(e){
                             console.log(e);
                         }
-						try{
-							navigator.splashscreen.hide();
-						}
-						catch(e){
-							console.log(e);
-						}
                     }
                 }, 10000);
 				
@@ -234,15 +228,15 @@ define([
                 if(results.buttonIndex==2){
                     if(btoa(results.input1) == historial.get("donotshow").get("pass")){
 						console.log("passwords match");
-						$("#checkbox").attr("style","display: none;");
+						$(".page").attr("style","display: block;");
 					}
 					else{
 						alert(historial.get("languages").get("dic_passwords_not_match"));//passwords_not_match
 						this.askForPassword();
 					}
-                }
-                if(results.buttonIndex==1) //botón atrás
+                }else{	//if(results.buttonIndex==1) //botón atrás
 					navigator.device.exitApp();			
+				}
             },
 	
             setWeeklyNotification: function(){
