@@ -105,6 +105,7 @@ define([
                     self.collection.at(self.index).destroy();
 					$(".historylist li").remove();
 					self.collection.forEach(self.addHistoryElement, this);
+					$(".historylist").listview("refresh");
                 }
             }
 	
