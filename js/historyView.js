@@ -75,7 +75,7 @@ define([
                 console.log(index);
 				
 				this.index = index;
-				this.ev = $(ev.target).parent();
+				this.eve = $(ev.target).parent().parent();
 				
 				try{
                         navigator.notification.confirm(self.collection.get("languages").get("dic_sure_delete_record"), function(indexans){
@@ -98,7 +98,7 @@ define([
 				self=this;
                 if(indexans==1){//Yes
                     self.collection.at(self.index).destroy();
-					self.ev.remove();
+					self.eve.remove();
                 }
             }
 	
