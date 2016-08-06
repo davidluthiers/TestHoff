@@ -75,7 +75,7 @@ define([
                 console.log(index);
 				
 				this.index = index;
-				this. = $(ev.target).parent();
+				this.ev = $(ev.target).parent();
 				
 				try{
                         navigator.notification.confirm(self.collection.get("languages").get("dic_sure_delete_record"), function(indexans){
