@@ -77,9 +77,9 @@ define([
 				this.index = index;
 				
 				try{
-                        navigator.notification.confirm(historial.get("languages").get("dic_sure_delete_record"), function(indexans){
+                        navigator.notification.confirm(self.collection.get("languages").get("dic_sure_delete_record"), function(indexans){
                             self.onDelEntryConfirm(indexans);
-                        }, " ", [historial.get("languages").get("dic_transf_p9_text2"),historial.get("languages").get("dic_transf_p9_text3")]);
+                        }, " ", [self.collection.get("languages").get("dic_transf_p9_text2"),self.collection.get("languages").get("dic_transf_p9_text3")]);
 				}
 				catch(e){
 					self.onDelEntryConfirm(2);
