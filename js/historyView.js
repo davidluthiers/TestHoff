@@ -64,6 +64,8 @@ define([
             },
 			
 			deleteEntry: function(ev){
+				
+				
 				self = this;
 				
                 var index = $(ev.target).parent().attr("colIndex");
@@ -72,14 +74,31 @@ define([
 				console.log($(ev.target).parent().parent());
                 console.log(index);
 				
+				this.index = index;
+				
+				try{
+                        navigator.notification.confirm(historial.get("languages").get("dic_sure_delete_record"), function(indexans){
+                            self.onDelEntryConfirm(indexans);
+                        }, " ", [historial.get("languages").get("dic_transf_p9_text2"),historial.get("languages").get("version_long")]);
+				}
+				catch(e){
+					self.onDelEntryConfirm(2);
+					console.log("L 702" + e);
+				}
+				
 				//this.collection.remove(self.collection.at(index));
-				self.collection.at(index).destroy();
-
-
-				$(ev.target)[0].parents('li').remove();
+				
 				
             //$("#listfeeders").listview("refresh");
 	 
+            },
+			
+			onDelEntryConfirm:function (indexans){
+				self=this;
+                if(indexans==1){//Yes
+                    self.collection.at(self.index).destroy();
+					$(ev.target)[0].parents('li').remove();
+                }
             }
 	
 
