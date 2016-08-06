@@ -58,7 +58,12 @@ define([
 
                 else {
                     historyElementview.render(index, self.collection);
-                    this.$("#listasummarytools").prepend(historyElementview.$el);
+					if(typeof this.index != "undefined"){
+						$("#listasummarytools").prepend(historyElementview.$el);
+						console.log("typeof this.index != 'undefined'");
+					}
+					else
+						this.$("#listasummarytools").prepend(historyElementview.$el);
                 }
 	
             },
@@ -98,7 +103,8 @@ define([
 				self=this;
                 if(indexans==1){//Yes
                     self.collection.at(self.index).destroy();
-					self.eve.remove();
+					$(".historylist li").remove();
+					self.collection.forEach(self.addHistoryElement, this);
                 }
             }
 	
