@@ -589,8 +589,14 @@ define([
 			
 			onResume: function() {
 				
-				console.log("RESUME");
-				console.log("RESUME");
+				console.log("RESUME EVENT");
+				
+				if(historial.get("donotshow").get("pass")!=""){
+					//Tapar pantalla #password_protect
+					$(".page").attr("style","display: none;");
+					this.askForPassword();
+					
+				}
 				
 			},
 
