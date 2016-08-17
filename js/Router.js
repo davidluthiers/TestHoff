@@ -95,7 +95,9 @@ define([
                     $(ui.prevPage).remove();
 
                 });
-			
+				
+				document.addEventListener("resume", self.onResume, false);
+				
                 $(document).one('pageshow', function (event, ui) {
                     loaded=true;
                     console.log("FIRST LOAD");
@@ -584,6 +586,13 @@ define([
                 }
 	
             },
+			
+			onResume: function() {
+				
+				console.log("RESUME");
+				console.log("RESUME");
+				
+			},
 
 	
             checkquadAudio: function(){
