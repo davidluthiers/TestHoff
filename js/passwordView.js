@@ -68,7 +68,7 @@ define([
 					if(newpassword1 != newpassword2){
 						alert(this.history.get("languages").get("dic_passwords_not_match"));//passwords_not_match
 					}
-					else if (newpassword1.length < 6){
+					else if (newpassword1.length < 4){
 						alert(this.history.get("languages").get("dic_password_too_short"));//password_too_short
 					}
 					else{

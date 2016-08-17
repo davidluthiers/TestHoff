@@ -992,6 +992,7 @@ define([
                 console.log("downloading: " + "http://hoffmanapp.indret.webfactional.com/hoffapp/"+LANGUAGE+".jsonp");
                 var DRUPAL_SERVER = "http://hoffmanapp.indret.webfactional.com/hoffapp/";
                 innerlog.add("Executing gettranslation:\n");
+				//LANGUAGE=LANGUAGE.replace("-", "_");
                 var self=this;
                 self.language=null;
                 var params_translations = {
