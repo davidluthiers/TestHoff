@@ -77,7 +77,10 @@
 		<gap:splash src="splash/ios/Default@2x.png"       gap:platform="ios"     width="640" height="960" />
 		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" /> 
 
-
+		<gap:plugin name="cordova-plugin-facebook4" source="npm" >
+			<param name="APP_ID" value="1504029573151839" />
+			<param name="APP_NAME" value="Hoffman" />
+		</gap:plugin>
 		<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
 		<gap:plugin name="org.apache.cordova.camera" source="npm" />
 		<gap:plugin name="org.apache.cordova.media" source="npm" />
@@ -108,7 +111,7 @@
 		<!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" />-->
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
 		
-		<plugin spec="https://github.com/jeduan/cordova-plugin-facebook4"> <params><param name="APP_ID" value="1504029573151839" /><param name="APP_NAME" value="Hoffman" /> </params></plugin>
+		
 
 		<gap:splash src="splash.png" />
 		
