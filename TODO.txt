@@ -1,17 +1,17 @@
 MP3
 
-- poner los iconos de flecha para abajo y de check, en color gris oscuro.
+- poner los iconos de flecha para abajo y de check, en color gris oscuro. //HECHO
 - no hacer streaming en ios // HECHO PERO FALTA TESTEAR EN EL IPHONE
 
 CONTRASEÑA
 
 - nueva traducción en el servidor: 
    - "Proteger con contraseña" "Password protect" 
-   - "Aviso: si olvida la contraseña tendrá que borrar todos los datos de la app para poder utilizarla." "Warning: if you forget your password, you'll have to delete all the app data if you want to use it again."
+   * "Aviso: si olvida la contraseña tendrá que borrar todos los datos de la app para poder utilizarla." "Warning: if you forget your password, you'll have to delete all the app data if you want to use it again."
 
 HISTORIAL:
 
- - icono de "delete" en todas las listas menos la home
+ * icono de "delete" en todas las listas menos la home
  - popup para confirmar borrado: "¿Confirma que desea borrar esta entrada?" "Are you sure you want to delete this item?"
  
  
@@ -23,7 +23,7 @@ GEO:
 
 -
 
-Borrar datos desde config no funciona bien
+* Borrar datos desde config no funciona bien
 tags de lenguas router L513  //Parece solucionado con la vista
-cambiar mínimo de password a 4
-mirar si hay un evento para sacar el prompt de password cada vez que se ponga la app en el foco y poner la pantalla en blanco
+cambiar mínimo de password a 4  //HECHO
+mirar si hay un evento para sacar el prompt de password cada vez que se ponga la app en el foco y poner la pantalla en blanco  //HECHO
