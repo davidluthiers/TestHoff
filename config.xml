@@ -76,7 +76,7 @@
 		<gap:splash src="splash/ios/Default@2x.png"       gap:platform="ios"     width="640" height="960" />
 		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" /> 
 
-		<gap:plugin name="phonegap-facebook-plugin" source="npm">
+		<gap:plugin name="phonegap-facebook-plugin" source="npm" version="0.12.0">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</gap:plugin>
