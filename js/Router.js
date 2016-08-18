@@ -591,7 +591,7 @@ define([
 				
 				console.log("RESUME EVENT");
 				
-				if(historial.get("donotshow").get("pass")!=""){
+				if(historial.get("donotshow").get("pass")!="" && $(".page").attr("style") != "display: none;"){
 					//Tapar pantalla #password_protect
 					$(".page").attr("style","display: none;");
 					app_router.askForPassword();
