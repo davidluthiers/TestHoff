@@ -180,6 +180,15 @@ define([
 					this.askForPassword();
 					
 				}
+				
+				var fbLoginSuccess = function (userData) {
+					alert("UserInfo: " + JSON.stringify(userData));
+				}
+
+				facebookConnectPlugin.login(["public_profile"],
+					fbLoginSuccess,
+					function (error) { alert("" + error) }
+				);
 				 
                 setTimeout(function() {
                     if(language.get("downloaded")=="no"){
