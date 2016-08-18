@@ -110,7 +110,7 @@
 		<plugin spec="https://github.com/jeduan/cordova-plugin-facebook4"> 
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
-		</plugin>>
+		</plugin>
 
 		<gap:splash src="splash.png" />
 		
