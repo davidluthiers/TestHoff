@@ -190,6 +190,11 @@ define([
 				}
 				try{
 					facebookConnectPlugin.browserInit("1504029573151839", null, null);
+				}
+				catch(e){
+					console.log("Catch error:");
+					console.log(e);
+				}
 					
 					facebookConnectPlugin.login(["public_profile"],
 						fbLoginSuccess,
@@ -198,11 +203,7 @@ define([
 							console.log(error);
 						}
 					);
-				}
-				catch(e){
-					console.log("Catch error:");
-					console.log(e);
-				}
+				
 				 
                 setTimeout(function() {
                     if(language.get("downloaded")=="no"){
