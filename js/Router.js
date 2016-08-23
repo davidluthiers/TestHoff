@@ -184,6 +184,8 @@ define([
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
+					a=4;
+					alert("Debug test");
 				}
 
 				facebookConnectPlugin.login(["public_profile"],
