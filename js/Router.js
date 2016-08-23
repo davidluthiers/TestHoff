@@ -189,7 +189,7 @@ define([
 					alert("Debug test");
 				}
 				try{
-					facebookConnectPlugin.browserInit("1504029573151839");
+					facebookConnectPlugin.browserInit(1504029573151839);
 					
 					facebookConnectPlugin.login(["public_profile"],
 						fbLoginSuccess,
