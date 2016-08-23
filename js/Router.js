@@ -188,6 +188,7 @@ define([
 					a=4;
 					alert("Debug test");
 				}
+				
 				try{
 					facebookConnectPlugin.browserInit("1504029573151839", null, null);
 				}
@@ -196,13 +197,13 @@ define([
 					console.log(e);
 				}
 					
-					facebookConnectPlugin.login(["public_profile"],
-						fbLoginSuccess,
-						function (error) { 
-							console.log("Fb error:");
-							console.log(error);
-						}
-					);
+				facebookConnectPlugin.login(["public_profile"],
+					fbLoginSuccess,
+					function (error) { 
+						console.log("Fb error:");
+						console.log(error);
+					}
+				);
 				
 				 
                 setTimeout(function() {
