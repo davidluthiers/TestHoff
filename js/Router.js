@@ -181,6 +181,7 @@ define([
 					
 				}
 				
+				/*
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
@@ -191,7 +192,7 @@ define([
 				facebookConnectPlugin.login(["public_profile"],
 					fbLoginSuccess,
 					function (error) { alert("" + error) }
-				);
+				);*/
 				 
                 setTimeout(function() {
                     if(language.get("downloaded")=="no"){
