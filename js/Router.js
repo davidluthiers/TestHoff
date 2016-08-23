@@ -181,18 +181,26 @@ define([
 					
 				}
 				
-				/*
+				
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
 					a=4;
 					alert("Debug test");
 				}
-
-				facebookConnectPlugin.login(["public_profile"],
-					fbLoginSuccess,
-					function (error) { alert("" + error) }
-				);*/
+				try{
+					facebookConnectPlugin.login(["public_profile"],
+						fbLoginSuccess,
+						function (error) { 
+							console.log("Fb error:");
+							console.log(error);
+						}
+					);
+				}
+				catch(e){
+					console.log("Catch error:");
+					console.log(e);
+				}
 				 
                 setTimeout(function() {
                     if(language.get("downloaded")=="no"){
