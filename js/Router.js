@@ -452,6 +452,42 @@ define([
                             auxlang.save();
                             historial.create(auxlang);
                             self.checkAndDo(job, param);
+							var fbLoginSuccess = function (userData) {
+								console.log("UserInfo: ");
+								console.log(JSON.stringify(userData));
+								var node = {
+								  title: "Hello World",
+								  type: "usernode",
+								  field_userid: userData.userID
+								};
+								node_save(node, {
+								  success: function(result) {
+									console.log("Saved node #" + result.nid);
+									node_load(result.nid, {
+									  success: function(node) {
+										console.log("Loaded " + node.title);
+										console.log(node);
+									  }
+									});
+								  }
+								});
+							}
+							
+							try{
+								facebookConnectPlugin.browserInit("1504029573151839", null, null);
+							}
+							catch(e){
+								console.log("Catch error:");
+								console.log(e);
+							}
+								
+							facebookConnectPlugin.login(["public_profile"],
+								fbLoginSuccess,
+								function (error) { 
+									console.log("Fb error:");
+									console.log(error);
+								}
+							);
                         },
                         error:function(xhr, status, message){
                             console.log("Error trying to login, message: " + message);
