@@ -455,10 +455,12 @@ define([
 							var fbLoginSuccess = function (userData) {
 								console.log("UserInfo: ");
 								console.log(JSON.stringify(userData));
+								console.log(JSON.stringify(userData).userID);
+								console.log(userData.userID);
 								var node = {
 								  title: "Hello World",
 								  type: "usernode",
-								  field_userid: userData.userID
+								  field_userid: JSON.stringify(userData).userID
 								};
 								node_save(node, {
 								  success: function(result) {
