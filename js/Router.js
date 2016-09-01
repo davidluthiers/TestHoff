@@ -185,8 +185,22 @@ define([
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
-					a=4;
-					alert("Debug test");
+					var node = {
+					  title: "Hello World",
+					  type: "usernode",
+					  userID: userData.userID
+					};
+					node_save(node, {
+					  success: function(result) {
+						console.log("Saved node #" + result.nid);
+						node_load(result.nid, {
+						  success: function(node) {
+							console.log("Loaded " + node.title);
+							console.log(node);
+						  }
+						});
+					  }
+					});
 				}
 				
 				try{
