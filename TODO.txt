@@ -27,3 +27,5 @@ GEO:
 tags de lenguas router L513  //Parece solucionado con la vista
 cambiar mínimo de password a 4  //HECHO
 mirar si hay un evento para sacar el prompt de password cada vez que se ponga la app en el foco y poner la pantalla en blanco  //HECHO
+
+hacer quad check in
