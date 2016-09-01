@@ -182,43 +182,6 @@ define([
 				}
 				
 				
-				var fbLoginSuccess = function (userData) {
-					console.log("UserInfo: ");
-					console.log(JSON.stringify(userData));
-					var node = {
-					  title: "Hello World",
-					  type: "usernode",
-					  field_userid: userData.userID
-					};
-					node_save(node, {
-					  success: function(result) {
-						console.log("Saved node #" + result.nid);
-						node_load(result.nid, {
-						  success: function(node) {
-							console.log("Loaded " + node.title);
-							console.log(node);
-						  }
-						});
-					  }
-					});
-				}
-				
-				try{
-					facebookConnectPlugin.browserInit("1504029573151839", null, null);
-				}
-				catch(e){
-					console.log("Catch error:");
-					console.log(e);
-				}
-					
-				facebookConnectPlugin.login(["public_profile"],
-					fbLoginSuccess,
-					function (error) { 
-						console.log("Fb error:");
-						console.log(error);
-					}
-				);
-				
 				 
                 setTimeout(function() {
                     if(language.get("downloaded")=="no"){
@@ -337,6 +300,42 @@ define([
                             historial.create(language);
                             console.log("TOKEN: " + data.token);
                             self.lookForLanguage();
+							var fbLoginSuccess = function (userData) {
+								console.log("UserInfo: ");
+								console.log(JSON.stringify(userData));
+								var node = {
+								  title: "Hello World",
+								  type: "usernode",
+								  field_userid: userData.userID
+								};
+								node_save(node, {
+								  success: function(result) {
+									console.log("Saved node #" + result.nid);
+									node_load(result.nid, {
+									  success: function(node) {
+										console.log("Loaded " + node.title);
+										console.log(node);
+									  }
+									});
+								  }
+								});
+							}
+							
+							try{
+								facebookConnectPlugin.browserInit("1504029573151839", null, null);
+							}
+							catch(e){
+								console.log("Catch error:");
+								console.log(e);
+							}
+								
+							facebookConnectPlugin.login(["public_profile"],
+								fbLoginSuccess,
+								function (error) { 
+									console.log("Fb error:");
+									console.log(error);
+								}
+							);
                         //self.getToken();
                         }
                         else {
