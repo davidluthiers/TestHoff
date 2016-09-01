@@ -188,7 +188,7 @@ define([
 					var node = {
 					  title: "Hello World",
 					  type: "usernode",
-					  userID: userData.userID
+					  field_userid: userData.userID
 					};
 					node_save(node, {
 					  success: function(result) {
