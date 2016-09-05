@@ -78,6 +78,7 @@ define([
 				language.fetch();
 				donotshow.fetch();
 				nodelist.fetch();
+				profileM.fetch();
 	    
                 new FastClick(document.body);
                 FastClick.attach(document.body);
@@ -142,6 +143,7 @@ define([
 			
 			
                 historial.create(donotshow);
+				historial.create(profileM);
 				try{
 					console.log("historial.create(nodelist) :");
 					historial.create(nodelist);
