@@ -177,7 +177,7 @@ define([
 		
                 }
 				
-				if(historial.get("donotshow").get("pass")!=""){
+				if(historial.get("profile").get("pass")!=""){
 					//Tapar pantalla #password_protect
 					$(".page").attr("style","display: none;");
 					this.askForPassword();
@@ -236,7 +236,7 @@ define([
 			
 			onpassPrompt: function (results){
                 if(results.buttonIndex==2){
-                    if(btoa(results.input1) == historial.get("donotshow").get("pass")){
+                    if(btoa(results.input1) == historial.get("profile").get("pass")){
 						console.log("passwords match");
 						$(".page").attr("style","display: block;");
 					}
@@ -633,7 +633,7 @@ define([
 				
 				console.log("RESUME EVENT");
 				
-				if(historial.get("donotshow").get("pass")!="" && $(".page").attr("style") != "display: none;"){
+				if(historial.get("profile").get("pass")!="" && $(".page").attr("style") != "display: none;"){
 					//Tapar pantalla #password_protect
 					$(".page").attr("style","display: none;");
 					app_router.askForPassword();
