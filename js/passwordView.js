@@ -45,7 +45,7 @@ define([
 	
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 	
-				if(historycollection.get("donotshow").get("pass")==""){
+				if(historycollection.get("profile").get("pass")==""){
 					try{
 						this.$("#password_remove_protect_button").attr("style","display:none");
 					}
@@ -75,10 +75,10 @@ define([
 						console.log("Contraseña: ->"+newpassword1+"<-");
 						console.log("btoa: ->"+btoa(newpassword1)+"<-");
 
-						donot=this.history.get("donotshow");
+						donot=this.history.get("profile");
 						donot.set("pass",btoa(newpassword1));
 						
-						this.history.get("donotshow").destroy();
+						this.history.get("profile").destroy();
 						this.history.create(donot);
 						
 						try{//Activo el botón de borrar pass
@@ -107,10 +107,10 @@ define([
 				
 				self = this;
 				
-				donot=this.history.get("donotshow");
+				donot=this.history.get("profile");
 				donot.set("pass","");
 				
-				this.history.get("donotshow").destroy();
+				this.history.get("profile").destroy();
 				this.history.create(donot);
 				
 				try{

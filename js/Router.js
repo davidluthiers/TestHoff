@@ -31,12 +31,13 @@ define([
     'configurationView',
 	'passwordView',
 	'profileView',
+	'profileModel',
 	'nodelistModel',
     'innerLog',
     'jDrupal',
     'fastclick',
     'localStorage'
-    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, passwordView, profileView, nodelistModel, innerLog, jDrupal, fastclick){
+    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, passwordView, profileView, profileModel, nodelistModel, innerLog, jDrupal, fastclick){
   
    
         var AppRouter = Backbone.Router.extend({
@@ -281,7 +282,7 @@ define([
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
-					console.log(JSON.stringify(userData.authResponse));
+					console.log(userData.authResponse);
 					var node = {
 					  title: "Hello World",
 					  type: "usernode",
@@ -2159,6 +2160,19 @@ define([
 					pass: ""
                 });
 				
+				profileM= new profileModel({
+					id: "profile",
+					userID: "",
+					picture: "",
+					pass: "",
+					lastupdated: "",
+					lastcoordinates: "",
+					description: "",
+					info: "",
+					latitude: "",
+					longitude: ""
+				});
+				
 				var nodelist= new nodelistModel({
 					id: "nodelist"
 				});
@@ -2240,8 +2254,21 @@ define([
             beatDoNotShow:false,
             recyDoNotShow:false,
             mediDoNotShow: false,
-            viciousDoNotShow: false,
-			pass: ""
+            viciousDoNotShow: false
+        });
+		
+		var profileM= new profileModel({
+            id: "profile",
+			userID: "",
+			picture: "",
+			pass: "",
+			lastupdated: "",
+			lastcoordinates: "",
+			description: "",
+			info: "",
+			latitude: "",
+			longitude: ""
+			
         });
 		
 		var nodelist= new nodelistModel({
