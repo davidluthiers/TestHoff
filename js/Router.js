@@ -281,10 +281,11 @@ define([
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
+					console.log(JSON.stringify(userData.authResponse));
 					var node = {
 					  title: "Hello World",
 					  type: "usernode",
-					  field_userid: userData.userID
+					  field_userid: userData.authResponse.userID
 					};
 					node_save(node, {
 					  success: function(result) {
@@ -298,15 +299,7 @@ define([
 					  }
 					});
 				}
-				
-				try{
-					facebookConnectPlugin.browserInit("1504029573151839", null, null);
-				}
-				catch(e){
-					console.log("Catch error:");
-					console.log(e);
-				}
-					
+									
 				facebookConnectPlugin.login(["public_profile"],
 					fbLoginSuccess,
 					function (error) { 
