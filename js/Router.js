@@ -2156,8 +2156,7 @@ define([
                     beatDoNotShow:false,
                     recyDoNotShow:false,
                     mediDoNotShow: false,
-                    viciousDoNotShow: false,
-					pass: ""
+                    viciousDoNotShow: false
                 });
 				
 				profileM= new profileModel({
