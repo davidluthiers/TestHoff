@@ -30,12 +30,13 @@ define([
     'supportView',
     'configurationView',
 	'passwordView',
+	'profileView',
 	'nodelistModel',
     'innerLog',
     'jDrupal',
     'fastclick',
     'localStorage'
-    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, passwordView, nodelistModel, innerLog, jDrupal, fastclick){
+    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, passwordView, profileView, nodelistModel, innerLog, jDrupal, fastclick){
   
    
         var AppRouter = Backbone.Router.extend({
@@ -64,6 +65,7 @@ define([
                 "support":"support",
                 "configuration":"configuration",
 				"passwordProtect":"passwordProtect",
+				"profile":"profile",
                 "deletehistory":"deletehistory"
             },
             principal: function(){
@@ -180,6 +182,9 @@ define([
 					this.askForPassword();
 					
 				}
+				else{
+					self.drupaldo(self.facebookLogin);
+				}
 				
 				
 				 
@@ -272,6 +277,45 @@ define([
 	
             },
 			
+			facebookLogin: function(){
+				var fbLoginSuccess = function (userData) {
+					console.log("UserInfo: ");
+					console.log(JSON.stringify(userData));
+					var node = {
+					  title: "Hello World",
+					  type: "usernode",
+					  field_userid: userData.userID
+					};
+					node_save(node, {
+					  success: function(result) {
+						console.log("Saved node #" + result.nid);
+						node_load(result.nid, {
+						  success: function(node) {
+							console.log("Loaded " + node.title);
+							console.log(node);
+						  }
+						});
+					  }
+					});
+				}
+				
+				try{
+					facebookConnectPlugin.browserInit("1504029573151839", null, null);
+				}
+				catch(e){
+					console.log("Catch error:");
+					console.log(e);
+				}
+					
+				facebookConnectPlugin.login(["public_profile"],
+					fbLoginSuccess,
+					function (error) { 
+						console.log("Fb error:");
+						console.log(error);
+					}
+				);
+			},
+			
             login: function(){ //funcion de logueo para LOCALHOST
 	
                 var self=this;
@@ -300,42 +344,7 @@ define([
                             historial.create(language);
                             console.log("TOKEN: " + data.token);
                             self.lookForLanguage();
-							var fbLoginSuccess = function (userData) {
-								console.log("UserInfo: ");
-								console.log(JSON.stringify(userData));
-								var node = {
-								  title: "Hello World",
-								  type: "usernode",
-								  field_userid: userData.userID
-								};
-								node_save(node, {
-								  success: function(result) {
-									console.log("Saved node #" + result.nid);
-									node_load(result.nid, {
-									  success: function(node) {
-										console.log("Loaded " + node.title);
-										console.log(node);
-									  }
-									});
-								  }
-								});
-							}
 							
-							try{
-								facebookConnectPlugin.browserInit("1504029573151839", null, null);
-							}
-							catch(e){
-								console.log("Catch error:");
-								console.log(e);
-							}
-								
-							facebookConnectPlugin.login(["public_profile"],
-								fbLoginSuccess,
-								function (error) { 
-									console.log("Fb error:");
-									console.log(error);
-								}
-							);
                         //self.getToken();
                         }
                         else {
@@ -452,44 +461,7 @@ define([
                             auxlang.save();
                             historial.create(auxlang);
                             self.checkAndDo(job, param);
-							var fbLoginSuccess = function (userData) {
-								console.log("UserInfo: ");
-								console.log(JSON.stringify(userData));
-								console.log(JSON.stringify(userData).userID);
-								console.log(userData.userID);
-								var node = {
-								  title: "Hello World",
-								  type: "usernode",
-								  field_userid: JSON.stringify(userData).userID
-								};
-								node_save(node, {
-								  success: function(result) {
-									console.log("Saved node #" + result.nid);
-									node_load(result.nid, {
-									  success: function(node) {
-										console.log("Loaded " + node.title);
-										console.log(node);
-									  }
-									});
-								  }
-								});
-							}
 							
-							try{
-								facebookConnectPlugin.browserInit("1504029573151839", null, null);
-							}
-							catch(e){
-								console.log("Catch error:");
-								console.log(e);
-							}
-								
-							facebookConnectPlugin.login(["public_profile"],
-								fbLoginSuccess,
-								function (error) { 
-									console.log("Fb error:");
-									console.log(error);
-								}
-							);
                         },
                         error:function(xhr, status, message){
                             console.log("Error trying to login, message: " + message);
@@ -2145,6 +2117,16 @@ define([
                 this.passwordV.render(0,historial);
 		
                 this.changePage (this.passwordV);
+        
+            },
+			
+			profile:function () {
+				
+                this.profileV= new profileView();
+		
+                this.profileV.render(0,historial);
+		
+                this.changePage (this.profileV);
         
             },
 	

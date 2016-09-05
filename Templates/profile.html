@@ -1,0 +1,28 @@
+<div data-role="content"> 
+    <div class="hojacuaderno" data-controltype="htmlblock">
+	    <div class="headerhojacuaderno history" data-role="header">
+			<h3>
+				<%= dic_profile %>
+			</h3>
+		</div>
+		<div data-role="content">
+			<div data-role="fieldcontain" class="noborder" data-controltype="textinput">
+				<label for="displayname">
+				  <%= dic_display_name %>
+				</label>
+				<input name="" id="displayname" value=""/>
+			</div>
+			<div data-role="fieldcontain" class="noborder" data-controltype="textinput">
+				<label for="useremail">
+				  <%= dic_email %>
+				</label>
+				<input name="" id="useremail" value=""/>
+			</div>
+		</div>
+   </div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
+	<a class="botonstart" data-role="button" data-transition="none" href="#summary">
+<%= dic_back %>
+</a>
+</div>
