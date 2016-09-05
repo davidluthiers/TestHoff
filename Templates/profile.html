@@ -6,6 +6,14 @@
 			</h3>
 		</div>
 		<div data-role="content">
+		
+			<img id="visionphoto" style="width:50%;" src="img/noimage.png" />
+			<a id="addphotovision" data-role="button" data-theme="">
+				<img src="img/photo.png" > <br/>
+				<%= dic_vision_p1_text1 %>
+			</a>
+			<a id="getgalleryphoto" data-role="button" data-theme=""><%= dic_gallery %></a>
+			
 			<div data-role="fieldcontain" class="noborder" data-controltype="textinput">
 				<label for="displayname">
 				  <%= dic_display_name %>
@@ -23,6 +31,6 @@
 </div>
 <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
 	<a class="botonstart" data-role="button" data-transition="none" href="#summary">
-<%= dic_back %>
-</a>
+		<%= dic_back %>
+	</a>
 </div>
