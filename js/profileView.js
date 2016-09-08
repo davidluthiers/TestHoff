@@ -43,15 +43,20 @@ define([
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 		
 				if(historycollection.get("profile").get("nickname")!="" && historycollection.get("profile").get("userID")!="" && historycollection.get("profile").get("email")!=""){ //Están todos los datos obligatorios
+				
+					console.log("Cargando datos del profile");
 					this.$("#fill_profile").attr("style","display:none");
 					
 					this.$("#displayname").text(historycollection.get("profile").get("nickname"));
 					this.$("#useremail").text(historycollection.get("profile").get("email"));
 					
 					//cargar foto
-					var visionphoto = document.getElementById('visionphoto');
-					visionphoto.style.display = 'block'; 
-					visionphoto.src = historycollection.get("profile").get("picture");
+					setTimeout(function(){
+                            var visionphoto = document.getElementById('visionphoto');
+							visionphoto.style.display = 'block'; 
+							visionphoto.src = historycollection.get("profile").get("picture");
+                        },500);
+					
 					
 				}
 				
