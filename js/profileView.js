@@ -55,6 +55,10 @@ define([
 	
             save: function(){
 				console.log("Save profile function");
+				console.log(typeof $("#displayname").val());
+				console.log(typeof $("#useremail").val());
+				console.log($("#displayname").val());
+				console.log($("#useremail").val());
                 try{
 					if (typeof $("#displayname").val() !== 'undefined' && typeof $("#useremail").val() !== 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
 						//Falta algún valor obligatorio
@@ -84,7 +88,6 @@ define([
                 }
                 catch(e){
 					console.log(e);
-                    alert(e);
                 }
             }
 
