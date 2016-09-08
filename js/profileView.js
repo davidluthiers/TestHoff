@@ -48,6 +48,9 @@ define([
 					this.$("#useremail").text(historycollection.get("profile").get("email"));
 					
 					//cargar foto
+					var visionphoto = document.getElementById('visionphoto');
+					visionphoto.style.display = 'block'; 
+					visionphoto.src = historycollection.get("profile").get("picture");
 					
 				}
 				
@@ -62,8 +65,6 @@ define([
 						auxprofile=this.history.get("profile");
 						auxprofile.set("nickname",$("#displayname").val());
 						auxprofile.set("email",$("#useremail").val());
-					
-						//guardar foto
 						
 						this.history.get("profile").destroy();
 						this.history.create(auxprofile);
@@ -87,6 +88,46 @@ define([
                 }
                 catch(e){
 					console.log(e);
+                }
+            },
+			
+			onPhotoDataSuccess: function(imageData, base64){
+				console.log("onPhotoDataSuccess, imagedata: ");
+				console.log(imageData);
+                var visionphoto = document.getElementById('visionphoto');
+                visionphoto.style.display = 'block'; 
+				if(base64)
+					imageData = "data:image/png;base64," + imageData;
+				visionphoto.src = imageData;
+				
+				//Guardamos la foto
+                auxprofile=this.history.get("profile");
+				auxprofile.set("picture",imageData);
+				this.history.get("profile").destroy();
+				this.history.create(auxprofile);
+		
+            },
+			
+			getfromgallery:function(){
+                var self=this;
+                try{
+                    if (!navigator.camera) {
+                        alert("Camera API not supported");
+                        return;
+                    }
+                    else
+                        navigator.camera.getPicture(function(imageData){
+                            self.onPhotoDataSuccess(imageData, true);
+                        }, this.onFail, {
+                            quality: 50,
+							destinationType: 0, //Camera.DestinationType.DATA_URL,
+                            correctOrientation: true,
+                            sourceType: 0,
+							allowEdit: true
+                        });
+                }
+                catch(e){
+                    console.log(e);
                 }
             }
 
