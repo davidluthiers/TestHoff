@@ -60,7 +60,7 @@ define([
 				console.log($("#displayname").val());
 				console.log($("#useremail").val());
                 try{
-					if (typeof $("#displayname").val() !== 'undefined' && typeof $("#useremail").val() !== 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
+					if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
 						//Falta algún valor obligatorio
 						alert(this.history.get("languages").get("dic_profile_required"));
 					}
