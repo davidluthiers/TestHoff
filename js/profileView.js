@@ -93,8 +93,7 @@ define([
             },
 			
 			onPhotoDataSuccess: function(imageData, base64){
-				console.log("onPhotoDataSuccess, imagedata: ");
-				console.log(imageData);
+				
                 var visionphoto = document.getElementById('visionphoto');
                 visionphoto.style.display = 'block'; 
 				if(base64)
