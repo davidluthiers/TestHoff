@@ -61,10 +61,7 @@ define([
 				console.log($("#useremail").val());
                 try{
 					if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
-						//Falta algún valor obligatorio
-						alert(this.history.get("languages").get("dic_profile_required"));
-					}
-					else{
+						//Tiene valores válidos
 						auxprofile=this.history.get("profile");
 						auxprofile.set("nickname",$("#displayname").val());
 						auxprofile.set("email",$("#useremail").val());
@@ -84,6 +81,11 @@ define([
 							//Ir al mapa
 							console.log("ir al mapa");
 						}
+						
+					}
+					else{
+						//Falta algún valor obligatorio
+						alert(this.history.get("languages").get("dic_profile_required"));
 					}
                 }
                 catch(e){
