@@ -258,7 +258,7 @@ define([
 				if(historial.get("languages").get("notifications")){
 					console.log("setWeeklyNotification");
 					auxdate = new Date();
-					notifdate = new Date(auxdate.getTime()+600000);	//604800000 = 1 semana en milisecs
+					notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
 					//alert("actualizado! 3");
 					try{
 						window.plugin.notification.local.schedule({
