@@ -7,6 +7,10 @@
 		</div>
 		<div data-role="content">
 		
+			<label id="fill_profile">
+				<%= dic_fill_profile %>
+			</label>
+		
 			<img id="visionphoto" style="width:50%;" src="img/noimage.png" />
 			<a id="addphotovision" data-role="button" data-theme="">
 				<img src="img/photo.png" > <br/>
@@ -30,7 +34,10 @@
    </div>
 </div>
 <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
-	<a class="botonstart" data-role="button" data-transition="none" href="#summary">
+	<a class="botonprev" data-role="button" data-transition="none" href="#summary" data-icon="arrow-l">
 		<%= dic_back %>
+	</a>
+	<a id="botonnext" class="botonnext" data-role="button" data-transition="none" data-icon="arrow-r" data-iconpos="right">
+		<%= dic_vision_p1_text3 %>
 	</a>
 </div>

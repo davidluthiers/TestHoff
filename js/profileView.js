@@ -17,8 +17,7 @@ define([
         profileView = Backbone.View.extend({
   
             events:{
-                "click #password_protect_button":"password_protect",
-				"click #password_remove_protect_button":"password_remove_protect"
+                "click #botonnext":"save"
             },
    
             render: function(id, historycollection){
@@ -28,10 +27,10 @@ define([
 
                 this.history=historycollection;
 	
-                if(id=='0'){
-                    compiledTemplate = _.template( profile );
-                }
-		
+                
+				compiledTemplate = _.template( profile );
+              
+				this.origin = id;
 		
                 var self=this;
                 historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
@@ -42,74 +41,52 @@ define([
 	
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 		
-	
+				if(historycollection.get("profile").get("nickname")!="" && historycollection.get("profile").get("userID")!="" && historycollection.get("profile").get("email")!=""){ //Están todos los datos obligatorios
+					this.$("#fill_profile").attr("style","display:none");
+					
+					this.$("#displayname").text(historycollection.get("profile").get("nickname"));
+					this.$("#useremail").text(historycollection.get("profile").get("email"));
+					
+					//cargar foto
+					
+				}
+				
             },
 	
-            password_protect: function(){
+            save: function(){
+				console.log("Save profile function");
                 try{
-                    var newpassword1 = $('#textinput60').val();
-					var newpassword2 = $('#textinput70').val();
-					if(newpassword1 != newpassword2){
-						alert(this.history.get("languages").get("dic_passwords_not_match"));//passwords_not_match
-					}
-					else if (newpassword1.length < 4){
-						alert(this.history.get("languages").get("dic_password_too_short"));//password_too_short
+					if (typeof $("#displayname").val !== 'undefined' && typeof $("#useremail").val !== 'undefined' && $("#displayname").val != "" && $("#useremail").val !=""){
+						//Falta algún valor obligatorio
+						alert(this.history.get("languages").get("dic_profile_required"));
 					}
 					else{
-						console.log("Contraseña: ->"+newpassword1+"<-");
-						console.log("btoa: ->"+btoa(newpassword1)+"<-");
-
-						donot=this.history.get("donotshow");
-						donot.set("pass",btoa(newpassword1));
+						auxprofile=this.history.get("profile");
+						auxprofile.set("nickname",$("#displayname").val);
+						auxprofile.set("email",$("#useremail").val);
+					
+						//guardar foto
 						
-						this.history.get("donotshow").destroy();
-						this.history.create(donot);
+						this.history.get("profile").destroy();
+						this.history.create(auxprofile);
 						
-						try{//Activo el botón de borrar pass
-							self =  this;
-							$("#password_remove_protect_button").attr("style","");
-							
-							try{
-								navigator.notification.confirm(self.history.get("languages").get("dic_done"), function(indexans){}, self.history.get("languages").get("dic_Hoffman"),[self.history.get("languages").get("dic_next")]);
-							}
-							catch(e){
-								console.log(e);
-							}
+						if(this.origin == 0){
+							//Volver summary
+							 Backbone.history.navigate("#summary", {
+								trigger: true
+							});
 						}
-						catch(e){console.log(e);}
-						//console.log("atob: ->"+atob(btoa(newpassword1))+"<-");
-						
+						else {
+							//Ir al mapa
+							console.log("ir al mapa");
+						}
 					}
                 }
                 catch(e){
 					console.log(e);
                     alert(e);
                 }
-            },
-			
-			password_remove_protect: function(){
-				
-				self = this;
-				
-				donot=this.history.get("donotshow");
-				donot.set("pass","");
-				
-				this.history.get("donotshow").destroy();
-				this.history.create(donot);
-				
-				try{
-					$("#password_remove_protect_button").attr("style","display:none");
-
-					try{
-						navigator.notification.confirm(self.history.get("languages").get("dic_done"), function(indexans){}, self.history.get("languages").get("dic_Hoffman"),[self.history.get("languages").get("dic_next")]);
-					}
-					catch(e){
-						console.log(e);
-					}
-				}
-				catch(e){console.log(e);}
-				
-			}
+            }
 
 
         });

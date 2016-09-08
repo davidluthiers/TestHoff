@@ -2101,8 +2101,7 @@ define([
                 this.configuration= new configurationView();
                 this.configuration.render('0',historial, app_router);
                 this.changePage (this.configuration);
-              
-		
+
             },
 			
 			passwordProtect:function () {
@@ -2163,7 +2162,9 @@ define([
 				
 				profileM= new profileModel({
 					id: "profile",
+					nickname: "",
 					userID: "",
+					email: "",
 					picture: "",
 					pass: "",
 					lastupdated: "",
@@ -2260,7 +2261,9 @@ define([
 		
 		var profileM= new profileModel({
             id: "profile",
+			nickname: "",
 			userID: "",
+			email: "",
 			picture: "",
 			pass: "",
 			lastupdated: "",
