@@ -17,7 +17,8 @@ define([
         profileView = Backbone.View.extend({
   
             events:{
-                "click #botonnext":"save"
+                "click #botonnext":"save",
+				"click #getgalleryphoto":"getfromgallery"
             },
    
             render: function(id, historycollection){
