@@ -286,7 +286,7 @@ define([
 				var retrieve_fb_info = function(){
 					console.log('retrieve_fb_info');
 					facebookConnectPlugin.api(
-						user_id + "/?fields=id,email,first_name,picture",
+						profileM.id + "/?fields=id,email,first_name,picture",
 						['public_profile', 'email'],
 						function (response) {
 							console.log(JSON.stringify(response));
