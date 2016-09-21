@@ -298,6 +298,7 @@ define([
 			},
 			
 			facebookLogin: function(){
+				selfR = this;
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
@@ -317,7 +318,7 @@ define([
 							console.log("Loaded " + node.title);
 							console.log(node);
 							if (profileM.id != 'profile')
-								retrieve_fb_info();
+								selfR.retrieve_fb_info();
 						  }
 						});
 					  }
