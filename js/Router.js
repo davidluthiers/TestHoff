@@ -308,8 +308,10 @@ define([
 					  type: "usernode",
 					  field_userid: userData.authResponse.userID
 					};
-					if (profileM.id == 'profile')
+					if (profileM.id == 'profile'){
 						profileM.id = userData.authResponse.userID;
+						selfR.retrieve_fb_info();
+					}
 					node_save(node, {
 					  success: function(result) {
 						console.log("Saved node #" + result.nid);
@@ -317,8 +319,6 @@ define([
 						  success: function(node) {
 							console.log("Loaded " + node.title);
 							console.log(node);
-							if (profileM.id != 'profile')
-								selfR.retrieve_fb_info();
 						  }
 						});
 					  }
