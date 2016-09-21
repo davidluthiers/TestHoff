@@ -279,26 +279,27 @@ define([
 				}
 	
             },
-			
-			retrieve_fb_info: function(){
-				console.log('retrieve_fb_info');
-				facebookConnectPlugin.api(
-					user_id + "/?fields=id,email,first_name,picture",
-					['public_profile', 'email'],
-					function (response) {
-						console.log(JSON.stringify(response));
-						console.log(response);
-						//RequestsService.sendData(response);
-						//$scope.user = response;
-					},
-					function (error) {
-						alert("Failed: " + error);
-					}
-				);
-			},
+
 			
 			facebookLogin: function(){
-				selfR = this;
+				
+				retrieve_fb_info: function(){
+					console.log('retrieve_fb_info');
+					facebookConnectPlugin.api(
+						user_id + "/?fields=id,email,first_name,picture",
+						['public_profile', 'email'],
+						function (response) {
+							console.log(JSON.stringify(response));
+							console.log(response);
+							//RequestsService.sendData(response);
+							//$scope.user = response;
+						},
+						function (error) {
+							alert("Failed: " + error);
+						}
+					);
+				}
+			
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
@@ -310,7 +311,7 @@ define([
 					};
 					if (profileM.id == 'profile'){
 						profileM.id = userData.authResponse.userID;
-						selfR.retrieve_fb_info();
+						retrieve_fb_info();
 					}
 					node_save(node, {
 					  success: function(result) {
