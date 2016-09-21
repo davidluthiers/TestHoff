@@ -113,6 +113,22 @@ define([
 		
             },
 			
+			addphotovision: function(){
+                self = this;
+                if (!navigator.camera) {
+                    alert("Camera API not supported");
+                    return;
+                }
+                else
+                    navigator.camera.getPicture(function(imageData){
+                        self.onPhotoDataSuccess(imageData, false);
+                    }, this.onFail, {
+                        quality: 50,
+                        correctOrientation: true,
+						allowEdit: true
+                    });
+            },
+			
 			getfromgallery:function(){
                 var self=this;
                 try{

@@ -167,9 +167,6 @@ define([
                         correctOrientation: true,
 						allowEdit: true
                     });
-		 
-       
-	
             },
 	
             onPhotoDataSuccess: function(imageData, base64){
