@@ -52,10 +52,11 @@ define([
 					
 					//cargar foto
 					setTimeout(function(){
+							console.log('Ponemos foto de perfil');
                             var visionphoto = document.getElementById('visionphoto');
 							visionphoto.style.display = 'block'; 
 							visionphoto.src = historycollection.get("profile").get("picture");
-                        },100);
+                        },500);
 					
 					
 				}
