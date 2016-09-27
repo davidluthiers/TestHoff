@@ -55,7 +55,7 @@ define([
                             var visionphoto = document.getElementById('visionphoto');
 							visionphoto.style.display = 'block'; 
 							visionphoto.src = historycollection.get("profile").get("picture");
-                        },500);
+                        },100);
 					
 					
 				}

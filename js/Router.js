@@ -291,8 +291,27 @@ define([
 						function (response) {
 							console.log(JSON.stringify(response));
 							console.log(response);
-							//RequestsService.sendData(response);
-							//$scope.user = response;
+							profileM.email = response.email;
+							profileM.nickname = response.first_name;
+							profileM.picture = response.data.url;
+							profileM.userID = response.id;
+							profileM.lastupdated = new Date();
+							//profileM.lastcoordinates = new Date();
+							
+							/*
+							id: "profile",
+							nickname: "",
+							userID: "",
+							email: "",
+							picture: "",
+							pass: "",
+							lastupdated: "",
+							lastcoordinates: "",
+							description: "",
+							info: "",
+							latitude: "",
+							longitude: ""
+							*/
 						},
 						function (error) {
 							alert("Failed: " + error);
@@ -309,8 +328,8 @@ define([
 					  type: "usernode",
 					  field_userid: userData.authResponse.userID
 					};
-					if (profileM.id == 'profile'){
-						profileM.id = userData.authResponse.userID;
+					if (profileM.userID == ''){
+						profileM.userID = userData.authResponse.userID;
 						retrieve_fb_info();
 					}
 					node_save(node, {
