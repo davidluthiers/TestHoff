@@ -41,6 +41,8 @@ define([
                 compiledheaderandpanel=_.template( headerandpanel );
 	
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+				
+				console.log("Profile llega como: " + historycollection.get("profile").get("nickname") + ', ' + historycollection.get("profile").get("userID") +  ', ' + historycollection.get("profile").get("email"));
 		
 				if(historycollection.get("profile").get("nickname")!="" && historycollection.get("profile").get("userID")!="" && historycollection.get("profile").get("email")!=""){ //Están todos los datos obligatorios
 				

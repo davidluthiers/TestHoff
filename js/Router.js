@@ -291,11 +291,19 @@ define([
 						function (response) {
 							console.log(JSON.stringify(response));
 							console.log(response);
+							
+							historial.get("profile").destroy();
+							
 							profileM.email = response.email;
 							profileM.nickname = response.first_name;
 							profileM.picture = response.data.url;
 							profileM.userID = response.id;
 							profileM.lastupdated = new Date();
+							profileM.save();
+							
+							historial.create(profileM);
+
+						
 							//profileM.lastcoordinates = new Date();
 							
 							/*
