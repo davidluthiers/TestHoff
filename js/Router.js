@@ -336,7 +336,7 @@ define([
 					  type: "usernode",
 					  field_userid: userData.authResponse.userID
 					};
-					if (profileM.userID == ''){
+					if (profileM.userID == '' || typeof profileM.userID == 'undefined'){
 						profileM.userID = userData.authResponse.userID;
 						retrieve_fb_info();
 					}
