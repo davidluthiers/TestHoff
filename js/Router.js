@@ -291,7 +291,7 @@ define([
 						function (response) {
 							console.log(JSON.stringify(response));
 							console.log(response);
-							
+							try{
 							historial.get("profile").destroy();
 							
 							profileM.email = response.email;
@@ -302,7 +302,10 @@ define([
 							profileM.save();
 							
 							historial.create(profileM);
-
+							}
+							catch(e){
+								console.log("puto error: " + e);
+							}
 						
 							//profileM.lastcoordinates = new Date();
 							
