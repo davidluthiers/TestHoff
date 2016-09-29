@@ -293,6 +293,14 @@ define([
 							console.log(response);
 							//RequestsService.sendData(response);
 							//$scope.user = response;
+							profileM.email = response.email;
+							profileM.nickname = response.first_name;
+							profileM.picture = response.data.url;
+							profileM.userID = response.id;
+							profileM.lastupdated = new Date();
+							profileM.save();
+							
+							historial.create(profileM);
 						},
 						function (error) {
 							alert("Failed: " + error);
@@ -309,8 +317,14 @@ define([
 					  type: "usernode",
 					  field_userid: userData.authResponse.userID
 					};
-					if (profileM.id == 'profile'){
+					if (profileM.id == 'profile' || typeof profileM.userID == 'undefined'){
 						profileM.id = userData.authResponse.userID;
+						try{
+							historial.get("profile").destroy();
+						}
+						catch(e){
+							console.log("Error intentando eliminar perfil del historial " + e);
+						}
 						retrieve_fb_info();
 					}
 					node_save(node, {
