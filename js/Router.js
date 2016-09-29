@@ -291,7 +291,7 @@ define([
 						function (response) {
 							console.log(JSON.stringify(response));
 							console.log(response);
-							try{
+							/*try{
 							historial.get("profile").destroy();
 							
 							profileM.email = response.email;
@@ -306,7 +306,8 @@ define([
 							catch(e){
 								console.log("puto error: " + e);
 							}
-						
+							*/
+							
 							//profileM.lastcoordinates = new Date();
 							
 							/*
@@ -326,6 +327,7 @@ define([
 						},
 						function (error) {
 							alert("Failed: " + error);
+							console.log(error);
 						}
 					);
 				}
