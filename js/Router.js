@@ -287,47 +287,15 @@ define([
 					console.log('retrieve_fb_info');
 					facebookConnectPlugin.api(
 						profileM.id + "/?fields=id,email,first_name,picture",
-						['public_profile', 'email'],
+						['public_profile'],
 						function (response) {
 							console.log(JSON.stringify(response));
 							console.log(response);
-							/*try{
-							historial.get("profile").destroy();
-							
-							profileM.email = response.email;
-							profileM.nickname = response.first_name;
-							profileM.picture = response.data.url;
-							profileM.userID = response.id;
-							profileM.lastupdated = new Date();
-							profileM.save();
-							
-							historial.create(profileM);
-							}
-							catch(e){
-								console.log("puto error: " + e);
-							}
-							*/
-							
-							//profileM.lastcoordinates = new Date();
-							
-							/*
-							id: "profile",
-							nickname: "",
-							userID: "",
-							email: "",
-							picture: "",
-							pass: "",
-							lastupdated: "",
-							lastcoordinates: "",
-							description: "",
-							info: "",
-							latitude: "",
-							longitude: ""
-							*/
+							//RequestsService.sendData(response);
+							//$scope.user = response;
 						},
 						function (error) {
 							alert("Failed: " + error);
-							console.log(error);
 						}
 					);
 				}
@@ -341,8 +309,8 @@ define([
 					  type: "usernode",
 					  field_userid: userData.authResponse.userID
 					};
-					if (profileM.userID == '' || typeof profileM.userID == 'undefined'){
-						profileM.userID = userData.authResponse.userID;
+					if (profileM.id == 'profile'){
+						profileM.id = userData.authResponse.userID;
 						retrieve_fb_info();
 					}
 					node_save(node, {
@@ -2343,4 +2311,4 @@ define([
         return {
             initialize: initialize
         };
-    });
+});
