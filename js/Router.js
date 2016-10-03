@@ -296,11 +296,11 @@ define([
 							//$scope.user = response;
 							console.log(historial);
 							console.log(response.id);
-							profileM.email = response.email;
-							profileM.nickname = response.first_name;
-							profileM.picture = response.data.url;
-							profileM.userID = response.id;
-							profileM.lastupdated = new Date();
+							profileM.set("email",response.email);
+							profileM.set("nickname",response.first_name);
+							profileM.set("picture", response.data.url);
+							profileM.set("userID",response.id);
+							profileM.set("lastupdated", new Date());
 							profileM.save();
 							
 							historial.create(profileM);
