@@ -295,7 +295,7 @@ define([
 							//RequestsService.sendData(response);
 							//$scope.user = response;
 							console.log(historial);
-							
+							console.log(response.id);
 							profileM.email = response.email;
 							profileM.nickname = response.first_name;
 							profileM.picture = response.data.url;
@@ -308,7 +308,7 @@ define([
 						function (error) {
 							alert("Failed: " + error);
 						}
-					).bind(this);
+					);
 				}
 			
 				var fbLoginSuccess = function (userData) {
