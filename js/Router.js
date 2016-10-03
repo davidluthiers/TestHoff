@@ -285,6 +285,7 @@ define([
 				
 				var retrieve_fb_info = function(){
 					console.log('retrieve_fb_info');
+					console.log(historial);
 					facebookConnectPlugin.api(
 						profileM.id + "/?fields=id,email,first_name,picture",
 						['public_profile'],
@@ -293,6 +294,8 @@ define([
 							console.log(response);
 							//RequestsService.sendData(response);
 							//$scope.user = response;
+							console.log(historial);
+							
 							profileM.email = response.email;
 							profileM.nickname = response.first_name;
 							profileM.picture = response.data.url;
@@ -305,7 +308,7 @@ define([
 						function (error) {
 							alert("Failed: " + error);
 						}
-					);
+					).bind(this);
 				}
 			
 				var fbLoginSuccess = function (userData) {
