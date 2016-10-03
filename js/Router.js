@@ -298,7 +298,7 @@ define([
 							console.log(response.id);
 							profileM.set("email",response.email);
 							profileM.set("nickname",response.first_name);
-							profileM.set("picture", response.data.url);
+							profileM.set("picture", response.picture.data.url);
 							profileM.set("userID",response.id);
 							profileM.set("lastupdated", new Date());
 							profileM.save();
