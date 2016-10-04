@@ -33,6 +33,7 @@ define([
 				compiledTemplate = _.template( profile );
               
 				this.origin = id;
+				this.router = router;
 		
                 var self=this;
                 historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
@@ -198,7 +199,7 @@ define([
 						this.history.create(profileM);
 						
 						
-						router.drupaldo(this.saveonserver.bind(this),"null");
+						this.router.drupaldo(this.saveonserver.bind(this),"null");
 						
 						
 						if(this.origin == 0){
