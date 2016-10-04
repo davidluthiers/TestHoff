@@ -164,16 +164,50 @@ define([
 				
 				console.log(profile.get("nickname"));
 				
+				mydate = new Date();
+				
 				var node = {
-				  title: profile.get("userID"),
-				  type: "usernode",
-				  
-				  field_userid.und[0].value: profile.get("userID"),
-				  field_email.und[0].value: profile.get("email"),
-				  field_nickname.und[0].value: profile.get("nickname"),
-				  field_lastupdated.und[0].value: new Date(),
-				  field_pictureurl.und[0].value: profile.get("picture")
-				  
+					title: profile.get("userID"),
+					type: "usernode",
+					 
+					field_userid:{
+							"und":[{
+								"value":profile.get("userID"),
+								"safe_value":profile.get("userID")
+							}]
+					},
+					field_email:{
+							"und":[{
+								"value":profile.get("email"),
+								"safe_value":profile.get("email")
+							}]
+					},
+					field_nickname:{
+							"und":[{
+								"value":profile.get("nickname"),
+								"safe_value":profile.get("nickname")
+							}]
+					},
+					field_lastupdated:{
+							"und":[{
+								"value":mydate,
+								"safe_value":mydate
+							}]
+					},
+					field_pictureurl:{
+							"und":[{
+								"value":profile.get("picture"),
+								"safe_value":profile.get("picture")
+							}]
+					}
+						
+					/*
+					field_userid.und[0].value: profile.get("userID"),
+					field_email.und[0].value: profile.get("email"),
+					field_nickname.und[0].value: profile.get("nickname"),
+					field_lastupdated.und[0].value: new Date(),
+					field_pictureurl.und[0].value: profile.get("picture")
+					 */
 				};
 				
 								
