@@ -174,18 +174,20 @@ define([
 				  
 				};
 				
+				console.log(
+				
 				try{
 					node_save(node, {
 					  success: function(result) {
 						console.log("Saved node #" + result.nid);
-						/*
+						
 						node_load(result.nid, {
 						  success: function(node) {
 							console.log("Loaded " + node.title);
 							console.log(node);
 						  }
 						});
-						*/
+						
 					  }
 					});
 				}
