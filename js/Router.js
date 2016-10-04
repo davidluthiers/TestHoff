@@ -2169,7 +2169,7 @@ define([
 				
                 this.profileV= new profileView();
 		
-                this.profileV.render(0,historial);
+                this.profileV.render(0,historial, app_router);
 		
                 this.changePage (this.profileV);
         

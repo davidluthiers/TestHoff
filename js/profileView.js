@@ -22,7 +22,7 @@ define([
 				"click #loadfromfacebook":"loadfromfacebook"
             },
    
-            render: function(id, historycollection){
+            render: function(id, historycollection, router){
                 this.$el.attr('data-role', 'page');
                 this.$el.attr('data-theme', 'a');
                 this.$el.attr('class', 'page');
@@ -63,6 +63,15 @@ define([
 					
 					
 				}
+				else{
+					//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
+					try{
+						loadfromfacebook();
+					}
+					catch(e){
+						console.log("Error en loadfromfacebook: " + e);
+					}
+				}
 				
             },
 			
@@ -84,35 +93,25 @@ define([
 							//$scope.user = response;
 							console.log(historial);
 							console.log(response.id);
-							profileM.set("email",response.email);
-							profileM.set("nickname",response.first_name);
-							profileM.set("picture", response.picture.data.url);
+
 							profileM.set("userID",response.id);
-							profileM.set("lastupdated", new Date());
 							profileM.save();
 							
 							historial.create(profileM);
 							
-							/*
-							var node = {
-							  title: userData.authResponse.userID,
-							  type: "usernode",
-							  field_userid: userData.authResponse.userID,
-							  
-							};
 							
-							node_save(node, {
-							  success: function(result) {
-								console.log("Saved node #" + result.nid);
-								node_load(result.nid, {
-								  success: function(node) {
-									console.log("Loaded " + node.title);
-									console.log(node);
-								  }
-								});
-							  }
-							});
-							*/
+							this.$("#fill_profile").attr("style","display:none");
+					
+							this.$("#displayname").text(historycollection.get("profile").get("nickname"));
+							this.$("#useremail").text(historycollection.get("profile").get("email"));
+							
+							//cargar foto
+							setTimeout(function(){
+									console.log('Ponemos foto de perfil');
+									var visionphoto = document.getElementById('visionphoto');
+									visionphoto.style.display = 'block'; 
+									visionphoto.src = historycollection.get("profile").get("picture");
+								},500);
 					
 						},
 						function (error) {
@@ -149,6 +148,31 @@ define([
 				);
 				
 			},
+			
+			saveonserver: function(){
+				/*
+				var node = {
+				  title: userData.authResponse.userID,
+				  type: "usernode",
+				  field_userid: userData.authResponse.userID,
+				  
+				};
+				
+				node_save(node, {
+				  success: function(result) {
+					console.log("Saved node #" + result.nid);
+					node_load(result.nid, {
+					  success: function(node) {
+						console.log("Loaded " + node.title);
+						console.log(node);
+					  }
+					});
+				  }
+				});
+				*/
+				console.log("saveonserver");
+				
+			},
 	
             save: function(){
 				console.log("Save profile function");
@@ -156,12 +180,22 @@ define([
                 try{
 					if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
 						//Tiene valores válidos
-						auxprofile=this.history.get("profile");
-						auxprofile.set("nickname",$("#displayname").val());
-						auxprofile.set("email",$("#useremail").val());
-						
+						profileM=this.history.get("profile");
 						this.history.get("profile").destroy();
-						this.history.create(auxprofile);
+						
+						profileM.set("nickname",$("#displayname").val());
+						profileM.set("email",$("#useremail").val());
+						var visionphoto = document.getElementById('visionphoto');
+						profileM.set("picture", visionphoto.src);
+						profileM.set("userID",this.history.get("profile").get("userID");
+						profileM.set("lastupdated", new Date());
+						profileM.save();
+							
+						this.history.create(profileM);
+						
+						
+						router.drupaldo(this.saveonserver.bind(this),"null");
+						
 						
 						if(this.origin == 0){
 							//Volver summary
