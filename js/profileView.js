@@ -83,7 +83,7 @@ define([
 				
 				var retrieve_fb_info = function(){
 					console.log('retrieve_fb_info');
-					console.log(historial);
+					
 					facebookConnectPlugin.api(
 						profileM.id + "/?fields=id,email,first_name,picture",
 						['public_profile'],
@@ -94,16 +94,18 @@ define([
 							//$scope.user = response;
 					
 							console.log(response.id);
-
+							try{
 							profileM.set("userID",response.id);
-							profileM.save();
+							profileM.save();}
+							catch(e){console.log("Nuevo error:" + e);}
 							
 							historial.create(profileM);
 							
 							
 							$("#fill_profile").attr("style","display:none");
 					
-							$("#displayname").text(response.first_name);
+							//$("#displayname").text(response.first_name);
+							$("#displayname").text('test');
 							$("#useremail").text(response.email);
 							
 							
