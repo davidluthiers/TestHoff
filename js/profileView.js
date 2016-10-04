@@ -167,10 +167,12 @@ define([
 				var node = {
 				  title: profile.get("userID"),
 				  type: "usernode",
-				  field_userid: profile.get("userID"),
-				  field_email: profile.get("email"),
-				  field_nickname: profile.get("nickname"),
-				  field_lastupdated: new Date()
+				  
+				  field_userid.und[0].value: profile.get("userID"),
+				  field_email.und[0].value: profile.get("email"),
+				  field_nickname.und[0].value: profile.get("nickname"),
+				  field_lastupdated.und[0].value: new Date(),
+				  field_pictureurl.und[0].value: profile.get("picture")
 				  
 				};
 				
@@ -180,7 +182,7 @@ define([
 					  success: function(result) {
 						console.log("Saved node #" + result.nid);
 						
-						node_load(5360, {
+						node_load(result.nid, {
 						  success: function(node) {
 							console.log("Loaded " + node.title);
 							console.log(node);
