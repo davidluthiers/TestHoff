@@ -174,8 +174,7 @@ define([
 				  
 				};
 				
-				console.log(
-				
+								
 				try{
 					node_save(node, {
 					  success: function(result) {
