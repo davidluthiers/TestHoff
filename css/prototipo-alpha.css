@@ -113,8 +113,9 @@ label.ui-input-text {font-size:100%;font-weight: 400;}
 		
 		.ui-icon-facebook{
 			background-image: url('../img/Icons/ico-fb.png') !important;
-			background-position: 0px -2px;
+			background-position: 0px 0px;
 			background-size: 18px 18px;
+			background-color: rgb(59, 89, 152);
 		}
 		
 		.ui-bar-a{border:0px;}
