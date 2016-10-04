@@ -66,7 +66,7 @@ define([
 				else{
 					//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
 					try{
-						loadfromfacebook();
+						this.loadfromfacebook();
 					}
 					catch(e){
 						console.log("Error en loadfromfacebook: " + e);
@@ -102,15 +102,15 @@ define([
 							
 							this.$("#fill_profile").attr("style","display:none");
 					
-							this.$("#displayname").text(historycollection.get("profile").get("nickname"));
-							this.$("#useremail").text(historycollection.get("profile").get("email"));
+							this.$("#displayname").text(historial.get("profile").get("nickname"));
+							this.$("#useremail").text(historial.get("profile").get("email"));
 							
 							//cargar foto
 							setTimeout(function(){
 									console.log('Ponemos foto de perfil');
 									var visionphoto = document.getElementById('visionphoto');
 									visionphoto.style.display = 'block'; 
-									visionphoto.src = historycollection.get("profile").get("picture");
+									visionphoto.src = historial.get("profile").get("picture");
 								},500);
 					
 						},
