@@ -105,9 +105,9 @@ define([
 							$("#fill_profile").attr("style","display:none");
 					
 							//$("#displayname").text(response.first_name);
-							$("#displayname").text('test');
-							$("#useremail").text(response.email);
-							
+							//$("#useremail").text(response.email);
+							document.getElementById("displayname").value = response.first_name;
+							document.getElementById("useremail").value = response.email;
 							
 							//cargar foto
 							setTimeout(function(){
