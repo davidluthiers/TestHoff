@@ -51,12 +51,15 @@ define([
 					console.log("Cargando datos del profile");
 					this.$("#fill_profile").attr("style","display:none");
 					
-					document.getElementById("displayname").value = historycollection.get("profile").get("nickname");
-					document.getElementById("useremail").value = historycollection.get("profile").get("email");
+					
 
+					//this.$("#displayname").text(historycollection.get("profile").get("nickname"));
+					//this.$("#useremail").text(historycollection.get("profile").get("email"));
 					
 					//cargar foto
 					setTimeout(function(){
+							document.getElementById("displayname").value = historycollection.get("profile").get("nickname");
+							document.getElementById("useremail").value = historycollection.get("profile").get("email");
 							console.log('Ponemos foto de perfil');
                             var visionphoto = document.getElementById('visionphoto');
 							visionphoto.style.display = 'block'; 
