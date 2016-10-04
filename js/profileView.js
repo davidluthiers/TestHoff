@@ -259,7 +259,7 @@ define([
 						this.router.drupaldo(this.saveonserver.bind(this),"null");
 						
 						
-						if(this.origin == 0){
+						if(this.origin == '0'){
 							//Volver summary
 							 Backbone.history.navigate("#summary", {
 								trigger: true
