@@ -174,19 +174,24 @@ define([
 				  
 				};
 				
-				node_save(node, {
-				  success: function(result) {
-					console.log("Saved node #" + result.nid);
-					/*
-					node_load(result.nid, {
-					  success: function(node) {
-						console.log("Loaded " + node.title);
-						console.log(node);
+				try{
+					node_save(node, {
+					  success: function(result) {
+						console.log("Saved node #" + result.nid);
+						/*
+						node_load(result.nid, {
+						  success: function(node) {
+							console.log("Loaded " + node.title);
+							console.log(node);
+						  }
+						});
+						*/
 					  }
 					});
-					*/
-				  }
-				});
+				}
+			catch(e){
+				console.log("Error save_node: " + e);
+			}
 				
 				
 				console.log("saveonserver");
@@ -200,7 +205,7 @@ define([
 					if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
 						//Tiene valores válidos
 						profileM=this.history.get("profile");
-						this.history.get("profile").destroy();
+						
 						
 						profileM.set("nickname",$("#displayname").val());
 						profileM.set("email",$("#useremail").val());
@@ -208,6 +213,7 @@ define([
 						profileM.set("picture", visionphoto.src);
 						profileM.set("userID",this.history.get("profile").get("userID"));
 						profileM.set("lastupdated", new Date());
+						this.history.get("profile").destroy();
 						profileM.save();
 							
 						this.history.create(profileM);
