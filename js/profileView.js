@@ -155,26 +155,34 @@ define([
 			},
 			
 			saveonserver: function(){
-				/*
+				
+				profile = this.history.get("profile");
+				
 				var node = {
-				  title: userData.authResponse.userID,
+				  title: profile.get("userID"),
 				  type: "usernode",
-				  field_userid: userData.authResponse.userID,
+				  field_userid: profile.get("userID"),
+				  field_email: profile.get("email"),
+				  field_nickname: profile.get("nickname"),
+				  field_lastupdated: new Date()
 				  
 				};
 				
 				node_save(node, {
 				  success: function(result) {
 					console.log("Saved node #" + result.nid);
+					/*
 					node_load(result.nid, {
 					  success: function(node) {
 						console.log("Loaded " + node.title);
 						console.log(node);
 					  }
 					});
+					*/
 				  }
 				});
-				*/
+				
+				
 				console.log("saveonserver");
 				
 			},
