@@ -111,6 +111,12 @@ label.ui-input-text {font-size:100%;font-weight: 400;}
 			background-position: 43% 58%;
 		}
 		
+		.ui-icon-facebook{
+			background-image: url('../img/Icons/ico-fb.png') !important;
+			background-position: 0px -2px;
+			background-size: 18px 18px;
+		}
+		
 		.ui-bar-a{border:0px;}
 
 input[type="text"] {		/* input type transparentes para que se vea la hoja de cuadrícula */
@@ -1562,6 +1568,11 @@ top:-8px;
 	background: none;
 	box-shadow: none;
 	border: none;
+	}
+	
+	#loadfromfacebook{
+		background: rgb(59, 89, 152);
+		border: rgb(59, 89, 152);
 	}
 	
 	
