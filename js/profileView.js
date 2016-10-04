@@ -51,8 +51,8 @@ define([
 					console.log("Cargando datos del profile");
 					this.$("#fill_profile").attr("style","display:none");
 					
-					this.$("#displayname").text(historycollection.get("profile").get("nickname"));
-					this.$("#useremail").text(historycollection.get("profile").get("email"));
+					document.getElementById("displayname").value = response.first_name;
+					document.getElementById("useremail").value = response.email;
 					
 					//cargar foto
 					setTimeout(function(){
@@ -157,6 +157,8 @@ define([
 			saveonserver: function(){
 				
 				profile = this.history.get("profile");
+				
+				console.log(profile.get("nickname"));
 				
 				var node = {
 				  title: profile.get("userID"),
