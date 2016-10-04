@@ -180,7 +180,7 @@ define([
 					  success: function(result) {
 						console.log("Saved node #" + result.nid);
 						
-						node_load(result.nid, {
+						node_load(5360, {
 						  success: function(node) {
 							console.log("Loaded " + node.title);
 							console.log(node);
