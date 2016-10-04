@@ -304,6 +304,28 @@ define([
 							profileM.save();
 							
 							historial.create(profileM);
+							
+							/*
+							var node = {
+							  title: userData.authResponse.userID,
+							  type: "usernode",
+							  field_userid: userData.authResponse.userID,
+							  
+							};
+							
+							node_save(node, {
+							  success: function(result) {
+								console.log("Saved node #" + result.nid);
+								node_load(result.nid, {
+								  success: function(node) {
+									console.log("Loaded " + node.title);
+									console.log(node);
+								  }
+								});
+							  }
+							});
+							*/
+					
 						},
 						function (error) {
 							alert("Failed: " + error);
@@ -315,11 +337,7 @@ define([
 					console.log("UserInfo: ");
 					console.log(JSON.stringify(userData));
 					console.log(userData.authResponse);
-					var node = {
-					  title: "Hello World",
-					  type: "usernode",
-					  field_userid: userData.authResponse.userID
-					};
+					
 					if (profileM.id == 'profile' || typeof profileM.userID == 'undefined'){
 						profileM.id = userData.authResponse.userID;
 						try{
@@ -330,17 +348,8 @@ define([
 						}
 						retrieve_fb_info();
 					}
-					node_save(node, {
-					  success: function(result) {
-						console.log("Saved node #" + result.nid);
-						node_load(result.nid, {
-						  success: function(node) {
-							console.log("Loaded " + node.title);
-							console.log(node);
-						  }
-						});
-					  }
-					});
+					
+					
 				}
 									
 				facebookConnectPlugin.login(["public_profile"],
