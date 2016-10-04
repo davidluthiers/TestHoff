@@ -92,7 +92,7 @@ define([
 							console.log(response);
 							//RequestsService.sendData(response);
 							//$scope.user = response;
-							console.log(historial);
+					
 							console.log(response.id);
 
 							profileM.set("userID",response.id);
@@ -103,16 +103,16 @@ define([
 							
 							$("#fill_profile").attr("style","display:none");
 					
-							$("#displayname").text(historial.get("profile").get("nickname"));
-							$("#useremail").text(historial.get("profile").get("email"));
+							$("#displayname").text(response.first_name);
+							$("#useremail").text(response.email);
+							
 							
 							//cargar foto
 							setTimeout(function(){
 									console.log('Ponemos foto de perfil');
 									var visionphoto = document.getElementById('visionphoto');
 									visionphoto.style.display = 'block';
-									d = new Date();
-									visionphoto.src = historial.get("profile").get("picture")+'?'+d.getTime();
+									visionphoto.src = response.picture.data.url;
 								},500);
 					
 						},
