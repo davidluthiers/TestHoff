@@ -187,7 +187,7 @@ define([
 						profileM.set("email",$("#useremail").val());
 						var visionphoto = document.getElementById('visionphoto');
 						profileM.set("picture", visionphoto.src);
-						profileM.set("userID",this.history.get("profile").get("userID");
+						profileM.set("userID",this.history.get("profile").get("userID"));
 						profileM.set("lastupdated", new Date());
 						profileM.save();
 							
