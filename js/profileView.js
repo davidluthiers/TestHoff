@@ -18,7 +18,8 @@ define([
   
             events:{
                 "click #botonnext":"save",
-				"click #getgalleryphoto":"getfromgallery"
+				"click #getgalleryphoto":"getfromgallery",
+				"click #loadfromfacebook":"loadfromfacebook"
             },
    
             render: function(id, historycollection){
@@ -64,6 +65,90 @@ define([
 				}
 				
             },
+			
+			loadfromfacebook: function(){
+				
+				profileM = this.history.get("profile");
+				historial = this.history;
+				
+				var retrieve_fb_info = function(){
+					console.log('retrieve_fb_info');
+					console.log(historial);
+					facebookConnectPlugin.api(
+						profileM.id + "/?fields=id,email,first_name,picture",
+						['public_profile'],
+						function (response) {
+							console.log(JSON.stringify(response));
+							console.log(response);
+							//RequestsService.sendData(response);
+							//$scope.user = response;
+							console.log(historial);
+							console.log(response.id);
+							profileM.set("email",response.email);
+							profileM.set("nickname",response.first_name);
+							profileM.set("picture", response.picture.data.url);
+							profileM.set("userID",response.id);
+							profileM.set("lastupdated", new Date());
+							profileM.save();
+							
+							historial.create(profileM);
+							
+							/*
+							var node = {
+							  title: userData.authResponse.userID,
+							  type: "usernode",
+							  field_userid: userData.authResponse.userID,
+							  
+							};
+							
+							node_save(node, {
+							  success: function(result) {
+								console.log("Saved node #" + result.nid);
+								node_load(result.nid, {
+								  success: function(node) {
+									console.log("Loaded " + node.title);
+									console.log(node);
+								  }
+								});
+							  }
+							});
+							*/
+					
+						},
+						function (error) {
+							alert("Failed: " + error);
+						}
+					);
+				}
+			
+				var fbLoginSuccess = function (userData) {
+					console.log("UserInfo: ");
+					console.log(JSON.stringify(userData));
+					console.log(userData.authResponse);
+					
+					if (profileM.id == 'profile' || typeof profileM.userID == 'undefined'){
+						profileM.id = userData.authResponse.userID;
+						try{
+							historial.get("profile").destroy();
+						}
+						catch(e){
+							console.log("Error intentando eliminar perfil del historial " + e);
+						}
+						retrieve_fb_info();
+					}
+					
+					
+				}
+									
+				facebookConnectPlugin.login(["public_profile"],
+					fbLoginSuccess,
+					function (error) { 
+						console.log("Fb error:");
+						console.log(error);
+					}
+				);
+				
+			},
 	
             save: function(){
 				console.log("Save profile function");

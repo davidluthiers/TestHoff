@@ -134,6 +134,11 @@ input[type="text"] {		/* input type transparentes para que se vea la hoja de cua
 	#addphotovision .ui-btn-text {
 		color: rgba(94, 129, 33, 0.71);
 	}
+	
+	#addphotoprofile .ui-btn-text {
+		color: rgba(94, 129, 33, 0.71);
+	}
+	
 	#getgalleryphoto {
          top: -130px;
     }
@@ -1550,7 +1555,17 @@ top:-8px;
 	border: none;
 	}
 	
-	#addphotovision .ui-btn-inner{
+	#addphotoprofile{
+	position: relative;
+	top: -120px;
+	right: -131px;
+	background: none;
+	box-shadow: none;
+	border: none;
+	}
+	
+	
+	#addphotovision .ui-btn-inner, #addphotoprofile .ui-btn-inner{
 	position: relative;
 	right: 24%;
 	border: none !important;

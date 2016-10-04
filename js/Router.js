@@ -186,7 +186,8 @@ define([
 					
 				}
 				else{
-					self.drupaldo(self.facebookLogin);
+					//self.drupaldo(self.facebookLogin);
+					console.log("Accedemos sin password");
 				}
 				
 				
