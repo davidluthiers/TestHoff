@@ -98,13 +98,33 @@ define([
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 				
-					try {
+					this.loadMap();
+					
+				}
+				
+				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
+		
+				
+				
+            },
+			
+			loadMap: function(){
+				
+				console.log("loadMap");
+
+				
+				this.$("#map_module_map").on('pageshow', this.getCoord);
+
+			},
+			
+			getCoord: function(){
+				try {
 	  
 						navigator.geolocation.getCurrentPosition(
 						  
 						    // Success.
 						    function (position){
-								self.loadMap(position.coords.latitude,position.coords.longitude);
+								self.initializeMap(position.coords.latitude,position.coords.longitude);
 								},
 						  
 							// Error
@@ -116,7 +136,7 @@ define([
 								//if(history.length<=2)//Sólo cuando entramos por primera vez
 									//drupalgap_alert("Activated GPS is required to load your position");
 								
-								self.loadMap(39.4658376,-0.3582468);
+								self.initializeMap(39.4658376,-0.3582468);
 
 								// Process error code.
 								switch (error.code) {
@@ -147,29 +167,14 @@ define([
 							}
 						  
 						);
-						
-						//loadMap(39.4658376,-0.3582468);
+
 					  }
 					  catch (error) { console.log('map_module_map_pageshow - ' + error); }
-					
-				}
-				
-				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
-		
-				
-				
-            },
-			
-			loadMap: function(){
-				
-				console.log("loadMap");
-
-				
-				this.$("#map_module_map").on('pageshow', this.initializeMap);
-
 			},
 			
 			initializeMap: function(_map_module_user_latitude, _map_module_user_longitude){
+				
+				
 				
 				console.log("initializeMap");
 				var mapDiv = document.getElementById("map_module_map");
