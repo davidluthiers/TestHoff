@@ -99,7 +99,7 @@ define([
 			loadMap: function(){
 				
 				console.log("loadMap");
-				
+				self=this;
 				compiledTemplate = _.template( map );
 				
 				this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
