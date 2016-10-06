@@ -107,7 +107,7 @@
 			<false/>
 		</gap:config-file>
 		
-		<gap:plugin name="cordova-plugin-googlemaps" source="npm" version="1.3.9" >
+		<gap:plugin name="cordova-plugin-googlemaps" source="npm" >
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyBcOEZLBuJa4sIdYasJi4HmoGQwOdU_9IQ" />
 			<param name="API_KEY_FOR_IOS" value="AIzaSyArNLMm0og6nyxHP4rZNy-yHmqL9c7falk" />
 		</gap:plugin>

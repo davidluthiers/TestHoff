@@ -1922,8 +1922,8 @@ padding-left:0px!important;
 /* Mapa */
 
 #map_module_map{
-    height: 335px;
-	width: 100%;
+	position: absolute !important;
+	top: 40px !important;
 }
 
 
