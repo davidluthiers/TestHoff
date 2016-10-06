@@ -104,7 +104,7 @@ define([
 						  
 						    // Success.
 						    function (position){
-								self.loadMap(position.coords.latitude,position.coords.longitude);
+								self.initializeMap(position.coords.latitude,position.coords.longitude);
 								},
 						  
 							// Error
@@ -116,7 +116,7 @@ define([
 								//if(history.length<=2)//Sólo cuando entramos por primera vez
 									//drupalgap_alert("Activated GPS is required to load your position");
 								
-								self.loadMap(39.4658376,-0.3582468);
+								self.initializeMap(39.4658376,-0.3582468);
 
 								// Process error code.
 								switch (error.code) {
