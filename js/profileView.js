@@ -244,14 +244,11 @@ define([
 				
 								
 				try{
+					self= this;
 					node_save(node, {
 					  success: function(result) {
 						console.log("Saved node #" + result.nid);
-						this.history.get("profile").destroy();
-						profile.set("active", "yes");
-						profile.set("saved", "yes");
-						profile.save();
-						this.history.create(profile);
+						self.setActive();
 						node_load(result.nid, {
 						  success: function(node) {
 							console.log("Loaded " + node.title);
@@ -269,6 +266,15 @@ define([
 				
 				console.log("saveonserver");
 				
+			},
+			
+			setActive: function(){
+				profile= this.history.get("profile");
+				this.history.get("profile").destroy();
+				profile.set("active", "yes");
+				profile.set("saved", "yes");
+				profile.save();
+				this.history.create(profile);
 			},
 	
             save: function(){
