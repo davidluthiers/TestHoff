@@ -91,7 +91,9 @@ define([
 						navigator.geolocation.getCurrentPosition(
 						  
 						    // Success.
-						    function (position){this.loadMap(position.coords.latitude,position.coords.longitude);},
+						    function (position){
+								self.loadMap(position.coords.latitude,position.coords.longitude);
+								},
 						  
 							// Error
 							function(error) {
@@ -102,7 +104,7 @@ define([
 								//if(history.length<=2)//Sólo cuando entramos por primera vez
 									//drupalgap_alert("Activated GPS is required to load your position");
 								
-								this.loadMap(39.4658376,-0.3582468);
+								self.loadMap(39.4658376,-0.3582468);
 
 								// Process error code.
 								switch (error.code) {
