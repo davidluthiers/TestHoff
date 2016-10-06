@@ -331,7 +331,7 @@ define([
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
 				visionphoto.src = imageData;
-				
+				$.mobile.silentScroll(0);
 				//Guardamos la foto
                 auxprofile=this.history.get("profile");
 				auxprofile.set("picture",imageData);
