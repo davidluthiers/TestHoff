@@ -7,10 +7,11 @@ define([
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'text!../Templates/profile.html',
+	'text!../Templates/map.html',
     'text!../Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, profile, headerandpanel){
+    ], function($, _, Backbone, profile, map, headerandpanel){
 
 
 
@@ -30,56 +31,87 @@ define([
                 this.history=historycollection;
 	
                 
-				compiledTemplate = _.template( profile );
+				
               
 				this.origin = id;
 				this.router = router;
+				this.profile = historycollection.get("profile");
 		
                 var self=this;
-                historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
-			
-                result= historycollection.get("languages").toJSON();
-	
-                compiledheaderandpanel=_.template( headerandpanel );
-	
-                this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 				
-				console.log("Profile llega como: " + historycollection.get("profile").get("nickname") + ', ' + historycollection.get("profile").get("userID") +  ', ' + historycollection.get("profile").get("email"));
+				if(this.profile.get("active") != "yes"){
+					
+					/*
+						aquí hay que poner código para que compruebe si en el servidor ya hay datos guardados con mi ID de FB
+					*/
+					
+					compiledTemplate = _.template( profile );
+					
+					//Carga del profile
+					historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
+				
+					result= historycollection.get("languages").toJSON();
 		
-				if(historycollection.get("profile").get("nickname")!="" && historycollection.get("profile").get("userID")!="" && historycollection.get("profile").get("email")!=""){ //Están todos los datos obligatorios
+					compiledheaderandpanel=_.template( headerandpanel );
+		
+					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+					
+					if(this.profile.get("nickname")!="" && this.profile.get("userID")!="" && this.profile.get("email")!=""){ //Están todos los datos obligatorios
 				
-					console.log("Cargando datos del profile");
-					this.$("#fill_profile").attr("style","display:none");
-					
-					
+						console.log("Cargando datos del profile");
+						this.$("#fill_profile").attr("style","display:none");
 
-					//this.$("#displayname").text(historycollection.get("profile").get("nickname"));
-					//this.$("#useremail").text(historycollection.get("profile").get("email"));
-					
-					//cargar foto
-					setTimeout(function(){
-							document.getElementById("displayname").value = historycollection.get("profile").get("nickname");
-							document.getElementById("useremail").value = historycollection.get("profile").get("email");
-							console.log('Ponemos foto de perfil');
-                            var visionphoto = document.getElementById('visionphoto');
-							visionphoto.style.display = 'block'; 
-							visionphoto.src = historycollection.get("profile").get("picture");
-                        },100);
-					
-					
+						//cargar foto
+						setTimeout(function(){
+								document.getElementById("displayname").value = this.profile.get("nickname");
+								document.getElementById("useremail").value = this.profile.get("email");
+								console.log('Ponemos foto de perfil');
+								var visionphoto = document.getElementById('visionphoto');
+								visionphoto.style.display = 'block'; 
+								visionphoto.src = this.profile.get("picture");
+							},100);
+
+					}
+					else{
+						//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
+						try{
+							//this.loadfromfacebook();
+							console.log("Aquí podríamos cargar los datos de FB");
+						}
+						catch(e){
+							console.log("Error en loadfromfacebook: " + e);
+							alert("Couldn't connect to Facebook " + e);
+						}
+					}
 				}
 				else{
-					//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
-					try{
-						//this.loadfromfacebook();
-						console.log("Aquí podríamos cargar los datos de FB");
-					}
-					catch(e){
-						console.log("Error en loadfromfacebook: " + e);
-					}
+					//Carga del mapa
+					this.loadMap();
+					
 				}
 				
+				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
+		
+				
+				
             },
+			
+			loadMap: function(){
+				
+				console.log("loadMap");
+				
+				compiledTemplate = _.template( map );
+				/*
+				historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
+				
+				result= historycollection.get("languages").toJSON();
+	
+				compiledheaderandpanel=_.template( headerandpanel );
+	
+				this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+				*/
+				
+			},
 			
 			loadfromfacebook: function(){
 				
@@ -215,7 +247,11 @@ define([
 					node_save(node, {
 					  success: function(result) {
 						console.log("Saved node #" + result.nid);
-						
+						this.history.get("profile").destroy();
+						profile.set("active", "yes");
+						profile.set("saved", "yes");
+						profile.save();
+						this.history.create(profile);
 						node_load(result.nid, {
 						  success: function(node) {
 							console.log("Loaded " + node.title);
@@ -261,7 +297,7 @@ define([
 						
 						if(this.origin == '0'){
 							//Volver summary
-							 Backbone.history.navigate("#summary", {
+							 Backbone.history.navigate("#profile", {
 								trigger: true
 							});
 						}

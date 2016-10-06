@@ -2222,7 +2222,9 @@ define([
 					description: "",
 					info: "",
 					latitude: "",
-					longitude: ""
+					longitude: "",
+					active: "",
+					saved: ""
 				});
 				
 				var nodelist= new nodelistModel({
@@ -2321,7 +2323,9 @@ define([
 			description: "",
 			info: "",
 			latitude: "",
-			longitude: ""
+			longitude: "",
+			active: "",
+			saved: ""
 			
         });
 		

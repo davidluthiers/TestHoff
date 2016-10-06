@@ -1691,11 +1691,6 @@ margin-top: 10px;
 	height:37px;
 	}
 	
-	#buscoajacks, #twitterpass{
-	position: relative;
-	bottom: 7px !important;
-	left: -9px;
-	}
 	
 	#page5 #agujeroscuaderno .ui-content{
 	margin-top: -31px;
@@ -1920,4 +1915,20 @@ padding-left:0px!important;
 	color:rgb(83, 83, 102) !important;
 	font-size: 120%;
 	display: block;
+}
+
+
+
+/* Mapa */
+
+#map_module_map{
+    height: 335px;
+	width: 100%;
+}
+
+
+._gmaps_cdv_{
+	padding: 0px !important;
+	width: 100% !important;
+	overflow: hidden;
 }
