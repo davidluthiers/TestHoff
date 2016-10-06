@@ -6,12 +6,12 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!../Templates/profile.html',
+    'text!../Templates/profileT.html',
 	'text!../Templates/map.html',
     'text!../Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, profile, map, headerandpanel){
+    ], function($, _, Backbone, profileT, map, headerandpanel){
 
 
 
@@ -45,7 +45,7 @@ define([
 						aquí hay que poner código para que compruebe si en el servidor ya hay datos guardados con mi ID de FB
 					*/
 					
-					compiledTemplate = _.template( profile );
+					compiledTemplate = _.template( profileT );
 					
 					//Carga del profile
 					historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
