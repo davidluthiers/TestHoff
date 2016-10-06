@@ -6,7 +6,7 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!../Templates/profileT.html',
+    'text!../Templates/profile.html',
 	'text!../Templates/map.html',
     'text!../Templates/headerandpanel.html',
     'jquerymobile'
