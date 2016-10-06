@@ -152,6 +152,7 @@ define([
 									var visionphoto = document.getElementById('visionphoto');
 									visionphoto.style.display = 'block';
 									visionphoto.src = response.picture.data.url;
+									$.mobile.silentScroll(0);
 								},500);
 					
 						},
