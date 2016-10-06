@@ -108,8 +108,8 @@
 		</gap:config-file>
 		
 		<gap:plugin name="cordova-plugin-googlemaps" source="npm" >
-			<param name="API_KEY_FOR_ANDROID" value="AIzaSyBcOEZLBuJa4sIdYasJi4HmoGQwOdU_9IQ" />
-			<param name="API_KEY_FOR_IOS" value="AIzaSyArNLMm0og6nyxHP4rZNy-yHmqL9c7falk" />
+			<param name="API_KEY_FOR_ANDROID" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
+			<param name="API_KEY_FOR_IOS" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
 		</gap:plugin>
 		
 		<!--<gap:plugin name="nl.x-services.plugins.socialsharing" />-->
