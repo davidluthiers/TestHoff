@@ -86,6 +86,7 @@
 		<gap:plugin name="org.apache.cordova.media" source="npm" />
 		<gap:plugin name="org.apache.cordova.dialogs" source="npm" />
 		<gap:plugin name="org.apache.cordova.device-motion" source="npm" />
+		<gap:plugin name="org.apache.cordova.geolocation" source="npm" />
 		<gap:plugin name="org.apache.cordova.globalization" source="npm" />
 		<gap:plugin name="org.apache.cordova.device" source="npm" />
 		<gap:plugin name="org.apache.cordova.vibration" source="npm" />

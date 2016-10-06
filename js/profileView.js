@@ -86,7 +86,57 @@ define([
 				}
 				else{
 					//Carga del mapa
-					this.loadMap();
+					try {
+	  
+						navigator.geolocation.getCurrentPosition(
+						  
+						    // Success.
+						    function (position){this.loadMap(position.coords.latitude,position.coords.longitude);},
+						  
+							// Error
+							function(error) {
+								
+								// Provide debug information to developer and user.
+								console.log(error);
+								
+								//if(history.length<=2)//Sólo cuando entramos por primera vez
+									//drupalgap_alert("Activated GPS is required to load your position");
+								
+								this.loadMap(39.4658376,-0.3582468);
+
+								// Process error code.
+								switch (error.code) {
+
+								  // PERMISSION_DENIED
+								  case 1:
+									console.log("PERMISSION_DENIED");
+									break;
+
+								  // POSITION_UNAVAILABLE
+								  case 2:
+									console.log("POSITION_UNAVAILABLE");
+									break;
+
+								  // TIMEOUT
+								  case 3:
+									console.log("TIMEOUT");
+									break;
+
+								}
+							
+
+						  },
+						  
+						  // Options
+						  { enableHighAccuracy: true,
+							timeout: 5000	  
+							}
+						  
+						);
+						
+						//loadMap(39.4658376,-0.3582468);
+					  }
+					  catch (error) { console.log('map_module_map_pageshow - ' + error); }
 					
 				}
 				
