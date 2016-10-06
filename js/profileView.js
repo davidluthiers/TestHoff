@@ -98,6 +98,7 @@ define([
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 				
+					this.$("._gmaps_cdv_").attr("style","background-image: none !important;");
 					
 					$(document).one('pageshow', function (event, ui) {
 						self.getCoord();
@@ -169,7 +170,7 @@ define([
 			
 			initializeMap: function(_map_module_user_latitude, _map_module_user_longitude){
 				
-				
+				$("._gmaps_cdv_").attr("style","background-image: none !important;");
 				
 				console.log("initializeMap");
 				var mapDiv = document.getElementById("map_module_map");
