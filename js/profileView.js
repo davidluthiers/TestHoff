@@ -117,7 +117,10 @@ define([
 						  
 						    // Success.
 						    function (position){
-								self.initializeMap(position.coords.latitude,position.coords.longitude);
+								setTimeout(function(){
+									self.initializeMap(position.coords.latitude,position.coords.longitude);
+								},300);
+								
 								},
 						  
 							// Error
@@ -126,10 +129,9 @@ define([
 								// Provide debug information to developer and user.
 								console.log(error);
 								
-								//if(history.length<=2)//Sólo cuando entramos por primera vez
-									//drupalgap_alert("Activated GPS is required to load your position");
-								
-								self.initializeMap(39.4658376,-0.3582468);
+								setTimeout(function(){
+									self.initializeMap(39.4658376,-0.3582468);
+								},300);
 
 								// Process error code.
 								switch (error.code) {
