@@ -98,24 +98,16 @@ define([
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 				
-					this.loadMap();
+					
+					$(document).one('pageshow', function (event, ui) {
+						self.getCoord();
+                    });
 					
 				}
 				
 				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
-		
-				
-				
+
             },
-			
-			loadMap: function(){
-				
-				console.log("loadMap");
-
-				
-				this.$("#map_module_map").on('pageshow', this.getCoord);
-
-			},
 			
 			getCoord: function(){
 				try {
