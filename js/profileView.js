@@ -102,9 +102,9 @@ define([
 				
 				compiledTemplate = _.template( map );
 				
-				historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
+				this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
 				
-				result= historycollection.get("languages").toJSON();
+				result= this.history.get("languages").toJSON();
 	
 				compiledheaderandpanel=_.template( headerandpanel );
 	
