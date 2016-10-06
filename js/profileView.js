@@ -101,7 +101,7 @@ define([
 				console.log("loadMap");
 				
 				compiledTemplate = _.template( map );
-				/*
+				
 				historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
 				
 				result= historycollection.get("languages").toJSON();
@@ -109,7 +109,49 @@ define([
 				compiledheaderandpanel=_.template( headerandpanel );
 	
 				this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
-				*/
+				
+				$(document).one('pageshow', this.initializeMap);
+
+			},
+			
+			initializeMap: function(){
+				
+				console.log("initializeMap");
+				var mapDiv = document.getElementById("map_module_map");
+
+				const myLatlng = new plugin.google.maps.LatLng(_map_module_user_latitude,_map_module_user_longitude);
+
+				console.log("GETMAP");
+				//console.log(plugin.google.maps.Map.getMap());
+				console.log(mapDiv);
+				
+				
+				
+			   // Initialize the map plugin
+			   map = plugin.google.maps.Map.getMap(mapDiv,
+			   {
+				  'backgroundColor': 'white',
+				  'mapType': plugin.google.maps.MapTypeId.ROADMAP,
+				  'controls': {
+					'compass': true,
+					'myLocationButton': true,
+					'indoorPicker': true,
+					'zoom': true
+				  },
+				  'gestures': {
+					'scroll': true,
+					'tilt': true,
+					'rotate': true,
+					'zoom': true
+				  },
+				  'camera': {
+					'latLng': myLatlng,
+					'tilt': 30,
+					'zoom': 4,
+					'bearing': 50
+				  }
+				}
+			   );
 				
 			},
 			
@@ -258,7 +300,7 @@ define([
 						});
 						
 					  }
-					}).bind(this);
+					});
 				}
 			catch(e){
 				console.log("Error save_node: " + e);
