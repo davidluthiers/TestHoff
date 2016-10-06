@@ -169,7 +169,7 @@ define([
 
 			},
 			
-			initializeMap: function(){
+			initializeMap: function(_map_module_user_latitude, _map_module_user_longitude){
 				
 				console.log("initializeMap");
 				var mapDiv = document.getElementById("map_module_map");
