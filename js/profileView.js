@@ -85,7 +85,19 @@ define([
 					}
 				}
 				else{
+					
 					//Carga del mapa
+					
+					compiledTemplate = _.template( map );
+				
+					this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
+					
+					result= this.history.get("languages").toJSON();
+		
+					compiledheaderandpanel=_.template( headerandpanel );
+		
+					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+				
 					try {
 	  
 						navigator.geolocation.getCurrentPosition(
@@ -151,16 +163,7 @@ define([
 			loadMap: function(){
 				
 				console.log("loadMap");
-				self=this;
-				compiledTemplate = _.template( map );
-				
-				this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
-				
-				result= this.history.get("languages").toJSON();
-	
-				compiledheaderandpanel=_.template( headerandpanel );
-	
-				this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+
 				
 				$(document).one('pageshow', this.initializeMap);
 
