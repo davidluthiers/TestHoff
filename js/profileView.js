@@ -110,6 +110,7 @@ define([
             },
 			
 			getCoord: function(){
+				self=this;
 				try {
 	  
 						navigator.geolocation.getCurrentPosition(
