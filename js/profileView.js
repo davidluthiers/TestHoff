@@ -260,7 +260,7 @@ define([
 						});
 						
 					  }
-					});
+					}).bind(this);
 				}
 			catch(e){
 				console.log("Error save_node: " + e);
