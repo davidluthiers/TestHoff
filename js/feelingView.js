@@ -287,7 +287,7 @@ define([
                 console.log("LANGUAGEAC: " + self.history.get("languages").get("languageAC"));
                 var params_languages = { //active languages
                     type: 'GET',
-                    dataType: 'jsonp',
+                    dataType: 'json',
                     url: "http://hoffmanapp.indret.webfactional.com/hoffapp/feelings_" + self.history.get("languages").get("languageAC"),
                     processData: true,
                     success: function(data) {
