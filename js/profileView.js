@@ -169,7 +169,7 @@ define([
 			
 			initializeMap: function(_map_module_user_latitude, _map_module_user_longitude){
 				
-				
+				self= this;
 				console.log("initializeMap");
 				var mapDiv = document.getElementById("map_module_map");
 
@@ -208,6 +208,8 @@ define([
 				   );
 				   console.log("Map: ");
 				   console.log(map);
+				   
+				   map.on(plugin.google.maps.event.MAP_READY, self.onMapInit);
 				}
 				catch(e){
 					console.log("Map error: " + e);
@@ -219,6 +221,109 @@ define([
 				catch(e){
 					console.log("Error: "+e);
 				}
+			},
+			
+			onMapInit:function(){
+				
+				console.log("onMapInit");
+				
+				var params_languages = { //active languages
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/people",
+                    processData: true,
+                    success: function(data) {
+						console.log("DATA: ");
+                        console.log(data);
+                    },
+                    error: function(code) {
+                        console.log("petada intentando descargar personas", code);
+                    }
+                };
+
+                $.ajax(params_languages);
+		
+				/*
+				// Call the server.
+				views_datasource_get_view_result(path, {
+					success: function(data) {
+					  
+					  if (data.nodes.length == 0) {
+						drupalgap_alert('Sorry, we did not find any nearby locations!');
+						return;
+					  }
+
+					  // Iterate over each spot, add it to the list and place a marker on the map.
+					  var items = [];
+					  listcount=0;
+								
+					  $.each(data.nodes, function(index, object) {
+						  
+						  // Render a nearby location, and add it to the item list.
+						  var row = object.node;
+						  //console.log(row);
+						  var image_html = theme('image', { path: row.field_image.src });
+						  var distance =
+							row.field_geofield_distance + ' ' +
+							drupalgap_format_plural(row.field_geofield_distance, 'km', 'kms');
+						  var description =
+						'<h2>' + row.title + '</h2>' +
+							'<p> <span class="label-diaspora">' + row.diaspora + 
+							'</span> - <span class="label-distance">' + distance + 
+							'</span></p>';
+						  var link = l(image_html + description, 'node/' + row.nid);
+						  if(listcount<50){
+							items.push(link);
+							listcount++;
+						  }
+						  
+						
+						const locationLatlng = new plugin.google.maps.LatLng(row.latitude,row.longitude);
+						
+							 
+						diaspIcon="";
+						
+						
+						map.addMarker({
+						  'position': locationLatlng,
+						  'title': row.title,
+						  'icon': {
+							'url': diaspIcon
+						   },
+						  'snippet': "Tap here to see"
+						},
+						function(marker) {
+						  armenianArray.push(marker);
+						  marker.showInfoWindow();
+						  marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
+							drupalgap_goto('node/' + row.nid, {reloadPage: true});
+						  });
+
+						}); 
+								
+								
+
+												
+														  
+							  
+						  });
+						  //drupalgap_item_list_populate("#location_results_list", items);
+									  $('#location_results_list').html(
+										theme('jqm_item_list', { items: items, attributes: { 'data-inset': 'true' } })
+									  ).trigger('create');
+									  
+				
+										
+									
+						  drupalgap_loading_message_hide();
+						  setTimeout(function() {
+								drupalgap_loading_message_hide();
+							}, 1000);
+						}
+					});
+					
+					*/
+				
 			},
 			
 			loadfromfacebook: function(){
