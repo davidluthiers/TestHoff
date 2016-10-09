@@ -230,7 +230,7 @@ define([
 				var params_languages = { //active languages
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/people",
+                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/hoffpeople",
                     processData: true,
                     success: function(data) {
 						console.log("DATA: ");
