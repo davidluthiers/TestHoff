@@ -460,6 +460,7 @@ define([
 						console.log("Nodo no existe");
 						console.log("Error: ");
 						console.log(e);
+						delete node.nid;
 					
 					}
 						
