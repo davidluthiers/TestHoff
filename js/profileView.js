@@ -236,40 +236,46 @@ define([
                     success: function(data) {
 						console.log("DATA: ");
                         console.log(data);
+						usersList = [];
 						
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							console.log("auxprofile:");
 							console.log(auxprofile)
-							var nombre = auxprofile.nickname[0];
-							var pictureurl = auxprofile.pictureurl[0];
-							var email = auxprofile.email[0];
-							var latitude = auxprofile.latitude[0];
-							var longitude = auxprofile.longitude[0];
+							var userID = auxprofile.userID;
+							var nombre = auxprofile.nickname;
+							var pictureurl = auxprofile.pictureurl;
+							var email = auxprofile.email;
+							var latitude = auxprofile.latitude;
+							var longitude = auxprofile.longitude;
 							
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							console.log("picture: " + pictureurl);
 							console.log("Coords: " + latitude + ", " + longitude);
 							
 							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
+							if(usersList[userID] != "used" || typeof usersList[userID] == 'undefined'){
+								usersList[userID] = "used";
+								map.addMarker({
+								  'position': locationLatlng,
+								  'title': nombre,
+								  'icon': {
+									'url': pictureurl
+								   },
+								  'snippet': email
+								},
+								function(marker) {
+								 
+								  marker.showInfoWindow();
+								  marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
+									console.log("presed map icon");
+								  });
 
-							map.addMarker({
-							  'position': locationLatlng,
-							  'title': nombre,
-							  'icon': {
-								'url': pictureurl
-							   },
-							  'snippet': email
-							},
-							function(marker) {
-							 
-							  marker.showInfoWindow();
-							  marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
-								console.log("presed map icon");
-							  });
-
-							}); 
-						
+								}); 
+							}
+							else{
+								console.log("Este nodo ya está en el mapa");
+							}
                         }
                     },
                     error: function(code) {
