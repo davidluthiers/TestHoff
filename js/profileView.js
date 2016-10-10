@@ -209,7 +209,7 @@ define([
 				   console.log("Map: ");
 				   console.log(map);
 				   
-				   this.map.on(plugin.google.maps.event.MAP_READY, self.onMapInit);
+				   this.map.on(plugin.google.maps.event.MAP_READY, self.onMapInit(this.map));
 				}
 				catch(e){
 					console.log("Map error: " + e);
@@ -223,10 +223,11 @@ define([
 				}
 			},
 			
-			onMapInit:function(){
+			onMapInit:function(map){
 				
 				console.log("onMapInit");
-				self=this;
+				console.log(map);
+				
 				var params_languages = { //active languages
                     type: 'GET',
                     dataType: 'jsonp',
@@ -252,7 +253,7 @@ define([
 							
 							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
 
-							self.map.addMarker({
+							map.addMarker({
 							  'position': locationLatlng,
 							  'title': nombre,
 							  'icon': {
