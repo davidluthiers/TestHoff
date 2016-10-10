@@ -448,6 +448,22 @@ define([
 								
 				try{
 					self= this;
+					
+					try{//existe el nodo?
+						node_load(profile.get("userID"), {
+						  success: function(node) {
+							console.log("El nodo " + node.title + " existe"); //Sí
+						  }
+						});
+					}
+					catch(e){							//No
+						console.log("Nodo no existe");
+						console.log("Error: ");
+						console.log(e);
+					
+					}
+						
+					
 					node_save(node, {
 					  success: function(result) {
 						console.log("Saved node #" + result.nid);
