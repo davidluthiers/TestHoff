@@ -182,7 +182,7 @@ define([
 				
 				try{
 				   // Initialize the map plugin
-				   map = plugin.google.maps.Map.getMap(mapDiv,
+				   this.map = plugin.google.maps.Map.getMap(mapDiv,
 				   {
 					  'backgroundColor': 'white',
 					  'mapType': plugin.google.maps.MapTypeId.ROADMAP,
@@ -209,7 +209,7 @@ define([
 				   console.log("Map: ");
 				   console.log(map);
 				   
-				   map.on(plugin.google.maps.event.MAP_READY, self.onMapInit);
+				   this.map.on(plugin.google.maps.event.MAP_READY, self.onMapInit);
 				}
 				catch(e){
 					console.log("Map error: " + e);
@@ -226,7 +226,7 @@ define([
 			onMapInit:function(){
 				
 				console.log("onMapInit");
-				
+				self=this;
 				var params_languages = { //active languages
                     type: 'GET',
                     dataType: 'jsonp',
@@ -235,6 +235,40 @@ define([
                     success: function(data) {
 						console.log("DATA: ");
                         console.log(data);
+						
+						for (index = 0; index < data.length; ++index) {
+                            var auxprofile = data[index];
+       
+							var nombre = auxprofile.field_nickname.und[0];
+							var pictureurl = auxprofile.field_pictureurl.und[0];
+							var email = auxprofile.field_email.und[0];
+							var latitude = auxprofile.field_latitude.und[0];
+							var longitude = auxprofile.field_longitude.und[0];
+							
+							console.log("Usuario con nombre: "+nombre+", email: " +email);
+							console.log("picture: " + pictureurl);
+							console.log("Coords: " + latitude + ", " + longitude);
+							
+							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
+
+							self.map.addMarker({
+							  'position': locationLatlng,
+							  'title': nombre,
+							  'icon': {
+								'url': pictureurl
+							   },
+							  'snippet': email
+							},
+							function(marker) {
+							 
+							  marker.showInfoWindow();
+							  marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
+								console.log("presed map icon");
+							  });
+
+							}); 
+						
+                        }
                     },
                     error: function(code) {
                         console.log("petada intentando descargar personas", code);
