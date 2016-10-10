@@ -462,32 +462,27 @@ define([
 					 
 					field_userid:{
 							"und":[{
-								"value":profile.get("userID"),
-								"safe_value":profile.get("userID")
+								"value":profile.get("userID")
 							}]
 					},
 					field_email:{
 							"und":[{
-								"value":profile.get("email"),
-								"safe_value":profile.get("email")
+								"value":profile.get("email")
 							}]
 					},
 					field_nickname:{
 							"und":[{
-								"value":profile.get("nickname"),
-								"safe_value":profile.get("nickname")
+								"value":profile.get("nickname")
 							}]
 					},
 					field_lastupdated:{
 							"und":[{
-								"value":mydate,
-								"safe_value":mydate
+								"value":mydate
 							}]
 					},
 					field_pictureurl:{
 							"und":[{
-								"value":profile.get("picture"),
-								"safe_value":profile.get("picture")
+								"value":profile.get("picture")
 							}]
 					}
 						
