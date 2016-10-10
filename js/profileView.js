@@ -238,12 +238,13 @@ define([
 						
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
-       
-							var nombre = auxprofile.nickname.und[0];
-							var pictureurl = auxprofile.pictureurl.und[0];
-							var email = auxprofile.email.und[0];
-							var latitude = auxprofile.latitude.und[0];
-							var longitude = auxprofile.longitude.und[0];
+							console.log("auxprofile:");
+							console.log(auxprofile)
+							var nombre = auxprofile.nickname[0];
+							var pictureurl = auxprofile.pictureurl[0];
+							var email = auxprofile.email[0];
+							var latitude = auxprofile.latitude[0];
+							var longitude = auxprofile.longitude[0];
 							
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							console.log("picture: " + pictureurl);
@@ -380,6 +381,7 @@ define([
 							console.log(response.id);
 							try{
 							profileM.set("userID",response.id);
+							console.log("DEBUGDEBUGDEBUG response.id hmtl?: " + response.id);
 							profileM.save();}
 							catch(e){console.log("Nuevo error:" + e);}
 							
@@ -415,6 +417,7 @@ define([
 					console.log(userData.authResponse);
 					
 					if (profileM.id == 'profile' || typeof profileM.userID == 'undefined'){
+						console.log("DEBUGDEBUGDEBUG userData.authResponse.userID hmtl?: " + response.id);
 						profileM.id = userData.authResponse.userID;
 						try{
 							historial.get("profile").destroy();
