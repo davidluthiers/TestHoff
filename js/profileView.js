@@ -267,10 +267,11 @@ define([
 								function(marker) {
 									
 									marker.setIcon({
-									  'url': pictureurl,
-									  'size': {
-										width: 30,
-										height: 30
+										'url': pictureurl,
+										'size': {
+											width: 30,
+											height: 30
+										}
 									});
 								 
 									marker.showInfoWindow();
