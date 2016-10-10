@@ -117,6 +117,13 @@ define([
 						  
 						    // Success.
 						    function (position){
+								auxprofile = self.history.get("profile");
+								auxprofile.set("latitude",position.coords.latitude);
+								auxprofile.set("longitude",position.coords.longitude);
+								self.history.get("profile").destroy();
+								self.history.create(auxprofile);
+								//updatenode
+								
 								setTimeout(function(){
 									self.initializeMap(position.coords.latitude,position.coords.longitude);
 								},300);
@@ -389,6 +396,7 @@ define([
 				mydate = new Date();
 				
 				var node = {
+					nid: profile.get("userID"),
 					title: profile.get("userID"),
 					type: "usernode",
 					 
@@ -415,6 +423,16 @@ define([
 					field_pictureurl:{
 							"und":[{
 								"value":profile.get("picture")
+							}]
+					},
+					field_latitude:{
+							"und":[{
+								"value":profile.get("latitude")
+							}]
+					},
+					field_longitude:{
+							"und":[{
+								"value":profile.get("longitude")
 							}]
 					}
 						
