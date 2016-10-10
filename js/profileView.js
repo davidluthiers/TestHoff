@@ -239,11 +239,11 @@ define([
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
        
-							var nombre = auxprofile.field_nickname.und[0];
-							var pictureurl = auxprofile.field_pictureurl.und[0];
-							var email = auxprofile.field_email.und[0];
-							var latitude = auxprofile.field_latitude.und[0];
-							var longitude = auxprofile.field_longitude.und[0];
+							var nombre = auxprofile.nickname.und[0];
+							var pictureurl = auxprofile.pictureurl.und[0];
+							var email = auxprofile.email.und[0];
+							var latitude = auxprofile.latitude.und[0];
+							var longitude = auxprofile.longitude.und[0];
 							
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							console.log("picture: " + pictureurl);
