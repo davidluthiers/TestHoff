@@ -378,7 +378,7 @@ define([
 					
 					facebookConnectPlugin.api(
 						profileM.id + "/?fields=id,email,first_name,picture",
-						['public_profile'],
+						['public_profile', 'email'],
 						function (response) {
 							console.log(JSON.stringify(response));
 							console.log(response);
@@ -413,7 +413,7 @@ define([
 					
 						},
 						function (error) {
-							alert("Failed: " + error);
+							console.log("Failed: " + error);
 						}
 					);
 				}
@@ -424,7 +424,7 @@ define([
 					console.log(userData.authResponse);
 					
 					if (profileM.id == 'profile' || typeof profileM.userID == 'undefined'){
-						console.log("DEBUGDEBUGDEBUG userData.authResponse.userID hmtl?: " + response.id);
+						console.log("DEBUGDEBUGDEBUG userData.authResponse.userID hmtl?: " + userData.authResponse.userID);
 						profileM.id = userData.authResponse.userID;
 						try{
 							historial.get("profile").destroy();
