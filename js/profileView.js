@@ -209,7 +209,7 @@ define([
 				   console.log("Map: ");
 				   console.log(map);
 				   
-				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(this.map)});
+				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map)});
 				}
 				catch(e){
 					console.log("Map error: " + e);
