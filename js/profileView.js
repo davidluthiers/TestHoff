@@ -265,11 +265,18 @@ define([
 								  'snippet': email
 								},
 								function(marker) {
+									
+									marker.setIcon({
+									  'url': pictureurl,
+									  'size': {
+										width: 30,
+										height: 30
+									});
 								 
-								  marker.showInfoWindow();
-								  marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
-									console.log("presed map icon");
-								  });
+									marker.showInfoWindow();
+									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
+										console.log("presed map icon");
+									});
 
 								}); 
 							}
