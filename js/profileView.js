@@ -56,7 +56,7 @@ define([
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 					
-					if(this.profile.get("nickname")!="" && this.profile.get("userID")!="" && this.profile.get("email")!=""){ //Están todos los datos obligatorios
+					if(this.profile.get("nickname")!="" && this.profile.get("userID")!="" && this.profile.get("email")!="" && this.profile.get("nid") != "" && typeof this.profile.get("nid") != 'undefined'){ //Están todos los datos obligatorios
 				
 						console.log("Cargando datos del profile");
 						this.$("#fill_profile").attr("style","display:none");
@@ -75,7 +75,7 @@ define([
 					else{
 						//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
 						try{
-							//this.loadfromfacebook();
+							this.router.drupaldo(this.checkOnServer.bind(this),"null");
 							console.log("Aquí podríamos cargar los datos de FB");
 						}
 						catch(e){
@@ -230,12 +230,64 @@ define([
 				}
 			},
 			
+			checkOnServer: function(){
+				
+				self=this;
+				console.log("checkOnServer:");
+				
+				var params_people = { //active hoffman users
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/hoffpeople",
+                    processData: true,
+                    success: function(data) {
+						var flag = false;
+						for (index = 0; index < data.length; ++index) {
+                            var auxprofile = data[index];
+							console.log("auxprofile:");
+							console.log(auxprofile)
+							var userID = auxprofile.userID;
+							var nombre = auxprofile.nickname;
+							var pictureurl = auxprofile.pictureurl.replace("amp;","");
+							var email = auxprofile.email;
+							var latitude = auxprofile.latitude;
+							var longitude = auxprofile.longitude;
+							
+							if(self.history.get("profile").get("userID") == userID){
+								console.log("Mi perfil está almacenado en el servidor");
+								profileM=self.history.get("profile");
+						
+						
+								profileM.set("nickname",nombre);
+								profileM.set("email",email);
+								profileM.set("picture", pictureurl);
+								profileM.set("userID",userID);
+								profileM.set("nid",auxprofile.nid);
+								self.history.get("profile").destroy();
+								profileM.save();
+									
+								self.history.create(profileM);
+								flag=true;
+								self.router.profile(); //Cargamos el mapa
+							}
+						}
+						if(!flag){
+							console.log("Mi perfil no está en el servidor, cargamos el form de usuario");
+						}
+					},
+                    error: function(code) {
+                        console.log("petada intentando descargar personas", code);
+                    }
+                };
+				
+			},
+			
 			onMapInit:function(map){
 				
 				console.log("onMapInit");
 				console.log(map);
 				
-				var params_languages = { //active languages
+				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
                     url: "http://hoffmanapp.indret.webfactional.com/hoffapp/hoffpeople",
@@ -302,7 +354,7 @@ define([
                     }
                 };
 
-                $.ajax(params_languages);
+                $.ajax(params_people);
 		
 				
 			},
@@ -390,95 +442,121 @@ define([
 			saveonserver: function(){
 				
 				profile = this.history.get("profile");
-				
 				console.log(profile.get("nickname"));
-				
-				mydate = new Date();
-				
-				var node = {
-					nid: profile.get("userID"),
-					title: profile.get("userID"),
-					type: "usernode",
-					 
-					field_userid:{
-							"und":[{
-								"value":profile.get("userID")
-							}]
-					},
-					field_email:{
-							"und":[{
-								"value":profile.get("email")
-							}]
-					},
-					field_nickname:{
-							"und":[{
-								"value":profile.get("nickname")
-							}]
-					},
-					field_lastupdated:{
-							"und":[{
-								"value":mydate
-							}]
-					},
-					field_pictureurl:{
-							"und":[{
-								"value":profile.get("picture")
-							}]
-					},
-					field_latitude:{
-							"und":[{
-								"value":profile.get("latitude")
-							}]
-					},
-					field_longitude:{
-							"und":[{
-								"value":profile.get("longitude")
-							}]
-					}
-						
-					/*
-					field_userid.und[0].value: profile.get("userID"),
-					field_email.und[0].value: profile.get("email"),
-					field_nickname.und[0].value: profile.get("nickname"),
-					field_lastupdated.und[0].value: new Date(),
-					field_pictureurl.und[0].value: profile.get("picture")
-					 */
-				};
-				
-								
+				mydate = new Date();	
+				var node;				
 				try{
 					self= this;
-					
-					try{//existe el nodo?
-						node_load(profile.get("userID"), {
-						  success: function(node) {
-							console.log("El nodo " + node.title + " existe"); //Sí
-						  }
+
+						//mirar si yo tengo el nid
+						if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
+							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
+							
+							node = {
+								nid: profile.get("nid"),
+								title: profile.get("userID"),
+								type: "usernode",
+								 
+								field_userid:{
+										"und":[{
+											"value":profile.get("userID")
+										}]
+								},
+								field_email:{
+										"und":[{
+											"value":profile.get("email")
+										}]
+								},
+								field_nickname:{
+										"und":[{
+											"value":profile.get("nickname")
+										}]
+								},
+								field_lastupdated:{
+										"und":[{
+											"value":mydate
+										}]
+								},
+								field_pictureurl:{
+										"und":[{
+											"value":profile.get("picture")
+										}]
+								},
+								field_latitude:{
+										"und":[{
+											"value":profile.get("latitude")
+										}]
+								},
+								field_longitude:{
+										"und":[{
+											"value":profile.get("longitude")
+										}]
+								}
+							};
+						}
+						else{ 			//No lo tenemos en local (nuevo miembro)
+						
+							node = {
+									title: profile.get("userID"),
+									type: "usernode",
+									 
+									field_userid:{
+											"und":[{
+												"value":profile.get("userID")
+											}]
+									},
+									field_email:{
+											"und":[{
+												"value":profile.get("email")
+											}]
+									},
+									field_nickname:{
+											"und":[{
+												"value":profile.get("nickname")
+											}]
+									},
+									field_lastupdated:{
+											"und":[{
+												"value":mydate
+											}]
+									},
+									field_pictureurl:{
+											"und":[{
+												"value":profile.get("picture")
+											}]
+									},
+									field_latitude:{
+											"und":[{
+												"value":profile.get("latitude")
+											}]
+									},
+									field_longitude:{
+											"und":[{
+												"value":profile.get("longitude")
+											}]
+									}
+
+								};
+							
+						}
+						
+						node_save(node, {
+							success: function(result) {
+								console.log("Saved node #" + result.nid);
+								self.setActive();
+								//llamada a node_load puede eliminarse antes de la salida
+								node_load(result.nid, {
+									success: function(node) {
+									console.log("Loaded " + node.title);
+									console.log(node);
+									}
+								});
+							self.router.profile();		
+							}
 						});
-					}
-					catch(e){							//No
-						console.log("Nodo no existe");
-						console.log("Error: ");
-						console.log(e);
-						delete node.nid;
-					
-					}
 						
 					
-					node_save(node, {
-					  success: function(result) {
-						console.log("Saved node #" + result.nid);
-						self.setActive();
-						//llamada a node_load puede eliminarse antes de la salida
-						node_load(result.nid, {
-						  success: function(node) {
-							console.log("Loaded " + node.title);
-							console.log(node);
-						  }
-						});
-						self.router.profile();		
-					  }
-					});
+					
 				}
 			catch(e){
 				console.log("Error save_node: " + e);

@@ -2224,7 +2224,8 @@ define([
 					latitude: "",
 					longitude: "",
 					active: "",
-					saved: ""
+					saved: "",
+					nid: ""
 				});
 				
 				var nodelist= new nodelistModel({
@@ -2325,7 +2326,8 @@ define([
 			latitude: "",
 			longitude: "",
 			active: "",
-			saved: ""
+			saved: "",
+			nid: ""
 			
         });
 		
