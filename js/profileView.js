@@ -382,51 +382,7 @@ define([
 				profileM = this.history.get("profile");
 				historial = this.history;
 				
-				var retrieve_fb_info = function(){
-					console.log('retrieve_fb_info');
-					
-					facebookConnectPlugin.api(
-						profileM.id + "/?fields=id,email,first_name,picture",
-						['public_profile', 'email'],
-						function (response) {
-							console.log(JSON.stringify(response));
-							console.log(response);
-							//RequestsService.sendData(response);
-							//$scope.user = response;
-					
-							console.log(response.id);
-							try{
-							profileM.set("userID",response.id);
-							console.log("DEBUGDEBUGDEBUG response.id hmtl?: " + response.id);
-							profileM.save();}
-							catch(e){console.log("Nuevo error:" + e);}
-							
-							historial.create(profileM);
-							
-							
-							$("#fill_profile").attr("style","display:none");
-					
-							//$("#displayname").text(response.first_name);
-							//$("#useremail").text(response.email);
-							document.getElementById("displayname").value = response.first_name;
-							document.getElementById("useremail").value = response.email;
-							
-							//cargar foto
-							setTimeout(function(){
-									console.log('Ponemos foto de perfil');
-									var visionphoto = document.getElementById('visionphoto');
-									visionphoto.style.display = 'block';
-									visionphoto.src = response.picture.data.url;
-									$.mobile.silentScroll(0);
-								},500);
-					
-						},
-						function (error) {
-							console.log("Failed: " + error);
-							console.log(error);
-						}
-					);
-				}
+				
 			
 				var fbLoginSuccess = function (userData) {
 					console.log("UserInfo: ");
@@ -448,7 +404,47 @@ define([
 						profileM.save();
 						historial.create(profileM);
 						console.log("El userID de Facebook es: " + historial.get("profile").get("userID"));
-						retrieve_fb_info();
+						
+						
+						//retrieve_fb_info
+						facebookConnectPlugin.api(
+							profileM.id + "/?fields=id,email,first_name,picture",
+							['public_profile', 'email'],
+							function (response) {
+								console.log(JSON.stringify(response));
+								console.log(response);
+								//RequestsService.sendData(response);
+								//$scope.user = response;
+						
+								console.log(response.id);
+								try{
+								profileM.set("userID",response.id);
+								console.log("DEBUGDEBUGDEBUG response.id hmtl?: " + response.id);
+								profileM.save();}
+								catch(e){console.log("Nuevo error:" + e);}
+								
+								historial.create(profileM);
+																
+								$("#fill_profile").attr("style","display:none");
+
+								document.getElementById("displayname").value = response.first_name;
+								document.getElementById("useremail").value = response.email;
+								
+								//cargar foto
+								setTimeout(function(){
+										console.log('Ponemos foto de perfil');
+										var visionphoto = document.getElementById('visionphoto');
+										visionphoto.style.display = 'block';
+										visionphoto.src = response.picture.data.url;
+										$.mobile.silentScroll(0);
+									},500);
+						
+							},
+							function (error) {
+								console.log("Failed: " + error);
+								console.log(error);
+							}
+						);
 					}
 					else{
 						console.log("profile.id es: " + profileM.id);
