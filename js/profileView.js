@@ -434,7 +434,7 @@ define([
 											var visionphoto = document.getElementById('visionphoto');
 											visionphoto.style.display = 'block';
 											visionphoto.src = response.picture.data.url;
-											$.mobile.silentScroll(0);
+											$.mobile.silentScroll(100);
 										},500);
 							
 								},
@@ -656,7 +656,7 @@ define([
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
 				visionphoto.src = imageData;
-				$.mobile.silentScroll(0);
+				$.mobile.silentScroll(100);
 				//Guardamos la foto
                 auxprofile=this.history.get("profile");
 				auxprofile.set("picture",imageData);
