@@ -65,6 +65,7 @@ define([
 						//cargar foto
 						
 						setTimeout(function(){
+								this.profile = historycollection.get("profile");
 								document.getElementById("displayname").value = this.profile.get("nickname");
 								document.getElementById("useremail").value = this.profile.get("email");
 								console.log('Ponemos foto de perfil');
