@@ -404,25 +404,21 @@ define([
 						profileM.save();
 						historial.create(profileM);
 						console.log("El userID de Facebook es: " + historial.get("profile").get("userID"));
-						
-						
+												
 						//retrieve_fb_info
 						facebookConnectPlugin.api(
-							profileM.id + "/?fields=id,email,first_name,picture",
+							historial.get("profile").get("userID") + "/?fields=id,email,first_name,picture",
 							['public_profile', 'email'],
 							function (response) {
 								console.log(JSON.stringify(response));
 								console.log(response);
-								//RequestsService.sendData(response);
-								//$scope.user = response;
-						
+
 								console.log(response.id);
-								try{
+								
 								profileM.set("userID",response.id);
 								console.log("DEBUGDEBUGDEBUG response.id hmtl?: " + response.id);
 								profileM.save();}
-								catch(e){console.log("Nuevo error:" + e);}
-								
+
 								historial.create(profileM);
 																
 								$("#fill_profile").attr("style","display:none");
