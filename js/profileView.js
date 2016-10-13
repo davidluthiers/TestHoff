@@ -389,7 +389,7 @@ define([
 				profileM = this.history.get("profile");
 				historial = this.history;
 				byrequest = this.byrequest;
-				checkOnServer = this.checkOnServer;
+				self=this;
 				
 			
 				var fbLoginSuccess = function (userData) {
@@ -453,7 +453,7 @@ define([
 							);
 						}
 						else{		//Si acabamos de entrar por primera vez nos buscamos en el servidor y esperamos
-							checkOnServer();
+							self.checkOnServer();
 						}
 					}
 					else{
