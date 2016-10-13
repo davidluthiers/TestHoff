@@ -250,6 +250,7 @@ define([
 			checkOnServer: function(){
 				
 				self=this;
+				historial= this.history;
 				console.log("checkOnServer:");
 				
 				var params_people = { //active hoffman users
@@ -270,9 +271,9 @@ define([
 							var latitude = auxprofile.latitude;
 							var longitude = auxprofile.longitude;
 							
-							if(self.history.get("profile").get("userID") == userID){
+							if(historial.get("profile").get("userID") == userID){
 								console.log("Mi perfil está almacenado en el servidor");
-								profileM=self.history.get("profile");
+								profileM=historial.get("profile");
 						
 						
 								profileM.set("nickname",nombre);
@@ -280,10 +281,10 @@ define([
 								profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
-								self.history.get("profile").destroy();
+								historial.get("profile").destroy();
 								profileM.save();
 									
-								self.history.create(profileM);
+								historial.create(profileM);
 								flag=true;
 								self.router.profile(); //Cargamos el mapa
 							}
