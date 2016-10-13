@@ -64,24 +64,14 @@ define([
 
 						//cargar foto
 						
-						/*setTimeout(function(){
+						setTimeout(function(){
 								document.getElementById("displayname").value = this.profile.get("nickname");
 								document.getElementById("useremail").value = this.profile.get("email");
 								console.log('Ponemos foto de perfil');
 								var visionphoto = document.getElementById('visionphoto');
 								visionphoto.style.display = 'block'; 
 								visionphoto.src = this.profile.get("picture");
-							},400);*/
-							
-						$( document ).on( "pagechange",function(){
-								console.log("pagechange");
-								document.getElementById("displayname").value = this.profile.get("nickname");
-								document.getElementById("useremail").value = this.profile.get("email");
-								console.log('Ponemos foto de perfil');
-								var visionphoto = document.getElementById('visionphoto');
-								visionphoto.style.display = 'block'; 
-								visionphoto.src = this.profile.get("picture");
-						});
+							},400);
 
 					}
 					else{
