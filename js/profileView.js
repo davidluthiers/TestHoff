@@ -36,7 +36,8 @@ define([
 				this.origin = id;
 				this.router = router;
 				this.profile = historycollection.get("profile");
-		
+				this.byrequest=false;
+				
                 var self=this;
 				
 				if(this.profile.get("active") != "yes"){
@@ -377,11 +378,17 @@ define([
 				
 			},
 			
+			loadbyrequest: function(){
+				this.byrequest=true;
+				this.loadfromfacebook();
+			},
+			
 			loadfromfacebook: function(){
 				
 				profileM = this.history.get("profile");
 				historial = this.history;
-				
+				byrequest = this.byrequest;
+				checkOnServer = this.checkOnServer;
 				
 			
 				var fbLoginSuccess = function (userData) {
@@ -404,43 +411,49 @@ define([
 						profileM.save();
 						historial.create(profileM);
 						console.log("El userID de Facebook es: " + historial.get("profile").get("userID"));
-												
-						//retrieve_fb_info
-						facebookConnectPlugin.api(
-							historial.get("profile").get("userID") + "/?fields=id,email,first_name,picture",
-							['public_profile', 'email'],
-							function (response) {
-								console.log(JSON.stringify(response));
-								console.log(response);
-
-								console.log(historial.get("profile").get("userID"));
-								
-								profileM.set("userID",historial.get("profile").get("userID"));
-								console.log("DEBUGDEBUGDEBUG response.id hmtl?: " + response.id);
-								profileM.save();
-
-								historial.create(profileM);
-																
-								$("#fill_profile").attr("style","display:none");
-
-								document.getElementById("displayname").value = response.first_name;
-								document.getElementById("useremail").value = response.email;
-								
-								//cargar foto
-								setTimeout(function(){
-										console.log('Ponemos foto de perfil');
-										var visionphoto = document.getElementById('visionphoto');
-										visionphoto.style.display = 'block';
-										visionphoto.src = response.picture.data.url;
-										$.mobile.silentScroll(0);
-									},500);
 						
-							},
-							function (error) {
-								console.log("Failed: " + error);
-								console.log(error);
-							}
-						);
+						if(byrequest){ //Si hemos pulsado el botón de FB cargamos datos
+												
+							//retrieve_fb_info
+							facebookConnectPlugin.api(
+								historial.get("profile").get("userID") + "/?fields=id,email,first_name,picture",
+								['public_profile', 'email'],
+								function (response) {
+									console.log(JSON.stringify(response));
+									console.log(response);
+
+									console.log(historial.get("profile").get("userID"));
+									
+									profileM.set("userID",historial.get("profile").get("userID"));
+									console.log("DEBUGDEBUGDEBUG response.id hmtl?: " + response.id);
+									profileM.save();
+
+									historial.create(profileM);
+																	
+									$("#fill_profile").attr("style","display:none");
+
+									document.getElementById("displayname").value = response.first_name;
+									document.getElementById("useremail").value = response.email;
+									
+									//cargar foto
+									setTimeout(function(){
+											console.log('Ponemos foto de perfil');
+											var visionphoto = document.getElementById('visionphoto');
+											visionphoto.style.display = 'block';
+											visionphoto.src = response.picture.data.url;
+											$.mobile.silentScroll(0);
+										},500);
+							
+								},
+								function (error) {
+									console.log("Failed: " + error);
+									console.log(error);
+								}
+							);
+						}
+						else{		//Si acabamos de entrar por primera vez nos buscamos en el servidor y esperamos
+							checkOnServer();
+						}
 					}
 					else{
 						console.log("profile.id es: " + profileM.id);
