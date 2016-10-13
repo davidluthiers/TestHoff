@@ -309,7 +309,7 @@ define([
 							var longitude = auxprofile.longitude;
 							
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
-							console.log("picture: " + pictureurl);
+							//console.log("picture: " + pictureurl);
 							console.log("Coords: " + latitude + ", " + longitude);
 							
 							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
@@ -414,16 +414,26 @@ define([
 					console.log(JSON.stringify(userData));
 					console.log(userData.authResponse);
 					
-					if (profileM.id == 'profile' || typeof profileM.userID == 'undefined'){
+					if (profileM.id == 'profile' || profileM.get("id") == 'profile' || typeof profileM.id == 'undefined'){
+						console.log("profile.id es: " + profileM.id);
+						console.log("profile.get('id') es: " + profileM.get("id"));
 						console.log("DEBUGDEBUGDEBUG userData.authResponse.userID hmtl?: " + userData.authResponse.userID);
 						profileM.id = userData.authResponse.userID;
+						profileM.set("userID",userData.authResponse.userID);
 						try{
 							historial.get("profile").destroy();
 						}
 						catch(e){
 							console.log("Error intentando eliminar perfil del historial " + e);
 						}
+						profileM.save();
+						historial.create(profileM);
+						console.log("El userID de Facebook es: " + historial.get("profile").get("userID"));
 						retrieve_fb_info();
+					}
+					else{
+						console.log("profile.id es: " + profileM.id);
+						console.log("profile.get('id') es: " + profileM.get("id"));
 					}
 					
 					
@@ -454,7 +464,7 @@ define([
 							
 							node = {
 								nid: profile.get("nid"),
-								title: profile.get("userID"),
+								title: profile.id,
 								type: "usernode",
 								 
 								field_userid:{
