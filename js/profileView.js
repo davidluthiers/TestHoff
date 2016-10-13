@@ -75,8 +75,13 @@ define([
 					else{
 						//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
 						try{
-							this.router.drupaldo(this.checkOnServer.bind(this),"null");
-							console.log("Aquí podríamos cargar los datos de FB");
+							if(this.profile.get("userID")!="" && typeof this.profile.get("userID")!='undefined'){ //No tenemos el FB ID
+								this.router.drupaldo(this.checkOnServer.bind(this),"null");
+							}
+							else{
+								//Intentamos recuperar id + datos de FB
+								this.loadfromfacebook();	
+							}
 						}
 						catch(e){
 							console.log("Error en loadfromfacebook: " + e);
@@ -279,6 +284,8 @@ define([
                         console.log("petada intentando descargar personas", code);
                     }
                 };
+				
+				$.ajax(params_people);
 				
 			},
 			
