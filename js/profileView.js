@@ -413,11 +413,11 @@ define([
 								console.log(JSON.stringify(response));
 								console.log(response);
 
-								console.log(response.id);
+								console.log(historial.get("profile").get("userID"));
 								
-								profileM.set("userID",response.id);
+								profileM.set("userID",historial.get("profile").get("userID"));
 								console.log("DEBUGDEBUGDEBUG response.id hmtl?: " + response.id);
-								profileM.save();}
+								profileM.save();
 
 								historial.create(profileM);
 																
