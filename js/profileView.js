@@ -20,7 +20,7 @@ define([
             events:{
                 "click #botonnext":"save",
 				"click #getgalleryphoto":"getfromgallery",
-				"click #loadfromfacebook":"loadfromfacebook"
+				"click #loadfromfacebook":"loadbyrequest"
             },
    
             render: function(id, historycollection, router){
@@ -404,6 +404,7 @@ define([
 						historial.create(profileM);
 						console.log("El userID de Facebook es: " + historial.get("profile").get("userID"));
 						
+						console.log("Byrequest: " + byrequest);
 						if(byrequest){ //Si hemos pulsado el botón de FB cargamos datos
 												
 							//retrieve_fb_info
