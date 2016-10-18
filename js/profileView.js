@@ -131,7 +131,7 @@ define([
 								self.history.get("profile").destroy();
 								self.history.create(auxprofile);
 								//updatenode
-								self.saveonserver();
+								self.saveonserver(true);
 								
 								setTimeout(function(){
 									self.initializeMap(position.coords.latitude,position.coords.longitude);
@@ -579,8 +579,10 @@ define([
 									console.log(node);
 									}
 								});
-							if (afterCoords)
-								self.router.profile();		
+							if (!afterCoords){
+								console.log("aftercoords false");
+								self.router.profile();
+							}
 							}
 						});
 						
@@ -626,7 +628,7 @@ define([
 						this.history.create(profileM);
 						
 						
-						this.router.drupaldo(this.saveonserver.bind(this),"null");
+						this.router.drupaldo(this.saveonserver.bind(this),false);
 						
 						
 						if(this.origin == '0'){
