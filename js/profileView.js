@@ -411,7 +411,7 @@ define([
 							//retrieve_fb_info
 							facebookConnectPlugin.api(
 								historial.get("profile").get("userID") + "/?fields=id,email,first_name,picture",
-								['public_profile', 'email'],
+								['public_profile'],
 								function (response) {
 									console.log(JSON.stringify(response));
 									console.log(response);
