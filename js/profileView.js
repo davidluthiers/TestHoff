@@ -131,6 +131,7 @@ define([
 								self.history.get("profile").destroy();
 								self.history.create(auxprofile);
 								//updatenode
+								self.saveonserver();
 								
 								setTimeout(function(){
 									self.initializeMap(position.coords.latitude,position.coords.longitude);
@@ -584,10 +585,10 @@ define([
 						
 					
 					
+					}
+				catch(e){
+					console.log("Error save_node: " + e);
 				}
-			catch(e){
-				console.log("Error save_node: " + e);
-			}
 				
 				
 				console.log("saveonserver");
