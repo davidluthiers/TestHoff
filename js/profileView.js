@@ -467,7 +467,7 @@ define([
 				
 			},
 			
-			saveonserver: function(){
+			saveonserver: function(afterCoords){
 				
 				profile = this.history.get("profile");
 				console.log(profile.get("nickname"));
@@ -579,7 +579,8 @@ define([
 									console.log(node);
 									}
 								});
-							self.router.profile();		
+							if (afterCoords)
+								self.router.profile();		
 							}
 						});
 						
