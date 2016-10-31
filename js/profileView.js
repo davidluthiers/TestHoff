@@ -342,7 +342,7 @@ define([
 								function(marker) {
 									
 									marker.setIcon({
-										'url': pictureurl,
+										//'url': pictureurl,
 										'size': {
 											width: 30,
 											height: 30
