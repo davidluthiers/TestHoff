@@ -19,6 +19,7 @@ define([
   
             events:{
                 "click #botonnext":"save",
+				"click #goprofile":"goprofile",
 				"click #getgalleryphoto":"getfromgallery",
 				"click #loadfromfacebook":"loadbyrequest"
             },
@@ -40,7 +41,7 @@ define([
 				
                 var self=this;
 				
-				if(this.profile.get("active") != "yes"){
+				if(this.profile.get("active") != "yes" || (typeof id != 'undefined' && id == '1')){
 					
 					/*
 						aquí hay que poner código para que compruebe si en el servidor ya hay datos guardados con mi ID de FB
@@ -106,6 +107,11 @@ define([
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 				
+					this.$(".botonnext").attr("class", "goprofile");
+					this.$(".botonnext").text(self.history.get("languages").get("dic_profile"));
+					
+					window.plugins.spinnerDialog.show();
+					
 					
 					$(document).one('pageshow', function (event, ui) {
 						self.getCoord();
@@ -116,6 +122,12 @@ define([
 				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
 
             },
+			
+			goprofile: function(){
+				
+				self.router.profile('1');
+				
+			},
 			
 			getCoord: function(){
 				self=this;
@@ -360,6 +372,7 @@ define([
 								console.log("Este nodo ya está en el mapa");
 							}
                         }
+						window.plugins.spinnerDialog.hide();
                     },
                     error: function(code) {
                         console.log("petada intentando descargar personas", code);

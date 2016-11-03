@@ -2165,11 +2165,11 @@ define([
         
             },
 			
-			profile:function () {
+			profile:function (id) {
 				
                 this.profileV= new profileView();
 		
-                this.profileV.render('0',historial, app_router);
+                this.profileV.render(id,historial, app_router);
 		
                 this.changePage (this.profileV);
         
