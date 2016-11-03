@@ -31,7 +31,7 @@ define([
                 this.history=historycollection;
 	
                 
-				
+				console.log("Render profile con id: " + id);
               
 				this.origin = id;
 				this.router = router;
@@ -97,6 +97,7 @@ define([
 					//Carga del mapa
 					
 					compiledTemplate = _.template( map );
+					
 				
 					this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
 					
@@ -105,8 +106,10 @@ define([
 					compiledheaderandpanel=_.template( headerandpanel );
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+					
+					this.origin= '1';
 				
-					this.$(".botonnext").val(self.history.get("languages").get("dic_profile"));
+					this.$(".botonnext .ui-btn-text").text(self.history.get("languages").get("dic_profile"));
 					
 					window.plugins.spinnerDialog.show();
 					
@@ -233,6 +236,7 @@ define([
 				}
 				catch(e){
 					console.log("Map error: " + e);
+					window.plugins.spinnerDialog.hide();
 				}
 				
 				try{
@@ -368,6 +372,7 @@ define([
                     },
                     error: function(code) {
                         console.log("petada intentando descargar personas", code);
+						window.plugins.spinnerDialog.hide();
                     }
                 };
 
