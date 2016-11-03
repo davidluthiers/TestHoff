@@ -19,7 +19,6 @@ define([
   
             events:{
                 "click #botonnext":"save",
-				"click #goprofile":"goprofile",
 				"click #getgalleryphoto":"getfromgallery",
 				"click #loadfromfacebook":"loadbyrequest"
             },
@@ -107,8 +106,7 @@ define([
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 				
-					this.$(".botonnext").attr("class", "goprofile");
-					this.$(".botonnext").text(self.history.get("languages").get("dic_profile"));
+					this.$(".botonnext").val(self.history.get("languages").get("dic_profile"));
 					
 					window.plugins.spinnerDialog.show();
 					
@@ -122,12 +120,6 @@ define([
 				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
 
             },
-			
-			goprofile: function(){
-				
-				self.router.profile('1');
-				
-			},
 			
 			getCoord: function(){
 				self=this;
@@ -623,47 +615,52 @@ define([
             save: function(){
 				console.log("Save profile function");
 				
-                try{
-					if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
-						//Tiene valores válidos
-						profileM=this.history.get("profile");
-						
-						
-						profileM.set("nickname",$("#displayname").val());
-						profileM.set("email",$("#useremail").val());
-						var visionphoto = document.getElementById('visionphoto');
-						profileM.set("picture", visionphoto.src);
-						profileM.set("userID",this.history.get("profile").get("userID"));
-						profileM.set("lastupdated", new Date());
-						this.history.get("profile").destroy();
-						profileM.save();
+				if(this.origin == '1'){//edit profile
+					self.router.profile('1');
+				}				
+				else{
+					try{
+						if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
+							//Tiene valores válidos
+							profileM=this.history.get("profile");
 							
-						this.history.create(profileM);
-						
-						
-						this.router.drupaldo(this.saveonserver.bind(this),false);
-						
-						
-						if(this.origin == '0'){
-							//Volver summary
-							 Backbone.history.navigate("#profile", {
-								trigger: true
-							});
+							
+							profileM.set("nickname",$("#displayname").val());
+							profileM.set("email",$("#useremail").val());
+							var visionphoto = document.getElementById('visionphoto');
+							profileM.set("picture", visionphoto.src);
+							profileM.set("userID",this.history.get("profile").get("userID"));
+							profileM.set("lastupdated", new Date());
+							this.history.get("profile").destroy();
+							profileM.save();
+								
+							this.history.create(profileM);
+							
+							
+							this.router.drupaldo(this.saveonserver.bind(this),false);
+							
+							
+							if(this.origin == '0'){
+								//Volver summary
+								 Backbone.history.navigate("#profile", {
+									trigger: true
+								});
+							}
+							else {
+								//Ir al mapa
+								console.log("ir al mapa");
+							}
+							
 						}
-						else {
-							//Ir al mapa
-							console.log("ir al mapa");
+						else{
+							//Falta algún valor obligatorio
+							alert(this.history.get("languages").get("dic_profile_required"));
 						}
-						
 					}
-					else{
-						//Falta algún valor obligatorio
-						alert(this.history.get("languages").get("dic_profile_required"));
+					catch(e){
+						console.log(e);
 					}
-                }
-                catch(e){
-					console.log(e);
-                }
+				}
             },
 			
 			onPhotoDataSuccess: function(imageData, base64){
