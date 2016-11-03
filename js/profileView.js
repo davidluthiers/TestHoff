@@ -109,7 +109,7 @@ define([
 					
 					this.origin= '1';
 				
-					this.$(".botonnext .ui-btn-text").text(self.history.get("languages").get("dic_profile"));
+					this.$("#botonnext").text(self.history.get("languages").get("dic_profile"));
 					
 					window.plugins.spinnerDialog.show();
 					
