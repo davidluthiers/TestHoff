@@ -410,6 +410,7 @@ define([
 						console.log("profile.id es: " + profileM.id);
 						console.log("profile.get('id') es: " + profileM.get("id"));
 						console.log("DEBUGDEBUGDEBUG userData.authResponse.userID hmtl?: " + userData.authResponse.userID);
+						profileM.set("nid",historial.get("profile").get("nid")); //guardamos el ID del nodo en nuestro server
 						profileM.id = userData.authResponse.userID;
 						profileM.set("userID",userData.authResponse.userID);
 						try{
