@@ -626,6 +626,7 @@ define([
 					self.router.profile('1');
 				}				
 				else{
+					window.plugins.spinnerDialog.show();
 					try{
 						if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
 							//Tiene valores válidos
