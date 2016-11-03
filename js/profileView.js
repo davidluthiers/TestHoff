@@ -255,6 +255,8 @@ define([
 				historial= this.history;
 				console.log("checkOnServer:");
 				
+				window.plugins.spinnerDialog.show();
+				
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
@@ -288,6 +290,7 @@ define([
 									
 								historial.create(profileM);
 								flag=true;
+								window.plugins.spinnerDialog.hide();
 								self.router.profile(); //Cargamos el mapa
 							}
 						}
@@ -297,6 +300,7 @@ define([
 					},
                     error: function(code) {
                         console.log("petada intentando descargar personas", code);
+						window.plugins.spinnerDialog.hide();
                     }
                 };
 				
@@ -362,6 +366,7 @@ define([
 									marker.showInfoWindow();
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
 										console.log("presed map icon");
+										//acción para enviar email?
 									});
 
 								}); 
