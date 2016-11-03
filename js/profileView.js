@@ -46,6 +46,8 @@ define([
 						aquí hay que poner código para que compruebe si en el servidor ya hay datos guardados con mi ID de FB
 					*/
 					
+					this.origin = '0';
+					
 					compiledTemplate = _.template( profileT );
 					
 					//Carga del profile
