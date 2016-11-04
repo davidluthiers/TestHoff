@@ -140,7 +140,7 @@ define([
 								self.history.get("profile").destroy();
 								self.history.create(auxprofile);
 								//updatenode
-								self.saveonserverAndInitialize(true);
+								self.saveonserverAndInitialize(true, position.coords.latitude,position.coords.longitude);
 								
 								
 								},
@@ -482,7 +482,7 @@ define([
 				
 			},
 			
-			saveonserverAndInitialize: function(afterCoords){
+			saveonserverAndInitialize: function(afterCoords, latitude, longitude){
 				
 				profile = this.history.get("profile");
 				console.log(profile.get("nickname"));
@@ -587,7 +587,7 @@ define([
 							success: function(result) {
 								console.log("Saved node #" + result.nid);
 								self.setActive();
-								self.initializeMap(profile.get("latitude"),profile.get("longitude"));
+								self.initializeMap(latitude,longitude);
 								//llamada a node_load puede eliminarse antes de la salida
 								node_load(result.nid, {
 									success: function(node) {
