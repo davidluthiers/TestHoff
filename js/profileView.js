@@ -140,11 +140,8 @@ define([
 								self.history.get("profile").destroy();
 								self.history.create(auxprofile);
 								//updatenode
-								self.saveonserver(true);
+								self.saveonserverAndInitialize(true);
 								
-								setTimeout(function(){
-									self.initializeMap(position.coords.latitude,position.coords.longitude);
-								},300);
 								
 								},
 						  
@@ -290,11 +287,11 @@ define([
 									
 								historial.create(profileM);
 								flag=true;
-								window.plugins.spinnerDialog.hide();
 								self.router.profile(); //Cargamos el mapa
 							}
 						}
 						if(!flag){
+							window.plugins.spinnerDialog.hide();
 							console.log("Mi perfil no está en el servidor, cargamos el form de usuario");
 						}
 					},
@@ -482,6 +479,138 @@ define([
 						console.log(error);
 					}
 				);
+				
+			},
+			
+			saveonserverAndInitialize: function(afterCoords){
+				
+				profile = this.history.get("profile");
+				console.log(profile.get("nickname"));
+				mydate = new Date();	
+				var node;				
+				try{
+					self= this;
+
+						//mirar si yo tengo el nid
+						if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
+							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
+							
+							node = {
+								nid: profile.get("nid"),
+								title: profile.id,
+								type: "usernode",
+								 
+								field_userid:{
+										"und":[{
+											"value":profile.get("userID")
+										}]
+								},
+								field_email:{
+										"und":[{
+											"value":profile.get("email")
+										}]
+								},
+								field_nickname:{
+										"und":[{
+											"value":profile.get("nickname")
+										}]
+								},
+								field_lastupdated:{
+										"und":[{
+											"value":mydate
+										}]
+								},
+								field_pictureurl:{
+										"und":[{
+											"value":profile.get("picture")
+										}]
+								},
+								field_latitude:{
+										"und":[{
+											"value":profile.get("latitude")
+										}]
+								},
+								field_longitude:{
+										"und":[{
+											"value":profile.get("longitude")
+										}]
+								}
+							};
+						}
+						else{ 			//No lo tenemos en local (nuevo miembro)
+						
+							node = {
+									title: profile.get("userID"),
+									type: "usernode",
+									 
+									field_userid:{
+											"und":[{
+												"value":profile.get("userID")
+											}]
+									},
+									field_email:{
+											"und":[{
+												"value":profile.get("email")
+											}]
+									},
+									field_nickname:{
+											"und":[{
+												"value":profile.get("nickname")
+											}]
+									},
+									field_lastupdated:{
+											"und":[{
+												"value":mydate
+											}]
+									},
+									field_pictureurl:{
+											"und":[{
+												"value":profile.get("picture")
+											}]
+									},
+									field_latitude:{
+											"und":[{
+												"value":profile.get("latitude")
+											}]
+									},
+									field_longitude:{
+											"und":[{
+												"value":profile.get("longitude")
+											}]
+									}
+
+								};
+							
+						}
+						
+						node_save(node, {
+							success: function(result) {
+								console.log("Saved node #" + result.nid);
+								self.setActive();
+								self.initializeMap(profile.get("latitude"),profile.get("longitude"));
+								//llamada a node_load puede eliminarse antes de la salida
+								node_load(result.nid, {
+									success: function(node) {
+									console.log("Loaded " + node.title);
+									console.log(node);
+									}
+								});
+							if (!afterCoords){
+								console.log("aftercoords false");
+								self.router.profile();
+							}
+							}
+						});
+						
+					
+					
+					}
+				catch(e){
+					console.log("Error save_node: " + e);
+				}
+				
+				
+				console.log("saveonserver");
 				
 			},
 			
