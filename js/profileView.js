@@ -752,7 +752,9 @@ define([
 				this.history.get("profile").destroy();
 				profile.set("active", "yes");
 				profile.set("saved", "yes");
-				profile.set("nid", nid);
+				if (typeof nid != 'undefined' && nid != ""){
+					profile.set("nid", nid);
+				}
 				profile.save();
 				this.history.create(profile);
 			},
