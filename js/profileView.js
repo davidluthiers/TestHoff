@@ -151,9 +151,11 @@ define([
 								// Provide debug information to developer and user.
 								console.log(error);
 								
-								setTimeout(function(){
+								/*setTimeout(function(){
 									self.initializeMap(39.4658376,-0.3582468);
-								},300);
+								},300);*/
+								
+								alert(historial.get("languages").get("dic_gps_required"));
 
 								// Process error code.
 								switch (error.code) {
