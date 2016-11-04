@@ -718,7 +718,7 @@ define([
 						node_save(node, {
 							success: function(result) {
 								console.log("Saved node #" + result.nid);
-								self.setActive();
+								self.setActive(result.nid);
 								//llamada a node_load puede eliminarse antes de la salida
 								node_load(result.nid, {
 									success: function(node) {
@@ -745,11 +745,12 @@ define([
 				
 			},
 			
-			setActive: function(){
+			setActive: function(nid){
 				profile= this.history.get("profile");
 				this.history.get("profile").destroy();
 				profile.set("active", "yes");
 				profile.set("saved", "yes");
+				profile.set("nid", nid);
 				profile.save();
 				this.history.create(profile);
 			},
