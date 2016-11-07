@@ -496,6 +496,7 @@ define([
 			saveonserverAndInitialize: function(afterCoords, latitude, longitude){
 				
 				profile = this.history.get("profile");
+				self.setActive();
 				console.log(profile.get("nickname"));
 				mydate = new Date();	
 				var node;				
@@ -597,7 +598,6 @@ define([
 						node_save(node, {
 							success: function(result) {
 								console.log("Saved node #" + result.nid);
-								self.setActive();
 								self.initializeMap(latitude,longitude);
 								//llamada a node_load puede eliminarse antes de la salida
 								node_load(result.nid, {
