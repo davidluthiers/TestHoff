@@ -546,6 +546,11 @@ define([
 										"und":[{
 											"value":profile.get("longitude")
 										}]
+								},
+								field_active:{
+										"und":[{
+											"value":profile.get("active")
+										}]
 								}
 							};
 						}
@@ -588,6 +593,11 @@ define([
 									field_longitude:{
 											"und":[{
 												"value":profile.get("longitude")
+											}]
+									},
+									field_active:{
+											"und":[{
+												"value":profile.get("active")
 											}]
 									}
 
@@ -677,6 +687,11 @@ define([
 										"und":[{
 											"value":profile.get("longitude")
 										}]
+								},
+								field_active:{
+										"und":[{
+											"value":profile.get("active")
+										}]
 								}
 							};
 						}
@@ -719,6 +734,11 @@ define([
 									field_longitude:{
 											"und":[{
 												"value":profile.get("longitude")
+											}]
+									},
+									field_active:{
+											"und":[{
+												"value":profile.get("active")
 											}]
 									}
 
