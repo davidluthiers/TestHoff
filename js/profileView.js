@@ -20,7 +20,8 @@ define([
             events:{
                 "click #botonnext":"save",
 				"click #getgalleryphoto":"getfromgallery",
-				"click #loadfromfacebook":"loadbyrequest"
+				"click #loadfromfacebook":"loadbyrequest",
+				"click #toggle_profile":"toggle_profile"
             },
    
             render: function(id, historycollection, router){
@@ -74,6 +75,13 @@ define([
 								var visionphoto = document.getElementById('visionphoto');
 								visionphoto.style.display = 'block'; 
 								visionphoto.src = this.profile.get("picture");
+								if(this.profile.get("active")=="yes"){
+									this.$(".deactivate").show();
+								}
+								if(this.profile.get("active")=="no"){
+									this.$(".activate").show();
+								}
+								
 							},400);
 
 					}
@@ -332,13 +340,14 @@ define([
 							var email = auxprofile.email;
 							var latitude = auxprofile.latitude;
 							var longitude = auxprofile.longitude;
+							var isactive = auxprofile.active;
 							
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							//console.log("picture: " + pictureurl);
 							console.log("Coords: " + latitude + ", " + longitude);
 							
 							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
-							if(usersList[userID] != "used" || typeof usersList[userID] == 'undefined'){
+							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined')){
 								usersList[userID] = "used";
 								map.addMarker({
 								  'position': locationLatlng,
@@ -744,6 +753,26 @@ define([
 				
 				
 				console.log("saveonserver");
+				
+			},
+			
+			toggle_profile: function(){
+				
+				profile= this.history.get("profile");
+				if(profile.get("active")=="yes"){
+					this.history.get("profile").destroy();
+					profile.set("active", "no");
+					profile.save();
+					this.history.create(profile);
+					this.router.drupaldo(this.saveonserver.bind(this),true);
+				}
+				else{
+					this.history.get("profile").destroy();
+					profile.set("active", "yes");
+					profile.save();
+					this.history.create(profile);
+					this.router.drupaldo(this.saveonserver.bind(this),false);
+				}
 				
 			},
 			

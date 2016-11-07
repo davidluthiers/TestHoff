@@ -1402,22 +1402,33 @@ top:-8px;
 	
 
 		
-		.elementosfinos { /*elementos de las listas de transfer*/
-            height: 40px;
-    
-            border:0px;
-            font-size:100%;
-            
-            
-    	}
+	.elementosfinos { /*elementos de las listas de transfer*/
+		height: 40px;
+
+		border:0px;
+		font-size:100%;
 		
-		#lolo .ui-icon{
 		
-		}
+	}
+		
+
 		
 		#password_remove_protect_button{
 			background: url('../img/Textures/beat.png') repeat;
 			margin-top:5%;
+		}
+		
+		#toggle_profile{
+			visibility: hidden;
+			background: url('../img/Textures/beat.png') repeat;
+		}
+		
+		.activate{
+			background: url('../img/Textures/verdeboton.png') repeat;
+		}
+		
+		.deactivate{
+			background: url('../img/Textures/beat.png') repeat;
 		}
 		
 		#listsusnegas li, #listsusnegas .ui-icon-alt{
