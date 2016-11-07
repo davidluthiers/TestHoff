@@ -496,8 +496,8 @@ define([
 			
 			saveonserverAndInitialize: function(afterCoords, latitude, longitude){
 				
+				this.setActive();
 				profile = this.history.get("profile");
-				self.setActive();
 				console.log(profile.get("nickname"));
 				mydate = new Date();	
 				var node;				
