@@ -31,7 +31,8 @@ text-align: center;
     top : 40px !important;  
     right : 0; 
     bottom : 40px !important;  
-    left : 0 !important;     
+    left : 0 !important; 
+	height: 100%;
 }
 
 label.audioDesc {
