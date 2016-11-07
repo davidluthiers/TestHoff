@@ -76,10 +76,12 @@ define([
 								visionphoto.style.display = 'block'; 
 								visionphoto.src = this.profile.get("picture");
 								if(this.profile.get("active")=="yes"){
+									this.$(".activate").hide();
 									this.$(".deactivate").show();
 								}
 								if(this.profile.get("active")=="no"){
 									this.$(".activate").show();
+									this.$(".deactivate").hide();
 								}
 								
 							},400);
