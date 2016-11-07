@@ -787,7 +787,7 @@ define([
 					profile.set("active", "no");
 					profile.save();
 					this.history.create(profile);
-					this.router.drupaldo(this.saveonserver.bind(this),true);
+					this.router.drupaldo(this.saveonserver.bind(this),false);
 				}
 				else{
 					this.history.get("profile").destroy();
