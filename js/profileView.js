@@ -752,6 +752,7 @@ define([
 						node_save(node, {
 							success: function(result) {
 								console.log("Saved node #" + result.nid);
+								self.setNID(result.nid);
 								//llamada a node_load puede eliminarse antes de la salida
 								node_load(result.nid, {
 									success: function(node) {
@@ -803,6 +804,16 @@ define([
 				this.history.get("profile").destroy();
 				profile.set("active", "yes");
 				profile.set("saved", "yes");
+				if (typeof nid != 'undefined' && nid != ""){
+					profile.set("nid", nid);
+				}
+				profile.save();
+				this.history.create(profile);
+			},
+			
+			setNID: function(nid){
+				profile= this.history.get("profile");
+				this.history.get("profile").destroy();
 				if (typeof nid != 'undefined' && nid != ""){
 					profile.set("nid", nid);
 				}
