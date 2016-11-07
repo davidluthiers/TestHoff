@@ -421,7 +421,7 @@ define([
 						profileM.set("nid",historial.get("profile").get("nid")); //guardamos el ID del nodo en nuestro server
 						profileM.id = userData.authResponse.userID;
 						profileM.set("userID",userData.authResponse.userID);
-						profile.set("active", "yes");
+						profileM.set("active", "yes");
 						try{
 							historial.get("profile").destroy();
 						}
