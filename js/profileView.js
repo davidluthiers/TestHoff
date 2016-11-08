@@ -241,6 +241,31 @@ define([
 					  }
 					}
 				   );
+				   this.map.remove();
+				   this.map = plugin.google.maps.Map.getMap(mapDiv,
+				   {
+					  'backgroundColor': 'white',
+					  'mapType': plugin.google.maps.MapTypeId.ROADMAP,
+					  'controls': {
+						'compass': true,
+						'myLocationButton': true,
+						'indoorPicker': true,
+						'zoom': true
+					  },
+					  'gestures': {
+						'scroll': true,
+						'tilt': true,
+						'rotate': true,
+						'zoom': true
+					  },
+					  'camera': {
+						'latLng': myLatlng,
+						'tilt': 30,
+						'zoom': 4,
+						'bearing': 50
+					  }
+					}
+				   );
 				   console.log("Map: ");
 				   console.log(map);
 
