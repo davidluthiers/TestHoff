@@ -243,6 +243,37 @@ define([
 				   console.log("Map: ");
 				   console.log(map);
 				   
+				   map.clear();
+				   map.off();
+				   
+				   this.map = plugin.google.maps.Map.getMap(mapDiv,
+				   {
+					  'backgroundColor': 'white',
+					  'mapType': plugin.google.maps.MapTypeId.ROADMAP,
+					  'controls': {
+						'compass': true,
+						'myLocationButton': true,
+						'indoorPicker': true,
+						'zoom': true
+					  },
+					  'gestures': {
+						'scroll': true,
+						'tilt': true,
+						'rotate': true,
+						'zoom': true
+					  },
+					  'camera': {
+						'latLng': myLatlng,
+						'tilt': 30,
+						'zoom': 4,
+						'bearing': 50
+					  }
+					}
+				   );
+				   
+				   console.log("Map2: ");
+				   console.log(map);
+				   
 				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map)});
 				}
 				catch(e){
@@ -331,8 +362,6 @@ define([
 						console.log("DATA: ");
                         console.log(data);
 						usersList = [];
-						map.clear();
-						map.off();
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							console.log("auxprofile:");
