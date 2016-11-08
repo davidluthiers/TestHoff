@@ -244,11 +244,6 @@ define([
 				   console.log("Map: ");
 				   console.log(map);
 
-				    for(var i=0; i<self.lastmarkers.length; i++){
-						self.lastmarkers[i].setMap(null);
-					}
-					self.lastmarkers = new Array();
-				   
 				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map,self.lastmarkers)});
 				}
 				catch(e){
@@ -327,6 +322,13 @@ define([
 				
 				console.log("onMapInit");
 				console.log(map);
+				
+				console.log("limpiando markers: ");
+				console.log(lastmarkers);
+				for(var i=0; i<lastmarkers.length; i++){
+					lastmarkers[i].setMap(null);
+				}
+				lastmarkers = new Array();
 				
 				var params_people = { //active hoffman users
                     type: 'GET',
