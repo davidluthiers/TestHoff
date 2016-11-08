@@ -332,6 +332,7 @@ define([
                         console.log(data);
 						usersList = [];
 						map.clear();
+						map.off();
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							console.log("auxprofile:");
