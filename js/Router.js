@@ -2169,7 +2169,7 @@ define([
 				
                 this.profileV= new profileView();
 		
-                this.profileV.render(id,historial, app_router);
+                this.profileV.render(id,historial, app_router, lastmarkers);
 		
                 this.changePage (this.profileV);
         
@@ -2340,6 +2340,7 @@ define([
         var Checkversion = false;
         var app_router;
         var innerlog = new innerLog;
+		var lastmarkers = [];
   
         return {
             initialize: initialize

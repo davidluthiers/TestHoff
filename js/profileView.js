@@ -24,7 +24,7 @@ define([
 				"click #toggle_profile":"toggle_profile"
             },
    
-            render: function(id, historycollection, router){
+            render: function(id, historycollection, router, lastmarkers){
                 this.$el.attr('data-role', 'page');
                 this.$el.attr('data-theme', 'a');
                 this.$el.attr('class', 'page');
@@ -38,6 +38,7 @@ define([
 				this.router = router;
 				this.profile = historycollection.get("profile");
 				this.byrequest=false;
+				this.lastmarkers = lastmarkers;
 				
                 var self=this;
 				
@@ -242,39 +243,13 @@ define([
 				   );
 				   console.log("Map: ");
 				   console.log(map);
-				   
-				   map.clear();
-				   map.off();
-				   
-				   this.map = plugin.google.maps.Map.getMap(mapDiv,
-				   {
-					  'backgroundColor': 'white',
-					  'mapType': plugin.google.maps.MapTypeId.ROADMAP,
-					  'controls': {
-						'compass': true,
-						'myLocationButton': true,
-						'indoorPicker': true,
-						'zoom': true
-					  },
-					  'gestures': {
-						'scroll': true,
-						'tilt': true,
-						'rotate': true,
-						'zoom': true
-					  },
-					  'camera': {
-						'latLng': myLatlng,
-						'tilt': 30,
-						'zoom': 4,
-						'bearing': 50
-					  }
+
+				    for(var i=0; i<self.lastmarkers.length; i++){
+						self.lastmarkers[i].setMap(null);
 					}
-				   );
+					self.lastmarkers = new Array();
 				   
-				   console.log("Map2: ");
-				   console.log(map);
-				   
-				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map)});
+				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map,self.lastmarkers)});
 				}
 				catch(e){
 					console.log("Map error: " + e);
@@ -348,7 +323,7 @@ define([
 				
 			},
 			
-			onMapInit:function(map){
+			onMapInit:function(map, lastmarkers){
 				
 				console.log("onMapInit");
 				console.log(map);
@@ -395,6 +370,7 @@ define([
 								},
 								function(marker) {
 									
+									lastmarkers.push(marker);
 									marker.setIcon({
 										//'url': pictureurl,
 										'size': {
