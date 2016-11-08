@@ -2168,7 +2168,8 @@ define([
 			profile:function (id) {
 				
                 this.profileV= new profileView();
-		
+				console.log("Render profile, markers en router: ");
+				console.log(lastmarkers);
                 this.profileV.render(id,historial, app_router, lastmarkers);
 		
                 this.changePage (this.profileV);

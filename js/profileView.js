@@ -393,6 +393,8 @@ define([
 								console.log("Este nodo ya está en el mapa");
 							}
                         }
+						console.log("markers guardados: ");
+						console.log(lastmarkers);
 						window.plugins.spinnerDialog.hide();
                     },
                     error: function(code) {
@@ -402,6 +404,8 @@ define([
                 };
 
                 $.ajax(params_people);
+				console.log("markers2 guardados: ");
+				console.log(lastmarkers);
 		
 				
 			},
