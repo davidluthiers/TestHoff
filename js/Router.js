@@ -2168,9 +2168,8 @@ define([
 			profile:function (id) {
 				
                 this.profileV= new profileView();
-				console.log("Render profile, markers en router: ");
-				console.log(lastmarkers);
-                this.profileV.render(id,historial, app_router, lastmarkers);
+				
+                this.profileV.render(id,historial, app_router);
 		
                 this.changePage (this.profileV);
         
@@ -2341,7 +2340,6 @@ define([
         var Checkversion = false;
         var app_router;
         var innerlog = new innerLog;
-		var lastmarkers = [];
   
         return {
             initialize: initialize

@@ -24,7 +24,7 @@ define([
 				"click #toggle_profile":"toggle_profile"
             },
    
-            render: function(id, historycollection, router, lastmarkers){
+            render: function(id, historycollection, router){
                 this.$el.attr('data-role', 'page');
                 this.$el.attr('data-theme', 'a');
                 this.$el.attr('class', 'page');
@@ -38,7 +38,6 @@ define([
 				this.router = router;
 				this.profile = historycollection.get("profile");
 				this.byrequest=false;
-				this.lastmarkers = lastmarkers;
 				
                 var self=this;
 				
@@ -249,7 +248,7 @@ define([
 				   console.log("Map: ");
 				   console.log(map);
 
-				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map,self.lastmarkers)});
+				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map)});
 				}
 				catch(e){
 					console.log("Map error: " + e);
@@ -323,18 +322,11 @@ define([
 				
 			},
 			
-			onMapInit:function(map, lastmarkers){
+			onMapInit:function(map){
 				
 				console.log("onMapInit");
 				console.log(map);
-				
-				console.log("limpiando markers: ");
-				console.log(lastmarkers);
-				for(var i=0; i<lastmarkers.length; i++){
-					lastmarkers[i].setMap(null);
-				}
-				lastmarkers = new Array();
-				
+					
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
@@ -377,7 +369,6 @@ define([
 								},
 								function(marker) {
 									
-									lastmarkers.push(marker);
 									marker.setIcon({
 										//'url': pictureurl,
 										'size': {
@@ -398,8 +389,6 @@ define([
 								console.log("Este nodo ya está en el mapa");
 							}
                         }
-						console.log("markers guardados: ");
-						console.log(lastmarkers);
 						window.plugins.spinnerDialog.hide();
                     },
                     error: function(code) {
@@ -409,8 +398,7 @@ define([
                 };
 
                 $.ajax(params_people);
-				console.log("markers2 guardados: ");
-				console.log(lastmarkers);
+
 		
 				
 			},
