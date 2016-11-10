@@ -514,7 +514,9 @@ define([
 							console.log("xhr: ");
 							console.log(xhr);
 							console.log("status: " + status);
-							if(message[0]== "Already logged in as appuser.") {
+							console.log(message[0]);
+							console.log(message);
+							if(message[0]== "Already logged in as appuser." || true) {
 								console.log("ALREADY LOGGED, PROCEED");
 								self.checkAndDo(job, param);
 							}
