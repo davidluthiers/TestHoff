@@ -511,9 +511,13 @@ define([
                         },
                         error:function(xhr, status, message){
                             console.log("Error trying to login, message: " + message);
-							console.log("xhr: " + xhr);
+							console.log("xhr: ");
+							console.log(xhr);
 							console.log("status: " + status);
-							
+							if(message[0]== "Already logged in as appuser.") {
+								console.log("ALREADY LOGGED, PROCEED");
+								self.checkAndDo(job, param);
+							}
                         }
                     });
                 }
