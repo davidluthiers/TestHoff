@@ -380,8 +380,9 @@ define([
 									marker.showInfoWindow();
 									const uniqueEmail = email;
 									console.log("UniqueEmail: " + email);
-									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
+									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										console.log("pressed map icon: " + uniqueEmail);
+										console.log(evt);
 										//acción para enviar email?
 										window.location.href = "mailto:" + uniqueEmail;
 									});
