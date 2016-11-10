@@ -289,7 +289,7 @@ define([
 	
             downloadAndPlay: function(){
                 var self=this;
-                if(historicAudiodownloaded=="no"){ //download
+                if(this.historicAudiodownloaded=="no"){ //download
                     try{
                         window.plugins.spinnerDialog.show(self.history.get("languages").get("dic_loading"), "", function () {
                             console.log("callback");

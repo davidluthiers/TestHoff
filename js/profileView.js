@@ -256,7 +256,7 @@ define([
 				}
 				
 				try{
-					$("._gmaps_cdv_").attr("style","background-image: none !important; height: 92%;");
+					$("._gmaps_cdv_").attr("style","background-image: none !important; height: 85%;");
 				}
 				catch(e){
 					console.log("Error: "+e);
