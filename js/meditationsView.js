@@ -212,7 +212,18 @@ define([
 					console.log(e);
 				}
 				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+self.model.get("audioName"));
-				self.my_media = new Media(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
+				
+				target = "";
+				
+				if(device.platform!='Android'){	//iOS
+					console.log("Mi plataforma es: " + device.platform);
+					target=cordova.file.documentsDirectory+"audios/";
+				 }
+				 else{
+					 target=cordova.file.externalDataDirectory+"audios/";
+				 }
+				 
+				self.my_media = new Media(target+this.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
 				setTimeout(function() {
 					self.preparar();
 					$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));

@@ -138,7 +138,8 @@ define([
 	
                 }
 	
-                this.historicAudiodownloaded=false;
+                this.historicAudiodownloaded = historycollection.get("languages").get("quadAudioDownloaded");
+				console.log("El quad audio en local es: " + this.historicAudiodownloaded);
 	
 			
                 var next="enabled";
@@ -173,13 +174,53 @@ define([
 							console.log("audio node filename:->"+ data.field_audio.und[0].filename+ "<-");
 							self.model.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
 							self.getAudio(data.field_audio.und[0].uri.split("private://")[1]);
+							
+							
 						},
 						error: function(code) {
 							console.log("petada", code);
 						}
 					};
 					//console.log("params ", params_audio_node);
-					$.ajax(params_audio_node);
+					
+					if(this.historicAudiodownloaded == "no"){ //Hay que descargar el audio
+						$.ajax(params_audio_node);
+					}
+					else{ //Tenemos el audio en local
+						console.log("nodownload, fichero de audio ya existente");
+						console.log(this.model);
+						selfR=this;
+						
+						try{
+							window.plugins.spinnerDialog.hide();
+						}
+						catch(e){
+							console.log(e);
+						}
+						console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+historycollection.get("languages").get("quadAudioDownloaded"));
+						target="";
+						
+						if(device.platform!='Android'){	//iOS
+							console.log("Mi plataforma es: " + device.platform);
+							target=cordova.file.documentsDirectory+"audios/";
+						 }
+						 else{
+							 target=cordova.file.externalDataDirectory+"audios/";
+						 }
+						selfR.my_media = new Media(target+historycollection.get("languages").get("quadAudioDownloaded"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
+						setTimeout(function() {
+							selfR.preparar();
+							$("#downloadAndPlay .ui-btn-text").text(historycollection.get("languages").get("dic_play"));
+							$("#downloadAndPlay").attr("id","playSoundButton");
+							try{
+								window.plugins.spinnerDialog.hide();
+							}
+							catch(e){
+								console.log(e);
+							}
+						}, 300);
+						
+					}
 					
 					setTimeout(function() {
 					   $(".ui-slider-track a").removeAttr("href");
@@ -248,7 +289,7 @@ define([
 	
             downloadAndPlay: function(){
                 var self=this;
-                if(!this.historicAudiodownloaded){ //download
+                if(historicAudiodownloaded=="no"){ //download
                     try{
                         window.plugins.spinnerDialog.show(self.history.get("languages").get("dic_loading"), "", function () {
                             console.log("callback");
@@ -283,6 +324,8 @@ define([
             },
 	
             getAudio:function(audiofilename) {
+				
+				
 
                 var self=this;
                 this.progress=0;
@@ -299,61 +342,63 @@ define([
                         }
                     };
                     var uri = encodeURI("http://hoffmanapp.indret.webfactional.com/system/files/"+audiofilename);
-                    if(device.platform!='Android'){	//iOS
-                        self.my_media = new Media(uri, self.mediasuccess, self.nada, self.onStatus);
-                        setTimeout(function() {
-                            self.preparar();
-							$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
-                            $("#downloadAndPlay").attr("id","playSoundButton");
-                            window.plugins.spinnerDialog.hide();
-                            try{
-                                window.plugins.spinnerDialog.hide();
-                            }
-                            catch(e){
-                                console.log(e);
-                            }
-                        }, 300);
-                    }
-			
-                    else{
-                        target=cordova.file.cacheDirectory+"audios/"+audiofilename;
-				
-                        fileTransfer.download(
-                            uri,
-                            target,
-                            function(entry) {
-                                console.log("download complete, URL: " + entry.toURL());
-                                console.log("entry: ");
-                                console.log(entry);
-                                url=entry.toURL();
-                                self.my_media = new Media(url, self.mediasuccess, self.nada, self.onStatus);
-                                setTimeout(function() {
-                                    self.preparar();
-									$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
-                                    $("#downloadAndPlay").attr("id","playSoundButton");
-                                    try{
-                                        window.plugins.spinnerDialog.hide();
-                                    }
-                                    catch(e){
-                                        console.log(e);
-                                    }
-                                }, 300);
+                    
+					target = "";
 					
-                            },
-                            function(error) {
-                                console.log("download error source " + error.source);
-                                console.log("download error target " + error.target);
-                                console.log("download error code" + error.code);
-                                console.log("download body code: "  + error.body);
-                                try{
-                                    window.plugins.spinnerDialog.hide();
-                                }
-                                catch(e){
-                                    console.log(e);
-                                }
-                            }
-                            );
-                    }
+					if(device.platform!='Android'){	//iOS
+						console.log("Mi plataforma es: " + device.platform);
+						target=cordova.file.documentsDirectory+"audios/"+audiofilename;
+					 }
+					 else{
+						 target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
+					 }
+			
+					fileTransfer.download(
+						uri,
+						target,
+						function(entry) {
+							console.log("download complete, URL: " + entry.toURL());
+							console.log("entry: ");
+							console.log(entry);
+							url=entry.toURL();
+							
+							//guardamos el nombre del quadAudio
+							auxlanguages = self.history.get("languages");
+							self.history.get("languages").destroy();
+							auxlanguages.set("historicAudiodownloaded",audiofilename);
+							auxlanguages.save();
+							self.history.create(auxlanguages);
+							
+							self.my_media = new Media(url, self.mediasuccess, self.nada, self.onStatus);
+							setTimeout(function() {
+								
+								self.preparar();
+								$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
+								$("#downloadAndPlay").attr("id","playSoundButton");
+
+								try{
+									window.plugins.spinnerDialog.hide();
+								}
+								catch(e){
+									console.log(e);
+								}
+							}, 300);
+				
+						},
+						function(error) {
+							console.log("download error source " + error.source);
+							console.log("download error target " + error.target);
+							console.log("download error code" + error.code);
+							console.log("download body code: "  + error.body);
+							try{
+								window.plugins.spinnerDialog.hide();
+							}
+							catch(e){
+								console.log(e);
+							}
+						}
+						);
+                    
                 //}
                 }
 		

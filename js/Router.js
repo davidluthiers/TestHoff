@@ -2197,7 +2197,8 @@ define([
                     transVersion2:"transference4",
 					notifications: true,
 					feelingsList: "void",
-					actionsList: "void"
+					actionsList: "void",
+					quadAudioDownloaded: "no"
                 });
                 donotshow= new donotshowModel({
                     id: "donotshow",
@@ -2299,7 +2300,8 @@ define([
             transVersion2:"transference4",
 			notifications: true,
 			feelingsList: "void",
-			actionsList: "void"
+			actionsList: "void",
+			quadAudioDownloaded: "no"
         });
         var donotshow= new donotshowModel({
             id: "donotshow",
