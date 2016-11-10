@@ -616,6 +616,7 @@ define([
 						node_save(node, {
 							success: function(result) {
 								console.log("Saved node #" + result.nid);
+								window.plugins.spinnerDialog.hide();
 								self.initializeMap(latitude,longitude);
 								//llamada a node_load puede eliminarse antes de la salida
 								node_load(result.nid, {
