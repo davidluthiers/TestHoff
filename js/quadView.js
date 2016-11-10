@@ -365,7 +365,7 @@ define([
 							//guardamos el nombre del quadAudio
 							auxlanguages = self.history.get("languages");
 							self.history.get("languages").destroy();
-							auxlanguages.set("historicAudiodownloaded",audiofilename);
+							auxlanguages.set("quadAudioDownloaded",audiofilename);
 							auxlanguages.save();
 							self.history.create(auxlanguages);
 							
