@@ -183,7 +183,7 @@ define([
 					};
 					//console.log("params ", params_audio_node);
 					
-					if(this.historicAudiodownloaded == "no"){ //Hay que descargar el audio
+					if(this.historicAudiodownloaded == "no" || typeof this.historicAudiodownloaded == 'undefined'){ //Hay que descargar el audio
 						$.ajax(params_audio_node);
 					}
 					else{ //Tenemos el audio en local
