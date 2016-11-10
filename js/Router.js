@@ -1129,6 +1129,7 @@ define([
                         language.cid="c1";
 						language.set("sesToken",routerToken);
 						language.set("downloaded","yes");
+						language.set("historicAudiodownloaded","no");
 						language.set("id","languages");
 						language.set("actionsList","void");
                         historial.create(language);
