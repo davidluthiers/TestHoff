@@ -382,7 +382,7 @@ define([
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										console.log("pressed map icon");
 										console.log(evt);
-										console.log(evt.id.replace("marker_m","");
+										console.log(evt.id.replace("marker_m",""));
 										console.log(data[evt.id.replace("marker_m","")].email);
 										//acción para enviar email?
 										window.location.href = "mailto:" + data[evt.id.replace("marker_m","")].email;
