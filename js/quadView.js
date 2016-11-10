@@ -183,7 +183,7 @@ define([
 					};
 					//console.log("params ", params_audio_node);
 					
-					if(this.historicAudiodownloaded == "no" || this.historicAudiodownloaded == 'undefined'){ //Hay que descargar el audio
+					if(this.historicAudiodownloaded == "no" || typeof this.historicAudiodownloaded == 'undefined'){ //Hay que descargar el audio
 						$.ajax(params_audio_node);
 					}
 					else{ //Tenemos el audio en local
@@ -289,7 +289,7 @@ define([
 	
             downloadAndPlay: function(){
                 var self=this;
-                if(this.historicAudiodownloaded=="no" || this.historicAudiodownloaded == 'undefined'){ //download
+                if(this.historicAudiodownloaded=="no" || typeof this.historicAudiodownloaded == 'undefined'){ //download
                     try{
                         window.plugins.spinnerDialog.show(self.history.get("languages").get("dic_loading"), "", function () {
                             console.log("callback");
