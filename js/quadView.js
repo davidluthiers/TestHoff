@@ -312,7 +312,7 @@ define([
 					catch(e){
 						console.log(e);
 					}
-					console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+historycollection.get("languages").get("quadAudioDownloaded"));
+					console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+selfR.history.get("languages").get("quadAudioDownloaded"));
 					target="";
 					
 					if(device.platform!='Android'){	//iOS
@@ -322,10 +322,10 @@ define([
 					 else{
 						 target=cordova.file.externalDataDirectory+"audios/";
 					 }
-					selfR.my_media = new Media(target+historycollection.get("languages").get("quadAudioDownloaded"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
+					selfR.my_media = new Media(target+selfR.history.get("languages").get("quadAudioDownloaded"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
 					setTimeout(function() {
 						selfR.preparar();
-						$("#downloadAndPlay .ui-btn-text").text(historycollection.get("languages").get("dic_play"));
+						$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
 						$("#downloadAndPlay").attr("id","playSoundButton");
 						try{
 							window.plugins.spinnerDialog.hide();
