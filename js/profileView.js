@@ -379,7 +379,7 @@ define([
 								 
 									marker.showInfoWindow();
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
-										console.log("presed map icon");
+										console.log("pressed map icon");
 										//acción para enviar email?
 										window.location.href = "mailto:" + email;
 									});
