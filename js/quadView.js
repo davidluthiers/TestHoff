@@ -173,6 +173,7 @@ define([
 							console.log("Tengo el Quad audioName");
 							console.log("audio node filename:->"+ data.field_audio.und[0].filename+ "<-");
 							self.model.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
+							self.model.save();
 							self.getAudio(data.field_audio.und[0].uri.split("private://")[1]);
 							
 							
@@ -190,7 +191,7 @@ define([
 						console.log("nodownload, fichero de audio ya existente");
 						console.log(this.model);
 						selfR=this;
-						
+						this.model.set("audioName",historycollection.get("languages").get("quadAudioDownloaded"));
 						try{
 							window.plugins.spinnerDialog.hide();
 						}
@@ -312,7 +313,7 @@ define([
 					catch(e){
 						console.log(e);
 					}
-					console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+selfR.history.get("languages").get("quadAudioDownloaded"));
+					console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+selfR.model.get("audioName"));
 					target="";
 					
 					if(device.platform!='Android'){	//iOS
@@ -322,7 +323,7 @@ define([
 					 else{
 						 target=cordova.file.externalDataDirectory+"audios/";
 					 }
-					selfR.my_media = new Media(target+selfR.history.get("languages").get("quadAudioDownloaded"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
+					selfR.my_media = new Media(target+selfR.model.get("audioName"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
 					setTimeout(function() {
 						selfR.preparar();
 						$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
