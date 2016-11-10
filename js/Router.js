@@ -193,7 +193,8 @@ define([
 				
 				 
                 setTimeout(function() {
-                    if(language.get("downloaded")=="no"){
+					var auxlanguage = historial.get("languages");
+                    if(auxlanguage.get("downloaded")=="no"){
 						
                         console.log("Inicio fallido, reseteando app");
 
