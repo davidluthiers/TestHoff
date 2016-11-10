@@ -2239,21 +2239,6 @@ define([
                 loaded = false;
 	
                 self.principal();
-	
-                setTimeout(function(){
-                    if(!loaded)
-                        self.principal();
-                },3000);
-		
-                setTimeout(function(){
-                    if(!loaded)
-                        self.principal();
-                },6000);
-		
-                setTimeout(function(){
-                    if(!loaded)
-                        self.principal();
-                },9000);
 
 	
             },
