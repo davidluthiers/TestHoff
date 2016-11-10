@@ -604,6 +604,7 @@ define([
                         aux2self.language.id="languages"; //esta instrucción no sirve si ya viene escrito desde el server
                         aux2self.language.cid="c1";
                         aux2self.language.set("downloaded","yes");
+						aux2self.language.set("quadAudioDownloaded","no");
 						aux2self.language.set("id","languages");
 						aux2self.language.set("notifications", true);
 						aux2self.language.set("sesToken",routerToken);
