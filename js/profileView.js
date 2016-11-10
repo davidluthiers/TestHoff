@@ -381,6 +381,7 @@ define([
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
 										console.log("presed map icon");
 										//acción para enviar email?
+										window.location.href = "mailto:" + email;
 									});
 
 								}); 
