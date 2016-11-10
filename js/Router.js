@@ -511,6 +511,9 @@ define([
                         },
                         error:function(xhr, status, message){
                             console.log("Error trying to login, message: " + message);
+							console.log("xhr: " + xhr);
+							console.log("status: " + status);
+							
                         }
                     });
                 }
