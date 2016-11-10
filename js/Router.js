@@ -2196,13 +2196,15 @@ define([
                 catch(e){
                     console.log(e);
                 }
+				auxToken = historial.get("languages").get("sesToken");
+				console.log("saving sesToken : " + auxToken);
                 historial.destroyhistory();
                 historial= new historyCollection;
                 language = new languageModel({
                     id: "languages",
                     languageAC: "none",
                     theme:"Classic",
-                    sesToken:"none",
+                    sesToken:auxToken,
                     transVersion:"transference9",
                     transVersion2:"transference4",
 					notifications: true,
