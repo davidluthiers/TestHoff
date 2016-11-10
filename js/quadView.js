@@ -301,6 +301,40 @@ define([
 					this.router.drupaldo(this.getAudio.bind(this),this.model.get("audioName"));
                     //this.getAudio(this.model.get("audioName"));
                 }
+				else{
+					console.log("nodownload, fichero de audio ya existente");
+					console.log(this.model);
+					selfR=this;
+					
+					try{
+						window.plugins.spinnerDialog.hide();
+					}
+					catch(e){
+						console.log(e);
+					}
+					console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+historycollection.get("languages").get("quadAudioDownloaded"));
+					target="";
+					
+					if(device.platform!='Android'){	//iOS
+						console.log("Mi plataforma es: " + device.platform);
+						target=cordova.file.documentsDirectory+"audios/";
+					 }
+					 else{
+						 target=cordova.file.externalDataDirectory+"audios/";
+					 }
+					selfR.my_media = new Media(target+historycollection.get("languages").get("quadAudioDownloaded"), selfR.mediasuccess, selfR.nada, selfR.onStatus);
+					setTimeout(function() {
+						selfR.preparar();
+						$("#downloadAndPlay .ui-btn-text").text(historycollection.get("languages").get("dic_play"));
+						$("#downloadAndPlay").attr("id","playSoundButton");
+						try{
+							window.plugins.spinnerDialog.hide();
+						}
+						catch(e){
+							console.log(e);
+						}
+					}, 300);
+				}
             },
 	
             backtolist: function(){
