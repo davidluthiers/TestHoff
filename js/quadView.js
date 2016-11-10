@@ -173,7 +173,6 @@ define([
 							console.log("Tengo el Quad audioName");
 							console.log("audio node filename:->"+ data.field_audio.und[0].filename+ "<-");
 							self.model.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
-							self.model.save();
 							self.getAudio(data.field_audio.und[0].uri.split("private://")[1]);
 							
 							
