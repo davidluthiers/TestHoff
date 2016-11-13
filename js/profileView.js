@@ -107,6 +107,10 @@ define([
 										this.$(".activate").show();
 										this.$(".deactivate").hide();
 									}
+									if(this.profile.get("active")!="no" && this.profile.get("active")!="yes"){
+										this.$(".activate").hide();
+										this.$(".deactivate").hide();
+									}
 									
 									var mapDiv = document.getElementById("map_module_map");
 									this.map = plugin.google.maps.Map.getMap(mapDiv);
@@ -428,7 +432,7 @@ define([
 										myprofile.set("next_user", evt.id.replace("marker_m",""));
 										historial.get("profile").destroy();
 										historial.create(myprofile);
-										self.profile('2');
+										self.router.profile('2');
 										
 										//window.location.href = "mailto:" + data[evt.id.replace("marker_m","")].email;
 									});
