@@ -381,6 +381,8 @@ define([
 							historial.get("profile").destroy();
 							historial.create(myprofile);
 							console.log("near_users:");
+							console.log(historial.get("profile").get("near_users"));
+							console.log(historial.get("profile"));
 							console.log("auxprofile:");
 							console.log(auxprofile);
 							var userID = auxprofile.userID;
