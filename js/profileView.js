@@ -22,7 +22,8 @@ define([
                 "click #botonnext":"save",
 				"click #getgalleryphoto":"getfromgallery",
 				"click #loadfromfacebook":"loadbyrequest",
-				"click #toggle_profile":"toggle_profile"
+				"click #toggle_profile":"toggle_profile",
+				"click #send_email":"send_email"
             },
    
             render: function(id, historycollection, router){
@@ -946,6 +947,13 @@ define([
 					}
 				}
             },
+			
+			send_email: function(){
+				
+				console.log("this.profile: ");
+				console.log(this.profile);
+				
+			},
 			
 			onPhotoDataSuccess: function(imageData, base64){
 				
