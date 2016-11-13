@@ -2239,7 +2239,10 @@ define([
 					longitude: "",
 					active: "",
 					saved: "",
-					nid: ""
+					nid: "",
+					my_status: "",
+					near_users: [],
+					next_profile: ""
 				});
 				
 				var nodelist= new nodelistModel({
@@ -2327,7 +2330,10 @@ define([
 			longitude: "",
 			active: "",
 			saved: "",
-			nid: ""
+			nid: "",
+			my_status: "",
+			near_users: [],
+			next_profile: ""
 			
         });
 		

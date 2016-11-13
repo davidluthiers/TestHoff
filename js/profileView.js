@@ -7,11 +7,12 @@ define([
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'text!../Templates/profile.html',
+	'text!../Templates/profile2.html',
 	'text!../Templates/map.html',
     'text!../Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, profileT, map, headerandpanel){
+    ], function($, _, Backbone, profileT, profileT2, map, headerandpanel){
 
 
 
@@ -40,17 +41,9 @@ define([
 				this.byrequest=false;
 				
                 var self=this;
-				
-				if(this.profile.get("active") != "yes" || (typeof id != 'undefined' && id == '1')){
-					
-					/*
-						aquí hay que poner código para que compruebe si en el servidor ya hay datos guardados con mi ID de FB
-					*/
-					
-					this.origin = '0';
-					
-					compiledTemplate = _.template( profileT );
-					
+				if(typeof id != 'undefined' && id == '2'){ //Carga de otro usuario
+					compiledTemplate = _.template( profileT2 );
+						
 					//Carga del profile
 					historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
 				
@@ -60,82 +53,113 @@ define([
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 					
-					if(this.profile.get("nickname")!="" && this.profile.get("userID")!="" && this.profile.get("email")!="" && this.profile.get("nid") != "" && typeof this.profile.get("nid") != 'undefined'){ //Están todos los datos obligatorios
-				
-						console.log("Cargando datos del profile");
-						this.$("#fill_profile").attr("style","display:none");
+					setTimeout(function(){
+						this.profile = historycollection.get("profile").get("near_users")[historycollection.get("profile").get("near_users")];
+						console.log("this.profile:");
+						console.log(this.profile);
+						document.getElementById("displayname").value = this.profile.nickname;
+						console.log('Ponemos foto de perfil');
+						document.getElementById("useremail").value = this.profile.email;
+						document.getElementById("status").value = this.profile.status;
+						var visionphoto = document.getElementById('visionphoto');
+						visionphoto.style.display = 'block'; 
+						visionphoto.src = this.profile.pictureurl;
 
-						//cargar foto
-						
-						setTimeout(function(){
-								this.profile = historycollection.get("profile");
-								document.getElementById("displayname").value = this.profile.get("nickname");
-								document.getElementById("useremail").value = this.profile.get("email");
-								console.log('Ponemos foto de perfil');
-								var visionphoto = document.getElementById('visionphoto');
-								visionphoto.style.display = 'block'; 
-								visionphoto.src = this.profile.get("picture");
-								if(this.profile.get("active")=="yes"){
-									this.$(".activate").hide();
-									this.$(".deactivate").show();
-								}
-								if(this.profile.get("active")=="no"){
-									this.$(".activate").show();
-									this.$(".deactivate").hide();
-								}
-								
-								var mapDiv = document.getElementById("map_module_map");
-								this.map = plugin.google.maps.Map.getMap(mapDiv);
-								this.map.remove();
-								
-							},400);
-
-					}
-					else{
-						//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
-						try{
-							if(this.profile.get("userID")!="" && typeof this.profile.get("userID")!='undefined'){ //No tenemos el FB ID
-								this.router.drupaldo(this.checkOnServer.bind(this),"null");
-							}
-							else{
-								//Intentamos recuperar id + datos de FB
-								this.loadfromfacebook();	
-							}
-						}
-						catch(e){
-							console.log("Error en loadfromfacebook: " + e);
-							alert("Couldn't connect to Facebook " + e);
-						}
-					}
+					},400);					
+					
 				}
 				else{
+					if(this.profile.get("active") != "yes" || (typeof id != 'undefined' && id == '1')){ //Edición de propio perfil
+											
+						this.origin = '0';
+						
+						compiledTemplate = _.template( profileT );
+						
+						//Carga del profile
+						historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
 					
-					//Carga del mapa
+						result= historycollection.get("languages").toJSON();
+			
+						compiledheaderandpanel=_.template( headerandpanel );
+			
+						this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+						
+						if(this.profile.get("nickname")!="" && this.profile.get("userID")!="" && this.profile.get("email")!="" && this.profile.get("nid") != "" && typeof this.profile.get("nid") != 'undefined'){ //Están todos los datos obligatorios
 					
-					compiledTemplate = _.template( map );
+							console.log("Cargando datos del profile");
+							this.$("#fill_profile").attr("style","display:none");
+
+							//cargar foto
+							
+							setTimeout(function(){
+									this.profile = historycollection.get("profile");
+									document.getElementById("displayname").value = this.profile.get("nickname");
+									document.getElementById("useremail").value = this.profile.get("email");
+									console.log('Ponemos foto de perfil');
+									var visionphoto = document.getElementById('visionphoto');
+									visionphoto.style.display = 'block'; 
+									visionphoto.src = this.profile.get("picture");
+									if(this.profile.get("active")=="yes"){
+										this.$(".activate").hide();
+										this.$(".deactivate").show();
+									}
+									if(this.profile.get("active")=="no"){
+										this.$(".activate").show();
+										this.$(".deactivate").hide();
+									}
+									
+									var mapDiv = document.getElementById("map_module_map");
+									this.map = plugin.google.maps.Map.getMap(mapDiv);
+									this.map.remove();
+									
+								},400);
+
+						}
+						else{
+							//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
+							try{
+								if(this.profile.get("userID")!="" && typeof this.profile.get("userID")!='undefined'){ //No tenemos el FB ID
+									this.router.drupaldo(this.checkOnServer.bind(this),"null");
+								}
+								else{
+									//Intentamos recuperar id + datos de FB
+									this.loadfromfacebook();	
+								}
+							}
+							catch(e){
+								console.log("Error en loadfromfacebook: " + e);
+								alert("Couldn't connect to Facebook " + e);
+							}
+						}
+					}
+					else{
+						
+						//Carga del mapa
+						
+						compiledTemplate = _.template( map );
+						
 					
-				
-					this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
+						this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
+						
+						result= this.history.get("languages").toJSON();
+			
+						compiledheaderandpanel=_.template( headerandpanel );
+			
+						this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+						
+						this.origin= '1';
 					
-					result= this.history.get("languages").toJSON();
-		
-					compiledheaderandpanel=_.template( headerandpanel );
-		
-					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
-					
-					this.origin= '1';
-				
-					this.$("#botonnext").text(self.history.get("languages").get("dic_profile"));
-					
-					window.plugins.spinnerDialog.show();
-					
-					
-					$(document).one('pageshow', function (event, ui) {
-						self.getCoord();
-                    });
-					
+						this.$("#botonnext").text(self.history.get("languages").get("dic_profile"));
+						
+						window.plugins.spinnerDialog.show();
+						
+						
+						$(document).one('pageshow', function (event, ui) {
+							self.getCoord();
+						});
+						
+					}
 				}
-				
 				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
 
             },
@@ -326,6 +350,9 @@ define([
 				
 				console.log("onMapInit");
 				console.log(map);
+				historial = this.history;
+				myprofile = this.history.get("profile");
+				self=this;
 					
 				var params_people = { //active hoffman users
                     type: 'GET',
@@ -338,8 +365,13 @@ define([
 						usersList = [];
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
+							myprofile.set("near_users", data);
+							historial.get("profile").destroy();
+							historial.create(myprofile);
+							console.log("near_users:");
+							console.log(near_users);
 							console.log("auxprofile:");
-							console.log(auxprofile)
+							console.log(auxprofile);
 							var userID = auxprofile.userID;
 							var nombre = auxprofile.nickname;
 							var pictureurl = auxprofile.pictureurl.replace("amp;","");
@@ -380,12 +412,18 @@ define([
 									marker.showInfoWindow();
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
+										historial=self.history;
+										myprofile=historial.get("profile");
 										console.log("pressed map icon");
 										console.log(evt);
 										console.log(evt.id.replace("marker_m",""));
 										console.log(data[evt.id.replace("marker_m","")].email);
-										//acción para enviar email?
-										window.location.href = "mailto:" + data[evt.id.replace("marker_m","")].email;
+										myprofile.set("next_user", evt.id.replace("marker_m",""));
+										historial.get("profile").destroy();
+										historial.create(myprofile);
+										self.profile('2');
+										
+										//window.location.href = "mailto:" + data[evt.id.replace("marker_m","")].email;
 									});
 
 								}); 
