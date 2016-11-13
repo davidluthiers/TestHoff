@@ -118,6 +118,14 @@ define([
 						else{
 							//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
 							try{
+								if(this.profile.get("active")=="yes"){
+									this.$(".activate").hide();
+									this.$(".deactivate").show();
+								}
+								if(this.profile.get("active")=="no"){
+									this.$(".activate").show();
+									this.$(".deactivate").hide();
+								}
 								if(this.profile.get("userID")!="" && typeof this.profile.get("userID")!='undefined'){ //No tenemos el FB ID
 									this.router.drupaldo(this.checkOnServer.bind(this),"null");
 								}
@@ -369,7 +377,6 @@ define([
 							historial.get("profile").destroy();
 							historial.create(myprofile);
 							console.log("near_users:");
-							console.log(near_users);
 							console.log("auxprofile:");
 							console.log(auxprofile);
 							var userID = auxprofile.userID;
@@ -744,6 +751,11 @@ define([
 										"und":[{
 											"value":profile.get("active")
 										}]
+								},
+								field_status:{
+										"und":[{
+											"value":profile.get("status")
+										}]
 								}
 							};
 						}
@@ -791,6 +803,11 @@ define([
 									field_active:{
 											"und":[{
 												"value":profile.get("active")
+											}]
+									},
+									field_status:{
+											"und":[{
+												"value":profile.get("status")
 											}]
 									}
 
@@ -886,6 +903,8 @@ define([
 							
 							profileM.set("nickname",$("#displayname").val());
 							profileM.set("email",$("#useremail").val());
+							profileM.set("status",$("#status").val());
+							profileM.set("near_users","");
 							var visionphoto = document.getElementById('visionphoto');
 							profileM.set("picture", visionphoto.src);
 							profileM.set("userID",this.history.get("profile").get("userID"));

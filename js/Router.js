@@ -2241,7 +2241,7 @@ define([
 					saved: "",
 					nid: "",
 					my_status: "",
-					near_users: [],
+					near_users: "",
 					next_profile: ""
 				});
 				
@@ -2332,7 +2332,7 @@ define([
 			saved: "",
 			nid: "",
 			my_status: "",
-			near_users: [],
+			near_users: "",
 			next_profile: ""
 			
         });
