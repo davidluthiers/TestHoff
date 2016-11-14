@@ -61,8 +61,9 @@ define([
 						console.log(self.profile);
 						document.getElementById("displayname").value = self.profile.nickname;
 						console.log('Ponemos foto de perfil');
-						document.getElementById("useremail").value = self.profile.email;
-						document.getElementById("status").value = self.profile.status;
+						document.getElementById('useremail').innerHTML = self.profile.email;
+						document.getElementById('status').innerHTML = self.profile.status;
+						
 						var visionphoto = document.getElementById('visionphoto');
 						visionphoto.style.display = 'block'; 
 						visionphoto.src = self.profile.pictureurl.replace("amp;","");
