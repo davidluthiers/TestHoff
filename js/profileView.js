@@ -58,6 +58,14 @@ define([
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 					
 					setTimeout(function(){
+						try{
+							var mapDiv = document.getElementById("map_module_map");
+							this.map = plugin.google.maps.Map.getMap(mapDiv);
+							this.map.remove();
+						}
+						catch(e){
+							console.log("Error: " + e);
+						}
 						console.log(self.history.get("profile").get("near_users"));
 						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
 						console.log("self.profile:");
