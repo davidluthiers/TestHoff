@@ -445,8 +445,8 @@ define([
 										console.log("pressed map icon");
 										console.log(evt);
 										console.log(evt.id.replace("marker_m",""));
-										console.log(data[evt.id.replace("marker_m","")-1].email);
-										myprofile.set("next_user", evt.id.replace("marker_m","")-1);
+										console.log(data[evt.id.replace("marker_m","")].email);
+										myprofile.set("next_user", evt.id.replace("marker_m",""));
 										historial.get("profile").destroy();
 										historial.create(myprofile);
 										self.router.profile('2');
