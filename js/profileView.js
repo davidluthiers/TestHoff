@@ -23,7 +23,8 @@ define([
 				"click #getgalleryphoto":"getfromgallery",
 				"click #loadfromfacebook":"loadbyrequest",
 				"click #toggle_profile":"toggle_profile",
-				"click #send_email":"send_email"
+				"click #send_email":"send_email",
+				"click #back_to_map":"back_to_map"
             },
    
             render: function(id, historycollection, router){
@@ -59,7 +60,7 @@ define([
 						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
 						console.log("self.profile:");
 						console.log(self.profile);
-						document.getElementById('displayname').innerHTML = self.profile.nickname;
+						document.getElementById('displayname').innerHTML = self.profile.nickname + " " + self.history.get("languages").get("dic_says") + ":";
 						console.log('Ponemos foto de perfil');
 						document.getElementById('useremail').innerHTML = self.profile.email;
 						document.getElementById('status').innerHTML = self.profile.status;
@@ -957,6 +958,10 @@ define([
 				
 				window.location.href = "mailto:" + this.profile.email;
 				
+			},
+
+			back_to_map: function(){
+				this.router.profile();
 			},
 			
 			onPhotoDataSuccess: function(imageData, base64){

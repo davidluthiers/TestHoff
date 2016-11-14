@@ -11,29 +11,27 @@
 			
 			<div data-role="fieldcontain" class="noborder" data-controltype="textinput" >
 
-				<label name="" id="displayname" value="">
+				<label name="" id="displayname" value="" style="margin-left: 5%;">
 				</label>
 			</div>
 			<div data-role="fieldcontain" class="noborder" data-controltype="textinput" >
 
-				<label name="" id="useremail" value="">
+				<label name="" id="status" value="" style="margin-left: 5%; margin-top 10%;">
 				</label>
 			</div>
-			<div data-role="fieldcontain" class="noborder" data-controltype="textinput" >
+			<div data-role="fieldcontain" class="noborder" data-controltype="textinput" style="display: none;" >
 
-				<label name="" id="status" value="">
+				<label name="" id="useremail" value="" style="margin-left: 5%;">
 				</label>
 			</div>
-			
-			
 			
 			<a id="send_email" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme=""  ><%= dic_send_email %></a>
-
+			
 		</div>
    </div>
 </div>
 <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
-	<a class="botonprev" data-role="button" data-transition="none" href="#profile" data-icon="arrow-l">
+	<a id = "back_to_map" class="botonprev" data-role="button" data-transition="none" data-icon="arrow-l">
 		<%= dic_back %>
 	</a>
 </div>
