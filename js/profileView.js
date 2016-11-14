@@ -65,7 +65,7 @@ define([
 						document.getElementById("status").value = self.profile.status;
 						var visionphoto = document.getElementById('visionphoto');
 						visionphoto.style.display = 'block'; 
-						visionphoto.src = self.profile.pictureurl;
+						visionphoto.src = self.profile.pictureurl.replace("amp;","");
 
 					},400);					
 					
