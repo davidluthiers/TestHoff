@@ -24,7 +24,8 @@ define([
 				"click #loadfromfacebook":"loadbyrequest",
 				"click #toggle_profile":"toggle_profile",
 				"click #send_email":"send_email",
-				"click #back_to_map":"back_to_map"
+				"click #back_to_map":"back_to_map",
+				"click #exitmap":"exitmap"
             },
    
             render: function(id, historycollection, router){
@@ -180,6 +181,8 @@ define([
 						
 						window.plugins.spinnerDialog.show();
 						
+						this.$(".panelbutton").hide();
+						this.$(".dic_help").hide();						
 						
 						$(document).one('pageshow', function (event, ui) {
 							self.getCoord();
@@ -465,7 +468,7 @@ define([
 										auxprofile= data[evt.id.replace("marker_m","")];
 										map.animateCamera({
 											target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
-											zoom: 12,
+											zoom: 15,
 											duration: 3000
 										}, function() {});
 									 });
@@ -995,6 +998,18 @@ define([
 
 			back_to_map: function(){
 				this.router.profile();
+			},
+			
+			exitmap: function(){
+				try{
+					var mapDiv = document.getElementById("map_module_map");
+					this.map = plugin.google.maps.Map.getMap(mapDiv);
+					this.map.remove();
+				}
+				catch(e){
+					console.log("Error: " + e);
+				}
+				this.router.sumary();
 			},
 			
 			onPhotoDataSuccess: function(imageData, base64){
