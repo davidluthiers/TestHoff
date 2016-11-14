@@ -55,16 +55,16 @@ define([
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 					
 					setTimeout(function(){
-						this.profile = historycollection.get("profile").get("near_users")[historycollection.get("profile").get("near_users")];
-						console.log("this.profile:");
-						console.log(this.profile);
-						document.getElementById("displayname").value = this.profile.nickname;
+						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("near_users")];
+						console.log("self.profile:");
+						console.log(self.profile);
+						document.getElementById("displayname").value = self.profile.nickname;
 						console.log('Ponemos foto de perfil');
-						document.getElementById("useremail").value = this.profile.email;
-						document.getElementById("status").value = this.profile.status;
+						document.getElementById("useremail").value = self.profile.email;
+						document.getElementById("status").value = self.profile.status;
 						var visionphoto = document.getElementById('visionphoto');
 						visionphoto.style.display = 'block'; 
-						visionphoto.src = this.profile.pictureurl;
+						visionphoto.src = self.profile.pictureurl;
 
 					},400);					
 					
