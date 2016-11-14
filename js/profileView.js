@@ -461,7 +461,7 @@ define([
 										
 									});
 									
-									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function() {
+									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
 										auxprofile= data[evt.id.replace("marker_m","")];
 										map.animateCamera({
 											target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
