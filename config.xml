@@ -134,10 +134,10 @@
 		
 		<preference name="SplashScreenDelay" value="15000" />
 		
+		<access origin="*" launch-external="yes"/>
 		<allow-navigation href="http://*/*" />
 		<allow-intent href="https://*/*" />
-		<access origin="*" />
-		<access origin="mailto:*" launch-external="yes"/>
+		
 		
 		
 	</widget>
