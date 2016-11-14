@@ -44,14 +44,7 @@ define([
 				
                 var self=this;
 				
-				try{
-					var mapDiv = document.getElementById("map_module_map");
-					this.map = plugin.google.maps.Map.getMap(mapDiv);
-					this.map.remove();
-				}
-				catch(e){
-					console.log("Error: " + e);
-				}
+				
 				if(typeof id != 'undefined' && id == '2'){ //Carga de otro usuario
 					compiledTemplate = _.template( profileT2 );
 						
@@ -192,67 +185,75 @@ define([
 			
 			getCoord: function(){
 				self=this;
+				try{
+					var mapDiv = document.getElementById("map_module_map");
+					this.map = plugin.google.maps.Map.getMap(mapDiv);
+					this.map.remove();
+				}
+				catch(e){
+					console.log("Error: " + e);
+				}
 				try {
 	  
-						navigator.geolocation.getCurrentPosition(
-						  
-						    // Success.
-						    function (position){
-								auxprofile = self.history.get("profile");
-								auxprofile.set("latitude",position.coords.latitude);
-								auxprofile.set("longitude",position.coords.longitude);
-								self.history.get("profile").destroy();
-								self.history.create(auxprofile);
-								//updatenode
-								self.saveonserverAndInitialize(true, position.coords.latitude,position.coords.longitude);
-								
-								
-								},
-						  
-							// Error
-							function(error) {
-								
-								// Provide debug information to developer and user.
-								console.log(error);
-								
-								/*setTimeout(function(){
-									self.initializeMap(39.4658376,-0.3582468);
-								},300);*/
-								
-								alert(historial.get("languages").get("dic_gps_required"));
-
-								// Process error code.
-								switch (error.code) {
-
-								  // PERMISSION_DENIED
-								  case 1:
-									console.log("PERMISSION_DENIED");
-									break;
-
-								  // POSITION_UNAVAILABLE
-								  case 2:
-									console.log("POSITION_UNAVAILABLE");
-									break;
-
-								  // TIMEOUT
-								  case 3:
-									console.log("TIMEOUT");
-									break;
-
-								}
+					navigator.geolocation.getCurrentPosition(
+					  
+						// Success.
+						function (position){
+							auxprofile = self.history.get("profile");
+							auxprofile.set("latitude",position.coords.latitude);
+							auxprofile.set("longitude",position.coords.longitude);
+							self.history.get("profile").destroy();
+							self.history.create(auxprofile);
+							//updatenode
+							self.saveonserverAndInitialize(true, position.coords.latitude,position.coords.longitude);
 							
+							
+							},
+					  
+						// Error
+						function(error) {
+							
+							// Provide debug information to developer and user.
+							console.log(error);
+							
+							/*setTimeout(function(){
+								self.initializeMap(39.4658376,-0.3582468);
+							},300);*/
+							
+							alert(historial.get("languages").get("dic_gps_required"));
 
-						  },
-						  
-						  // Options
-						  { enableHighAccuracy: true,
-							timeout: 10000	  
+							// Process error code.
+							switch (error.code) {
+
+							  // PERMISSION_DENIED
+							  case 1:
+								console.log("PERMISSION_DENIED");
+								break;
+
+							  // POSITION_UNAVAILABLE
+							  case 2:
+								console.log("POSITION_UNAVAILABLE");
+								break;
+
+							  // TIMEOUT
+							  case 3:
+								console.log("TIMEOUT");
+								break;
+
 							}
-						  
-						);
+						
 
-					  }
-					  catch (error) { console.log('map_module_map_pageshow - ' + error); }
+					  },
+					  
+					  // Options
+					  { enableHighAccuracy: true,
+						timeout: 10000	  
+						}
+					  
+					);
+
+				  }
+				  catch (error) { console.log('map_module_map_pageshow - ' + error); }
 			},
 			
 			initializeMap: function(_map_module_user_latitude, _map_module_user_longitude){
