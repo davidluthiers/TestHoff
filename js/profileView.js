@@ -1001,15 +1001,18 @@ define([
 			},
 			
 			exitmap: function(){
+				self=this;
 				try{
 					var mapDiv = document.getElementById("map_module_map");
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
-					this.map.remove();
+					this.map.remove(function() {
+						self.router.summary();
+									});
 				}
 				catch(e){
 					console.log("Error: " + e);
 				}
-				this.router.summary();
+				
 			},
 			
 			onPhotoDataSuccess: function(imageData, base64){
