@@ -59,7 +59,7 @@ define([
 						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
 						console.log("self.profile:");
 						console.log(self.profile);
-						document.getElementById("displayname").value = self.profile.nickname;
+						document.getElementById('displayname').innerHTML = self.profile.nickname;
 						console.log('Ponemos foto de perfil');
 						document.getElementById('useremail').innerHTML = self.profile.email;
 						document.getElementById('status').innerHTML = self.profile.status;
@@ -98,6 +98,7 @@ define([
 									this.profile = historycollection.get("profile");
 									document.getElementById("displayname").value = this.profile.get("nickname");
 									document.getElementById("useremail").value = this.profile.get("email");
+									document.getElementById("status").value = this.profile.get("status");
 									console.log('Ponemos foto de perfil');
 									var visionphoto = document.getElementById('visionphoto');
 									visionphoto.style.display = 'block'; 
