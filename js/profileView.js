@@ -440,7 +440,6 @@ define([
 										historial.create(myprofile);
 										self.router.profile('2');
 										
-										//window.location.href = "mailto:" + data[evt.id.replace("marker_m","")].email;
 									});
 
 								}); 
@@ -955,6 +954,8 @@ define([
 				
 				console.log("this.profile: ");
 				console.log(this.profile);
+				
+				window.location.href = "mailto:" + this.profile.email;
 				
 			},
 			
