@@ -55,7 +55,8 @@ define([
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 					
 					setTimeout(function(){
-						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("near_users")];
+						console.log(self.history.get("profile").get("near_users"));
+						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
 						console.log("self.profile:");
 						console.log(self.profile);
 						document.getElementById("displayname").value = self.profile.nickname;
