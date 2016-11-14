@@ -196,6 +196,7 @@ define([
 			
 			getCoord: function(){
 				self=this;
+				/*
 				try{
 					var mapDiv = document.getElementById("map_module_map");
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
@@ -204,6 +205,7 @@ define([
 				catch(e){
 					console.log("Error: " + e);
 				}
+				*/
 				try {
 	  
 					navigator.geolocation.getCurrentPosition(
