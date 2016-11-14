@@ -460,6 +460,15 @@ define([
 										self.router.profile('2');
 										
 									});
+									
+									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function() {
+										auxprofile= data[evt.id.replace("marker_m","")];
+										map.animateCamera({
+											target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
+											zoom: 12,
+											duration: 3000
+										}, function() {});
+									 });
 
 								}); 
 							}
@@ -468,6 +477,12 @@ define([
 							}
                         }
 						window.plugins.spinnerDialog.hide();
+						map.animateCamera({
+							target: {lat: latitude, lng: longitude},
+							zoom: 4,
+							duration: 3000
+						}, function() {});
+						
                     },
                     error: function(code) {
                         console.log("petada intentando descargar personas", code);
