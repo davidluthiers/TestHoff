@@ -59,7 +59,7 @@ define([
 					
 					setTimeout(function(){
 						console.log(self.history.get("profile").get("near_users"));
-						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")-1];
+						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
 						console.log("self.profile:");
 						console.log(self.profile);
 						document.getElementById('displayname').innerHTML = self.profile.nickname + " " + self.history.get("languages").get("dic_says") + ":";
@@ -445,8 +445,8 @@ define([
 										console.log("pressed map icon");
 										console.log(evt);
 										console.log(evt.id.replace("marker_m",""));
-										console.log(data[evt.id.replace("marker_m","")].email);
-										myprofile.set("next_user", evt.id.replace("marker_m",""));
+										console.log(data[evt.id.replace("marker_m","")-1].email);
+										myprofile.set("next_user", evt.id.replace("marker_m","")-1);
 										historial.get("profile").destroy();
 										historial.create(myprofile);
 										self.router.profile('2');
