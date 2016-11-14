@@ -390,7 +390,7 @@ define([
 						console.log("DATA: ");
                         console.log(data);
 						usersList = [];
-						for (index = data.length - 1; index >= 0 ; --index) {
+						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							myprofile.set("near_users", data);
 							historial.get("profile").destroy();
