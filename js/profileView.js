@@ -1009,7 +1009,7 @@ define([
 				catch(e){
 					console.log("Error: " + e);
 				}
-				this.router.sumary();
+				this.router.summary();
 			},
 			
 			onPhotoDataSuccess: function(imageData, base64){
