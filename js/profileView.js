@@ -57,7 +57,7 @@ define([
 					
 					setTimeout(function(){
 						console.log(self.history.get("profile").get("near_users"));
-						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
+						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")-1];
 						console.log("self.profile:");
 						console.log(self.profile);
 						document.getElementById('displayname').innerHTML = self.profile.nickname + " " + self.history.get("languages").get("dic_says") + ":";
@@ -380,7 +380,7 @@ define([
 						console.log("DATA: ");
                         console.log(data);
 						usersList = [];
-						for (index = 0; index < data.length; ++index) {
+						for (index = data.length - 1; index >= 0 ; --index) {
                             var auxprofile = data[index];
 							myprofile.set("near_users", data);
 							historial.get("profile").destroy();
