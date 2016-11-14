@@ -480,13 +480,13 @@ define([
 							}
                         }
 						window.plugins.spinnerDialog.hide();
-						/*
+						
 						map.animateCamera({
 							target: {lat: latitude, lng: longitude},
 							zoom: 4,
 							duration: 3000
 						}, function() {});
-						*/
+						
 						
                     },
                     error: function(code) {
@@ -1008,7 +1008,10 @@ define([
 					var mapDiv = document.getElementById("map_module_map");
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
 					this.map.remove(function() {
-						self.router.summary();
+						self.navigate("summary", {
+							trigger: true,
+							replace: true
+						});
 									});
 				}
 				catch(e){
