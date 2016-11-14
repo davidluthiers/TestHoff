@@ -136,7 +136,8 @@
 		
 		<allow-navigation href="http://*/*" />
 		<allow-intent href="https://*/*" />
-		<!--<access origin="mailto:*" launch-external="yes"/>-->
+		<access origin="*" />
+		<access origin="mailto:*" launch-external="yes"/>
 		
 		
 	</widget>
