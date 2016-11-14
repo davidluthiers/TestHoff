@@ -480,11 +480,13 @@ define([
 							}
                         }
 						window.plugins.spinnerDialog.hide();
+						/*
 						map.animateCamera({
 							target: {lat: latitude, lng: longitude},
 							zoom: 4,
 							duration: 3000
 						}, function() {});
+						*/
 						
                     },
                     error: function(code) {
