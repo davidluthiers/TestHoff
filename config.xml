@@ -135,9 +135,7 @@
 		<preference name="SplashScreenDelay" value="15000" />
 		
 		
-		<allow-navigation href="http://*/*" />
-		<allow-intent href="https://*/*" />
-		<access origin="mailto:*" launch-external="yes"/>
+		<access origin="*" launch-external="yes"/>
 		
 		
 		
