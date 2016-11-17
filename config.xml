@@ -98,7 +98,7 @@
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
-		<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" source="pgb"/>
+		<!--<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" source="pgb"/>-->
 		<gap:plugin name="nl.x-services.plugins.insomnia" source="npm"/>
 
 		<gap:plugin name="nl.x-services.plugins.backgroundaudio" />
