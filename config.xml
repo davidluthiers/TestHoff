@@ -95,8 +95,8 @@
 		<gap:plugin name="cordova-plugin-inappbrowser" source="npm"/>
 		<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 		<gap:plugin name="cordova-plugin-network-information" source="npm"/>
+		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		
-		<gap:plugin name="hu.dpal.phonegap.plugins.spinnerdialog" />
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
 		<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" />
 		<gap:plugin name="nl.x-services.plugins.insomnia" source="npm"/>
