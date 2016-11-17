@@ -116,16 +116,16 @@ define([
 									visionphoto.style.display = 'block'; 
 									visionphoto.src = this.profile.get("picture");
 									if(this.profile.get("active")=="yes"){
-										this.$(".activate").hide();
-										this.$(".deactivate").show();
+										$(".activate").hide();
+										$(".deactivate").show();
 									}
 									if(this.profile.get("active")=="no"){
-										this.$(".activate").show();
-										this.$(".deactivate").hide();
+										$(".activate").show();
+										$(".deactivate").hide();
 									}
 									if(this.profile.get("active")!="no" && this.profile.get("active")!="yes"){
-										this.$(".activate").hide();
-										this.$(".deactivate").hide();
+										$(".activate").hide();
+										$(".deactivate").hide();
 									}
 									
 									var mapDiv = document.getElementById("map_module_map");
