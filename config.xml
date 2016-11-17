@@ -101,7 +101,7 @@
 		<!--<gap:plugin name="com.jchalan.cordova.ios.disableshaketoundo" source="pgb"/>-->
 		<gap:plugin name="nl.x-services.plugins.insomnia" source="npm"/>
 
-		<gap:plugin name="nl.x-services.plugins.backgroundaudio" />
+		<!--<gap:plugin name="nl.x-services.plugins.backgroundaudio" />-->
 		<gap:config-file platform="ios" parent="UIStatusBarHidden">
 			<true/>
 		</gap:config-file>
