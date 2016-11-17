@@ -94,16 +94,18 @@ label.ui-input-text {font-size:100%;font-weight: 400;}
 			background-image: url('../img/Icons/3.png') !important;
 			background-position: 0px -2px;
 			background-size: 18px 18px;
-			top: 56%;
+			top: 62%;
 			background-position-y: 10%;
+			right: 0%;
 		}
 		
 		.ui-icon-custom-check{
 			background-image: url('../img/Icons/01.png') !important;
 			background-position: 0px -2px;
 			background-size: 18px 18px;
-			top: 56%;
+			top: 62%;
 			background-position-y: 10%;
+			right: 0%;
 		}
 		
 		.ui-icon-padlock-icon{
