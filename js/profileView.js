@@ -140,6 +140,8 @@ define([
 									
 									var mapDiv = document.getElementById("map_module_map");
 									this.map = plugin.google.maps.Map.getMap(mapDiv);
+									console.log("DEBUGDEBUG DEBUG TATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATA");
+									console.log(this.map);
 									this.map.remove();
 									window.plugins.spinnerDialog.hide();
 									
