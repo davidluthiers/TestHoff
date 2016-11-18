@@ -3,7 +3,7 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.hoffman-international.hoffman-app"
 		version   = "2.0.0"
-		android-versionCode="20000">
+		android-versionCode="200009">
 		
 		<gap:config-file platform="ios" parent="CFBundleVersion">
             <string>3</string>
@@ -21,7 +21,7 @@
 			DavidLuthiers
 		</author>
 		<preference name="android-minSdkVersion" value="15"/>
-		<preference name="phonegap-version" value="cli-6.1.0" />
+		<preference name="phonegap-version" value="cli-6.3.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="false" />
 		<preference name="target-device" value="universal" />
