@@ -75,6 +75,7 @@ define([
 						console.log('Ponemos foto de perfil');
 						document.getElementById('useremail').innerHTML = self.profile.email;
 						document.getElementById('status').innerHTML = self.profile.status;
+						document.getElementById('profileHeader').innerHTML = self.profile.nickname;
 						
 						var visionphoto = document.getElementById('visionphoto');
 						visionphoto.style.display = 'block'; 
