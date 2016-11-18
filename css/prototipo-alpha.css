@@ -728,12 +728,7 @@ height:0px !important;
 	box-shadow: 1px 1px 12px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/
 
         }
-		
-		.fondohojacuaderno{
-			background: url('../img/Tile/migrid.png') repeat !important;
-		}
-		
-		
+
 		.botonnavegacion .ui-btn-inner{background: url('../img/Textures/verdeboton.png') repeat;}
 
 .headerhojacuaderno  .ui-title{
