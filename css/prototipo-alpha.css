@@ -135,6 +135,11 @@ label.ui-input-text {font-size:100%;font-weight: 400;}
 			box-shadow: none;
 		}
 		
+		.email_background{
+			background: url('../img/Textures/quad.png') repeat !important;
+			border-color: rgb(182, 182, 182);
+		}
+		
 		.ui-bar-a{border:0px;}
 
 input[type="text"] {		/* input type transparentes para que se vea la hoja de cuadrícula */
