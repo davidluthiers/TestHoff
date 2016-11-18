@@ -911,6 +911,7 @@ define([
 			toggle_profile: function(){
 				
 				profile= this.history.get("profile");
+				window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 				if(profile.get("active")=="yes"){
 					var mapDiv = document.getElementById("map_module_map");
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
