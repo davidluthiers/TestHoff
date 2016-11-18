@@ -189,7 +189,7 @@ define([
 					
 						this.$("#botonnext").text(self.history.get("languages").get("dic_profile"));
 						
-						window.plugins.spinnerDialog.show();
+						window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 						
 						this.$(".panelbutton").hide();
 						this.$(".dic_help").hide();						
@@ -344,7 +344,7 @@ define([
 				historial= this.history;
 				console.log("checkOnServer:");
 				
-				window.plugins.spinnerDialog.show();
+				window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 				
 				var params_people = { //active hoffman users
                     type: 'GET',
@@ -957,7 +957,7 @@ define([
 					self.router.profile('1');
 				}				
 				else{
-					window.plugins.spinnerDialog.show();
+					window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 					try{
 						if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
 							//Tiene valores válidos
