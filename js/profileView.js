@@ -1026,10 +1026,9 @@ define([
 					var mapDiv = document.getElementById("map_module_map");
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
 					this.map.remove(function() {
-						self.navigate("summary", {
-							trigger: true,
-							replace: true
-						});
+						Backbone.history.navigate("#profile", {
+									trigger: true
+								});
 									});
 				}
 				catch(e){
