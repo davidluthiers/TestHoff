@@ -1026,7 +1026,7 @@ define([
 					var mapDiv = document.getElementById("map_module_map");
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
 					this.map.remove(function() {
-						Backbone.history.navigate("#profile", {
+						Backbone.history.navigate("#summary", {
 									trigger: true
 								});
 									});
