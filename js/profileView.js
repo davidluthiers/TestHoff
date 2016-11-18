@@ -138,11 +138,7 @@ define([
 										$(".deactivate").hide();
 									}
 									
-									var mapDiv = document.getElementById("map_module_map");
-									this.map = plugin.google.maps.Map.getMap(mapDiv);
-									console.log("DEBUGDEBUG DEBUG TATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATATA");
-									console.log(this.map);
-									this.map.remove();
+									
 									window.plugins.spinnerDialog.hide();
 									
 								},400);
@@ -959,7 +955,7 @@ define([
 	
             save: function(){
 				console.log("Save profile function");
-				
+				self=this;
 				if(this.origin == '1'){//edit profile
 					self.router.profile('1');
 				}				
