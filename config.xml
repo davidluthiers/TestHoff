@@ -113,15 +113,10 @@
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
 			<param name="API_KEY_FOR_IOS" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
 		</gap:plugin>
-		
-		<!--<gap:plugin name="nl.x-services.plugins.socialsharing" />-->
-		
-		<!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" />-->
-		
-		<!--
+
+
 		<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" />
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
-		-->
 		
 
 		<gap:splash src="splash.png" />
