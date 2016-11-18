@@ -729,6 +729,10 @@ height:0px !important;
 
         }
 		
+		.fondohojacuaderno{
+			background: url('../img/Tile/migrid.png') repeat !important;
+		}
+		
 		
 		.botonnavegacion .ui-btn-inner{background: url('../img/Textures/verdeboton.png') repeat;}
 
