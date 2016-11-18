@@ -350,6 +350,9 @@ define([
 				historial= this.history;
 				console.log("checkOnServer:");
 				
+				$(".activate").hide();
+				$(".deactivate").hide();
+				
 				window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 				
 				var params_people = { //active hoffman users
