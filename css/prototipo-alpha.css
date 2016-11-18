@@ -108,6 +108,15 @@ label.ui-input-text {font-size:100%;font-weight: 400;}
 			right: 0%;
 		}
 		
+		.ui-icon-email{
+			background-image: url('../img/Icons/mail.png') !important;
+			background-position: 0px -2px;
+			background-size: 18px 18px;
+			top: 62%;
+			background-position-y: 10%;
+			right: 0%;
+		}
+		
 		.ui-icon-padlock-icon{
 			background-image: url('../img/Icons/padlock.png') !important;
 			background-position: 43% 58%;
