@@ -413,7 +413,6 @@ define([
 						console.log("DATA: ");
                         console.log(data);
 						usersList = [];
-						map.clear();
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							myprofile.set("near_users", data);
