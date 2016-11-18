@@ -80,8 +80,8 @@ define([
 						var visionphoto = document.getElementById('visionphoto');
 						visionphoto.style.display = 'block'; 
 						visionphoto.src = self.profile.pictureurl.replace("amp;","");
-						console.log(self.profile.pictureurl.substring(0,5));
-						if(self.profile.pictureurl.substring(0,5) == "http"){ //La imagen es un link, proviene de facebook
+						console.log(self.profile.pictureurl.substring(0,4));
+						if(self.profile.pictureurl.substring(0,4) == "http"){ //La imagen es un link, proviene de facebook
 							visionphoto.style.height = '50px';
 							visionphoto.style.width = '50px';
 						}
@@ -121,6 +121,10 @@ define([
 									var visionphoto = document.getElementById('visionphoto');
 									visionphoto.style.display = 'block'; 
 									visionphoto.src = this.profile.get("picture");
+									if(this.profile.get("picture").substring(0,4) == "http"){ //La imagen es un link, proviene de facebook
+										visionphoto.style.height = '50px';
+										visionphoto.style.width = '50px';
+									}
 									if(this.profile.get("active")=="yes"){
 										$(".activate").hide();
 										$(".deactivate").show();
