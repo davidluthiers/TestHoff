@@ -138,7 +138,14 @@ define([
 										$(".deactivate").hide();
 									}
 									
-									
+									try{
+										var mapDiv = document.getElementById("map_module_map");
+										this.map = plugin.google.maps.Map.getMap(mapDiv);
+										this.map.remove();
+									}
+									catch(e){
+										console.log("Error: " + e);
+									}
 									window.plugins.spinnerDialog.hide();
 									
 								},400);
