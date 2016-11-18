@@ -1019,7 +1019,7 @@ define([
 			back_to_map: function(){
 				this.router.profile();
 			},
-			
+						
 			exitmap: function(){
 				self=this;
 				try{
