@@ -915,11 +915,10 @@ define([
 				
 				profile= this.history.get("profile");
 				window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
-				var mapDiv = document.getElementById("map_module_map");
-				this.map = plugin.google.maps.Map.getMap(mapDiv);
-				this.map.remove();
 				if(profile.get("active")=="yes"){
-					
+					var mapDiv = document.getElementById("map_module_map");
+					this.map = plugin.google.maps.Map.getMap(mapDiv);
+					this.map.remove();
 					this.history.get("profile").destroy();
 					profile.set("active", "no");
 					profile.save();
