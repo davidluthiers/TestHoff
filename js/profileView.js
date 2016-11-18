@@ -1032,8 +1032,9 @@ define([
 				try{
 					var mapDiv = document.getElementById("map_module_map");
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
+					window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 					this.map.remove();
-				
+					
 					setTimeout(function(){
 						Backbone.history.navigate("#summary", {
 							trigger: true
