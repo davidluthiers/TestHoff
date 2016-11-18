@@ -1018,9 +1018,7 @@ define([
 			},
 
 			back_to_map: function(){
-				Backbone.history.navigate("#profile", {
-					trigger: true
-				});
+				this.router.profile();
 			},
 						
 			exitmap: function(){
