@@ -1018,7 +1018,7 @@ define([
 			},
 
 			back_to_map: function(){
-				Backbone.history.navigate("#profile", {
+				Backbone.history.navigate("#summary", {
 					trigger: true
 				});
 			},
