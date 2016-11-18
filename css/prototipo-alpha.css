@@ -140,6 +140,11 @@ label.ui-input-text {font-size:100%;font-weight: 400;}
 			border-color: rgb(182, 182, 182);
 		}
 		
+		.disable_profile{
+			background: url(../img/Textures/beat.png) repeat !important;
+			border-color: transparent !important;
+		}
+		
 		.ui-bar-a{border:0px;}
 
 input[type="text"] {		/* input type transparentes para que se vea la hoja de cuadrícula */
@@ -1441,10 +1446,6 @@ top:-8px;
 		
 		.activate{
 			background: url('../img/Textures/verdeboton.png') repeat;
-		}
-		
-		.deactivate{
-			background: url('../img/Textures/beat.png') repeat;
 		}
 		
 		#listsusnegas li, #listsusnegas .ui-icon-alt{
