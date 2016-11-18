@@ -321,7 +321,6 @@ define([
 				}
 				
 				try{
-					$("._gmaps_cdv_").attr("style","background-image: none !important;");
 					$(".page .ui-panel-content-wrap").attr("style","height: 100%;");
 					$(".page .fondohojacuaderno").attr("style","background-image: none !important; height: 90%;");
 					
