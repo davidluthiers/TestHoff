@@ -1868,20 +1868,22 @@ define([
             },
 			
 			share_link:function(){
-				
+				console.log("share_link");
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
                     url: "http://hoffmanapp.indret.webfactional.com/hoffapp/share_app",
                     processData: true,
                     success: function(data) {
-						
+						console.log(data);
+						console.log(data[0].link);
 						var self=this;
 						try{
-							window.plugins.socialsharing.share(data[0].link, null, /*foto*/null, null);
+							window.plugins.socialsharing.share(data[0].link, null, "url('../icon.png')", null);
 						}
 						catch(e){
 							alert(e);
+							console.log(e);
 						}
 					},
                     error: function(code) {
