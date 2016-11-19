@@ -1879,7 +1879,7 @@ define([
 						console.log(data[0].link);
 						var self=this;
 						try{
-							window.plugins.socialsharing.share(data[0].link, null, "https://s3.amazonaws.com/build.phonegap.com/production/icon/af5a7e30-dec7-11e5-9414-22000bb0cd1e/152.png", null);
+							window.plugins.socialsharing.share(data[0].link, null, 'www/icon.png', null);
 						}
 						catch(e){
 							alert(e);
