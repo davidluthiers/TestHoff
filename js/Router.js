@@ -64,6 +64,7 @@ define([
                 "historyload":"historyload",
                 "historydetail:id":"historydetail",
                 "support":"support",
+				"share_link":"share_link",
                 "configuration":"configuration",
 				"passwordProtect":"passwordProtect",
 				"profile":"profile",
@@ -1865,6 +1866,33 @@ define([
         
 		
             },
+			
+			share_link:function(){
+				
+				var params_people = { //active hoffman users
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/share_app",
+                    processData: true,
+                    success: function(data) {
+						
+						var self=this;
+						try{
+							window.plugins.socialsharing.share(data[0].link, null, /*foto*/null, null);
+						}
+						catch(e){
+							alert(e);
+						}
+					},
+                    error: function(code) {
+                        console.log("petada intentando descargar share_link", code);
+						window.plugins.spinnerDialog.hide();
+                    }
+                };
+				
+				$.ajax(params_people);
+
+			},
 	
             journal:function (id) {
 	
