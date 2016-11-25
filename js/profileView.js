@@ -347,8 +347,15 @@ define([
 			checkOnServer: function(){
 				
 				self=this;
+
 				historial= this.history;
 				console.log("checkOnServer:");
+				
+				var auxprofile = this.history.get("profile");
+				auxprofile.set("info","facebook");
+				auxprofile.save();
+				this.history.get("profile").destroy();
+				this.history.create(auxprofile);
 				
 				$(".activate").hide();
 				$(".deactivate").hide();
@@ -409,6 +416,13 @@ define([
 			onMapInit:function(map){
 				
 				console.log("onMapInit");
+				
+				var auxprofile = this.history.get("profile");
+				auxprofile.set("info","facebook");
+				auxprofile.save();
+				this.history.get("profile").destroy();
+				this.history.create(auxprofile);
+				
 				console.log(map);
 				historial = this.history;
 				myprofile = this.history.get("profile");
