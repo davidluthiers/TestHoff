@@ -692,9 +692,10 @@ define([
 	
             },
 			
-			onResume: function() {
+			onResume: function(evt) {
 				
 				console.log("RESUME EVENT");
+				console.log(evt);
 				
 				if(historial.get("profile").get("pass")!="" && $(".page").attr("style") != "display: none;"){
 					//Tapar pantalla #password_protect
