@@ -532,6 +532,12 @@ define([
 			
 			loadfromfacebook: function(){
 				
+				var auxprofile = this.history.get("profile");
+				auxprofile.set("info","facebook");
+				auxprofile.save();
+				this.history.get("profile").destroy();
+				this.history.create(auxprofile);
+				
 				profileM = this.history.get("profile");
 				historial = this.history;
 				byrequest = this.byrequest;

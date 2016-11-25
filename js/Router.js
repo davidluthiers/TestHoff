@@ -181,10 +181,18 @@ define([
                 }
 				
 				if(historial.get("profile").get("pass")!=""){
-					//Tapar pantalla #password_protect
-					$(".page").attr("style","display: none;");
-					this.askForPassword();
-					
+					if(historial.get("profile").get("info")!="facebook"){
+						//Tapar pantalla #password_protect
+						$(".page").attr("style","display: none;");
+						this.askForPassword();
+					}
+					else{ //Acceso a facebook, no queremos preguntar por password
+						var auxprofile = historial.get("profile");
+						auxprofile.set("info","");
+						auxprofile.save();
+						historial.get("profile").destroy();
+						historial.create(auxprofile);
+					}
 				}
 				else{
 					//self.drupaldo(self.facebookLogin);
