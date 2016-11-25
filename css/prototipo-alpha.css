@@ -421,6 +421,10 @@ input[type="text"] {		/* input type transparentes para que se vea la hoja de cua
 		box-shadow: none !important;
 	}
 	
+	#summarylist .deleteEntry{
+		border: none;
+	}
+	
 	/* Header general */
 
 		.ui-header .ui-title{  /*título de cada página*/

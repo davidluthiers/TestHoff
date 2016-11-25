@@ -125,9 +125,9 @@ define([
 				self=this;
                 if(indexans==1){//Yes
                     self.history.at(self.index).destroy();
-					$(".historylist li").remove();
-					self.history.forEach(self.addHistoryElement, this);
-					$(".historylist").listview("refresh");
+					$(".summarylist li").remove();
+					self.history.forEach(this.getjournals, this);
+					$(".summarylist").listview("refresh");
                 }
             }
 	
