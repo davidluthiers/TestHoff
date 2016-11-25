@@ -24,7 +24,8 @@ define([
                 "click #addphotovision":"addphotovision",
                 "click #shareb":"share",
                 "click .savevision":"checksave",
-                "click #getgalleryphoto":"getfromgallery"
+                "click #getgalleryphoto":"getfromgallery",
+				"click .deleteEntry":"deleteEntry"
             },
 	 
             render: function(id, historycollection){
@@ -148,10 +149,43 @@ define([
                 if(elemento.get("tool")=="vision"){
                     var index = this.collection.indexOf(elemento);
                     neoindex=index+20;
-                    this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#visionboard" + neoindex +"' data-transition='none'><img class='imagenesminiaturasummary' src='"+ elemento.get("uri") +"' /><h3>"+ elemento.get("title") +"</h3></a></li>");
+                    this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#visionboard" + neoindex +"' data-transition='none'><img class='imagenesminiaturasummary' src='"+ elemento.get("uri") +"' /><h3>"+ elemento.get("title") +"</h3></a><a data-icon='delete' class='deleteEntry elementosfinos' colIndex='"+index+"' data-rel='dialog'' data-transition='none'>Delete</a></li>");
                 }
 	
             },
+			
+			deleteEntry: function(ev){
+				self = this;
+				
+                var index = $(ev.target).parent().attr("colIndex");
+				console.log($(ev.target)[0]);
+				console.log($(ev.target).parent());
+				console.log($(ev.target).parent().parent());
+                console.log(index);
+				
+				this.index = index;
+				this.eve = $(ev.target).parent().parent();
+				
+				try{
+					navigator.notification.confirm(self.collection.get("languages").get("dic_sure_delete_record"), function(indexans){
+						self.onDelEntryConfirm(indexans);
+					}, " ", [self.collection.get("languages").get("dic_transf_p9_text2"),self.collection.get("languages").get("dic_transf_p9_text3")]);
+				}
+				catch(e){
+					self.onDelEntryConfirm(2);
+					console.log("L 702" + e);
+				}
+			},
+			
+			onDelEntryConfirm:function (indexans){
+				self=this;
+                if(indexans==1){//Yes
+                    self.collection.at(self.index).destroy();
+					$("#summarylist li").remove();
+					self.collection.forEach(this.getvisions, this);
+					$("#summarylist").listview("refresh");
+                }
+            }
 	
             addphotovision: function(){
                 self = this;
