@@ -71,7 +71,7 @@ define([
 						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
 						console.log("self.profile:");
 						console.log(self.profile);
-						document.getElementById('displayname').innerHTML = self.profile.nickname + " " + self.history.get("languages").get("dic_says") + ":";
+						document.getElementById('displayname').innerHTML = ''; //self.profile.nickname + " " + self.history.get("languages").get("dic_says") + ":";
 						console.log('Ponemos foto de perfil');
 						document.getElementById('useremail').innerHTML = self.profile.email;
 						document.getElementById('status').innerHTML = self.profile.status;
@@ -583,7 +583,8 @@ define([
 									$("#fill_profile").attr("style","display:none");
 
 									document.getElementById("displayname").value = response.first_name;
-									document.getElementById("useremail").value = response.email;
+									if(!typeof response.email == 'undefined' && response.email != 'undefined')
+										document.getElementById("useremail").value = response.email;
 									
 									//cargar foto
 									setTimeout(function(){
