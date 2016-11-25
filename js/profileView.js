@@ -515,7 +515,11 @@ define([
 								console.log("Este nodo ya está en el mapa");
 							}
                         }
-						window.plugins.spinnerDialog.hide();
+						
+						setTimeout(function(){
+									window.plugins.spinnerDialog.hide();
+						},2000);
+						
 						
 						/*
 						map.animateCamera({
