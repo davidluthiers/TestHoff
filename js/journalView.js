@@ -19,7 +19,8 @@ define([
         journalView = Backbone.View.extend({
   
             events:{
-                "click #shareb":"share"
+                "click #shareb":"share",
+				"click .deleteEntry":"deleteEntry"
             },
    
             render: function(id, historycollection){
@@ -92,9 +93,42 @@ define([
                 if(elemento.get("tool")=="journal"){
                     var index = this.history.indexOf(elemento);
                     neoindex=index+20;
-                    this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#journal" + neoindex +"' data-transition='none'><h3>"+ elemento.get("description") +"</h3></a></li>");
+                    this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#journal" + neoindex +"' data-transition='none'><h3>"+ elemento.get("description") +"</h3></a><a data-icon='delete' class='deleteEntry elementosfinos' colIndex='"+index+"' data-rel='dialog'' data-transition='none'>Delete</a></li>");
                 }
 	
+            },
+			
+			deleteEntry: function(){
+				self = this;
+				
+                var index = $(ev.target).parent().attr("colIndex");
+				console.log($(ev.target)[0]);
+				console.log($(ev.target).parent());
+				console.log($(ev.target).parent().parent());
+                console.log(index);
+				
+				this.index = index;
+				this.eve = $(ev.target).parent().parent();
+				
+				try{
+                        navigator.notification.confirm(self.history.get("languages").get("dic_sure_delete_record"), function(indexans){
+                            self.onDelEntryConfirm(indexans);
+                        }, " ", [self.history.get("languages").get("dic_transf_p9_text2"),self.history.get("languages").get("dic_transf_p9_text3")]);
+				}
+				catch(e){
+					self.onDelEntryConfirm(2);
+					console.log("L 702" + e);
+				}
+			},
+			
+			onDelEntryConfirm:function (indexans){
+				self=this;
+                if(indexans==1){//Yes
+                    self.history.at(self.index).destroy();
+					$(".historylist li").remove();
+					self.history.forEach(self.addHistoryElement, this);
+					$(".historylist").listview("refresh");
+                }
             }
 	
 
