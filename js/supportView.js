@@ -45,7 +45,7 @@ define([
                     success: function(data) {
                         console.log("centers: ", data);
                         for(i=0; i<data.length; i++){
-                            self.$("#instituteslist").append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='ui-btn ui-btn-up-a ui-btn-icon-right ui-li ui-li-has-arrow ui-last-child'><div class='ui-btn-inner ui-li ui-li-has-alt'><div class='ui-btn-text'><a urldata='" + data[i].url + "' alt='" + historycollection.get('languages').get('dic_support_text1') + "' target='_blank' class='ui-link-inherit supportlink'>" + data[i].node_title + "</a></div></div></li>");
+                            self.$("#instituteslist").append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='ui-btn ui-btn-up-a ui-btn-icon-right ui-li ui-li-has-arrow ui-last-child'><div class='ui-btn-inner ui-li ui-li-has-alt'><div class='ui-btn-text'><a urldata='" + data[i].url + "' alt='" + historycollection.get('languages').get('dic_support_text1') + "' target='_blank' class='ui-link-inherit supportlink'>" + data[i].title + "</a></div></div></li>");
                         }
 						try{
                                 window.plugins.spinnerDialog.hide();
