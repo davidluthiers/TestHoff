@@ -28,7 +28,7 @@ define([
 	neoindex=index+20;
 
 			
-	this.$el.empty().append("<p class='fechasummarytools'>"+this.model.get("date")+"</p><a data-transition='none' class='toolbutton'></a><a data-icon='delete' class='ui-icon-alt deleteEntry elementosfinos' colIndex='"+index+"' data-rel='dialog'' data-transition='none'>Delete</a>");
+	this.$el.empty().append("<p class='fechasummarytools'>"+this.model.get("date")+"</p><a data-transition='none' class='toolbutton'></a><a data-icon='delete' class='deleteEntry elementosfinos' colIndex='"+index+"' data-rel='dialog'' data-transition='none'>Delete</a>");
 
 	
 		switch(this.model.get("tool")){

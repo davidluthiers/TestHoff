@@ -417,6 +417,10 @@ input[type="text"] {		/* input type transparentes para que se vea la hoja de cua
 		box-shadow: none !important;
 	}
 	
+	.deleteEntry span{
+		box-shadow: none !important;
+	}
+	
 	/* Header general */
 
 		.ui-header .ui-title{  /*título de cada página*/
