@@ -534,8 +534,8 @@ define([
 				
 				var auxprofile = this.history.get("profile");
 				auxprofile.set("info","facebook");
-				auxprofile.save();
 				this.history.get("profile").destroy();
+				auxprofile.save();
 				this.history.create(auxprofile);
 				
 				profileM = this.history.get("profile");

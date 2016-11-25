@@ -181,12 +181,16 @@ define([
                 }
 				
 				if(historial.get("profile").get("pass")!=""){
+					console.log("info:");
+					console.log(historial.get("profile").get("info"));
 					if(historial.get("profile").get("info")!="facebook"){
+						console.log("ask for password");
 						//Tapar pantalla #password_protect
 						$(".page").attr("style","display: none;");
 						this.askForPassword();
 					}
 					else{ //Acceso a facebook, no queremos preguntar por password
+						console.log("Acceso a facebook, no preguntamos por password");
 						var auxprofile = historial.get("profile");
 						auxprofile.set("info","");
 						auxprofile.save();
