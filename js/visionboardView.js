@@ -185,7 +185,7 @@ define([
 					self.collection.forEach(this.getvisions, this);
 					$("#summarylist").listview("refresh");
                 }
-            }
+            },
 	
             addphotovision: function(){
                 self = this;
