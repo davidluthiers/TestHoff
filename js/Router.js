@@ -181,21 +181,11 @@ define([
                 }
 				
 				if(historial.get("profile").get("pass")!=""){
-					console.log("info:");
-					console.log(historial.get("profile").get("info"));
+
 					if(historial.get("profile").get("info")!="facebook"){
-						console.log("ask for password");
 						//Tapar pantalla #password_protect
 						$(".page").attr("style","display: none;");
 						this.askForPassword();
-					}
-					else{ //Acceso a facebook, no queremos preguntar por password
-						console.log("Acceso a facebook, no preguntamos por password");
-						var auxprofile = historial.get("profile");
-						auxprofile.set("info","");
-						auxprofile.save();
-						historial.get("profile").destroy();
-						historial.create(auxprofile);
 					}
 				}
 				else{
@@ -295,86 +285,6 @@ define([
 	
             },
 
-			
-			facebookLogin: function(){
-				
-				var retrieve_fb_info = function(){
-					console.log('retrieve_fb_info');
-					console.log(historial);
-					facebookConnectPlugin.api(
-						profileM.id + "/?fields=id,email,first_name,picture",
-						['public_profile'],
-						function (response) {
-							console.log(JSON.stringify(response));
-							console.log(response);
-							//RequestsService.sendData(response);
-							//$scope.user = response;
-							console.log(historial);
-							console.log(response.id);
-							profileM.set("email",response.email);
-							profileM.set("nickname",response.first_name);
-							profileM.set("picture", response.picture.data.url);
-							profileM.set("userID",response.id);
-							profileM.set("lastupdated", new Date());
-							profileM.save();
-							
-							historial.create(profileM);
-							
-							/*
-							var node = {
-							  title: userData.authResponse.userID,
-							  type: "usernode",
-							  field_userid: userData.authResponse.userID,
-							  
-							};
-							
-							node_save(node, {
-							  success: function(result) {
-								console.log("Saved node #" + result.nid);
-								node_load(result.nid, {
-								  success: function(node) {
-									console.log("Loaded " + node.title);
-									console.log(node);
-								  }
-								});
-							  }
-							});
-							*/
-					
-						},
-						function (error) {
-							alert("Failed: " + error);
-						}
-					);
-				}
-			
-				var fbLoginSuccess = function (userData) {
-					console.log("UserInfo: ");
-					console.log(JSON.stringify(userData));
-					console.log(userData.authResponse);
-					
-					if (profileM.id == 'profile' || typeof profileM.userID == 'undefined'){
-						profileM.id = userData.authResponse.userID;
-						try{
-							historial.get("profile").destroy();
-						}
-						catch(e){
-							console.log("Error intentando eliminar perfil del historial " + e);
-						}
-						retrieve_fb_info();
-					}
-					
-					
-				}
-									
-				facebookConnectPlugin.login(["public_profile"],
-					fbLoginSuccess,
-					function (error) { 
-						console.log("Fb error:");
-						console.log(error);
-					}
-				);
-			},
 			
             login: function(){ //funcion de logueo para LOCALHOST
 	
@@ -710,10 +620,21 @@ define([
 				console.log(evt);
 				
 				if(historial.get("profile").get("pass")!="" && $(".page").attr("style") != "display: none;"){
-					//Tapar pantalla #password_protect
-					$(".page").attr("style","display: none;");
-					app_router.askForPassword();
-					
+					if(historial.get("profile").get("info")!="facebook"){
+						console.log("ask for password");
+						//Tapar pantalla #password_protect
+						$(".page").attr("style","display: none;");
+						app_router.askForPassword();;
+					}
+					else{ //Acceso a facebook, no queremos preguntar por password
+						console.log("Acceso a facebook, no preguntamos por password");
+						var auxprofile = historial.get("profile");
+						auxprofile.set("info","");
+						auxprofile.save();
+						historial.get("profile").destroy();
+						historial.create(auxprofile);
+					}
+
 				}
 				
 			},
