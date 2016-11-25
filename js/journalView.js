@@ -98,7 +98,7 @@ define([
 	
             },
 			
-			deleteEntry: function(){
+			deleteEntry: function(ev){
 				self = this;
 				
                 var index = $(ev.target).parent().attr("colIndex");
