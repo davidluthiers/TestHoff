@@ -740,6 +740,11 @@ define([
 										"und":[{
 											"value":profile.get("active")
 										}]
+								},
+								field_status:{
+										"und":[{
+											"value":profile.get("status")
+										}]
 								}
 							};
 						}
@@ -788,8 +793,12 @@ define([
 											"und":[{
 												"value":profile.get("active")
 											}]
+									},
+									field_status:{
+											"und":[{
+												"value":profile.get("status")
+											}]
 									}
-
 								};
 							
 						}
