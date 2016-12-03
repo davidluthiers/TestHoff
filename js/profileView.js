@@ -802,25 +802,27 @@ define([
 								};
 							
 						}
-						
-						node_save(node, {
-							success: function(result) {
-								console.log("Saved node #" + result.nid);
-								window.plugins.spinnerDialog.hide();
-								self.initializeMap(latitude,longitude);
-								//llamada a node_load puede eliminarse antes de la salida
-								node_load(result.nid, {
-									success: function(node) {
-									console.log("Loaded " + node.title);
-									console.log(node);
-									}
-								});
-							if (!afterCoords){
-								console.log("aftercoords false");
-								self.router.profile();
-							}
-							}
-						});
+						try{
+							node_save(node, {
+								success: function(result) {
+									console.log("Saved node #" + result.nid);
+									window.plugins.spinnerDialog.hide();
+									self.initializeMap(latitude,longitude);
+									//llamada a node_load puede eliminarse antes de la salida
+									node_load(result.nid, {
+										success: function(node) {
+										console.log("Loaded " + node.title);
+										console.log(node);
+										}
+									});
+								}
+							});
+						}
+						catch(e){
+							console.log("Node save ha fallado, recargamos profile");
+							console.log(e);
+							self.router.profile();
+						}
 						
 					
 					
