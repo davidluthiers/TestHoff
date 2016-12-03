@@ -400,6 +400,7 @@ define([
 						}
 						if(!flag){
 							window.plugins.spinnerDialog.hide();
+							self.getFBid();
 							console.log("Mi perfil no está en el servidor, cargamos el form de usuario");
 						}
 					},
@@ -411,6 +412,39 @@ define([
 				
 				$.ajax(params_people);
 				
+			},
+			
+			getFBid: function(){
+				console.log("getFBid");
+				var fbLoginSuccessgetFBid = function (userData) {
+					console.log("UserInfo: ");
+					console.log(JSON.stringify(userData));
+					console.log(userData.authResponse);
+					
+					if (profileM.id == 'profile' || profileM.get("id") == 'profile' || typeof profileM.id == 'undefined'){
+						console.log("profile.id es: " + profileM.id);
+						console.log("profile.get('id') es: " + profileM.get("id"));
+						console.log("DEBUGDEBUGDEBUG userData.authResponse.userID hmtl?: " + userData.authResponse.userID);
+						profileM.id = userData.authResponse.userID;
+						profileM.set("userID",userData.authResponse.userID);
+						try{
+							historial.get("profile").destroy();
+						}
+						catch(e){
+							console.log("Error intentando eliminar perfil del historial " + e);
+						}
+						profileM.save();
+						historial.create(profileM);
+					}
+				}
+				
+				facebookConnectPlugin.login(["public_profile"],
+					fbLoginSuccessgetFBid,
+					function (error) { 
+						console.log("fbLoginSuccessgetFBid error:");
+						console.log(error);
+					}
+				);
 			},
 			
 			onMapInit:function(map){
