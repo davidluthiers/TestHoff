@@ -250,6 +250,9 @@ define([
 							},300);*/
 							
 							alert(historial.get("languages").get("dic_gps_required"));
+							Backbone.history.navigate("#summary", {
+								trigger: true
+							});
 
 							// Process error code.
 							switch (error.code) {
