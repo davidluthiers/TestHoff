@@ -79,6 +79,11 @@ define([
 	
                     console.log("Sestoken: " + this.history.get("languages").get("sesToken")); //este token es undefined :s
                     router.drupaldo(this.getactivelanguages.bind(this), "null",true);
+					
+					if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//Si no hay conexión a internet ocultamos la caja de lenguas
+						$("#languageTag").hide();
+						$("#testForm").hide();
+					}
 	
                 }
             },
