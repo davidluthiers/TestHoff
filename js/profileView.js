@@ -210,6 +210,57 @@ define([
 
             },
 			
+			savePrecisionCoords: function(){
+				console.log("savePrecisionCoords");
+				navigator.geolocation.getCurrentPosition(
+					  
+						// Success.
+						function (position){
+							auxprofile = self.history.get("profile");
+							auxprofile.set("latitude",position.coords.latitude);
+							auxprofile.set("longitude",position.coords.longitude);
+							self.history.get("profile").destroy();
+							self.history.create(auxprofile);
+							
+							self.saveonserver(true);						
+							},
+					  
+						// Error
+						function(error) {
+							
+
+							// Process error code.
+							switch (error.code) {
+
+							  // PERMISSION_DENIED
+							  case 1:
+								console.log("PERMISSION_DENIED");
+								break;
+
+							  // POSITION_UNAVAILABLE
+							  case 2:
+								console.log("POSITION_UNAVAILABLE");
+								break;
+
+							  // TIMEOUT
+							  case 3:
+								console.log("TIMEOUT");
+								break;
+
+							}
+						
+
+					  },
+					  
+					  // Options
+					  { enableHighAccuracy: true,
+						timeout: 5000	  
+						}
+					  
+					);
+				
+			},
+			
 			getCoord: function(){
 				self=this;
 				/*
@@ -235,7 +286,9 @@ define([
 							self.history.create(auxprofile);
 							//updatenode
 							self.saveonserverAndInitialize(true, position.coords.latitude,position.coords.longitude);
-							
+							setTimeout(function(){
+								self.savePrecisionCoords();
+							},6000);
 							
 							},
 					  
