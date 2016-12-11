@@ -227,14 +227,14 @@ define([
                                 self.onpassPrompt(ans);
                             },                  // callback to invoke
                             historial.get("languages").get("dic_password_protect"),            // title
-                            [historial.get("languages").get("dic_back"),historial.get("languages").get("dic_next")] // buttonLabels
+                            [historial.get("languages").get("dic_next"),historial.get("languages").get("dic_back")] // buttonLabels
                             //historial.get("languages").get("dic_beatyour_example")                 // defaultText
                             );
                     }
                     catch(e){
                         console.log(e);
                         var obj= new Object();
-                        obj["buttonIndex"]=2;
+                        obj["buttonIndex"]=1;
                         obj["input1"]="";
                         self.onpassPrompt(obj);
                     }
@@ -242,7 +242,7 @@ define([
             },
 			
 			onpassPrompt: function (results){
-                if(results.buttonIndex==2){
+                if(results.buttonIndex==1){
                     if(btoa(results.input1) == historial.get("profile").get("pass")){
 						console.log("passwords match");
 						$(".page").attr("style","display: block;");
@@ -1469,7 +1469,7 @@ define([
             onbashPrompt: function (results){
 	
                 var self=this;
-                if(results.buttonIndex==2){
+                if(results.buttonIndex==1){
                     this.bashackermodel.set("target",results.input1);
 			
                     try{
@@ -1523,14 +1523,14 @@ define([
                                 self.onbashPrompt(ans);
                             },                  // callback to invoke
                             historial.get("languages").get("dic_bash_header"),            // title
-                            [historial.get("languages").get("dic_back"),historial.get("languages").get("dic_next")]            // buttonLabels
+                            [historial.get("languages").get("dic_next"),historial.get("languages").get("dic_back")]            // buttonLabels
                             //historial.get("languages").get("dic_bash_example")                 // defaultText
                             );
                     }
                     catch(e){
                         console.log(e);
                         var obj= new Object();
-                        obj["buttonIndex"]=1;
+                        obj["buttonIndex"]=2;
                         obj["input1"]="Sadness";
                         self.onbashPrompt(obj);
                     }
@@ -1556,11 +1556,11 @@ define([
             },
 	
             onbeatPrompt: function (results){
-                if(results.buttonIndex==2){
+                if(results.buttonIndex==1){
                     this.beatyourmodel.set("target",results.input1);
                     this.beatyourdarkSide('1');
                 }
-                if(results.buttonIndex==1)
+                if(results.buttonIndex==2)
                     Backbone.history.navigate("#summary", {
                         trigger: true
                     });
@@ -1583,14 +1583,14 @@ define([
                                 self.onbeatPrompt(ans);
                             },                  // callback to invoke
                             historial.get("languages").get("dic_beatyour_header"),            // title
-                            [historial.get("languages").get("dic_back"),historial.get("languages").get("dic_next")] // buttonLabels
+                            [historial.get("languages").get("dic_next"), historial.get("languages").get("dic_back")] // buttonLabels
                             //historial.get("languages").get("dic_beatyour_example")                 // defaultText
                             );
                     }
                     catch(e){
                         console.log(e);
                         var obj= new Object();
-                        obj["buttonIndex"]=2;
+                        obj["buttonIndex"]=1;
                         obj["input1"]="Envy";
                         self.onbeatPrompt(obj);
                     }
