@@ -631,8 +631,15 @@ define([
                             });
                         }
                         layer = new Konva.Layer();
+						console.log("layer");
+						console.log(layer.width());
+						console.log(layer.height());
+						
+						console.log("wheel");
+						console.log(stage.width() / 2);
+						console.log(WHEEL_RADIUS + 20);
                         wheel = new Konva.Group({
-                            x: stage.getWidth() / 2,
+                            x: stage.width() / 2,
                             y: WHEEL_RADIUS + 20
                         });
 
@@ -650,7 +657,7 @@ define([
                             lineJoin: 'round',
                             angle: 30,
                             radius: 30,
-                            x: stage.getWidth() / 2,
+                            x: stage.width() / 2,
                             y: 20,
                             rotation: -105,
                             shadowColor: 'black',
