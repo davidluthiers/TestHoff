@@ -645,9 +645,9 @@ define([
 					else{ //Acceso a facebook, no queremos preguntar por password Ó acceso a cámara/galería
 						console.log("gettime:");
 						auxdate = new Date();
-
+						console.log(historial.get("profile") > (auxdate.getTime() - 120000));
 						if(historial.get("profile").get("info")=="facebook" || historial.get("profile") > (auxdate.getTime() - 120000)){ //Si han pasado 2 minutos reseteamos flag
-							console.log("Acceso a facebook, no preguntamos por password");
+							console.log("Acceso tras facebook o acceso a cámara/galería, no preguntamos por password");
 							var auxprofile = historial.get("profile");
 							auxprofile.set("info","");
 							auxprofile.save();
