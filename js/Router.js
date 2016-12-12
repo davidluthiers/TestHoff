@@ -182,17 +182,20 @@ define([
 				
 				if(historial.get("profile").get("pass")!=""){
 
-					if(historial.get("profile").get("info")!="facebook" && historial.get("profile").get("info")!="takePicture"){
+					if(historial.get("profile").get("info")!="facebook" && historial.get("profile").getTime !== 'function'){
 						//Tapar pantalla #password_protect
 						$(".page").attr("style","display: none;");
 						this.askForPassword();
 					}
 					else{ //Consumimos la variable
-						var auxprofile = historial.get("profile");
-						auxprofile.set("info","");
-						auxprofile.save();
-						historial.get("profile").destroy();
-						historial.create(auxprofile);
+						auxdate = new Date();
+						if(historial.get("profile").get("info")=="facebook" || historial.get("profile").getTime() > (auxdate.getTime() - 120000)){ //Si han pasado 2 minutos reseteamos flag
+							var auxprofile = historial.get("profile");
+							auxprofile.set("info","");
+							auxprofile.save();
+							historial.get("profile").destroy();
+							historial.create(auxprofile);
+						}
 					}
 				}
 				else{

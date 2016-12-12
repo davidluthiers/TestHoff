@@ -130,7 +130,7 @@ define([
                     }
                     else{
 						var auxprofile = this.collection.get("profile");
-						auxprofile.set("info","takePicture");
+						auxprofile.set("info",new Date());
 						auxprofile.save();
 						this.collection.get("profile").destroy();
 						this.collection.create(auxprofile);
@@ -202,7 +202,7 @@ define([
                 }
                 else{
 					var auxprofile = this.collection.get("profile");
-					auxprofile.set("info","takePicture");
+					auxprofile.set("info",new Date());
 					auxprofile.save();
 					this.collection.get("profile").destroy();
 					this.collection.create(auxprofile);
