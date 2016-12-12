@@ -189,6 +189,8 @@ define([
 					}
 					else{ //Consumimos la variable
 						auxdate = new Date();
+						console.log("Consumimos la variable");
+						console.log(historial.get("profile").get("info"));
 						if(historial.get("profile").get("info")=="facebook" || historial.get("profile").getTime() > (auxdate.getTime() - 120000)){ //Si han pasado 2 minutos reseteamos flag
 							var auxprofile = historial.get("profile");
 							auxprofile.set("info","");
