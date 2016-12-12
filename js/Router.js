@@ -1834,6 +1834,11 @@ define([
 						console.log(data);
 						console.log(data[0].link);
 						var self=this;
+						var auxprofile = historial.get("profile");
+						auxprofile.set("info","facebook");
+						auxprofile.save();
+						historial.get("profile").destroy();
+						historial.create(auxprofile);
 						try{
 							window.plugins.socialsharing.share(data[0].link, null, 'www/icon.png', null);
 						}
