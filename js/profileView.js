@@ -1202,7 +1202,8 @@ define([
                 }
                 else{
 					var auxprofile = this.history.get("profile");
-					auxprofile.set("info",new Date());
+					auxdate = new Date();
+					auxprofile.set("info",auxdate.getTime());
 					auxprofile.save();
 					this.history.get("profile").destroy();
 					this.history.create(auxprofile);
@@ -1225,7 +1226,8 @@ define([
                     }
                     else{
 						var auxprofile = this.history.get("profile");
-						auxprofile.set("info",new Date());
+						auxdate = new Date();
+						auxprofile.set("info",auxdate.getTime());
 						auxprofile.save();
 						this.history.get("profile").destroy();
 						this.history.create(auxprofile);

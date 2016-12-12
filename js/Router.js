@@ -631,19 +631,16 @@ define([
 				console.log("RESUME EVENT");
 				console.log(evt);
 				profileM.fetch();
-				console.log(historial.get("profile"));
-				historial.get("profile").fetch();
-				console.log(historial.get("profile"));
 				
 				if(historial.get("profile").get("pass")!="" && $(".page").attr("style") != "display: none;"){
-					if(historial.get("profile").get("info")!="facebook" && historial.get("profile").getTime !== 'function'){
+					if(historial.get("profile").get("info")!="facebook" && isNaN(historial.get("profile"))){
 						console.log("ask for password");
 						//Tapar pantalla #password_protect
 						$(".page").attr("style","display: none;");
-						app_router.askForPassword();;
+						app_router.askForPassword();
 					}
 					else{ //Acceso a facebook, no queremos preguntar por password Ó acceso a cámara/galería
-						//if(historial.get("profile").get("info")=="facebook" || historial.get("profile").getTime() > (auxdate.getTime() - 120000)){ //Si han pasado 2 minutos reseteamos flag
+						//if(historial.get("profile").get("info")=="facebook" || historial.get("profile") > (auxdate.getTime() - 120000)){ //Si han pasado 2 minutos reseteamos flag
 							console.log("Acceso a facebook, no preguntamos por password");
 							var auxprofile = historial.get("profile");
 							auxprofile.set("info","");
