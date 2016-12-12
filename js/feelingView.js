@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'kinetic-v5.0.1.min',
+    'kinetic-v5.1.0.min',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'text!../Templates/feeling.html',
