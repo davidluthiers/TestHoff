@@ -182,10 +182,17 @@ define([
 				
 				if(historial.get("profile").get("pass")!=""){
 
-					if(historial.get("profile").get("info")!="facebook"){
+					if(historial.get("profile").get("info")!="facebook" && historial.get("profile").get("info")!="takePicture"){
 						//Tapar pantalla #password_protect
 						$(".page").attr("style","display: none;");
 						this.askForPassword();
+					}
+					else{ //Consumimos la variable
+						var auxprofile = historial.get("profile");
+						auxprofile.set("info","");
+						auxprofile.save();
+						historial.get("profile").destroy();
+						historial.create(auxprofile);
 					}
 				}
 				else{

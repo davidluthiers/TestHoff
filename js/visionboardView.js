@@ -128,7 +128,13 @@ define([
                         alert("Camera API not supported");
                         return;
                     }
-                    else
+                    else{
+						var auxprofile = this.collection.get("profile");
+						auxprofile.set("info","takePicture");
+						auxprofile.save();
+						this.collection.get("profile").destroy();
+						this.collection.create(auxprofile);
+						
                         navigator.camera.getPicture(function(imageData){
                             self.onPhotoDataSuccess(imageData, true);
                         }, this.onFail, {
@@ -138,6 +144,7 @@ define([
                             sourceType: 0,
 							allowEdit: true
                         });
+					}
                 }
                 catch(e){
                     console.log(e);
@@ -193,7 +200,12 @@ define([
                     alert("Camera API not supported");
                     return;
                 }
-                else
+                else{
+					var auxprofile = this.collection.get("profile");
+					auxprofile.set("info","takePicture");
+					auxprofile.save();
+					this.collection.get("profile").destroy();
+					this.collection.create(auxprofile);
                     navigator.camera.getPicture(function(imageData){
                         self.onPhotoDataSuccess(imageData, false);
                     }, this.onFail, {
@@ -201,6 +213,7 @@ define([
                         correctOrientation: true,
 						allowEdit: true
                     });
+				}
             },
 	
             onPhotoDataSuccess: function(imageData, base64){

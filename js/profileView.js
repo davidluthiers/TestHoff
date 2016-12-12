@@ -1200,7 +1200,12 @@ define([
                     alert("Camera API not supported");
                     return;
                 }
-                else
+                else{
+					var auxprofile = this.history.get("profile");
+					auxprofile.set("info","takePicture");
+					auxprofile.save();
+					this.history.get("profile").destroy();
+					this.history.create(auxprofile);
                     navigator.camera.getPicture(function(imageData){
                         self.onPhotoDataSuccess(imageData, false);
                     }, this.onFail, {
@@ -1208,6 +1213,7 @@ define([
                         correctOrientation: true,
 						allowEdit: true
                     });
+				}
             },
 			
 			getfromgallery:function(){
@@ -1217,7 +1223,13 @@ define([
                         alert("Camera API not supported");
                         return;
                     }
-                    else
+                    else{
+						var auxprofile = this.history.get("profile");
+						auxprofile.set("info","takePicture");
+						auxprofile.save();
+						this.history.get("profile").destroy();
+						this.history.create(auxprofile);
+						
                         navigator.camera.getPicture(function(imageData){
                             self.onPhotoDataSuccess(imageData, true);
                         }, this.onFail, {
@@ -1227,6 +1239,7 @@ define([
                             sourceType: 0,
 							allowEdit: true
                         });
+					}
                 }
                 catch(e){
                     console.log(e);
