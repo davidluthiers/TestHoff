@@ -1833,6 +1833,7 @@ define([
 						console.log(data);
 						console.log(data[0].link);
 						var self=this;
+						window.plugins.spinnerDialog.hide();
 						try{
 							window.plugins.socialsharing.share(data[0].link, null, 'www/icon.png', null);
 						}
@@ -1840,6 +1841,14 @@ define([
 							alert(e);
 							console.log(e);
 						}
+						setTimeout(function(){
+							try{
+								window.plugins.spinnerDialog.hide();
+							}
+							catch(e){
+								console.log(e);
+							}
+						},3000);
 					},
                     error: function(code) {
                         console.log("petada intentando descargar share_link", code);
