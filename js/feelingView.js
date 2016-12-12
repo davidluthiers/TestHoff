@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'kinetic-v5.1.0.min',
+    'konva.min',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'text!../Templates/feeling.html',
@@ -13,7 +13,7 @@ define([
     'text!../Templates/headerandpanel.html',
     'jquerymobile'
 
-    ], function($, _, Backbone, Kinetic, feeling, feelinghistory, feelingModel, list, headerandpanel){
+    ], function($, _, Backbone, konva, feeling, feelinghistory, feelingModel, list, headerandpanel){
 
 
         feelingView = Backbone.View.extend({
@@ -511,11 +511,11 @@ define([
 
                         var startColor = 'rgb(' + r + ',' + g + ',' + b + ')';
 
-                        var wedge = new Kinetic.Group({
+                        var wedge = new Konva.Group({
                             rotation: n * 360 / NUM_WEDGES,
                         });
 
-                        var wedgeBackground = new Kinetic.Wedge({
+                        var wedgeBackground = new Konva.Wedge({
                             radius: WHEEL_RADIUS,
                             angle: angle,
                             fillRadialGradientStartRadius: 0,
@@ -530,7 +530,7 @@ define([
 
                         wedge.add(wedgeBackground);
 
-                        var text = new Kinetic.Text({
+                        var text = new Konva.Text({
                             text: reward,
                             fontFamily: 'Calibri',
                             fontSize: 20,
@@ -618,20 +618,20 @@ define([
                     }
                     function init(context) {
                         if ($(window).width() >= 360) {
-                            stage = new Kinetic.Stage({
+                            stage = new Konva.Stage({
                                 container: 'container',
                                 width: 300,
                                 height: 200
                             });
                         } else {
-                            stage = new Kinetic.Stage({
+                            stage = new Konva.Stage({
                                 container: 'container',
                                 width: 260,
                                 height: 200
                             });
                         }
-                        layer = new Kinetic.Layer();
-                        wheel = new Kinetic.Group({
+                        layer = new Konva.Layer();
+                        wheel = new Konva.Group({
                             x: stage.getWidth() / 2,
                             y: WHEEL_RADIUS + 20
                         });
@@ -639,7 +639,7 @@ define([
                         for(var n = 0; n < NUM_WEDGES; n++) {
                             addWedge(n, context);
                         }
-                        pointer = new Kinetic.Wedge({
+                        pointer = new Konva.Wedge({
                             fillRadialGradientStartPoint: 0,
                             fillRadialGradientStartRadius: 0,
                             fillRadialGradientEndPoint: 0,
@@ -667,10 +667,10 @@ define([
                         layer.add(pointer);
                         stage.add(layer);
 
-                        pointerTween = new Kinetic.Tween({
+                        pointerTween = new Konva.Tween({
                             node: pointer,
                             duration: 0.1,
-                            easing: Kinetic.Easings.EaseInOut,
+                            easing: Konva.Easings.EaseInOut,
                             y: 30
                         });
 
@@ -693,7 +693,7 @@ define([
                         // bind events
 
 
-                        var anim = new Kinetic.Animation(animate, layer);
+                        var anim = new Konva.Animation(animate, layer);
 						self.anim=anim;
 
                         //document.getElementById('debug').appendChild(layer.hitCanvas._canvas);
