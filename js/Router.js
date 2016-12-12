@@ -634,8 +634,8 @@ define([
 				
 				if(historial.get("profile").get("pass")!="" && $(".page").attr("style") != "display: none;"){
 					console.log(historial.get("profile").get("info"));
-					console.log(isNan(historial.get("profile").get("info")));
-					if(historial.get("profile").get("info")!="facebook" && isNaN(historial.get("profile").get("info"))){
+					console.log(typeof historial.get("profile").get("info"));
+					if(historial.get("profile").get("info")!="facebook" && typeof historial.get("profile").get("info") != 'number'){
 						console.log("ask for password");
 						//Tapar pantalla #password_protect
 						$(".page").attr("style","display: none;");
