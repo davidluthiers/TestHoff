@@ -635,7 +635,8 @@ define([
 				if(historial.get("profile").get("pass")!="" && $(".page").attr("style") != "display: none;"){
 					console.log(historial.get("profile").get("info"));
 					console.log(typeof historial.get("profile").get("info"));
-					if(historial.get("profile").get("info")!="facebook" && typeof historial.get("profile").get("info") != 'number'){
+					console.log(historial.get("profile").get("info").substring(0,2));
+					if(historial.get("profile").get("info")!="facebook" && historial.get("profile").get("info").substring(0,2) != "20"){
 						console.log("ask for password");
 						//Tapar pantalla #password_protect
 						$(".page").attr("style","display: none;");
