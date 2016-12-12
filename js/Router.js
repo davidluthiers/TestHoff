@@ -630,6 +630,10 @@ define([
 				
 				console.log("RESUME EVENT");
 				console.log(evt);
+				profileM.fetch();
+				console.log(historial.get("profile"));
+				historial.get("profile").fetch();
+				console.log(historial.get("profile"));
 				
 				if(historial.get("profile").get("pass")!="" && $(".page").attr("style") != "display: none;"){
 					if(historial.get("profile").get("info")!="facebook" && historial.get("profile").getTime !== 'function'){
