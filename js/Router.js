@@ -643,10 +643,12 @@ define([
 						app_router.askForPassword();
 					}
 					else{ //Acceso a facebook, no queremos preguntar por password Ó acceso a cámara/galería
-						console.log("gettime:");
 						auxdate = new Date();
-						console.log(historial.get("profile").get("info") < (auxdate.getTime() - 120000));
-						if(historial.get("profile").get("info")=="facebook" || historial.get("profile").get("info") < (auxdate.getTime() - 120000)){ //Si han pasado 2 minutos reseteamos flag
+						auxtime = auxdate.getTime();
+						console.log("gettime:");
+						console.log(auxtime);
+						console.log(historial.get("profile").get("info") < (auxtime - 120000));
+						if(historial.get("profile").get("info")=="facebook" || historial.get("profile").get("info") < (auxtime - 120000)){ //Si han pasado 2 minutos reseteamos flag
 							console.log("Acceso tras facebook o acceso a cámara/galería, no preguntamos por password");
 							var auxprofile = historial.get("profile");
 							auxprofile.set("info","");
