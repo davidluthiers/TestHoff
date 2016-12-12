@@ -1824,6 +1824,7 @@ define([
 			
 			share_link:function(){
 				console.log("share_link");
+				window.plugins.spinnerDialog.show();
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
@@ -1833,7 +1834,6 @@ define([
 						console.log(data);
 						console.log(data[0].link);
 						var self=this;
-						window.plugins.spinnerDialog.hide();
 						try{
 							window.plugins.socialsharing.share(data[0].link, null, 'www/icon.png', null);
 						}
