@@ -581,8 +581,13 @@ define([
 										myprofile=historial.get("profile");
 										console.log("pressed map icon");
 										console.log(evt);
-										console.log(evt.id.replace("marker_m",""));
-										console.log(data[evt.id.replace("marker_m","")].email);
+										var markerid = '';
+										if (device.platform=='Android')
+											markerid = evt.id.replace("marker_m","");
+										else
+											markerid = evt.id.replace("marker_","");
+										console.log(markerid);
+										console.log(data[markerid].email);
 										myprofile.set("next_user", evt.id.replace("marker_m",""));
 										historial.get("profile").destroy();
 										historial.create(myprofile);
