@@ -682,15 +682,6 @@ define([
 
                         var radiusPlus2 = WHEEL_RADIUS + 2;
 
-                        wheel.cache({
-                            x: -1* radiusPlus2,
-                            y: -1* radiusPlus2,
-                            width: radiusPlus2 * 2,
-                            height: radiusPlus2 * 2
-                        }).offset({
-                            x: radiusPlus2,
-                            y: radiusPlus2
-                        });
 
                         layer.draw();
 
