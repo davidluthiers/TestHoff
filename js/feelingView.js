@@ -636,8 +636,8 @@ define([
 						console.log(stage.getWidth() / 2);
 						console.log(WHEEL_RADIUS + 20);
                         wheel = new Konva.Group({
-                            x: stage.getWidth()+20 / 1,
-                            y: WHEEL_RADIUS //+ 20
+                            x: (stage.getWidth()+20 / 1)*2,
+                            y: WHEEL_RADIUS/2 //+ 20
                         });
 
                         for(var n = 0; n < NUM_WEDGES; n++) {
