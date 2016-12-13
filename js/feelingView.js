@@ -631,9 +631,6 @@ define([
                             });
                         }
                         layer = new Kinetic.Layer();
-						console.log("layer");
-						console.log(layer.getWidth());
-						console.log(layer.getHeight());
 						
 						console.log("wheel");
 						console.log(stage.getWidth() / 2);
