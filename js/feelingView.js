@@ -543,7 +543,7 @@ define([
 
                         });
 
-                        text.offsetX(text.getWidth()/2);
+                        text.offsetX(text.width()/2);
                         text.offsetY(WHEEL_RADIUS - 20);
 
                         wedge.add(text);
@@ -617,7 +617,7 @@ define([
 
                     }
                     function init(context) {
-                        if ($(window).getWidth() >= 360) {
+                        if ($(window).width() >= 360) {
                             stage = new Kinetic.Stage({
                                 container: 'container',
                                 width: 300,
