@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'konva.min',
+    'kinetic-v5.1.0.min',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'text!../Templates/feeling.html',
@@ -13,7 +13,7 @@ define([
     'text!../Templates/headerandpanel.html',
     'jquerymobile'
 
-    ], function($, _, Backbone, konva, feeling, feelinghistory, feelingModel, list, headerandpanel){
+    ], function($, _, Backbone, Kinetic, feeling, feelinghistory, feelingModel, list, headerandpanel){
 
 
         feelingView = Backbone.View.extend({
@@ -511,11 +511,11 @@ define([
 
                         var startColor = 'rgb(' + r + ',' + g + ',' + b + ')';
 
-                        var wedge = new Konva.Group({
+                        var wedge = new Kinetic.Group({
                             rotation: n * 360 / NUM_WEDGES,
                         });
 
-                        var wedgeBackground = new Konva.Wedge({
+                        var wedgeBackground = new Kinetic.Wedge({
                             radius: WHEEL_RADIUS,
                             angle: angle,
                             fillRadialGradientStartRadius: 0,
@@ -530,7 +530,7 @@ define([
 
                         wedge.add(wedgeBackground);
 
-                        var text = new Konva.Text({
+                        var text = new Kinetic.Text({
                             text: reward,
                             fontFamily: 'Calibri',
                             fontSize: 20,
@@ -543,7 +543,7 @@ define([
 
                         });
 
-                        text.offsetX(text.width()/2);
+                        text.offsetX(text.getWidth()/2);
                         text.offsetY(WHEEL_RADIUS - 20);
 
                         wedge.add(text);
@@ -600,8 +600,8 @@ define([
 
                         // pointer
                         var intersectedWedge = layer.getIntersection({
-                            x: stage.width()/2,
-                            y: stage.height()/2
+                            x: stage.getWidth()/2,
+                            y: stage.getHeight()/2
                             });
 
                         if (intersectedWedge && (!activeWedge || activeWedge._id !== intersectedWedge._id)) {
@@ -617,36 +617,36 @@ define([
 
                     }
                     function init(context) {
-                        if ($(window).width() >= 360) {
-                            stage = new Konva.Stage({
+                        if ($(window).getWidth() >= 360) {
+                            stage = new Kinetic.Stage({
                                 container: 'container',
                                 width: 300,
                                 height: 200
                             });
                         } else {
-                            stage = new Konva.Stage({
+                            stage = new Kinetic.Stage({
                                 container: 'container',
                                 width: 260,
                                 height: 200
                             });
                         }
-                        layer = new Konva.Layer();
+                        layer = new Kinetic.Layer();
 						console.log("layer");
-						console.log(layer.width());
-						console.log(layer.height());
+						console.log(layer.getWidth());
+						console.log(layer.getHeight());
 						
 						console.log("wheel");
-						console.log(stage.width() / 2);
+						console.log(stage.getWidth() / 2);
 						console.log(WHEEL_RADIUS + 20);
-                        wheel = new Konva.Group({
-                            x: stage.width() / 2,
+                        wheel = new Kinetic.Group({
+                            x: stage.getWidth() / 2,
                             y: WHEEL_RADIUS + 20
                         });
 
                         for(var n = 0; n < NUM_WEDGES; n++) {
                             addWedge(n, context);
                         }
-                        pointer = new Konva.Wedge({
+                        pointer = new Kinetic.Wedge({
                             fillRadialGradientStartPoint: 0,
                             fillRadialGradientStartRadius: 0,
                             fillRadialGradientEndPoint: 0,
@@ -657,7 +657,7 @@ define([
                             lineJoin: 'round',
                             angle: 30,
                             radius: 30,
-                            x: stage.width() / 2,
+                            x: stage.getWidth() / 2,
                             y: 20,
                             rotation: -105,
                             shadowColor: 'black',
@@ -674,10 +674,10 @@ define([
                         layer.add(pointer);
                         stage.add(layer);
 
-                        pointerTween = new Konva.Tween({
+                        pointerTween = new Kinetic.Tween({
                             node: pointer,
                             duration: 0.1,
-                            easing: Konva.Easings.EaseInOut,
+                            easing: Kinetic.Easings.EaseInOut,
                             y: 30
                         });
 
@@ -700,7 +700,7 @@ define([
                         // bind events
 
 
-                        var anim = new Konva.Animation(animate, layer);
+                        var anim = new Kinetic.Animation(animate, layer);
 						self.anim=anim;
 
                         //document.getElementById('debug').appendChild(layer.hitCanvas._canvas);
