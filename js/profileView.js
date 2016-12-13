@@ -393,7 +393,7 @@ define([
 				
 				try{
 					$("._gmaps_cdv_").attr("style","background-image: none !important; height: 90%;");
-					$("#map_module_map").attr("style","background-image: none !important; height: 104%;");
+					$("#map_module_map").attr("style","background-image: none !important; height: 90%;");
 				}
 				catch(e){
 					console.log("Error: "+e);
