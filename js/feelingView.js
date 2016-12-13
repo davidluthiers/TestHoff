@@ -633,14 +633,12 @@ define([
                         layer = new Konva.Layer();
 						
 						console.log("wheel");
-						
+						console.log(stage.getWidth() / 2);
+						console.log(WHEEL_RADIUS + 20);
                         wheel = new Konva.Group({
-                            x: (stage.getWidth() - 20)*2,
-                            y: WHEEL_RADIUS*2 //+ 20
+                            x: stage.getWidth() / 1,
+                            y: WHEEL_RADIUS + 20
                         });
-						
-						console.log(wheel.width());
-						console.log(wheel.height());
 
                         for(var n = 0; n < NUM_WEDGES; n++) {
                             addWedge(n, context);
