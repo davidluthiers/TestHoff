@@ -81,8 +81,8 @@ define([
                     router.drupaldo(this.getactivelanguages.bind(this), "null",true);
 					
 					if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//Si no hay conexión a internet ocultamos la caja de lenguas
-						$("#languageTag").hide();
-						$("#testForm").hide();
+						this.$("#languageTag").hide();
+						this.$("#testForm").hide();
 					}
 	
                 }
