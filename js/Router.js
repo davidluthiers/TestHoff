@@ -2197,8 +2197,6 @@ define([
                     console.log(e);
                 }
 				auxToken = historial.get("languages").get("sesToken");
-				auxprofile = historial.get("languages").get("profile");
-				auxprofile.set("active", "no");
 				console.log("saving sesToken : " + auxToken);
                 historial.destroyhistory();
                 historial= new historyCollection;
@@ -2225,16 +2223,7 @@ define([
                     viciousDoNotShow: false
                 });
 				
-				profileM = auxprofile;
-				
-				try{
-					this.profileV= new profileView();
-					this.drupaldo(this.profileV.saveonserver,true);
-				}
-				catch(e){
-					console.log(e);
-				}
-				/*new profileModel({
+				profileM= new profileModel({
 					id: "profile",
 					nickname: "",
 					userID: "",
@@ -2253,7 +2242,7 @@ define([
 					my_status: "",
 					near_users: "",
 					next_profile: ""
-				});*/
+				});
 				
 				var nodelist= new nodelistModel({
 					id: "nodelist"
