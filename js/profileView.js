@@ -555,7 +555,7 @@ define([
 							var latitude = auxprofile.latitude;
 							var longitude = auxprofile.longitude;
 							var isactive = auxprofile.active;
-							
+							var neoindex = index;
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							//console.log("picture: " + pictureurl);
 							console.log("Coords: " + latitude + ", " + longitude);
@@ -579,8 +579,7 @@ define([
 								function(marker) {
 									
 									try{
-										marker.myid = index;
-										marker.id = index;
+										marker.myid = neoindex;
 									}
 									catch(e){
 										console.log("error try:");
@@ -607,7 +606,7 @@ define([
 										if (device.platform=='Android')
 											markerid = evt.id.replace("marker_m","");
 										else
-											markerid = evt.id.replace("marker_","");
+											markerid = evt.myid;
 										console.log(markerid);
 										console.log(data[markerid].email);
 										myprofile.set("next_user", evt.id.replace("marker_m",""));
