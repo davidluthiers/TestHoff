@@ -578,7 +578,14 @@ define([
 								},
 								function(marker) {
 									
-									marker.id = index;
+									try{
+										marker.myid = index;
+										marker.id = index;
+									}
+									catch(e){
+										console.log("error try:");
+										console.log(e);
+									}
 									
 									marker.setIcon({
 										//'url': pictureurl,
