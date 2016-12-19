@@ -201,7 +201,8 @@ define([
 						this.$(".dic_help").hide();						
 						
 						$(document).one('pageshow', function (event, ui) {
-							self.getCoord();
+							this.router.drupaldo(self.getCoord().bind(self),"null");
+							//self.getCoord();
 						});
 						
 					}
