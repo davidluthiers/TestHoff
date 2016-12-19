@@ -564,7 +564,6 @@ define([
 							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined')){
 								usersList[userID] = "used";
 								map.addMarker({
-								  'id': index,
 								  'position': locationLatlng,
 								  'title': nombre,
 								  'icon': {
@@ -578,6 +577,8 @@ define([
 								  'snippet': historial.get("languages").get("click_here")
 								},
 								function(marker) {
+									
+									marker.id = index;
 									
 									marker.setIcon({
 										//'url': pictureurl,
@@ -610,6 +611,8 @@ define([
 									});
 									
 									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
+										console.log("marker click");
+										console.log(evt);
 										auxprofile= data[evt.id.replace("marker_m","")];
 										map.animateCamera({
 											target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
