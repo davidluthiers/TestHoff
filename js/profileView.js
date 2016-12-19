@@ -560,7 +560,8 @@ define([
 									'size': {
 										width: 30,
 										height: 30
-									}
+									},
+									'anchor': [30/2, 30]
 								   },
 								  'snippet': historial.get("languages").get("click_here")
 								},
