@@ -604,6 +604,8 @@ define([
 										console.log("pressed map icon");
 										console.log(marker);
 										markers.push(marker);
+										console.log("MARKERS:" + markers.length);
+										console.log(markers);
 										console.log(evt);
 										var markerid = '';
 										if (device.platform=='Android')
