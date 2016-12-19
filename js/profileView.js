@@ -556,7 +556,6 @@ define([
 							var latitude = auxprofile.latitude;
 							var longitude = auxprofile.longitude;
 							var isactive = auxprofile.active;
-							var neoindex = index;
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							//console.log("picture: " + pictureurl);
 							console.log("Coords: " + latitude + ", " + longitude);
@@ -579,14 +578,10 @@ define([
 								  'snippet': historial.get("languages").get("click_here")
 								},
 								function(marker) {
-									
-									try{
-										marker.myid = neoindex;
-									}
-									catch(e){
-										console.log("error try:");
-										console.log(e);
-									}
+
+									markers.push(marker);
+										console.log("MARKERS:" + markers.length);
+										console.log(markers);
 									
 									marker.setIcon({
 										//'url': pictureurl,
@@ -603,9 +598,6 @@ define([
 										myprofile=historial.get("profile");
 										console.log("pressed map icon");
 										console.log(marker);
-										markers.push(marker);
-										console.log("MARKERS:" + markers.length);
-										console.log(markers);
 										console.log(evt);
 										var markerid = '';
 										if (device.platform=='Android')
