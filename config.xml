@@ -120,7 +120,7 @@
 		<plugin spec="https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps" >
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
 			<param name="API_KEY_FOR_IOS" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
-		</plugin>
+		</gap:plugin>
 
 		<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" />
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
