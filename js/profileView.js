@@ -564,6 +564,7 @@ define([
 							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined')){
 								usersList[userID] = "used";
 								map.addMarker({
+								  'id': index,
 								  'position': locationLatlng,
 								  'title': nombre,
 								  'icon': {
@@ -592,6 +593,7 @@ define([
 										historial=self.history;
 										myprofile=historial.get("profile");
 										console.log("pressed map icon");
+										console.log(marker);
 										console.log(evt);
 										var markerid = '';
 										if (device.platform=='Android')
