@@ -201,8 +201,18 @@ define([
 						this.$(".dic_help").hide();						
 						
 						$(document).one('pageshow', function (event, ui) {
-							this.router.drupaldo(self.getCoord().bind(self),"null");
-							//self.getCoord();
+							if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
+								alert(self.history.get("languages").get("dic_no_internet"));
+								setTimeout(function(){
+									Backbone.history.navigate("#summary", {
+										trigger: true
+									});
+
+								},400);
+							}
+							else{
+								self.getCoord();
+							}
 						});
 						
 					}
