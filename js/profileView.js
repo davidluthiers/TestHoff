@@ -527,6 +527,7 @@ define([
 				console.log(map);
 				historial = this.history;
 				myprofile = this.history.get("profile");
+				markers = [];
 				self=this;
 					
 				var params_people = { //active hoffman users
@@ -559,6 +560,7 @@ define([
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							//console.log("picture: " + pictureurl);
 							console.log("Coords: " + latitude + ", " + longitude);
+							
 							
 							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
 							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined')){
@@ -601,6 +603,7 @@ define([
 										myprofile=historial.get("profile");
 										console.log("pressed map icon");
 										console.log(marker);
+										markers.push(marker);
 										console.log(evt);
 										var markerid = '';
 										if (device.platform=='Android')
@@ -612,7 +615,7 @@ define([
 										myprofile.set("next_user", evt.id.replace("marker_m",""));
 										historial.get("profile").destroy();
 										historial.create(myprofile);
-										self.router.profile('2');
+										//self.router.profile('2');
 										
 									});
 									
@@ -633,6 +636,9 @@ define([
 								console.log("Este nodo ya está en el mapa");
 							}
                         }
+						
+						console.log("MARKERS:");
+						console.log(markers);
 						
 						setTimeout(function(){
 									window.plugins.spinnerDialog.hide();
