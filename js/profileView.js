@@ -595,6 +595,13 @@ define([
 									marker.showInfoWindow();
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
+										try{
+											console.log(evt.get('aux'));
+											console.log(evt.get(evt.hashcode));
+										}
+										catch(e){
+											console.log("addeventlistener error");
+										}
 										historial=self.history;
 										myprofile=historial.get("profile");
 										console.log("pressed map icon");
