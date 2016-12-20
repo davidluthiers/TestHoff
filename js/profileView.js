@@ -575,7 +575,8 @@ define([
 									},
 									'anchor': [30/2, 30]
 								   },
-								  'snippet': historial.get("languages").get("click_here")
+								  'snippet': historial.get("languages").get("click_here"),
+								  'aux':index
 								},
 								function(marker) {
 
