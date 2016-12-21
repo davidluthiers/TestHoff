@@ -540,9 +540,9 @@ define([
 						usersList = [];
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
-							if (auxprofile.get("status")=='undefined'){
-								auxprofile.set("status", " ");
-								data[index].set("status", " ");
+							if (auxprofile.status=='undefined'){
+								auxprofile.status = " ";
+								data[index].status = " ";
 							}
 							myprofile.set("near_users", data);
 							historial.get("profile").destroy();
