@@ -629,8 +629,6 @@ define([
 							}
                         }
 						
-						console.log("MARKERS:");
-						console.log(markers);
 						
 						setTimeout(function(){
 									window.plugins.spinnerDialog.hide();
