@@ -527,7 +527,6 @@ define([
 				console.log(map);
 				historial = this.history;
 				myprofile = this.history.get("profile");
-				markers = [];
 				self=this;
 					
 				var params_people = { //active hoffman users
@@ -576,13 +575,10 @@ define([
 									'anchor': [30/2, 30]
 								   },
 								  'snippet': historial.get("languages").get("click_here"),
-								  'aux':index
+								  'myid':index
 								},
 								function(marker) {
 
-									markers.push(marker);
-										console.log("MARKERS:" + markers.length);
-										console.log(markers);
 									
 									marker.setIcon({
 										//'url': pictureurl,
@@ -595,13 +591,7 @@ define([
 									marker.showInfoWindow();
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
-										try{
-											console.log(evt.get('aux'));
-											console.log(evt.get(evt.hashcode));
-										}
-										catch(e){
-											console.log("addeventlistener error");
-										}
+										
 										historial=self.history;
 										myprofile=historial.get("profile");
 										console.log("pressed map icon");
@@ -611,7 +601,7 @@ define([
 										if (device.platform=='Android')
 											markerid = evt.id.replace("marker_m","");
 										else
-											markerid = evt.myid;
+											markerid = evt.get('myid');
 										console.log(markerid);
 										console.log(data[markerid].email);
 										myprofile.set("next_user", evt.id.replace("marker_m",""));
