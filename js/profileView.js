@@ -607,7 +607,7 @@ define([
 										myprofile.set("next_user", evt.id.replace("marker_m",""));
 										historial.get("profile").destroy();
 										historial.create(myprofile);
-										//self.router.profile('2');
+										self.router.profile('2');
 										
 									});
 									
