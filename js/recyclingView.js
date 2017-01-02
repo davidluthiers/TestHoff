@@ -472,14 +472,8 @@ define([
                                 console.log("download complete, URL: " + entry.toURL());
                                 console.log("entry: ");
                                 console.log(entry);
-                                url="";
-								if(device.platform!='Android'){	//iOS
-									url='Documents/audios/' + audiofilename;
-									console.log("iOS url: " + url);
-								 }
-								 else{
-									 url=entry.toURL();
-								 }
+                                url=entry.toInternalURL();
+								console.log("iOS url: " + url);
                                 selfR.my_media = new Media(url, selfR.mediasuccess, selfR.nada, selfR.onStatus);
                                 setTimeout(function() {
                                     selfR.preparar();
