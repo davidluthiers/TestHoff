@@ -474,11 +474,11 @@ define([
                                 console.log(entry);
                                 url="";
 								if(device.platform!='Android'){	//iOS
-									url=cordova.file.documentsDirectory+"audios/"+audiofilename;
+									url='Documents/audios/' + audiofilename;
 									console.log("iOS url: " + url);
 								 }
 								 else{
-									 url='Documents/audios/' + audiofilename;
+									 url=entry.toURL();
 								 }
                                 selfR.my_media = new Media(url, selfR.mediasuccess, selfR.nada, selfR.onStatus);
                                 setTimeout(function() {

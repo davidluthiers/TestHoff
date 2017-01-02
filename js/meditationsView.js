@@ -423,7 +423,7 @@ define([
                                 console.log(entry);
                                 url="";
 								if(device.platform!='Android'){	//iOS
-									url=cordova.file.documentsDirectory+"audios/"+audiofilename;
+									url='Documents/audios/' + audiofilename;
 									console.log("iOS url: " + url);
 								 }
 								 else{
