@@ -421,7 +421,14 @@ define([
                                 console.log("download complete, URL: " + entry.toURL());
                                 console.log("entry: ");
                                 console.log(entry);
-                                url=entry.toURL();
+                                url="";
+								if(device.platform!='Android'){	//iOS
+									url=cordova.file.documentsDirectory+"audios/"+audiofilename;
+									console.log("iOS url: " + url);
+								 }
+								 else{
+									 url=entry.toURL();
+								 }
                                 self.my_media = new Media(url, self.mediasuccess, self.nada, self.onStatus);
                                 setTimeout(function() {
                                     self.preparar();

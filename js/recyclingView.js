@@ -459,6 +459,8 @@ define([
 					 else{
 						 target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
 					 }
+					 console.log("target: ");
+					 console.log(target);
                         
 				
                         fileTransfer.download(
@@ -468,7 +470,14 @@ define([
                                 console.log("download complete, URL: " + entry.toURL());
                                 console.log("entry: ");
                                 console.log(entry);
-                                url=entry.toURL();
+                                url="";
+								if(device.platform!='Android'){	//iOS
+									url=cordova.file.documentsDirectory+"audios/"+audiofilename;
+									console.log("iOS url: " + url);
+								 }
+								 else{
+									 url=entry.toURL();
+								 }
                                 selfR.my_media = new Media(url, selfR.mediasuccess, selfR.nada, selfR.onStatus);
                                 setTimeout(function() {
                                     selfR.preparar();
