@@ -461,6 +461,8 @@ define([
 					 }
 					 console.log("target: ");
 					 console.log(target);
+					 var path = window.location.pathname;
+					 console.log(path.slice(0, path.indexOf("/www/") + 5));
                         
 				
                         fileTransfer.download(
@@ -476,7 +478,7 @@ define([
 									console.log("iOS url: " + url);
 								 }
 								 else{
-									 url=entry.toURL();
+									 url='Documents/audios/' + audiofilename;
 								 }
                                 selfR.my_media = new Media(url, selfR.mediasuccess, selfR.nada, selfR.onStatus);
                                 setTimeout(function() {
