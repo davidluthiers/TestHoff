@@ -205,14 +205,6 @@ define([
 				console.log(this.model);
 				self=this;
 				
-				try{
-					window.plugins.spinnerDialog.hide();
-				}
-				catch(e){
-					console.log(e);
-				}
-				console.log("Compruebo si existe el fichero: " + cordova.file.externalDataDirectory+"audios/"+self.model.get("audioName"));
-				
 				target = "";
 				
 				if(device.platform!='Android'){	//iOS
@@ -222,6 +214,16 @@ define([
 				 else{
 					 target=cordova.file.externalDataDirectory+"audios/";
 				 }
+				
+				try{
+					window.plugins.spinnerDialog.hide();
+				}
+				catch(e){
+					console.log(e);
+				}
+				console.log("Compruebo si existe el fichero: " + target +self.model.get("audioName"));
+				
+				
 				 
 				self.my_media = new Media(target+this.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
 				setTimeout(function() {
