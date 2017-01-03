@@ -73,10 +73,10 @@
 		<icon src="icons/android/48.png"   gap:platform="android"      gap:qualifier="mdpi" />
 		<icon src="icons/android/72.png"   gap:platform="android"      gap:qualifier="hdpi" />
 		<icon src="icons/android/96.png"   gap:platform="android"      gap:qualifier="xhdpi" />
-		<gap:splash src="splash/ios/Default.png"       gap:platform="ios"     width="320" height="480" />
+		<!-- <gap:splash src="splash/ios/Default.png"       gap:platform="ios"     width="320" height="480" />
 		<gap:splash src="splash/ios/Default@2x.png"       gap:platform="ios"     width="640" height="960" />
 		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" /> 
-		<gap:splash src="res/screen/ios/Default.png" width="1242" height="2208"/>
+		<gap:splash src="res/screen/ios/Default.png" width="1242" height="2208"/> -->
 
 		<gap:plugin name="cordova-plugin-facebook4" source="npm" >
 			<param name="APP_ID" value="1504029573151839" />
@@ -97,6 +97,7 @@
 		<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 		<gap:plugin name="cordova-plugin-network-information" source="npm"/>
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
+		<gap:plugin name="cordova-splash" source="npm"/>
 		
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
