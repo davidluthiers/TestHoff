@@ -97,7 +97,6 @@
 		<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 		<gap:plugin name="cordova-plugin-network-information" source="npm"/>
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
-		<gap:plugin name="cordova-splash" source="npm"/>
 		
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
