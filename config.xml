@@ -76,7 +76,7 @@
 		<!-- <gap:splash src="splash/ios/Default.png"       gap:platform="ios"     width="320" height="480" />
 		<gap:splash src="splash/ios/Default@2x.png"       gap:platform="ios"     width="640" height="960" />
 		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" />  -->
-		<gap:splash src="splash.png" width="1242" height="2208"/>
+		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
 		<gap:plugin name="cordova-plugin-facebook4" source="npm" >
 			<param name="APP_ID" value="1504029573151839" />
