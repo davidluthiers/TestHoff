@@ -73,9 +73,11 @@
 		<icon src="icons/android/48.png"   gap:platform="android"      gap:qualifier="mdpi" />
 		<icon src="icons/android/72.png"   gap:platform="android"      gap:qualifier="hdpi" />
 		<icon src="icons/android/96.png"   gap:platform="android"      gap:qualifier="xhdpi" />
-		<!-- <gap:splash src="splash/ios/Default.png"       gap:platform="ios"     width="320" height="480" />
+		
+		<gap:splash src="splash/ios/Default.png"       gap:platform="ios"     width="320" height="480" />
 		<gap:splash src="splash/ios/Default@2x.png"       gap:platform="ios"     width="640" height="960" />
-		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" />  -->
+		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" />
+		
 		<gap:splash src="splash/ios/splash1334.png" gap:platform="ios" width="750" height="1334"/>
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
