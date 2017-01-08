@@ -386,8 +386,7 @@ define([
 					  'camera': {
 						'latLng': myLatlng,
 						'tilt': 30,
-						'zoom': 4,
-						'bearing': 50
+						'zoom': 4
 					  }
 					}
 				   );
@@ -514,10 +513,38 @@ define([
 				);
 			},
 			
+			splitMarkers: function(data){
+				console.log("splitMarkers");
+				for (index = 0; index < data.length; ++index) {
+					for (index2 = 0; index2 < data.length; ++index2) {
+						if(index!=index2 &&(data[index].latitude-data[index2].latitude<0.01 &&  data[index].longitude-data[index2].longitude<0.01)){//Están a menos de medio kilómetro
+							randomLatitude = 0;
+							randomLongitude = 0;
+							if (Math.random() < 0.5)
+								randomLatitude = 0.01;
+							else
+								randomLatitude = -0.01;
+							
+							if (Math.random() < 0.5)
+								randomLongitude = 0.01;
+							else
+								randomLongitude = -0.01;
+							
+							console.log("Sumamos: " + randomLatitude + ", " + randomLongitude);
+							data[index2].latitude = Number(data[index2].latitude) + randomLatitude;
+							data[index2].latitude = data[index2].latitude.toString();
+							data[index2].longitude = Number(data[index2].longitude) + randomLongitude;
+							data[index2].longitude = data[index2].longitude.toString();
+						}
+					}
+				}
+				return data;
+			},
+			
 			onMapInit:function(map){
 				
 				console.log("onMapInit");
-				
+				window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 				var auxprofile = this.history.get("profile");
 				auxprofile.set("info","facebook");
 				auxprofile.save();
@@ -538,6 +565,9 @@ define([
 						console.log("DATA: ");
                         console.log(data);
 						usersList = [];
+						data  = self.splitMarkers(data);
+						console.log("After data:");
+						console.log(data);
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							if (auxprofile.status=='undefined'){
@@ -608,7 +638,7 @@ define([
 											markerid = evt.get('myid');
 										console.log(markerid);
 										console.log(data[markerid].email);
-										myprofile.set("next_user", evt.id.replace("marker_m",""));
+										myprofile.set("next_user", markerid);
 										historial.get("profile").destroy();
 										historial.create(myprofile);
 										self.router.profile('2');
