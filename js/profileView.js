@@ -513,6 +513,32 @@ define([
 				);
 			},
 			
+			splitMarkers: function(data){
+				console.log("splitMarkers");
+				for (index = 0; index < data.length; ++index) {
+					for (index2 = 0; index2 < data.length; ++index2) {
+						if(index!=index2 &&(data[index].latitude-data[index2].latitude<0.005 &&  data[index].longitude-data[index2].longitude<0.005)){//Están a menos de medio kilómetro
+							randomAngle = Math.random();
+							randomLatitude = 0;
+							randomLongitude = 0;
+							if (Math.random() < 0.5)
+								randomLatitude = randomAngle/100;
+							else
+								randomLatitude = -randomAngle/100;
+							
+							if (Math.random() < 0.5)
+								randomLongitude = (1-randomAngle)/100;
+							else
+								randomLongitude = -(1-randomAngle)/100;
+							
+							data[index2].latitude = randomLatitude;
+							data[index2].longitude = randomLongitude;
+						}
+					}
+				}
+				return data;
+			},
+			
 			onMapInit:function(map){
 				
 				console.log("onMapInit");
@@ -537,6 +563,7 @@ define([
 						console.log("DATA: ");
                         console.log(data);
 						usersList = [];
+						data  = splitMarkers(data);
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							if (auxprofile.status=='undefined'){
