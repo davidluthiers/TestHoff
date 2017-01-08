@@ -518,18 +518,17 @@ define([
 				for (index = 0; index < data.length; ++index) {
 					for (index2 = 0; index2 < data.length; ++index2) {
 						if(index!=index2 &&(data[index].latitude-data[index2].latitude<0.01 &&  data[index].longitude-data[index2].longitude<0.01)){//Están a menos de medio kilómetro
-							randomAngle = Math.random();
 							randomLatitude = 0;
 							randomLongitude = 0;
 							if (Math.random() < 0.5)
-								randomLatitude = randomAngle/100;
+								randomLatitude = 0.01;
 							else
-								randomLatitude = -randomAngle/100;
+								randomLatitude = -0.01;
 							
 							if (Math.random() < 0.5)
-								randomLongitude = (1-randomAngle)/100;
+								randomLongitude = 0.01;
 							else
-								randomLongitude = -(1-randomAngle)/100;
+								randomLongitude = -0.01;
 							
 							console.log("Sumamos: " + randomLatitude + ", " + randomLongitude);
 							data[index2].latitude = data[index2].latitude + randomLatitude;
