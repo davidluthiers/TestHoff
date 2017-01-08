@@ -121,7 +121,7 @@
 		</gap:plugin>
 
 
-		<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git#0fd9ea1" />
+		<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git#0fd9ea1aafe797d7d3824bc8a6acf46f8496bf27" />
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
 		
 		
