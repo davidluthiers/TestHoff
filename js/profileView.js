@@ -531,8 +531,10 @@ define([
 								randomLongitude = -0.01;
 							
 							console.log("Sumamos: " + randomLatitude + ", " + randomLongitude);
-							data[index2].latitude = data[index2].latitude + randomLatitude;
-							data[index2].longitude = data[index2].longitude + randomLongitude;
+							data[index2].latitude = Number(data[index2].latitude) + randomLatitude;
+							data[index2].latitude = data[index2].latitude.toString();
+							data[index2].longitude = Number(data[index2].longitude) + randomLongitude;
+							data[index2].longitude = data[index2].longitude.toString();
 						}
 					}
 				}
