@@ -531,8 +531,8 @@ define([
 							else
 								randomLongitude = -(1-randomAngle)/100;
 							
-							data[index2].latitude = randomLatitude;
-							data[index2].longitude = randomLongitude;
+							data[index2].latitude = data[index2].latitude + randomLatitude;
+							data[index2].longitude = data[index2].longitude + randomLongitude;
 						}
 					}
 				}
