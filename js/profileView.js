@@ -638,7 +638,7 @@ define([
 											markerid = evt.get('myid');
 										console.log(markerid);
 										console.log(data[markerid].email);
-										myprofile.set("next_user", evt.id.replace("marker_m",""));
+										myprofile.set("next_user", markerid);
 										historial.get("profile").destroy();
 										historial.create(myprofile);
 										self.router.profile('2');
