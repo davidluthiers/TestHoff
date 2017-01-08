@@ -542,7 +542,7 @@ define([
 			onMapInit:function(map){
 				
 				console.log("onMapInit");
-
+				window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 				var auxprofile = this.history.get("profile");
 				auxprofile.set("info","facebook");
 				auxprofile.save();
@@ -563,7 +563,7 @@ define([
 						console.log("DATA: ");
                         console.log(data);
 						usersList = [];
-						data  = splitMarkers(data);
+						data  = self.splitMarkers(data);
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							if (auxprofile.status=='undefined'){
