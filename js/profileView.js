@@ -517,7 +517,7 @@ define([
 				console.log("splitMarkers");
 				for (index = 0; index < data.length; ++index) {
 					for (index2 = 0; index2 < data.length; ++index2) {
-						if(index!=index2 &&(data[index].latitude-data[index2].latitude<0.005 &&  data[index].longitude-data[index2].longitude<0.005)){//Están a menos de medio kilómetro
+						if(index!=index2 &&(data[index].latitude-data[index2].latitude<0.01 &&  data[index].longitude-data[index2].longitude<0.01)){//Están a menos de medio kilómetro
 							randomAngle = Math.random();
 							randomLatitude = 0;
 							randomLongitude = 0;
@@ -531,6 +531,7 @@ define([
 							else
 								randomLongitude = -(1-randomAngle)/100;
 							
+							console.log("Sumamos: " + randomLatitude + ", " + randomLongitude);
 							data[index2].latitude = data[index2].latitude + randomLatitude;
 							data[index2].longitude = data[index2].longitude + randomLongitude;
 						}
@@ -564,6 +565,8 @@ define([
                         console.log(data);
 						usersList = [];
 						data  = self.splitMarkers(data);
+						console.log("After data:");
+						console.log(data);
 						for (index = 0; index < data.length; ++index) {
                             var auxprofile = data[index];
 							if (auxprofile.status=='undefined'){
