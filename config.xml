@@ -81,7 +81,7 @@
 		
 		<gap:splash src="splash/ios/splash1334.png" gap:platform="ios" width="750" height="1334"/>
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
-
+<!--
 		<gap:plugin name="cordova-plugin-facebook4" source="npm" >
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
@@ -108,6 +108,7 @@
 
 		<!-- <gap:config-file platform="android"> <application android:hardwareAccelerated="true" /> </gap:config-file> -->
 		<!--<gap:plugin name="nl.x-services.plugins.backgroundaudio" />-->
+		<!--
 		<gap:config-file platform="ios" parent="UIStatusBarHidden">
 			<true/>
 		</gap:config-file>
@@ -124,7 +125,7 @@
 		<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" />
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
 		
-
+		-->
 		<gap:splash src="splash.png" />
 		
 		<gap:config-file platform="ios" parent="UIStatusBarHidden">
