@@ -68,6 +68,7 @@ define([
                 "configuration":"configuration",
 				"passwordProtect":"passwordProtect",
 				"profile:id":"profile",
+				"profile":"profile",
                 "deletehistory":"deletehistory"
             },
             principal: function(){
