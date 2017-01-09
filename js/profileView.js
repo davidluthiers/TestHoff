@@ -680,7 +680,9 @@ define([
 						
 						setTimeout(function(){
 									window.plugins.spinnerDialog.hide();
-						},2000);
+									window.plugins.spinnerDialog.hide();
+									window.plugins.spinnerDialog.hide();
+						},1000);
 						
 						
 						/*
