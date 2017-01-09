@@ -60,7 +60,7 @@ define([
 						setTimeout(function(){
 							$('#checkboxes1').change(function() {
 								console.log("Change");
-								//this.checkboxevt();
+								self.checkboxevt();
 							});
 						},400);	
 				}
