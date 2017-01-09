@@ -558,7 +558,7 @@ define([
 			onMapInit:function(map){
 				
 				console.log("onMapInit");
-				window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
+				
 				var auxprofile = this.history.get("profile");
 				auxprofile.set("info","facebook");
 				auxprofile.save();
