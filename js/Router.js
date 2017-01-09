@@ -2179,6 +2179,12 @@ define([
 				
                 this.profileV= new profileView();
 				
+				if(donotshow.get("mediDoNotShow") === false){
+                }
+                else{
+                    if(id=='0') id='3';
+                }
+				
                 this.profileV.render(id,historial, app_router);
 		
                 this.changePage (this.profileV);
@@ -2220,7 +2226,8 @@ define([
                     beatDoNotShow:false,
                     recyDoNotShow:false,
                     mediDoNotShow: false,
-                    viciousDoNotShow: false
+                    viciousDoNotShow: false,
+					mapDoNotShow: false
                 });
 				
 				profileM= new profileModel({
@@ -2311,7 +2318,8 @@ define([
             beatDoNotShow:false,
             recyDoNotShow:false,
             mediDoNotShow: false,
-            viciousDoNotShow: false
+            viciousDoNotShow: false,
+			mapDoNotShow: false
         });
 		
 		var profileM= new profileModel({

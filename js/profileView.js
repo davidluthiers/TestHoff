@@ -8,11 +8,12 @@ define([
     // which will be used as our views primary template
     'text!../Templates/profile.html',
 	'text!../Templates/profile2.html',
+	'text!../Templates/profileDoNotShow.html',
 	'text!../Templates/map.html',
     'text!../Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, profileT, profileT2, map, headerandpanel){
+    ], function($, _, Backbone, profileT, profileT2, profileDoNotShow, map, headerandpanel){
 
 
 
@@ -25,6 +26,7 @@ define([
 				"click #toggle_profile":"toggle_profile",
 				"click #send_email":"send_email",
 				"click #back_to_map":"back_to_map",
+				"click .donotshowagain":"checkbox",
 				"click #exitmap":"exitmap"
             },
    
@@ -45,11 +47,9 @@ define([
 				
                 var self=this;
 				
-				
-				if(typeof id != 'undefined' && id == '2'){ //Carga de otro usuario
-					compiledTemplate = _.template( profileT2 );
-						
-					//Carga del profile
+				if(id == '0'){ //Carga donotshow
+					compiledTemplate = _.template( profileDoNotShow );
+
 					historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
 				
 					result= historycollection.get("languages").toJSON();
@@ -57,45 +57,11 @@ define([
 					compiledheaderandpanel=_.template( headerandpanel );
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
-					
-					setTimeout(function(){
-						try{
-							var mapDiv = document.getElementById("map_module_map");
-							this.map = plugin.google.maps.Map.getMap(mapDiv);
-							this.map.remove();
-						}
-						catch(e){
-							console.log("Error: " + e);
-						}
-						console.log(self.history.get("profile").get("near_users"));
-						self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
-						console.log("self.profile:");
-						console.log(self.profile);
-						document.getElementById('displayname').innerHTML = ''; //self.profile.nickname + " " + self.history.get("languages").get("dic_says") + ":";
-						console.log('Ponemos foto de perfil');
-						document.getElementById('useremail').innerHTML = self.profile.email;
-						document.getElementById('status').innerHTML = self.profile.status;
-						document.getElementById('profileHeader').innerHTML = self.profile.nickname;
-						
-						var visionphoto = document.getElementById('visionphoto');
-						visionphoto.style.display = 'block'; 
-						visionphoto.src = self.profile.pictureurl.replace("amp;","");
-						console.log(self.profile.pictureurl.substring(0,4));
-						if(self.profile.pictureurl.substring(0,4) == "http"){ //La imagen es un link, proviene de facebook
-							visionphoto.style.height = '50px';
-							visionphoto.style.width = '50px';
-						}
-
-					},400);					
-					
 				}
 				else{
-					if(this.profile.get("active") != "yes" || (typeof id != 'undefined' && id == '1')){ //Edición de propio perfil
-											
-						this.origin = '0';
-						
-						compiledTemplate = _.template( profileT );
-						
+					if(typeof id != 'undefined' && id == '2'){ //Carga de otro usuario
+						compiledTemplate = _.template( profileT2 );
+							
 						//Carga del profile
 						historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
 					
@@ -105,116 +71,164 @@ define([
 			
 						this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 						
-						if(this.profile.get("nickname")!="" && this.profile.get("userID")!="" && this.profile.get("email")!="" && this.profile.get("nid") != "" && typeof this.profile.get("nid") != 'undefined'){ //Están todos los datos obligatorios
-					
-							console.log("Cargando datos del profile");
-							this.$("#fill_profile").attr("style","display:none");
-
-							//cargar foto
-							
-							setTimeout(function(){
-									this.profile = historycollection.get("profile");
-									document.getElementById("displayname").value = this.profile.get("nickname");
-									document.getElementById("useremail").value = this.profile.get("email");
-									document.getElementById("status").value = this.profile.get("status");
-									console.log('Ponemos foto de perfil');
-									var visionphoto = document.getElementById('visionphoto');
-									visionphoto.style.display = 'block'; 
-									visionphoto.src = this.profile.get("picture");
-									if(this.profile.get("picture").substring(0,4) == "http"){ //La imagen es un link, proviene de facebook
-										visionphoto.style.height = '50px';
-										visionphoto.style.width = '50px';
-									}
-									if(this.profile.get("active")=="yes"){
-										$(".activate").hide();
-										$(".deactivate").show();
-									}
-									if(this.profile.get("active")=="no"){
-										$(".activate").show();
-										$(".deactivate").hide();
-									}
-									if(this.profile.get("active")!="no" && this.profile.get("active")!="yes"){
-										$(".activate").hide();
-										$(".deactivate").hide();
-									}
-									
-									try{
-										var mapDiv = document.getElementById("map_module_map");
-										this.map = plugin.google.maps.Map.getMap(mapDiv);
-										this.map.remove();
-									}
-									catch(e){
-										console.log("Error: " + e);
-									}
-									window.plugins.spinnerDialog.hide();
-									
-								},400);
-
-						}
-						else{
-							//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
+						setTimeout(function(){
 							try{
-								if(this.profile.get("active")=="yes"){
-									this.$(".activate").hide();
-									this.$(".deactivate").show();
-								}
-								if(this.profile.get("active")=="no"){
-									this.$(".activate").show();
-									this.$(".deactivate").hide();
-								}
-								if(this.profile.get("userID")!="" && typeof this.profile.get("userID")!='undefined'){ //No tenemos el FB ID
-									this.router.drupaldo(this.checkOnServer.bind(this),"null");
-								}
-								else{
-									//Intentamos recuperar id + datos de FB
-									this.loadfromfacebook();	
-								}
+								var mapDiv = document.getElementById("map_module_map");
+								this.map = plugin.google.maps.Map.getMap(mapDiv);
+								this.map.remove();
 							}
 							catch(e){
-								console.log("Error en loadfromfacebook: " + e);
-								alert("Couldn't connect to Facebook " + e);
+								console.log("Error: " + e);
 							}
-						}
+							console.log(self.history.get("profile").get("near_users"));
+							self.profile = self.history.get("profile").get("near_users")[self.history.get("profile").get("next_user")];
+							console.log("self.profile:");
+							console.log(self.profile);
+							document.getElementById('displayname').innerHTML = ''; //self.profile.nickname + " " + self.history.get("languages").get("dic_says") + ":";
+							console.log('Ponemos foto de perfil');
+							document.getElementById('useremail').innerHTML = self.profile.email;
+							document.getElementById('status').innerHTML = self.profile.status;
+							document.getElementById('profileHeader').innerHTML = self.profile.nickname;
+							
+							var visionphoto = document.getElementById('visionphoto');
+							visionphoto.style.display = 'block'; 
+							visionphoto.src = self.profile.pictureurl.replace("amp;","");
+							console.log(self.profile.pictureurl.substring(0,4));
+							if(self.profile.pictureurl.substring(0,4) == "http"){ //La imagen es un link, proviene de facebook
+								visionphoto.style.height = '50px';
+								visionphoto.style.width = '50px';
+							}
+
+						},400);					
+						
 					}
 					else{
+						if(this.profile.get("active") != "yes" || (typeof id != 'undefined' && id == '1')){ //Edición de propio perfil
+												
+							this.origin = '0';
+							
+							compiledTemplate = _.template( profileT );
+							
+							//Carga del profile
+							historycollection.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
 						
-						//Carga del mapa
+							result= historycollection.get("languages").toJSON();
+				
+							compiledheaderandpanel=_.template( headerandpanel );
+				
+							this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+							
+							if(this.profile.get("nickname")!="" && this.profile.get("userID")!="" && this.profile.get("email")!="" && this.profile.get("nid") != "" && typeof this.profile.get("nid") != 'undefined'){ //Están todos los datos obligatorios
 						
-						compiledTemplate = _.template( map );
-						
-					
-						this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
-						
-						result= this.history.get("languages").toJSON();
-			
-						compiledheaderandpanel=_.template( headerandpanel );
-			
-						this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
-						
-						this.origin= '1';
-					
-						this.$("#botonnext").text(self.history.get("languages").get("dic_profile"));
-						
-						window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
-						
-						this.$(".panelbutton").hide();
-						this.$(".dic_help").hide();						
-						
-						$(document).one('pageshow', function (event, ui) {
-							if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
-								alert(self.history.get("languages").get("dic_no_internet"));
-								setTimeout(function(){
-									Backbone.history.navigate("#summary", {
-										trigger: true
-									});
+								console.log("Cargando datos del profile");
+								this.$("#fill_profile").attr("style","display:none");
 
-								},400);
+								//cargar foto
+								
+								setTimeout(function(){
+										this.profile = historycollection.get("profile");
+										document.getElementById("displayname").value = this.profile.get("nickname");
+										document.getElementById("useremail").value = this.profile.get("email");
+										document.getElementById("status").value = this.profile.get("status");
+										console.log('Ponemos foto de perfil');
+										var visionphoto = document.getElementById('visionphoto');
+										visionphoto.style.display = 'block'; 
+										visionphoto.src = this.profile.get("picture");
+										if(this.profile.get("picture").substring(0,4) == "http"){ //La imagen es un link, proviene de facebook
+											visionphoto.style.height = '50px';
+											visionphoto.style.width = '50px';
+										}
+										if(this.profile.get("active")=="yes"){
+											$(".activate").hide();
+											$(".deactivate").show();
+										}
+										if(this.profile.get("active")=="no"){
+											$(".activate").show();
+											$(".deactivate").hide();
+										}
+										if(this.profile.get("active")!="no" && this.profile.get("active")!="yes"){
+											$(".activate").hide();
+											$(".deactivate").hide();
+										}
+										
+										try{
+											var mapDiv = document.getElementById("map_module_map");
+											this.map = plugin.google.maps.Map.getMap(mapDiv);
+											this.map.remove();
+										}
+										catch(e){
+											console.log("Error: " + e);
+										}
+										window.plugins.spinnerDialog.hide();
+										
+									},400);
+
 							}
 							else{
-								self.getCoord();
+								//Como no hay datos guardados, intentamos cargar los de facebookConnectPlugin
+								try{
+									if(this.profile.get("active")=="yes"){
+										this.$(".activate").hide();
+										this.$(".deactivate").show();
+									}
+									if(this.profile.get("active")=="no"){
+										this.$(".activate").show();
+										this.$(".deactivate").hide();
+									}
+									if(this.profile.get("userID")!="" && typeof this.profile.get("userID")!='undefined'){ //No tenemos el FB ID
+										this.router.drupaldo(this.checkOnServer.bind(this),"null");
+									}
+									else{
+										//Intentamos recuperar id + datos de FB
+										this.loadfromfacebook();	
+									}
+								}
+								catch(e){
+									console.log("Error en loadfromfacebook: " + e);
+									alert("Couldn't connect to Facebook " + e);
+								}
 							}
-						});
+						}
+						else{
+							
+							//Carga del mapa
+							
+							compiledTemplate = _.template( map );
+							
 						
+							this.history.get("languages").set("helppanel",self.history.get("languages").get("dic_profile"));
+							
+							result= this.history.get("languages").toJSON();
+				
+							compiledheaderandpanel=_.template( headerandpanel );
+				
+							this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+							
+							this.origin= '1';
+						
+							this.$("#botonnext").text(self.history.get("languages").get("dic_profile"));
+							
+							window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
+							
+							this.$(".panelbutton").hide();
+							this.$(".dic_help").hide();						
+							
+							$(document).one('pageshow', function (event, ui) {
+								if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
+									alert(self.history.get("languages").get("dic_no_internet"));
+									setTimeout(function(){
+										Backbone.history.navigate("#summary", {
+											trigger: true
+										});
+
+									},400);
+								}
+								else{
+									self.getCoord();
+								}
+							});
+							
+						}
 					}
 				}
 				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
@@ -690,6 +704,19 @@ define([
 		
 				
 			},
+			
+			checkbox: function (){
+                donot=this.history.get("donotshow");
+
+                if($("#checkbox").attr("data-icon")=="checkbox-on") //La lógica parece estar al revés, pero es que el evento de click llega antes de que cambie el estado del elemento
+                    donot.set("mapDoNotShow",false);
+                else
+                    donot.set("mapDoNotShow",true);
+	
+                this.history.get("donotshow").destroy();
+                this.history.create(donot);
+	
+            },
 			
 			loadbyrequest: function(){
 				this.byrequest=true;
