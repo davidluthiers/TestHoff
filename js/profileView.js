@@ -58,6 +58,12 @@ define([
 					compiledheaderandpanel=_.template( headerandpanel );
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
+						setTimeout(function(){
+							$('#checkbox').change(function() {
+								console.log("Change");
+								this.checkboxevt();
+							});
+						},400);	
 				}
 				else{
 					if(typeof id != 'undefined' && id == '2'){ //Carga de otro usuario
