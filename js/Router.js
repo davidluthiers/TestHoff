@@ -2180,7 +2180,7 @@ define([
 				
                 this.profileV= new profileView();
 				
-				if(donotshow.get("mediDoNotShow") === false){
+				if(donotshow.get("mapDoNotShow") === false){
                 }
                 else{
                     if(id=='0') id='3';
