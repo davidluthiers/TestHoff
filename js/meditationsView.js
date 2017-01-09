@@ -48,11 +48,11 @@ define([
                     case '0':
                         compiledTemplate = _.template( meditations0 );
 						setTimeout(function(){
-						$('#checkboxes1').change(function() {
-								console.log("Change");
-								self.checkboxevt();
-							});
-						},400);	
+							$('#checkboxes1').change(function() {
+									console.log("Change");
+									self.checkboxevt();
+								});
+							},400);	
                         break;
                     case '1':
                         compiledTemplate = _.template( meditations1 );

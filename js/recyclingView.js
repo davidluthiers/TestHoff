@@ -49,7 +49,7 @@ define([
 						setTimeout(function(){
 						$('#checkboxes1').change(function() {
 								console.log("Change");
-								self.checkboxevt();
+								selfR.checkboxevt();
 							});
 						},400);	
 			
