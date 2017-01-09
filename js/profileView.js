@@ -57,12 +57,12 @@ define([
 					compiledheaderandpanel=_.template( headerandpanel );
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
-						setTimeout(function(){
-							$('#checkboxes1').change(function() {
-								console.log("Change");
-								self.checkboxevt();
-							});
-						},400);	
+					setTimeout(function(){
+						$('#checkboxes1').change(function() {
+							console.log("Change");
+							self.checkboxevt();
+						});
+					},400);	
 				}
 				else{
 					if(typeof id != 'undefined' && id == '2'){ //Carga de otro usuario

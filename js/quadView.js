@@ -31,7 +31,7 @@ define([
                 "click .resetmodel":"resetmodel",
                 "click #quadInput7":"extraespacio",
                 "click .mandatory":"footerfix",
-                "click .donotshowagain":"checkbox",
+                "click .donotshowagain":"checkboxevt",
                 "click .save":"save",
 				"click .stopaudio":"stopaudio",
                 "click .saveQuad":"saveQuad",
@@ -51,10 +51,18 @@ define([
                 this.$el.attr('class', 'page');
                 this.history=historycollection;
 				this.router=router;
+				self = this;
                 switch(id)
                 {
                     case '0':
                         compiledTemplate = _.template( quad0 );
+						
+						setTimeout(function(){
+							$('#checkboxes1').change(function() {
+								console.log("Change");
+								self.checkboxevt();
+							});
+						},400);	
 		
                         break;
                     case '1':
@@ -634,7 +642,7 @@ define([
                 });
             },
 	
-            checkbox: function (){
+            checkboxevt: function (){
                 donot=this.history.get("donotshow");
 
                 if($("#checkbox").attr("data-icon")=="checkbox-on") //La lógica parece estar al revés, pero es que el evento de click llega antes de que cambie el estado del elemento

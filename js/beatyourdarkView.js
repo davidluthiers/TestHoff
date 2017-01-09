@@ -26,6 +26,7 @@ define([
 	
                 "click .imagenbeatyour":"beatthumbnail",
                 "click .save":"save",
+				"click .donotshowagain":"checkboxevt",
                 "click #getgalleryphoto":"getfromgallery"
 	
             },
@@ -36,9 +37,17 @@ define([
                 this.$el.attr('class', 'page');
 
                 this.collection=historycollection;
+				
+				self=this;
 		
-                if(id=='0'){ //Images list
+                if(id=='0'){ 
                     compiledTemplate = _.template( beatyour0 );
+					setTimeout(function(){
+						$('#checkboxes1').change(function() {
+							console.log("Change");
+							self.checkboxevt();
+						});
+					},400);	
                 }
 		
                 if(id=='1'){
@@ -179,7 +188,7 @@ define([
 	
             },
 	
-            checkbox: function (){
+            checkboxevt: function (){
                 donot=this.history.get("donotshow");
 
                 if($("#checkbox").attr("data-icon")=="checkbox-on") //La lógica parece estar al revés, pero es que el evento de click llega antes de que cambie el estado del elemento
