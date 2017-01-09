@@ -26,7 +26,7 @@ define([
 				"click #toggle_profile":"toggle_profile",
 				"click #send_email":"send_email",
 				"click #back_to_map":"back_to_map",
-				"click .donotshowagain":"checkbox",
+				"click .donotshowagain":"checkboxevt",
 				"click #checkbox":"checkbox",
 				"click #exitmap":"exitmap"
             },
@@ -708,7 +708,7 @@ define([
 				
 			},
 			
-			checkbox: function (){
+			checkboxevt: function (){
                 donot=this.history.get("donotshow");
 				console.log("CHECKBOX ATTR: ");
 				console.log($("#checkbox").attr("data-icon"));
