@@ -709,14 +709,17 @@ define([
 			
 			checkbox: function (){
                 donot=this.history.get("donotshow");
-
-                if($("#checkbox").attr("data-icon")=="checkbox-on") //La lógica parece estar al revés, pero es que el evento de click llega antes de que cambie el estado del elemento
+				console.log("CHECKBOX ATTR: ");
+				console.log($("#checkbox").attr("data-icon"));
+                if($("#checkbox").attr("data-icon")=="checkbox-on"){ //La lógica parece estar al revés, pero es que el evento de click llega antes de que cambie el estado del elemento
                     donot.set("mapDoNotShow",false);
-                else
+				}
+                else{
                     donot.set("mapDoNotShow",true);
-	
+				}
                 this.history.get("donotshow").destroy();
                 this.history.create(donot);
+				console.log("saved donotshow");
 	
             },
 			
