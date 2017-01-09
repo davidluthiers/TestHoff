@@ -27,6 +27,7 @@ define([
 				"click #send_email":"send_email",
 				"click #back_to_map":"back_to_map",
 				"click .donotshowagain":"checkbox",
+				"click #checkbox":"checkbox",
 				"click #exitmap":"exitmap"
             },
    
