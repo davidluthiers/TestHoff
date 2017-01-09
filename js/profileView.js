@@ -27,7 +27,6 @@ define([
 				"click #send_email":"send_email",
 				"click #back_to_map":"back_to_map",
 				"click .donotshowagain":"checkboxevt",
-				"click #checkbox":"checkboxevt",
 				"click #exitmap":"exitmap"
             },
    
@@ -61,7 +60,7 @@ define([
 						setTimeout(function(){
 							$('#checkboxes1').change(function() {
 								console.log("Change");
-								this.checkboxevt();
+								//this.checkboxevt();
 							});
 						},400);	
 				}
