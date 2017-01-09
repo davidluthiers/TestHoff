@@ -262,9 +262,9 @@ define([
                 donot=this.history.get("donotshow");
 
                 if($("#checkbox").attr("data-icon")=="checkbox-on") //La lógica parece estar al revés, pero es que el evento de click llega antes de que cambie el estado del elemento
-                    donot.set("recyDoNotShow",false);
+                    donot.set("mediDoNotShow",false);
                 else
-                    donot.set("recyDoNotShow",true);
+                    donot.set("mediDoNotShow",true);
 	
                 this.history.get("donotshow").destroy();
                 this.history.create(donot);
