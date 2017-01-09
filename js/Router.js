@@ -1578,11 +1578,11 @@ define([
             },
 	
             onbeatPrompt: function (results){
-                if(results.buttonIndex==1){
+                if(results.buttonIndex==2){
                     this.beatyourmodel.set("target",results.input1);
                     this.beatyourdarkSide('1');
                 }
-                if(results.buttonIndex==2)
+                if(results.buttonIndex==1)
                     Backbone.history.navigate("#summary", {
                         trigger: true
                     });
@@ -1605,7 +1605,7 @@ define([
                                 self.onbeatPrompt(ans);
                             },                  // callback to invoke
                             historial.get("languages").get("dic_beatyour_header"),            // title
-                            [historial.get("languages").get("dic_next"), historial.get("languages").get("dic_back")] // buttonLabels
+                            [historial.get("languages").get("dic_back"), historial.get("languages").get("dic_next")] // buttonLabels
                             //historial.get("languages").get("dic_beatyour_example")                 // defaultText
                             );
                     }
