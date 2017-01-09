@@ -67,7 +67,7 @@ define([
 				"share_link":"share_link",
                 "configuration":"configuration",
 				"passwordProtect":"passwordProtect",
-				"profile":"profile",
+				"profile:id":"profile",
                 "deletehistory":"deletehistory"
             },
             principal: function(){
