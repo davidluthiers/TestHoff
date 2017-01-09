@@ -59,7 +59,7 @@ define([
 		
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 						setTimeout(function(){
-							$('#checkbox').change(function() {
+							$('#checkboxes1').change(function() {
 								console.log("Change");
 								this.checkboxevt();
 							});
