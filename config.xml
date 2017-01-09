@@ -101,6 +101,7 @@
 		<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 		<gap:plugin name="cordova-plugin-network-information" source="npm"/>
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
+		<gap:plugin name="cordova-plugin-socialsharing" source="npm"/>
 		
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
@@ -120,8 +121,6 @@
 			<param name="API_KEY_FOR_IOS" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
 		</gap:plugin>
 
-
-		<plugin spec="https://github.com/davidluthiers/SS.git" />
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
 		
 		
