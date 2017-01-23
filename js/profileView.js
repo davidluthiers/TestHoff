@@ -1202,7 +1202,7 @@ define([
 				console.log("Save profile function");
 				self=this;
 				if (!self.validateEmail($("#useremail").val())) { 
-					 alert("Email not valid");
+					 console.log("Email not valid");
 				}
 				else{ //Valid email
 					if(this.origin == '1'){//edit profile
