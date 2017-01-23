@@ -1193,8 +1193,8 @@ define([
             save: function(){
 				console.log("Save profile function");
 				self=this;
-				if (!self.validateEmail($("#useremail").val())) {
-					alert("Email not valid");
+				if (!$('#useremail').is(':valid') { 
+					 alert("Email not valid");
 				}
 				else{ //Valid email
 					if(this.origin == '1'){//edit profile
