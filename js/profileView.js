@@ -1245,7 +1245,9 @@ define([
 				console.log(this.profile);
 				
 				//window.
+				console.log("window.location = " + "mailto:" + this.profile.email);
 				window.location = "mailto:" + this.profile.email;
+				
 				
 			},
 
