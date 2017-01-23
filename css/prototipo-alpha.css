@@ -28,11 +28,22 @@ text-align: center;
 #map_module_map {
     padding: 0;
     position : absolute !important; 
-    top : 40px !important;  
+    top: 5px !important;
     right : 0; 
     bottom : 40px !important;  
     left : 0 !important; 
 	height: 100%;
+}
+
+#map_header{
+	margin: 5px;
+    margin-top: 12%;
+    margin-bottom: 0px;
+	background-image: url(../img/Textures/666666.png) !important;
+}
+
+#map_header span {
+	background-image: url(../img/Textures/666666.png) !important;
 }
 
 label.audioDesc {
