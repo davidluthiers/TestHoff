@@ -1184,57 +1184,67 @@ define([
 				profile.save();
 				this.history.create(profile);
 			},
+			
+			validateEmail: function(){
+				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return re.test(email);
+			},
 	
             save: function(){
 				console.log("Save profile function");
 				self=this;
-				if(this.origin == '1'){//edit profile
-					self.router.profile('1');
-				}				
-				else{
-					window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
-					try{
-						if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
-							//Tiene valores válidos
-							profileM=this.history.get("profile");
-							
-							
-							profileM.set("nickname",$("#displayname").val());
-							profileM.set("email",$("#useremail").val());
-							profileM.set("status",$("#status").val());
-							profileM.set("near_users","");
-							var visionphoto = document.getElementById('visionphoto');
-							profileM.set("picture", visionphoto.src);
-							profileM.set("userID",this.history.get("profile").get("userID"));
-							profileM.set("lastupdated", new Date());
-							this.history.get("profile").destroy();
-							profileM.save();
+				if (!self.validateEmail($("#useremail").val())) {
+					alert("Email not valid");
+				}
+				else{ //Valid email
+					if(this.origin == '1'){//edit profile
+						self.router.profile('1');
+					}				
+					else{
+						window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
+						try{
+							if (typeof $("#displayname").val() != 'undefined' && typeof $("#useremail").val() != 'undefined' && $("#displayname").val() != "" && $("#useremail").val() !=""){
+								//Tiene valores válidos
+								profileM=this.history.get("profile");
 								
-							this.history.create(profileM);
-							
-							
-							this.router.drupaldo(this.saveonserver.bind(this),false);
-							
-							
-							if(this.origin == '0'){
-								//Volver summary
-								 Backbone.history.navigate("#profile", {
-									trigger: true
-								});
+								
+								profileM.set("nickname",$("#displayname").val());
+								profileM.set("email",$("#useremail").val());
+								profileM.set("status",$("#status").val());
+								profileM.set("near_users","");
+								var visionphoto = document.getElementById('visionphoto');
+								profileM.set("picture", visionphoto.src);
+								profileM.set("userID",this.history.get("profile").get("userID"));
+								profileM.set("lastupdated", new Date());
+								this.history.get("profile").destroy();
+								profileM.save();
+									
+								this.history.create(profileM);
+								
+								
+								this.router.drupaldo(this.saveonserver.bind(this),false);
+								
+								
+								if(this.origin == '0'){
+									//Volver summary
+									 Backbone.history.navigate("#profile", {
+										trigger: true
+									});
+								}
+								else {
+									//Ir al mapa
+									console.log("ir al mapa");
+								}
+								
 							}
-							else {
-								//Ir al mapa
-								console.log("ir al mapa");
+							else{
+								//Falta algún valor obligatorio
+								alert(this.history.get("languages").get("dic_profile_required"));
 							}
-							
 						}
-						else{
-							//Falta algún valor obligatorio
-							alert(this.history.get("languages").get("dic_profile_required"));
+						catch(e){
+							console.log(e);
 						}
-					}
-					catch(e){
-						console.log(e);
 					}
 				}
             },
