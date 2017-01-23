@@ -137,7 +137,7 @@
 		
 		<preference name="SplashScreenDelay" value="15000" />
 		
-		
+		<allow-navigation href="*" />
 		<access origin="*" launch-external="yes"/>
 		
 		
