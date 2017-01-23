@@ -1186,14 +1186,20 @@ define([
 			},
 			
 			validateEmail: function(email){
-				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				console.log("Validating: " + email);
+				try{
+					var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+					console.log("Email is valid: " + re.test(email));
+				catch(e){
+					console.log("ERROR: " + e);
+				}
 				return re.test(email);
 			},
 	
             save: function(){
 				console.log("Save profile function");
 				self=this;
-				if (false) { 
+				if (!self.validateEmail($("#useremail").val())) { 
 					 alert("Email not valid");
 				}
 				else{ //Valid email
