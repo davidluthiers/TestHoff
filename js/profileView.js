@@ -1201,7 +1201,7 @@ define([
             save: function(){
 				console.log("Save profile function");
 				self=this;
-				if (!self.validateEmail($("#useremail").val())) { 
+				if (typeof $("#useremail").val() != 'undefined' && !self.validateEmail($("#useremail").val())) { 
 					 console.log("Email not valid");
 				}
 				else{ //Valid email
