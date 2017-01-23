@@ -1193,7 +1193,7 @@ define([
             save: function(){
 				console.log("Save profile function");
 				self=this;
-				if (!$('#useremail').is(':valid')) { 
+				if (false) { 
 					 alert("Email not valid");
 				}
 				else{ //Valid email
