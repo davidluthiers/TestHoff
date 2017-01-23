@@ -541,14 +541,14 @@ define([
 							randomLatitude = 0;
 							randomLongitude = 0;
 							if (Math.random() < 0.5)
-								randomLatitude = 0.005;
+								randomLatitude = 0.002;
 							else
-								randomLatitude = -0.005;
+								randomLatitude = -0.002;
 							
 							if (Math.random() < 0.5)
-								randomLongitude = 0.005;
+								randomLongitude = 0.002;
 							else
-								randomLongitude = -0.005;
+								randomLongitude = -0.002;
 							
 							console.log("Sumamos: " + randomLatitude + ", " + randomLongitude);
 							data[index2].latitude = Number(data[index2].latitude) + randomLatitude;
