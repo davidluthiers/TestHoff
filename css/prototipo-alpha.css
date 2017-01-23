@@ -37,13 +37,13 @@ text-align: center;
 
 #map_header{
 	color: white;
+	text-align: center;
 	padding-right: 5px;
     padding-left: 5px;
-	font-family: 'wiesbadenswingroman';
 	width: 100%;
 	margin-right: 0px;
 	margin-left: 0px;
-    margin-top: -1px;
+    margin-top: 10%;
     margin-bottom: 0px;
 	background-image: url(../img/Textures/666666.png) !important;
 }
