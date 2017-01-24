@@ -606,10 +606,33 @@ define([
 						console.log("After data:");
 						console.log(data);
 						for (index = 0; index < data.length; ++index) {
+							
                             var auxprofile = data[index];
 							if (auxprofile.status=='undefined'){
 								auxprofile.status = " ";
 								data[index].status = " ";
+							}
+							if(historial.get("profile").get("userID") == userID){
+								var userID = auxprofile.userID;
+								var nombre = auxprofile.nickname;
+								//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
+								if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
+									var pictureurl = auxprofile.pictureurl.replace("amp;","");
+								var email = auxprofile.email;
+								var latitude = auxprofile.latitude;
+								var longitude = auxprofile.longitude;
+								console.log("Mi perfil está almacenado en el servidor, lo actualizo en el dispositivo");
+								profileM=historial.get("profile");
+						
+								profileM.set("nickname",nombre);
+								profileM.set("email",email);
+								profileM.set("picture", pictureurl);
+								profileM.set("userID",userID);
+								profileM.set("nid",auxprofile.nid);
+								historial.get("profile").destroy();
+								profileM.save();
+									
+								historial.create(profileM);
 							}
 							myprofile.set("near_users", data);
 							historial.get("profile").destroy();
