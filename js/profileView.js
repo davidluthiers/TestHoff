@@ -231,6 +231,18 @@ define([
 								}
 								else{
 									self.getCoord();
+									/*setTimeout(function(){
+										if(device.platform!='Android'){ //iOS
+											try{
+												console.log("iOS, cambiamos map_header");
+												$("#map_header").attr("style","margin-top: 9%;");
+											}
+											catch(e){
+												console.log("Error cambiando header ios: " + e);
+											}
+										}
+									},400);*/
+									
 								}
 							});
 							
