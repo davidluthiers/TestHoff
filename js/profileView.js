@@ -537,6 +537,8 @@ define([
 					}
 				}
 				
+				$("#back_to_map").hide();
+				
 				facebookConnectPlugin.login(["public_profile"],
 					fbLoginSuccessgetFBid,
 					function (error) { 
