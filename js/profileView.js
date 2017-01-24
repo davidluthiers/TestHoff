@@ -329,9 +329,10 @@ define([
 							self.history.create(auxprofile);
 							//updatenode
 							self.saveonserverAndInitialize(true, position.coords.latitude,position.coords.longitude);
-							setTimeout(function(){
+							/*setTimeout(function(){
 								self.savePrecisionCoords();
 							},6000);
+							*/
 							
 							},
 					  
