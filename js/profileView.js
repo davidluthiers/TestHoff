@@ -612,7 +612,7 @@ define([
 								auxprofile.status = " ";
 								data[index].status = " ";
 							}
-							if(historial.get("profile").get("userID") == userID){
+							if(historial.get("profile").get("userID") == auxprofile.userID){
 								var userID = auxprofile.userID;
 								var nombre = auxprofile.nickname;
 								//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
