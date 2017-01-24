@@ -1217,7 +1217,7 @@ define([
 				console.log("Save profile function");
 				self=this;
 				if (typeof $("#useremail").val() != 'undefined' && !self.validateEmail($("#useremail").val())) { 
-					 console.log("Email not valid");
+					 navigator.notification.confirm(this.history.get("languages").get("dic_invalid_email"), function(indexans){}, this.history.get("languages").get("dic_Hoffman"),["Ok"]);
 				}
 				else{ //Valid email
 					if(this.origin == '1'){//edit profile
@@ -1262,7 +1262,8 @@ define([
 							}
 							else{
 								//Falta algún valor obligatorio
-								alert(this.history.get("languages").get("dic_profile_required"));
+								navigator.notification.confirm(this.history.get("languages").get("dic_profile_required"), function(indexans){}, this.history.get("languages").get("dic_Hoffman"),["Ok"]);
+								//alert(this.history.get("languages").get("dic_profile_required"));
 							}
 						}
 						catch(e){
