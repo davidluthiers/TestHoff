@@ -474,7 +474,9 @@ define([
 							console.log(auxprofile)
 							var userID = auxprofile.userID;
 							var nombre = auxprofile.nickname;
-							var pictureurl = auxprofile.pictureurl.replace("amp;","");
+							console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
+							if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
+								var pictureurl = auxprofile.pictureurl.replace("amp;","");
 							var email = auxprofile.email;
 							var latitude = auxprofile.latitude;
 							var longitude = auxprofile.longitude;
