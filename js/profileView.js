@@ -474,7 +474,7 @@ define([
 							console.log(auxprofile)
 							var userID = auxprofile.userID;
 							var nombre = auxprofile.nickname;
-							console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
+							//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
 							if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
 								var pictureurl = auxprofile.pictureurl.replace("amp;","");
 							var email = auxprofile.email;
