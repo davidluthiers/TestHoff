@@ -109,7 +109,7 @@ define([
 						
 					}
 					else{
-						if(this.profile.get("active") != "yes" || (typeof id != 'undefined' && id == '1')){ //Edición de propio perfil
+						if(this.profile.get("nid")=="" || this.profile.get("active") != "yes" || (typeof id != 'undefined' && id == '1')){ //Edición de propio perfil
 												
 							this.origin = '0';
 							
