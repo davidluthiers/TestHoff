@@ -632,7 +632,7 @@ define([
 										}
 									});
 								 
-									marker.showInfoWindow();
+									//marker.showInfoWindow();
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
