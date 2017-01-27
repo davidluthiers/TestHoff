@@ -252,58 +252,7 @@ define([
 				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
 
             },
-			
-			savePrecisionCoords: function(){
-				console.log("savePrecisionCoords");
-				navigator.geolocation.getCurrentPosition(
-					  
-						// Success.
-						function (position){
-							auxprofile = self.history.get("profile");
-							auxprofile.set("latitude",position.coords.latitude);
-							auxprofile.set("longitude",position.coords.longitude);
-							self.history.get("profile").destroy();
-							self.history.create(auxprofile);
-							
-							self.saveonserver(true);						
-							},
-					  
-						// Error
-						function(error) {
-							
 
-							// Process error code.
-							switch (error.code) {
-
-							  // PERMISSION_DENIED
-							  case 1:
-								console.log("PERMISSION_DENIED");
-								break;
-
-							  // POSITION_UNAVAILABLE
-							  case 2:
-								console.log("POSITION_UNAVAILABLE");
-								break;
-
-							  // TIMEOUT
-							  case 3:
-								console.log("TIMEOUT");
-								break;
-
-							}
-						
-
-					  },
-					  
-					  // Options
-					  { enableHighAccuracy: true,
-						timeout: 5000	  
-						}
-					  
-					);
-				
-			},
-			
 			getCoord: function(){
 				self=this;
 				/*
@@ -329,10 +278,7 @@ define([
 							self.history.create(auxprofile);
 							//updatenode
 							self.saveonserverAndInitialize(true, position.coords.latitude,position.coords.longitude);
-							/*setTimeout(function(){
-								self.savePrecisionCoords();
-							},6000);
-							*/
+
 							
 							},
 					  
@@ -491,6 +437,8 @@ define([
 								profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
+								profileM.set("status",auxprofile.status);
+								
 								historial.get("profile").destroy();
 								profileM.save();
 									
@@ -612,7 +560,7 @@ define([
 								auxprofile.status = " ";
 								data[index].status = " ";
 							}
-							if(historial.get("profile").get("userID") == auxprofile.userID){
+							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 								var userID = auxprofile.userID;
 								var nombre = auxprofile.nickname;
 								//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
@@ -629,8 +577,10 @@ define([
 								profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
+								profileM.set("status",auxprofile.status);
 								historial.get("profile").destroy();
 								profileM.save();
+								self.router.drupaldo(self.saveonserver.bind(self),false);
 									
 								historial.create(profileM);
 							}
@@ -995,6 +945,8 @@ define([
 							
 						}
 						try{
+							self.initializeMap(latitude,longitude);
+							/*
 							node_save(node, {
 								success: function(result) {
 									console.log("Saved node #" + result.nid);
@@ -1009,6 +961,7 @@ define([
 									});
 								}
 							});
+							*/
 						}
 						catch(e){
 							console.log("Node save ha fallado, recargamos profile");
