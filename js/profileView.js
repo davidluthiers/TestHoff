@@ -580,7 +580,7 @@ define([
 								profileM.set("status",auxprofile.status);
 								historial.get("profile").destroy();
 								profileM.save();
-								self.router.drupaldo(self.saveonserver.bind(self),false);
+								self.router.drupaldo(self.saveonserver.bind(self),true);
 									
 								historial.create(profileM);
 							}
