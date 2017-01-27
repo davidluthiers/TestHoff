@@ -482,8 +482,8 @@ define([
 						catch(e){
 							console.log("Error intentando eliminar perfil del historial " + e);
 						}
-						profileM.save();
-						historial.create(profileM);
+						//profileM.save();
+						//historial.create(profileM);
 					}
 				}
 				
