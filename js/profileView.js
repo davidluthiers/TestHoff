@@ -555,8 +555,16 @@ define([
 						data  = self.splitMarkers(data);
 						console.log("After data:");
 						console.log(data);
-						data.push(profileM);
-						data[data.length].userID = "";
+						
+						data[data.length].userID = "999999";
+						
+						data[data.length].nickname = profileM.get("nickname");
+						data[data.length].email = profileM.get("email");
+						data[data.length].picture = profileM.get("picture");
+						data[data.length].nid = profileM.get("nid");
+						data[data.length].status = profileM.get("status";
+						
+						
 						for (index = 0; index < data.length; ++index) {
 							
                             var auxprofile = data[index];
@@ -588,8 +596,7 @@ define([
 									
 								historial.create(profileM);
 							}
-							else
-								{
+							else{
 								
 								myprofile.set("near_users", data);
 								historial.get("profile").destroy();
