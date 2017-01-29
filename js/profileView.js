@@ -562,7 +562,7 @@ define([
 						data[data.length].email = profileM.get("email");
 						data[data.length].picture = profileM.get("picture");
 						data[data.length].nid = profileM.get("nid");
-						data[data.length].status = profileM.get("status");
+						data[data.length].status = profileM.get("status";
 						
 						
 						for (index = 0; index < data.length; ++index) {
