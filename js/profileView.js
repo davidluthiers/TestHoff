@@ -555,7 +555,7 @@ define([
 						data  = self.splitMarkers(data);
 						console.log("After data:");
 						console.log(data);
-						data.push(profileM);
+						data.push(historial.get("profile"));
 						data[data.length].userID = "";
 						for (index = 0; index < data.length; ++index) {
 							
