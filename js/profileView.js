@@ -557,9 +557,6 @@ define([
 						console.log(data);
 						data.push(historial.get("profile"));
 						data[data.length].userID = "";
-						console.log("After data2: ");
-						console.log(data);
-						console.log(data[data.length]);
 						for (index = 0; index < data.length; ++index) {
 							
                             var auxprofile = data[index];
