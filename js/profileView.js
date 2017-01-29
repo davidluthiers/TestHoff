@@ -556,7 +556,7 @@ define([
 						console.log("After data:");
 						console.log(data);
 						data.push(historial.get("profile"));
-						data[data.length].userID = "";
+						//data[data.length].userID = "";
 						console.log("After data2: ");
 						console.log(data);
 						console.log(data[data.length]);
