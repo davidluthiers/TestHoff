@@ -93,8 +93,7 @@ define([
 							document.getElementById('displayname').innerHTML = ''; //self.profile.nickname + " " + self.history.get("languages").get("dic_says") + ":";
 							console.log('Ponemos foto de perfil');
 							document.getElementById('useremail').innerHTML = self.profile.email;
-							//document.getElementById('status').val(self.profile.status);
-							$("textarea#status").val(self.profile.status);
+							document.getElementById('status').val(self.profile.status);
 							document.getElementById('profileHeader').innerHTML = self.profile.nickname;
 							
 							var visionphoto = document.getElementById('visionphoto');
