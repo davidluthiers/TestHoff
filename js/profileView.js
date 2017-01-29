@@ -556,6 +556,7 @@ define([
 						console.log("After data:");
 						console.log(data);
 						
+						data.push("patata");
 						data[data.length].userID = "999999";
 						profileM=historial.get("profile");
 						data[data.length].nickname = profileM.get("nickname");
