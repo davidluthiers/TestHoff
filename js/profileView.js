@@ -557,7 +557,7 @@ define([
 						console.log(data);
 						
 						data[data.length].userID = "999999";
-						
+						profileM=historial.get("profile");
 						data[data.length].nickname = profileM.get("nickname");
 						data[data.length].email = profileM.get("email");
 						data[data.length].picture = profileM.get("picture");
