@@ -1217,6 +1217,10 @@ define([
 								
 								profileM.set("nickname",$("#displayname").val());
 								profileM.set("email",$("#useremail").val());
+								console.log("GUARDAMOS STATUS: ");
+								console.log($("#status").val());
+								console.log($("#status").text());
+								console.log(document.getElementById('status').value);
 								profileM.set("status",$("#status").val());
 								profileM.set("near_users","");
 								var visionphoto = document.getElementById('visionphoto');
