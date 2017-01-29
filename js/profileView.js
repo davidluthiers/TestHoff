@@ -557,13 +557,13 @@ define([
 						console.log(data);
 						
 						data.push("patata");
-						data[data.length-1].userID = "999999";
+						data[data.length].userID = "999999";
 						profileM=historial.get("profile");
-						data[data.length-1].nickname = profileM.get("nickname");
-						data[data.length-1].email = profileM.get("email");
-						data[data.length-1].picture = profileM.get("picture");
-						data[data.length-1].nid = profileM.get("nid");
-						data[data.length-1].status = profileM.get("status");
+						data[data.length].nickname = profileM.get("nickname");
+						data[data.length].email = profileM.get("email");
+						data[data.length].picture = profileM.get("picture");
+						data[data.length].nid = profileM.get("nid");
+						data[data.length].status = profileM.get("status");
 						
 						
 						for (index = 0; index < data.length; ++index) {
