@@ -588,97 +588,96 @@ define([
 									
 								historial.create(profileM);
 							}
-							else
-								{
-								
-								myprofile.set("near_users", data);
-								historial.get("profile").destroy();
-								historial.create(myprofile);
-								console.log("near_users:");
-								console.log(historial.get("profile").get("near_users"));
-								console.log(historial.get("profile"));
-								console.log("auxprofile:");
-								console.log(auxprofile);
-								var userID = auxprofile.userID;
-								var nombre = auxprofile.nickname;
-								var pictureurl = auxprofile.pictureurl.replace("amp;","");
-								var email = auxprofile.email;
-								var latitude = auxprofile.latitude;
-								var longitude = auxprofile.longitude;
-								var isactive = auxprofile.active;
-								console.log("Usuario con nombre: "+nombre+", email: " +email);
-								//console.log("picture: " + pictureurl);
-								console.log("Coords: " + latitude + ", " + longitude);
-								
-								
-								const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
-								if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined')){
-									usersList[userID] = "used";
-									map.addMarker({
-									  'position': locationLatlng,
-									  'title': nombre,
-									  'icon': {
-										'url': pictureurl,
+						
+							
+							myprofile.set("near_users", data);
+							historial.get("profile").destroy();
+							historial.create(myprofile);
+							console.log("near_users:");
+							console.log(historial.get("profile").get("near_users"));
+							console.log(historial.get("profile"));
+							console.log("auxprofile:");
+							console.log(auxprofile);
+							var userID = auxprofile.userID;
+							var nombre = auxprofile.nickname;
+							var pictureurl = auxprofile.pictureurl.replace("amp;","");
+							var email = auxprofile.email;
+							var latitude = auxprofile.latitude;
+							var longitude = auxprofile.longitude;
+							var isactive = auxprofile.active;
+							console.log("Usuario con nombre: "+nombre+", email: " +email);
+							//console.log("picture: " + pictureurl);
+							console.log("Coords: " + latitude + ", " + longitude);
+							
+							
+							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
+							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined')){
+								usersList[userID] = "used";
+								map.addMarker({
+								  'position': locationLatlng,
+								  'title': nombre,
+								  'icon': {
+									'url': pictureurl,
+									'size': {
+										width: 30,
+										height: 30
+									},
+									'anchor': [30/2, 30]
+								   },
+								  'snippet': historial.get("languages").get("click_here"),
+								  'myid':index
+								},
+								function(marker) {
+
+									
+									marker.setIcon({
+										//'url': pictureurl,
 										'size': {
 											width: 30,
 											height: 30
-										},
-										'anchor': [30/2, 30]
-									   },
-									  'snippet': historial.get("languages").get("click_here"),
-									  'myid':index
-									},
-									function(marker) {
+										}
+									});
+								 
+									//marker.showInfoWindow();
 
+									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
-										marker.setIcon({
-											//'url': pictureurl,
-											'size': {
-												width: 30,
-												height: 30
-											}
-										});
-									 
-										//marker.showInfoWindow();
-
-										marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
-											
-											historial=self.history;
-											myprofile=historial.get("profile");
-											console.log("pressed map icon");
-											console.log(marker);
-											console.log(evt);
-											var markerid = '';
-											if (device.platform=='Android')
-												markerid = evt.id.replace("marker_m","");
-											else
-												markerid = evt.get('myid');
-											console.log(markerid);
-											console.log(data[markerid].email);
-											myprofile.set("next_user", markerid);
-											historial.get("profile").destroy();
-											historial.create(myprofile);
-											self.router.profile('2');
-											
-										});
+										historial=self.history;
+										myprofile=historial.get("profile");
+										console.log("pressed map icon");
+										console.log(marker);
+										console.log(evt);
+										var markerid = '';
+										if (device.platform=='Android')
+											markerid = evt.id.replace("marker_m","");
+										else
+											markerid = evt.get('myid');
+										console.log(markerid);
+										console.log(data[markerid].email);
+										myprofile.set("next_user", markerid);
+										historial.get("profile").destroy();
+										historial.create(myprofile);
+										self.router.profile('2');
 										
-										marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
-											console.log("marker click");
-											console.log(evt);
-											auxprofile= data[evt.id.replace("marker_m","")];
-											map.animateCamera({
-												target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
-												zoom: 15,
-												duration: 3000
-											}, function() {});
-										 });
+									});
+									
+									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
+										console.log("marker click");
+										console.log(evt);
+										auxprofile= data[evt.id.replace("marker_m","")];
+										map.animateCamera({
+											target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
+											zoom: 15,
+											duration: 3000
+										}, function() {});
+									 });
 
-									}); 
-								}
-								else{
-									console.log("Este nodo ya está en el mapa");
-								}
+								}); 
 							}
+							else{
+								console.log("Este nodo ya está en el mapa");
+							}
+							
                         }
 						
 						
