@@ -563,6 +563,7 @@ define([
 								auxprofile.status = " ";
 								data[index].status = " ";
 							}
+							
 							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 								var userID = auxprofile.userID;
 								var nombre = auxprofile.nickname;
@@ -580,7 +581,7 @@ define([
 								profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
-								profileM.set("status",auxprofile.status);
+								//profileM.set("status",auxprofile.status);
 								historial.get("profile").destroy();
 								profileM.save();
 								self.router.drupaldo(self.saveonserver.bind(self),true);
@@ -995,7 +996,7 @@ define([
 				var node;				
 				try{
 					self= this;
-
+						console.log("GUARDANDO STATUS:" + profile.get("status"));
 						//mirar si yo tengo el nid
 						if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
 							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
@@ -1219,8 +1220,6 @@ define([
 								profileM.set("email",$("#useremail").val());
 								console.log("GUARDAMOS STATUS: ");
 								console.log($("#status").val());
-								console.log($("#status").text());
-								console.log(document.getElementById('status').value);
 								profileM.set("status",$("#status").val());
 								profileM.set("near_users","");
 								var visionphoto = document.getElementById('visionphoto');
