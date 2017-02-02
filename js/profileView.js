@@ -574,7 +574,6 @@ define([
 								var latitude = auxprofile.latitude;
 								var longitude = auxprofile.longitude;
 								console.log("Mi perfil está almacenado en el servidor, lo actualizo en el dispositivo");
-								console.log(auxprofile.status.value);
 								profileM=historial.get("profile");
 						
 								profileM.set("nickname",nombre);
@@ -613,7 +612,7 @@ define([
 							
 							
 							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
-							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined')){
+							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined' || historial.get("profile").get("userID") == auxprofile.userID)){
 								usersList[userID] = "used";
 								map.addMarker({
 								  'position': locationLatlng,
