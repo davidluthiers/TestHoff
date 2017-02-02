@@ -574,6 +574,7 @@ define([
 								var latitude = auxprofile.latitude;
 								var longitude = auxprofile.longitude;
 								console.log("Mi perfil está almacenado en el servidor, lo actualizo en el dispositivo");
+								console.log(auxprofile.status);
 								profileM=historial.get("profile");
 						
 								profileM.set("nickname",nombre);
@@ -587,6 +588,8 @@ define([
 								self.router.drupaldo(self.saveonserver.bind(self),true);
 									
 								historial.create(profileM);
+								
+								data[index].
 							}
 						
 							
