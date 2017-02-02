@@ -589,7 +589,7 @@ define([
 									
 								historial.create(profileM);
 								
-								data[index].
+								//data[index].
 							}
 						
 							
