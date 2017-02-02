@@ -571,8 +571,6 @@ define([
 								if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
 									var pictureurl = auxprofile.pictureurl.replace("amp;","");
 								var email = auxprofile.email;
-								var latitude = auxprofile.latitude;
-								var longitude = auxprofile.longitude;
 								console.log("Mi perfil está almacenado en el servidor, lo actualizo en el dispositivo");
 								profileM=historial.get("profile");
 						
@@ -608,11 +606,16 @@ define([
 							var isactive = auxprofile.active;
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							//console.log("picture: " + pictureurl);
+							
+							if(historial.get("profile").get("userID") == auxprofile.userID){
+								console.log("Asignando coordenadas propias:");
+								latitude = historial.get("profile").get("latitude");
+								longitude = historial.get("profile").get("longitude");
+							}
 							console.log("Coords: " + latitude + ", " + longitude);
 							
-							
 							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
-							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined' || historial.get("profile").get("userID") == auxprofile.userID)){
+							if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined' )){
 								usersList[userID] = "used";
 								map.addMarker({
 								  'position': locationLatlng,
