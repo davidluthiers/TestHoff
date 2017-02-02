@@ -94,9 +94,9 @@ define([
 							console.log('Ponemos foto de perfil');
 							document.getElementById('useremail').innerHTML = self.profile.email;
 							var textArea = document.createElement('textarea');
-							textArea.innerHTML = self.profile.status;
+							textArea.innerHTML = self.profile.status.value;
 							document.getElementById('status').innerHTML = textArea.value;
-							document.getElementById('profileHeader').innerHTML = self.profile.nickname;
+							document.getElementById('profileHeader').innerHTML = self.profile.nickname.value;
 							
 							var visionphoto = document.getElementById('visionphoto');
 							visionphoto.style.display = 'block'; 
@@ -421,7 +421,7 @@ define([
 							console.log("auxprofile:");
 							console.log(auxprofile)
 							var userID = auxprofile.userID;
-							var nombre = auxprofile.nickname;
+							var nombre = auxprofile.nickname.value;
 							//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
 							if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
 								var pictureurl = auxprofile.pictureurl.replace("amp;","");
@@ -439,7 +439,7 @@ define([
 								profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
-								profileM.set("status",auxprofile.status);
+								profileM.set("status",auxprofile.status.value);
 								
 								historial.get("profile").destroy();
 								profileM.save();
@@ -559,9 +559,9 @@ define([
 						for (index = 0; index < data.length; ++index) {
 							
                             var auxprofile = data[index];
-							if (auxprofile.status=='undefined'){
-								auxprofile.status = " ";
-								data[index].status = " ";
+							if (auxprofile.status.value=='undefined'){
+								auxprofile.status.value = " ";
+								data[index].status.value = " ";
 							}
 							
 							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
@@ -574,7 +574,7 @@ define([
 								var latitude = auxprofile.latitude;
 								var longitude = auxprofile.longitude;
 								console.log("Mi perfil está almacenado en el servidor, lo actualizo en el dispositivo");
-								console.log(auxprofile.status);
+								console.log(auxprofile.status.value);
 								profileM=historial.get("profile");
 						
 								profileM.set("nickname",nombre);
@@ -582,7 +582,7 @@ define([
 								profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
-								profileM.set("status",auxprofile.status);
+								profileM.set("status",auxprofile.status.value);
 								historial.get("profile").destroy();
 								profileM.save();
 								self.router.drupaldo(self.saveonserver.bind(self),true);
