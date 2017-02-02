@@ -503,19 +503,19 @@ define([
 			splitMarkers: function(data){
 				console.log("splitMarkers");
 				for (index = 0; index < data.length; ++index) {
-					for (index2 = 0; index2 < data.length; ++index2) {
+					for (index2 = index+1; index2 < data.length; ++index2) {
 						if(index!=index2 &&(data[index].latitude-data[index2].latitude<0.01 &&  data[index].longitude-data[index2].longitude<0.01)){//Están a menos de medio kilómetro
 							randomLatitude = 0;
 							randomLongitude = 0;
 							if (Math.random() < 0.5)
-								randomLatitude = 0.002;
+								randomLatitude = 0.01;
 							else
-								randomLatitude = -0.002;
+								randomLatitude = -0.01;
 							
 							if (Math.random() < 0.5)
-								randomLongitude = 0.002;
+								randomLongitude = 0.01;
 							else
-								randomLongitude = -0.002;
+								randomLongitude = -0.01;
 							
 							console.log("Sumamos: " + randomLatitude + ", " + randomLongitude);
 							data[index2].latitude = Number(data[index2].latitude) + randomLatitude;
