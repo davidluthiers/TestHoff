@@ -566,7 +566,7 @@ define([
 							
 							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 								var userID = auxprofile.userID;
-								var nombre = auxprofile.nickname.replace('&#039;',"'").replace('&amp',"'");
+								var nombre = auxprofile.nickname.value;
 								//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
 								if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
 									var pictureurl = auxprofile.pictureurl.replace("amp;","");
@@ -582,14 +582,13 @@ define([
 								profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
-								//profileM.set("status",auxprofile.status);
+								profileM.set("status",auxprofile.status);
 								historial.get("profile").destroy();
 								profileM.save();
 								self.router.drupaldo(self.saveonserver.bind(self),true);
 									
 								historial.create(profileM);
 								
-								//data[index].
 							}
 						
 							
@@ -602,7 +601,7 @@ define([
 							console.log("auxprofile:");
 							console.log(auxprofile);
 							var userID = auxprofile.userID;
-							var nombre = auxprofile.nickname;
+							var nombre = auxprofile.nickname.value;
 							var pictureurl = auxprofile.pictureurl.replace("amp;","");
 							var email = auxprofile.email;
 							var latitude = auxprofile.latitude;
