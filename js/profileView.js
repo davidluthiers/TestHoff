@@ -566,7 +566,7 @@ define([
 							
 							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 								var userID = auxprofile.userID;
-								var nombre = auxprofile.nickname;
+								var nombre = auxprofile.nickname.replace('&#039;',"'").replace('&amp',"'");
 								//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
 								if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
 									var pictureurl = auxprofile.pictureurl.replace("amp;","");
