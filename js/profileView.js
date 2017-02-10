@@ -669,11 +669,12 @@ define([
 										console.log("marker click");
 										console.log(evt);
 										auxprofile= data[evt.id.replace("marker_m","")];
-										map.animateCamera({
-											target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
-											zoom: 15,
-											duration: 3000
-										}, function() {});
+										if(auxprofile.userID != historial.get("profile").get("userID"))
+											map.animateCamera({
+												target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
+												zoom: 15,
+												duration: 3000
+											}, function() {});
 									 });
 
 								}); 
