@@ -105,7 +105,7 @@
 		
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
-		<gap:plugin name="nl.x-services.plugins.insomnia" source="npm"/>
+		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
 
 		<!-- <gap:config-file platform="android"> <application android:hardwareAccelerated="true" /> </gap:config-file> -->
 		<!--<gap:plugin name="nl.x-services.plugins.backgroundaudio" />-->
