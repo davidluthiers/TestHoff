@@ -255,13 +255,14 @@ define([
             },
 			
 			onpassPrompt: function (results){
+				self=this;
                 if(results.buttonIndex==1){
                     if(btoa(results.input1) == historial.get("profile").get("pass")){
 						console.log("passwords match");
 						$(".page").attr("style","display: block;");
 					}
 					else{
-						navigator.notification.confirm(historial.get("languages").get("dic_passwords_not_match"), function(indexans){this.askForPassword();}, historial.get("languages").get("dic_Hoffman"),[historial.get("languages").get("dic_next")]);
+						navigator.notification.confirm(historial.get("languages").get("dic_passwords_not_match"), function(indexans){self.askForPassword();}, historial.get("languages").get("dic_Hoffman"),[historial.get("languages").get("dic_next")]);
 						//alert(historial.get("languages").get("dic_passwords_not_match"));//passwords_not_match
 						
 					}
