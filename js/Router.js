@@ -261,9 +261,9 @@ define([
 						$(".page").attr("style","display: block;");
 					}
 					else{
-						navigator.notification.confirm(historial.get("languages").get("dic_passwords_not_match"), function(indexans){}, historial.get("languages").get("dic_Hoffman"),[historial.get("languages").get("dic_next")]);
+						navigator.notification.confirm(historial.get("languages").get("dic_passwords_not_match"), function(indexans){this.askForPassword();}, historial.get("languages").get("dic_Hoffman"),[historial.get("languages").get("dic_next")]);
 						//alert(historial.get("languages").get("dic_passwords_not_match"));//passwords_not_match
-						this.askForPassword();
+						
 					}
                 }else{	//if(results.buttonIndex==1) //botón atrás
 					if(navigator.app)
