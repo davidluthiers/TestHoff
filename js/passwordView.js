@@ -66,10 +66,12 @@ define([
                     var newpassword1 = $('#textinput60').val();
 					var newpassword2 = $('#textinput70').val();
 					if(newpassword1 != newpassword2){
-						alert(this.history.get("languages").get("dic_passwords_not_match"));//passwords_not_match
+						navigator.notification.confirm(this.history.get("languages").get("dic_passwords_not_match"), function(indexans){}, this.history.get("languages").get("dic_Hoffman"),[this.history.get("languages").get("dic_next")]);
+						//passwords_not_match
 					}
 					else if (newpassword1.length < 4){
-						alert(this.history.get("languages").get("dic_password_too_short"));//password_too_short
+						navigator.notification.confirm(this.history.get("languages").get("dic_password_too_short"), function(indexans){}, this.history.get("languages").get("dic_Hoffman"),[this.history.get("languages").get("dic_next")]);
+						//password_too_short
 					}
 					else{
 						console.log("Contraseña: ->"+newpassword1+"<-");
