@@ -601,7 +601,7 @@ define([
 				setTimeout(function() {
 					if(device.platform!='Android')
 						self.my_media.stop();
-				}, 1000); 
+				}, 200); 
                 this.mediaTimer = setInterval(function () {
 	
                     if(this.durflag){
