@@ -76,7 +76,8 @@ define([
                 compiledheaderandpanel=_.template( headerandpanel );
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 			
-	
+				if(device.platform!='Android')
+					window.plugins.insomnia.keepAwake();
 		
                 if(id=='1'){
 					//Lo siguiente usaría siempre la lista guardada y nunca se actualizaría
