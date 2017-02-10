@@ -169,9 +169,6 @@ define([
                     //self.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
 					   $(".ui-slider-track a").removeAttr("href");
-					   if(device.platform!='Android')
-						this.playfun();
-						//window.plugins.insomnia.keepAwake();
 					}, 1500); 
                 }
 	
@@ -598,6 +595,10 @@ define([
                 this.durflag=true;
                 this.my_media.play();
                 this.my_media.stop();
+				setTimeout(function() {
+					if(device.platform!='Android')
+						self.my_media.stop();
+				}, 1000); 
                 this.mediaTimer = setInterval(function () {
 	
                     if(this.durflag){
