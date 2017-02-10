@@ -191,7 +191,10 @@ define([
 	               
 				console.log("downloadAndPlay");
 				console.log(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"));
-				window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.finallydownloadAndPlay.bind(this));
+				if(device.platform!='Android')
+					window.resolveLocalFileSystemURL('cdvfile://localhost/persistent/audios/'+this.model.get("audioName"), this.nodownload.bind(this), this.finallydownloadAndPlay.bind(this));
+				else
+					window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+this.model.get("audioName"), this.nodownload.bind(this), this.finallydownloadAndPlay.bind(this));
 	
             },
 			
