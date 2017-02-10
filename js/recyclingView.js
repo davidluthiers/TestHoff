@@ -706,7 +706,12 @@ define([
                 if(!this.audioplaying){
                     try{
                         this.my_media.play();
-						window.plugins.insomnia.keepAwake(function(){console.log("keepawake success");},function(e){console.log("keepawake error: " +e);});
+						try{
+							window.plugins.insomnia.keepAwake(function(){console.log("keepawake success");},function(e){console.log("keepawake error: " +e);});
+						}
+						catch(e){
+							console.log("Error keepawake: " + e);
+						}
                     }
                     catch(e){}
                     this.audioplaying=true;
