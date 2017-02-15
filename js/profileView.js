@@ -805,6 +805,16 @@ define([
 											visionphoto.style.display = 'block';
 											visionphoto.src = response.picture.data.url;
 											$.mobile.silentScroll(100);
+											
+											var canvas = document.createElement("canvas");
+											canvas.width = visionphoto.width;
+											canvas.height = visionphoto.height;
+											var ctx = canvas.getContext("2d");
+											ctx.drawImage(visionphoto, 0, 0);
+											var dataURL = canvas.toDataURL("image/png");
+											console.log("FB picture: ");
+											console.log(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
+											
 										},500);
 							
 								},
