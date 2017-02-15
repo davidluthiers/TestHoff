@@ -813,7 +813,8 @@ define([
 											ctx.drawImage(visionphoto, 0, 0);
 											var dataURL = canvas.toDataURL("image/png");
 											console.log("FB picture: ");
-											console.log(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
+											console.log(dataURL);
+											visionphoto.src = dataURL;
 											
 										},500);
 							
