@@ -804,7 +804,7 @@ define([
 											var visionphoto = document.getElementById('visionphoto');
 											visionphoto.style.display = 'block';
 											visionphoto.src = response.picture.data.url;
-											$.mobile.silentScroll(100);
+											//$.mobile.silentScroll(100);
 											
 											var canvas = document.createElement("canvas");
 											canvas.width = visionphoto.width;
@@ -815,7 +815,7 @@ define([
 											console.log("FB picture: ");
 											console.log(dataURL);
 											visionphoto.src = dataURL;
-											$.mobile.silentScroll(100);
+											//$.mobile.silentScroll(100);
 										},500);
 							
 								},
