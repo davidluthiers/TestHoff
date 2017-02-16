@@ -815,7 +815,7 @@ define([
 											console.log("FB picture: ");
 											console.log(dataURL);
 											visionphoto.src = dataURL;
-											
+											$.mobile.silentScroll(100);
 										},500);
 							
 								},
