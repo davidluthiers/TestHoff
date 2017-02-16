@@ -807,19 +807,23 @@ define([
 											visionphoto.style.display = 'block';
 											fbcontainer.src = response.picture.data.url;
 											//$.mobile.silentScroll(100);
+											fbcontainer.onload = function() {
+												
+												//var canvas = document.createElement("canvas");
+												var canvas = document.getElementById('myCanvas');
+												canvas.width = fbcontainer.width;
+												canvas.height = fbcontainer.height;
+												var ctx = canvas.getContext("2d");
+												ctx.clearRect(0, 0, canvas.width, canvas.height);
+												ctx.drawImage(fbcontainer, 0, 0);
+												var dataURL = canvas.toDataURL();
+												console.log("FB picture: ");
+												console.log(dataURL);
+												visionphoto.src = dataURL;
+												//$.mobile.silentScroll(100);
+												
+											} ;
 											
-											//var canvas = document.createElement("canvas");
-											var canvas = document.getElementById('myCanvas');
-											canvas.width = fbcontainer.width;
-											canvas.height = fbcontainer.height;
-											var ctx = canvas.getContext("2d");
-											ctx.clearRect(0, 0, canvas.width, canvas.height);
-											ctx.drawImage(fbcontainer, 0, 0);
-											var dataURL = canvas.toDataURL();
-											console.log("FB picture: ");
-											console.log(dataURL);
-											visionphoto.src = dataURL;
-											//$.mobile.silentScroll(100);
 										},500);
 							
 								},
