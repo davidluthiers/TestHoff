@@ -117,8 +117,8 @@
 		</gap:config-file>
 		
 		<gap:plugin name="cordova-plugin-googlemaps" source="npm" >
-			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
-			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
+			<param name="API_KEY_FOR_ANDROID" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
+			<param name="API_KEY_FOR_IOS" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
 		</gap:plugin>
 
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
