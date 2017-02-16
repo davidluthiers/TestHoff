@@ -802,16 +802,19 @@ define([
 									setTimeout(function(){
 											console.log('Ponemos foto de perfil');
 											var visionphoto = document.getElementById('visionphoto');
+											var fbcontainer = document.getElementById('fbcontainer');
+											
 											visionphoto.style.display = 'block';
-											visionphoto.src = response.picture.data.url;
+											fbcontainer.src = response.picture.data.url;
 											//$.mobile.silentScroll(100);
 											
 											//var canvas = document.createElement("canvas");
 											var canvas = document.getElementById('myCanvas');
-											canvas.width = visionphoto.width;
-											canvas.height = visionphoto.height;
+											canvas.width = fbcontainer.width;
+											canvas.height = fbcontainer.height;
 											var ctx = canvas.getContext("2d");
-											ctx.drawImage(visionphoto, 0, 0);
+											ctx.clearRect(0, 0, canvas.width, canvas.height);
+											ctx.drawImage(fbcontainer, 0, 0);
 											var dataURL = canvas.toDataURL("image/png");
 											console.log("FB picture: ");
 											console.log(dataURL);
