@@ -815,7 +815,7 @@ define([
 											var ctx = canvas.getContext("2d");
 											ctx.clearRect(0, 0, canvas.width, canvas.height);
 											ctx.drawImage(fbcontainer, 0, 0);
-											var dataURL = canvas.toDataURL("image/png");
+											var dataURL = canvas.toDataURL();
 											console.log("FB picture: ");
 											console.log(dataURL);
 											visionphoto.src = dataURL;
