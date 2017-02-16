@@ -806,7 +806,8 @@ define([
 											visionphoto.src = response.picture.data.url;
 											//$.mobile.silentScroll(100);
 											
-											var canvas = document.createElement("canvas");
+											//var canvas = document.createElement("canvas");
+											var canvas = document.getElementById('myCanvas');
 											canvas.width = visionphoto.width;
 											canvas.height = visionphoto.height;
 											var ctx = canvas.getContext("2d");
