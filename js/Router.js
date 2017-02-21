@@ -311,7 +311,7 @@ define([
                     }
                 });
                 //}
-                var DRUPAL_SERVER = "http://hoffmanapp.indret.webfactional.com/hoffapp/";
+                var DRUPAL_SERVER = "http://appv2.hoffman-international.com/hoffapp/";
                 console.log("intenta fer un login d'appuser");
                 var self=this;
                 logintrys -= 1;
@@ -433,7 +433,7 @@ define([
                 }
                 else{
                     logintrys--;
-                    Drupal.settings.site_path = "http://hoffmanapp.indret.webfactional.com";
+                    Drupal.settings.site_path = "http://appv2.hoffman-international.com";
                     Drupal.settings.endpoint = "hoffapp";
 
                     user_login("appuser", "appuser", {
@@ -468,7 +468,7 @@ define([
 		
                 var self=this;
 			
-                Drupal.settings.site_path = "http://hoffmanapp.indret.webfactional.com";
+                Drupal.settings.site_path = "http://appv2.hoffman-international.com";
                 Drupal.settings.endpoint = "hoffapp";
                 innerlog.add("Executing checkAndDo:\n");
 				console.log("checkAndDo");
@@ -579,7 +579,7 @@ define([
                     beforeSend: function (request) {
                         request.setRequestHeader("X-CSRF-Token", historial.get("languages").get("sesToken"));
                     },
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "active-languages.jsonp",
+                    url: "http://appv2.hoffman-international.com/hoffapp/" + "active-languages.jsonp",
                     processData: true,
                     success: function(data) {
                         innerlog.add("success\n");
@@ -673,7 +673,7 @@ define([
                     beforeSend: function (request) {
                         request.setRequestHeader("X-CSRF-Token", historial.get("languages").get("sesToken"));
                     },
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "audios.jsonp",
+                    url: "http://appv2.hoffman-international.com/hoffapp/" + "audios.jsonp",
                     processData: true,
                     success: function(data) {
                         historial.get("languages").set("quadAudio",false)
@@ -748,7 +748,7 @@ define([
                     beforeSend: function (request) {
                         request.setRequestHeader("X-CSRF-Token", historial.get("languages").get("sesToken"));
                     },
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "active-languages.jsonp",
+                    url: "http://appv2.hoffman-international.com/hoffapp/" + "active-languages.jsonp",
                     processData: true,
                     success: function(data) {
                         innerlog.add("success");
@@ -785,7 +785,7 @@ define([
                     beforeSend: function (request) {
                         request.setRequestHeader("X-CSRF-Token", historial.get("languages").get("sesToken"));
                     },
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "active-languages.jsonp",
+                    url: "http://appv2.hoffman-international.com/hoffapp/" + "active-languages.jsonp",
                     processData: true,
                     success: function(data) {
                         console.log("languages: ", data);
@@ -931,7 +931,7 @@ define([
 			
 			checkLanguages: function(option){
 				
-				var DRUPAL_SERVER = "http://hoffmanapp.indret.webfactional.com/hoffapp/";
+				var DRUPAL_SERVER = "http://appv2.hoffman-international.com/hoffapp/";
                         var params_quotes = {
                             type: 'GET',
                             dataType: 'jsonp',
@@ -997,7 +997,7 @@ define([
             getQuotes: function(LANGUAGE){
                 innerlog.add("Executing getQuotes\n");
                 var self=this;
-                var DRUPAL_SERVER = "http://hoffmanapp.indret.webfactional.com/hoffapp/";
+                var DRUPAL_SERVER = "http://appv2.hoffman-international.com/hoffapp/";
                 var params_quotes = {
                     type: 'GET',
                     dataType: 'jsonp',
@@ -1067,8 +1067,8 @@ define([
             },
 		
             gettranslation: function(LANGUAGE){
-                console.log("downloading: " + "http://hoffmanapp.indret.webfactional.com/hoffapp/"+LANGUAGE+".jsonp");
-                var DRUPAL_SERVER = "http://hoffmanapp.indret.webfactional.com/hoffapp/";
+                console.log("downloading: " + "http://appv2.hoffman-international.com/hoffapp/"+LANGUAGE+".jsonp");
+                var DRUPAL_SERVER = "http://appv2.hoffman-international.com/hoffapp/";
                 innerlog.add("Executing gettranslation:\n");
 				//LANGUAGE=LANGUAGE.replace("-", "_");
                 var self=this;
@@ -1831,7 +1831,7 @@ define([
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/share_app",
+                    url: "http://appv2.hoffman-international.com/hoffapp/share_app",
                     processData: true,
                     success: function(data) {
 						console.log(data);
@@ -1972,7 +1972,7 @@ define([
                     beforeSend: function (request) {
                         request.setRequestHeader("X-CSRF-Token", historial.get("languages").get("sesToken"));
                     },
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
+                    url: "http://appv2.hoffman-international.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
                     processData: true,
                     success: function(data) {
                         console.log(data.field_audio.und[0]);
@@ -2041,7 +2041,7 @@ define([
                     beforeSend: function (request) {
                         request.setRequestHeader("X-CSRF-Token", historial.get("languages").get("sesToken"));
                     },
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
+                    url: "http://appv2.hoffman-international.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
                     processData: true,
                     success: function(data) {
                         console.log(data.field_audio.und[0]);

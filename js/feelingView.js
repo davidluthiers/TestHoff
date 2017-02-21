@@ -243,7 +243,7 @@ define([
                     context: this,
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/actions_" + self.history.get("languages").get("languageAC"),
+                    url: "http://appv2.hoffman-international.com/hoffapp/actions_" + self.history.get("languages").get("languageAC"),
                     processData: true,
                     success: function(data) {
 						aux=self.history.get("languages");
@@ -288,7 +288,7 @@ define([
                 var params_languages = { //active languages
                     type: 'GET',
                     dataType: 'json',
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/feelings_" + self.history.get("languages").get("languageAC"),
+                    url: "http://appv2.hoffman-international.com/hoffapp/feelings_" + self.history.get("languages").get("languageAC"),
                     processData: true,
                     success: function(data) {
                         console.log(data);

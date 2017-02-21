@@ -412,7 +412,7 @@ define([
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/hoffpeople",
+                    url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople",
                     processData: true,
                     success: function(data) {
 						var flag = false;
@@ -546,7 +546,7 @@ define([
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://hoffmanapp.indret.webfactional.com/hoffapp/hoffpeople",
+                    url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople",
                     processData: true,
                     success: function(data) {
 						console.log("DATA: ");
