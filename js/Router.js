@@ -918,9 +918,14 @@ define([
                     else{
                         console.log("No ha pasado un dia para cambiar quote, quito spinner");
                         innerlog.add("going to navigate");
-                        Backbone.history.navigate("#auxsummary", {
-                            trigger: true
-                        });
+						try{
+							Backbone.history.navigate("#auxsummary", {
+								trigger: true
+							});
+						}
+						catch(e){
+							console.log("Error en navigate auxsummary: " + e);
+						}
                         try{
                             window.plugins.spinnerDialog.hide();
                         }
