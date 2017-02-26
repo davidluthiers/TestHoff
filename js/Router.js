@@ -75,12 +75,16 @@ define([
 		
 		
 				console.log("Principal");
-				
-				historial.fetch();
-				language.fetch();
-				donotshow.fetch();
-				nodelist.fetch();
-				profileM.fetch();
+				try{
+					historial.fetch();
+					language.fetch();
+					donotshow.fetch();
+					nodelist.fetch();
+					profileM.fetch();
+				}
+				catch(e){
+					console.log("Error fetch: " +e);
+				}
 	    
                 new FastClick(document.body);
                 FastClick.attach(document.body);
@@ -144,13 +148,17 @@ define([
                 catch(err){}
 			
 			
-                historial.create(donotshow);
-				historial.create(profileM);
+               
 				try{
+					historial.create(donotshow);
+					historial.create(profileM);
 					console.log("historial.create(nodelist) :");
 					historial.create(nodelist);
 				}
-				catch(e){console.log(e);}
+				catch(e){
+					console.log("Error historial.create: " + e);
+				}
+				
                 //historial.create(innerlog);
 				innerlog.add("About to choose path, downloaded: " + language.get("downloaded") + " and Checkversion: " + language.get("Checkversion"));
                 if(language.get("downloaded")=="no" && !language.get("Checkversion")){ //si no tienes lenguaje te lo intentas descargar
@@ -2257,8 +2265,12 @@ define([
 				var nodelist= new nodelistModel({
 					id: "nodelist"
 				});
-				
-                historial.create(language);
+				try{
+					historial.create(language);
+				}
+				catch(e){
+					console.log("Error historial.create(language): " +e);
+				}
  
                 loaded = false;
 	
