@@ -161,7 +161,13 @@ define([
 				
                 //historial.create(innerlog);
 				innerlog.add("About to choose path, downloaded: " + language.get("downloaded") + " and Checkversion: " + language.get("Checkversion"));
-                if(language.get("downloaded")=="no" && !language.get("Checkversion")){ //si no tienes lenguaje te lo intentas descargar
+				try{
+					console.log("dic_hoffman_connect is: "+ historial.get("languages").get("dic_hoffman_connect"));
+				}
+				catch(e){
+					console.log("Error dic_hoffman_connect: " + e);
+				}
+                if((language.get("downloaded")=="no" && !language.get("Checkversion")) || typeof historial.get("languages").get("dic_hoffman_connect") == 'undefined'){ //si no tienes lenguaje te lo intentas descargar
                     console.log("No hay lenguaje");
                     language.set("languageAC", "en-GB");
                     language.set("quadAudio", false);
@@ -815,7 +821,7 @@ define([
                 console.log(historial.get("languages").get("fecha") + " vs " + fecha.getTime() );
                 if((historial.get("languages").get("fecha")+ 86400000)<fecha.getTime()){ //dia distinto, 86400000 = 1 día en milisecs
                     if(historial.get("languages").get("quote2")!=""){//si tenemos quote2 hay que pasar al nuevo, cargar summary y descargar siguientes 2
-                        if(true){
+                        if(!Checkversion){
 							app_router.drupaldo(app_router.comprobarversion.bind(this),"null",true);
                         }
                         aux=historial.get("languages");
