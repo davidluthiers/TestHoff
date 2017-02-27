@@ -120,6 +120,11 @@
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</gap:plugin>
+		
+		<gap:config-file platform="android" parent="/manifest" mode="delete">
+		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		</gap:config-file>
 
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
 		
