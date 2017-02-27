@@ -162,12 +162,12 @@ define([
                 //historial.create(innerlog);
 				innerlog.add("About to choose path, downloaded: " + language.get("downloaded") + " and Checkversion: " + language.get("Checkversion"));
 				try{
-					console.log("dic_hoffman_connect is: "+ historial.get("languages").get("dic_hoffman_connect"));
+					console.log("dic_hoffman_connect is: "+ language.get("dic_hoffman_connect"));
 				}
 				catch(e){
 					console.log("Error dic_hoffman_connect: " + e);
 				}
-                if((language.get("downloaded")=="no" && !language.get("Checkversion")) || typeof historial.get("languages").get("dic_hoffman_connect") == 'undefined'){ //si no tienes lenguaje te lo intentas descargar
+                if((language.get("downloaded")=="no" && !language.get("Checkversion")) || typeof language.get("dic_hoffman_connect") == 'undefined'){ //si no tienes lenguaje te lo intentas descargar
                     console.log("No hay lenguaje");
                     language.set("languageAC", "en-GB");
                     language.set("quadAudio", false);
