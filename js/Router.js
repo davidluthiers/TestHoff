@@ -815,7 +815,7 @@ define([
                 console.log(historial.get("languages").get("fecha") + " vs " + fecha.getTime() );
                 if((historial.get("languages").get("fecha")+ 86400000)<fecha.getTime()){ //dia distinto, 86400000 = 1 día en milisecs
                     if(historial.get("languages").get("quote2")!=""){//si tenemos quote2 hay que pasar al nuevo, cargar summary y descargar siguientes 2
-                        if(!Checkversion){
+                        if(true){
 							app_router.drupaldo(app_router.comprobarversion.bind(this),"null",true);
                         }
                         aux=historial.get("languages");
