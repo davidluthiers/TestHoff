@@ -5,12 +5,12 @@
 		id        = "com.hoffman-international.hoffman-app"
 		version   = "2.0.0"
 		android-versionCode="1802">
-		
+
 		<gap:config-file platform="ios" parent="CFBundleVersion">
-            <string>3</string>
+            <string>4</string>
         </gap:config-file>
         <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-    		<string>1.0</string>
+    		<string>2.0.0</string>
 		</gap:config-file>
 
 
@@ -48,14 +48,14 @@
 		<preference name="BackgroundColor" value="0x000000"/>
 		<preference name="KeepRunning" value="true"/>
 		<preference name="DisallowOverscroll" value="true"/>
-		<preference name="LoadingDialog" value=","/> 
+		<preference name="LoadingDialog" value=","/>
 		<preference name="LoadUrlTimeoutValue" value="20000" />
 		<preference name="disable-cursor" value="false" />
 		<preference name="android-build-tool" value="gradle" />
 		<preference name="SplashShowOnlyFirstTime" value="false" />
-		
-		
-		
+
+
+
 		<icon src="icon.png" />
 		<icon src="icons/ios/29.png"   gap:platform="ios"          width="29" height="29" />
 		<icon src="icons/ios/40.png"   gap:platform="ios"          width="40" height="40" />
@@ -75,11 +75,11 @@
 		<icon src="icons/android/48.png"   gap:platform="android"      gap:qualifier="mdpi" />
 		<icon src="icons/android/72.png"   gap:platform="android"      gap:qualifier="hdpi" />
 		<icon src="icons/android/96.png"   gap:platform="android"      gap:qualifier="xhdpi" />
-		
+
 		<gap:splash src="splash/ios/Default.png"       gap:platform="ios"     width="320" height="480" />
 		<gap:splash src="splash/ios/Default@2x.png"       gap:platform="ios"     width="640" height="960" />
 		<gap:splash src="splash/ios/Default-568h@2x.png"      gap:platform="ios"     width="640" height="1136" />
-		
+
 		<gap:splash src="splash/ios/splash1334.png" gap:platform="ios" width="750" height="1334"/>
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
@@ -103,7 +103,7 @@
 		<gap:plugin name="cordova-plugin-network-information" source="npm"/>
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		<gap:plugin name="cordova-plugin-x-socialsharing" source="npm"/>
-		
+
 		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
@@ -116,22 +116,22 @@
 		<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
 			<false/>
 		</gap:config-file>
-		
+
 		<gap:plugin name="cordova-plugin-googlemaps" source="npm" >
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</gap:plugin>
-		
+
 		<gap:config-file platform="android" parent="/manifest/" mode="delete">
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</gap:config-file>
 
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
-		
-		
+
+
 		<gap:splash src="splash.png" />
-		
+
 		<gap:config-file platform="ios" parent="UIStatusBarHidden">
 			<true/>
 		</gap:config-file>
@@ -140,12 +140,12 @@
 			<false/>
 		</gap:config-file>
 
-		
+
 		<preference name="SplashScreenDelay" value="15000" />
-		
+
 		<allow-navigation href="*" />
 		<access origin="*" launch-external="yes"/>
-		
-		
-		
+
+
+
 	</widget>
