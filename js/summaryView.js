@@ -74,7 +74,10 @@ define([
                     this.visioncount+=1;
                     var index = this.collection.indexOf(elemento);
                     neoindex=index+20;
-					var filename = elemento.get("uri").replace(/file:\/\/\/.*Application\/.*\//, "");
+					if(device.platform=='Android')
+						var filename = elemento.get("uri").replace(/file:.*cache\//, "");
+					else
+						var filename = elemento.get("uri").replace(/file:\/\/\/.*Application\/.*\//, "");
 					elemento.set("uri",filename);
 					elemento.save();
                     this.$("#summarylist").prepend("<li class='feed' data-icon='false'><p class='fechasummary'>" +

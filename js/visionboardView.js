@@ -240,7 +240,10 @@ define([
                 visionphoto.style.display = 'block'; 
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
-				imageData.replace(/file:\/\/\/.*Application\/.*\//, "");
+				if(device.platform=='Android')
+					imageData.replace(/file:.*cache\//, "");
+				else
+					imageData.replace(/file:\/\/\/.*Application\/.*\//, "");
 				console.log(imageData);
 				visionphoto.src = imageData;
                 this.model.set("uri",imageData);
