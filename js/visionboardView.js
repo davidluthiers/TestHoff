@@ -51,6 +51,7 @@ define([
                         this.model.set("description",$('#textareadesctransfer').val());
                         this.model.set("title",$('#visiontitle').val());
                         historycollection.create(this.model);
+						this.$('#sunsetbig').attr("src",cordova.file.Library+this.model.get("uri"));
                         console.log("Saved");
 		
 			 
@@ -108,9 +109,9 @@ define([
                     var c = document.getElementById("myCanvas");
                     var ctx = c.getContext("2d");
                     var img = new Image();
-                    img.src = this.model.get("uri");
+                    img.src = cordova.file.Library + this.model.get("uri");
                     ctx.drawImage(img,0,0, img.width, img.height);
-                    self.model.set("uri",c.toDataURL("image/png"));
+                    //self.model.set("uri",c.toDataURL("image/png"));
 
                 }
                 try{
@@ -159,7 +160,7 @@ define([
                 if(elemento.get("tool")=="vision"){
                     var index = this.collection.indexOf(elemento);
                     neoindex=index+20;
-                    this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#visionboard" + neoindex +"' data-transition='none'><img class='imagenesminiaturasummary' src='"+ elemento.get("uri") +"' /><h3>"+ elemento.get("title") +"</h3></a><a data-icon='delete' class='deleteEntry elementosfinos' colIndex='"+index+"' data-rel='dialog'' data-transition='none'>Delete</a></li>");
+                    this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#visionboard" + neoindex +"' data-transition='none'><img class='imagenesminiaturasummary' src='"+ cordova.file.Library + elemento.get("uri") +"' /><h3>"+ elemento.get("title") +"</h3></a><a data-icon='delete' class='deleteEntry elementosfinos' colIndex='"+index+"' data-rel='dialog'' data-transition='none'>Delete</a></li>");
                 }
 	
             },
@@ -212,13 +213,23 @@ define([
 					auxprofile.save();
 					this.collection.get("profile").destroy();
 					this.collection.create(auxprofile);
-                    navigator.camera.getPicture(function(imageData){
-                        self.onPhotoDataSuccess(imageData, false);
-                    }, this.onFail, {
-                        quality: 50,
-                        correctOrientation: true,
-						allowEdit: true
-                    });
+					if(device.platform=='Android')
+						navigator.camera.getPicture(function(imageData){
+							self.onPhotoDataSuccess(imageData, false);
+						}, this.onFail, {
+							quality: 50,
+							correctOrientation: true,
+							allowEdit: true
+						});
+					else
+						navigator.camera.getPicture(function(imageData){
+							self.onPhotoDataSuccess(imageData, false);
+						}, this.onFail, {
+							quality: 50,
+							correctOrientation: true,
+							allowEdit: true,
+							destinationType: 2
+						});
 				}
             },
 	
@@ -229,6 +240,8 @@ define([
                 visionphoto.style.display = 'block'; 
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
+				imageData.replace(/file:\/\/\/.*Application\/.*\//, "");
+				console.log(imageData);
 				visionphoto.src = imageData;
                 this.model.set("uri",imageData);
 		

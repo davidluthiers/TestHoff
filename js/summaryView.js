@@ -67,15 +67,20 @@ define([
             },
 	
             takefeed: function(elemento){
+				
+				
 	
                 if(elemento.get("tool")=="vision" && this.visioncount<2){ //maxvisions
                     this.visioncount+=1;
                     var index = this.collection.indexOf(elemento);
                     neoindex=index+20;
+					var filename = elemento.get("uri").replace(/file:\/\/\/.*Application\/.*\//, "");
+					elemento.set("uri",filename);
+					elemento.save();
                     this.$("#summarylist").prepend("<li class='feed' data-icon='false'><p class='fechasummary'>" +
                         elemento.get("date") + "</p><a href='#visionboard" + neoindex +
                         "' data-transition='none'><img class='imagenesminiaturasummary' src='" +
-                        elemento.get("uri") +"' /><h3>"+ elemento.get("title") + " - " + elemento.get("description") +
+                        cordova.file.Library + elemento.get("uri") +"' /><h3>"+ elemento.get("title") + " - " + elemento.get("description") +
                         "</h3></a></li>");
                 }
 	
