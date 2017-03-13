@@ -224,27 +224,13 @@ define([
 	
             onPhotoDataSuccess: function(imageData, base64){
 				console.log("onPhotoDataSuccess, imagedata: ");
-				self=this;
 				console.log(imageData);
                 var visionphoto = document.getElementById('visionphoto');
                 visionphoto.style.display = 'block'; 
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
 				visionphoto.src = imageData;
-                //this.model.set("uri",imageData);
-				visionphoto.onload = function() {
-					
-					//var canvas = document.createElement("canvas");
-					var canvas = document.getElementById('myCanvas');
-					canvas.width = visionphoto.width;
-					canvas.height = visionphoto.height;
-					var ctx = canvas.getContext("2d");
-					ctx.clearRect(0, 0, canvas.width, canvas.height);
-					ctx.drawImage(visionphoto, 0, 0);
-					var dataURL = canvas.toDataURL();
-					self.model.set("uri",dataURL);
-					
-				} ;
+                this.model.set("uri",imageData);
 		
             },
 	
