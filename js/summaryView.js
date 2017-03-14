@@ -75,9 +75,11 @@ define([
                     var index = this.collection.indexOf(elemento);
                     neoindex=index+20;
 					if(device.platform=='Android')
-						var filename = elemento.get("uri").replace(/file:.*cache\//, "");
-					else
+						console.log("Android");
+					else{
 						var filename = elemento.get("uri").replace(/file:\/\/\/.*Application\/.*\//, "");
+						filename = cordova.file.tempDirectory + filename;
+					}
 					elemento.set("uri",filename);
 					elemento.save();
                     this.$("#summarylist").prepend("<li class='feed' data-icon='false'><p class='fechasummary'>" +
