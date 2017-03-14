@@ -243,7 +243,7 @@ define([
 					console.log("android");
 					//imageData.replace(/file:.*cache\//, "");
 				else
-					imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
+					imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 				
 				console.log(imageData);
 				visionphoto.src = imageData;
