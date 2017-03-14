@@ -80,10 +80,11 @@ define([
 						if(elemento.get("uri").startsWith("file")){
 							var filename = elemento.get("uri").replace(/file:\/\/\/.*Application\/.*\//, "");
 							filename = cordova.file.tempDirectory + filename;
+							elemento.set("uri",filename);
+							elemento.save();
 						}
 					}
-					elemento.set("uri",filename);
-					elemento.save();
+					
                     this.$("#summarylist").prepend("<li class='feed' data-icon='false'><p class='fechasummary'>" +
                         elemento.get("date") + "</p><a href='#visionboard" + neoindex +
                         "' data-transition='none'><img class='imagenesminiaturasummary' src='" + elemento.get("uri") +"' /><h3>"+ elemento.get("title") + " - " + elemento.get("description") +
