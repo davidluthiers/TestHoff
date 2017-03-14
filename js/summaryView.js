@@ -77,8 +77,10 @@ define([
 					if(device.platform=='Android')
 						console.log("Android");
 					else{
-						var filename = elemento.get("uri").replace(/file:\/\/\/.*Application\/.*\//, "");
-						filename = cordova.file.tempDirectory + filename;
+						if(elemento.get("uri").startsWith("file")){
+							var filename = elemento.get("uri").replace(/file:\/\/\/.*Application\/.*\//, "");
+							filename = cordova.file.tempDirectory + filename;
+						}
 					}
 					elemento.set("uri",filename);
 					elemento.save();
