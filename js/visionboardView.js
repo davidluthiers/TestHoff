@@ -239,10 +239,11 @@ define([
                 visionphoto.style.display = 'block'; 
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
-				/*if(device.platform=='Android')
-					imageData.replace(/file:.*cache\//, "");
+				if(device.platform=='Android')
+					console.log("android");
+					//imageData.replace(/file:.*cache\//, "");
 				else
-					imageData.replace(/file:\/\/\/.*Application\/.*\//, "");
+					imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 				*/
 				console.log(imageData);
 				visionphoto.src = imageData;
