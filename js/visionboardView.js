@@ -244,7 +244,7 @@ define([
 					//imageData.replace(/file:.*cache\//, "");
 				else
 					imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
-				*/
+				
 				console.log(imageData);
 				visionphoto.src = imageData;
                 this.model.set("uri",imageData);
