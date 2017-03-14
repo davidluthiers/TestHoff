@@ -82,8 +82,7 @@ define([
 					elemento.save();
                     this.$("#summarylist").prepend("<li class='feed' data-icon='false'><p class='fechasummary'>" +
                         elemento.get("date") + "</p><a href='#visionboard" + neoindex +
-                        "' data-transition='none'><img class='imagenesminiaturasummary' src='" +
-                        cordova.file.Library + elemento.get("uri") +"' /><h3>"+ elemento.get("title") + " - " + elemento.get("description") +
+                        "' data-transition='none'><img class='imagenesminiaturasummary' src='" + elemento.get("uri") +"' /><h3>"+ elemento.get("title") + " - " + elemento.get("description") +
                         "</h3></a></li>");
                 }
 	
