@@ -411,7 +411,8 @@ define([
 							auxlanguages.set("quadAudioDownloaded",audiofilename);
 							auxlanguages.save();
 							self.history.create(auxlanguages);
-							target='cdvfile://localhost/persistent/audios/';
+							if(device.platform!='Android')
+								target='cdvfile://localhost/persistent/audios/';
 							self.my_media = new Media(target+self.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
 							setTimeout(function() {
 								
