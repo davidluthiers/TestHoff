@@ -412,7 +412,7 @@ define([
 							auxlanguages.save();
 							self.history.create(auxlanguages);
 							
-							self.my_media = new Media(url, self.mediasuccess, self.nada, self.onStatus);
+							self.my_media = new Media(target+self.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
 							setTimeout(function() {
 								
 								self.preparar();
@@ -526,6 +526,10 @@ define([
                 this.durflag=true;
                 this.my_media.play();
                 this.my_media.stop();
+				setTimeout(function() {
+					if(device.platform!='Android')
+						self.my_media.stop();
+				}, 200); 
                 this.mediaTimer = setInterval(function () {
 	
                     if(this.durflag){
@@ -584,6 +588,7 @@ define([
                 if(!this.audioplaying){
                     try{
                         this.my_media.play();
+						window.plugins.insomnia.keepAwake();
                     }
                     catch(e){}
                     this.audioplaying=true;
