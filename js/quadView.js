@@ -461,7 +461,7 @@ define([
 	
             mediasuccess: function(e){
                 console.log("new media success");
-                console.log(e);
+                //console.log(e);
             },
 	
             nada: function(e){
