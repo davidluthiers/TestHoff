@@ -221,7 +221,7 @@ define([
 							window.resolveLocalFileSystemURL(newFileUri,
 									function(dirEntry) {
 										// move the file to a new directory and rename it
-										fileEntry.moveTo(dirEntry, successCallback, errorCallback);
+										fileEntry.moveTo(dirEntry, fileName, successCallback, errorCallback);
 									},
 									errorCallback);
 					  },
