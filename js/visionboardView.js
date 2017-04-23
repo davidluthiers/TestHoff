@@ -218,7 +218,7 @@ define([
 				window.resolveLocalFileSystemURL(
 					  fileUri,
 					  function(fileEntry){
-							newFileUri  = cordova.file.documentsDirectory+"images/";
+							newFileUri  = 'cdvfile://localhost/persistent/images/';
 							oldFileUri  = fileUri;
 							console.log("resolveLocalFileSystemURL");
 							try{
