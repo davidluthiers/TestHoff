@@ -220,11 +220,13 @@ define([
 					  function(fileEntry){
 							newFileUri  = cordova.file.documentsDirectory+"images/";
 							oldFileUri  = fileUri;
+							console.log("resolveLocalFileSystemURL");
 							try{
 								window.resolveLocalFileSystemURL(newFileUri,
 										function(dirEntry) {
 											// move the file to a new directory and rename it
-											fileEntry.moveTo(dirEntry, "test.jpg", successCallback, errorCallback);
+											console.log("before moveTo");
+											fileEntry.copyTo(dirEntry, "test.jpg", successCallback, errorCallback);
 										},
 										errorCallback);
 							}
