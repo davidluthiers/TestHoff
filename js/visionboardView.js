@@ -282,9 +282,10 @@ define([
                 visionphoto.style.display = 'block'; 
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
-				if(device.platform=='Android')
+				if(device.platform=='Android'){
 					console.log("android");
 					visionphoto.src = imageData;
+				}
 					//imageData.replace(/file:.*cache\//, "");
 				else{
 					var pseudoname= Date.now() + Math.random();
