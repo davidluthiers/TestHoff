@@ -197,17 +197,17 @@ define([
                 }
             },
 			
-			function successCallback(entry) {
+			successCallback:function (entry) {
 				console.log("New Path: " + entry.fullPath);
 				//alert("Success. New Path: " + entry.fullPath);
 			}
 
-			function errorCallback(error) {
+			errorCallback:function (error) {
 				console.log("Error:" + error.code)
 				//alert(error.code);
 			}
 			
-			function moveFile(fileUri) {
+			moveFile:function (fileUri) {
 				fileName=fileUri.replace(/assets-library:\/\//,"");
 				//fileUri=fileUri.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 				console.log("fileName: " + fileName);
