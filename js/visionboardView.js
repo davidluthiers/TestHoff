@@ -291,7 +291,7 @@ define([
 					var pseudoname= Date.now() + Math.random();
 					imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 					this.moveFile(imageData, pseudoname);
-					imageData='cdvfile://localhost/persistent/'+pseudoname;
+					imageData='cdvfile://localhost/persistent/'+pseudoname+".jpg";
 				}
 				console.log(imageData);
                 this.model.set("uri",imageData);
