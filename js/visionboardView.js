@@ -198,7 +198,7 @@ define([
             },
 			
 			
-			moveFile:function (fileUri) {
+			moveFile:function (fileUri, fileName) {
 				
 				function errorCallback (error) {
 					console.log("Error:" + error.code);
@@ -214,7 +214,6 @@ define([
 					visionphoto.src = imageData;
 				}
 				
-				fileName=fileUri.replace(/assets-library:\/\//,"");
 				//fileUri=fileUri.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 				console.log("fileName: " + fileName);
 				console.log("fileUri: " + fileUri);
@@ -288,9 +287,9 @@ define([
 					visionphoto.src = imageData;
 					//imageData.replace(/file:.*cache\//, "");
 				else{
-					var pseudoname=imageData.replace(/assets-library:\/\//,"");
+					var pseudoname= new Date().getUTCMilliseconds();
 					imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
-					this.moveFile(imageData);
+					this.moveFile(imageData, pseudoname);
 					imageData='cdvfile://localhost/persistent/'+pseudoname;
 				}
 				console.log(imageData);
