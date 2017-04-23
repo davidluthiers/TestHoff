@@ -284,7 +284,7 @@ define([
 					console.log("android");
 					//imageData.replace(/file:.*cache\//, "");
 				else{
-					imageData=imageData.replace(/assets-library:\/\//,'cdvfile://localhost/persistent/images/');
+					imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 					this.moveFile(imageData);
 					
 				}
