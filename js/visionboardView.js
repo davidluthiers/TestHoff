@@ -217,7 +217,7 @@ define([
 				window.resolveLocalFileSystemURL(
 					  fileUri,
 					  function(fileEntry){
-							newFileUri  = cordova.file.documentsDirectory+"images/";
+							newFileUri  = cordova.file.documentsDirectory+"images/"+fileName;
 							oldFileUri  = fileUri;
 							try{
 								window.resolveLocalFileSystemURL(newFileUri,
