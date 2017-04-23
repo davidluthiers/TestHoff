@@ -209,11 +209,6 @@ define([
 			
 			moveFile:function (fileUri) {
 				
-				function errorCallback (error) {
-					console.log("Error:" + error.code)
-					//alert(error.code);
-				}
-
 				fileName=fileUri.replace(/assets-library:\/\//,"");
 				//fileUri=fileUri.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 				console.log("fileName: " + fileName);
