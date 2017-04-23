@@ -196,6 +196,37 @@ define([
 					$("#summarylist").listview("refresh");
                 }
             },
+			
+			function successCallback(entry) {
+				console.log("New Path: " + entry.fullPath);
+				//alert("Success. New Path: " + entry.fullPath);
+			}
+
+			function errorCallback(error) {
+				console.log("Error:" + error.code)
+				//alert(error.code);
+			}
+			
+			function moveFile(fileUri) {
+				fileName=fileUri.replace(/assets-library:\/\//,"");
+				//fileUri=fileUri.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
+				console.log("fileName: " + fileName);
+				console.log("fileUri: " + fileUri);
+				window.resolveLocalFileSystemURL(
+					  fileUri,
+					  function(fileEntry){
+							newFileUri  = cordova.file.documentsDirectory+"images/"+audiofilename;
+							oldFileUri  = fileUri;
+
+							window.resolveLocalFileSystemURL(newFileUri,
+									function(dirEntry) {
+										// move the file to a new directory and rename it
+										fileEntry.moveTo(dirEntry, successCallback, errorCallback);
+									},
+									errorCallback);
+					  },
+					  errorCallback);
+			},
 	
             addphotovision: function(){
                 self = this;
@@ -235,6 +266,7 @@ define([
             onPhotoDataSuccess: function(imageData, base64){
 				console.log("onPhotoDataSuccess, imagedata: ");
 				console.log(imageData);
+				console.log(base64);
                 var visionphoto = document.getElementById('visionphoto');
                 visionphoto.style.display = 'block'; 
 				if(base64)
@@ -242,9 +274,11 @@ define([
 				if(device.platform=='Android')
 					console.log("android");
 					//imageData.replace(/file:.*cache\//, "");
-				else
-					imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
-				
+				else{
+					moveFile(imageData);
+					imageData=imageData.replace(/assets-library:\/\//,'cdvfile://localhost/persistent/images/');
+					
+				}
 				console.log(imageData);
 				visionphoto.src = imageData;
                 this.model.set("uri",imageData);
