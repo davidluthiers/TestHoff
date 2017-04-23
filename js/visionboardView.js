@@ -282,16 +282,18 @@ define([
                 visionphoto.style.display = 'block'; 
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
-				if(device.platform=='Android'){
+				if(device.platform=='Android' || base64){
 					console.log("android");
 					visionphoto.src = imageData;
 				}
 					//imageData.replace(/file:.*cache\//, "");
 				else{
-					var pseudoname= Date.now() + Math.random();
-					imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
-					this.copyFile(imageData, pseudoname);
-					imageData='cdvfile://localhost/persistent/'+pseudoname+".jpg";
+					if(!base64){
+						var pseudoname= Date.now() + Math.random();
+						imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
+						this.moveFile(imageData, pseudoname);
+						imageData='cdvfile://localhost/persistent/'+pseudoname+".jpg";
+					}
 				}
 				console.log(imageData);
                 this.model.set("uri",imageData);
