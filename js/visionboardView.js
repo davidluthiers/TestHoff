@@ -202,6 +202,7 @@ define([
 				
 				function errorCallback (error) {
 					console.log("Error:" + error.code);
+					console.log(error);
 				//alert(error.code);
 				}
 				
@@ -217,7 +218,7 @@ define([
 				window.resolveLocalFileSystemURL(
 					  fileUri,
 					  function(fileEntry){
-							newFileUri  = cordova.file.documentsDirectory+"images/"+fileName;
+							newFileUri  = cordova.file.documentsDirectory+"images/";
 							oldFileUri  = fileUri;
 							try{
 								window.resolveLocalFileSystemURL(newFileUri,
