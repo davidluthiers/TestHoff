@@ -287,7 +287,7 @@ define([
 					visionphoto.src = imageData;
 					//imageData.replace(/file:.*cache\//, "");
 				else{
-					var pseudoname= new Date().getUTCMilliseconds();
+					var pseudoname= Date.now() + Math.random();
 					imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 					this.moveFile(imageData, pseudoname);
 					imageData='cdvfile://localhost/persistent/'+pseudoname;
