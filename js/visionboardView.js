@@ -209,6 +209,9 @@ define([
 				function successCallback (entry) {
 					console.log("New Path: " + entry.fullPath);
 					//alert("Success. New Path: " + entry.fullPath);
+					imageData='cdvfile://localhost/persistent'+entry;
+					var visionphoto = document.getElementById('visionphoto');
+					visionphoto.src = imageData;
 				}
 				
 				fileName=fileUri.replace(/assets-library:\/\//,"");
@@ -226,7 +229,7 @@ define([
 										function(dirEntry) {
 											// move the file to a new directory and rename it
 											console.log("before moveTo");
-											fileEntry.copyTo(dirEntry, "test.jpg", successCallback, errorCallback);
+											fileEntry.copyTo(dirEntry, fileName+".jpg", successCallback, errorCallback);
 										},
 										errorCallback);
 							}
@@ -282,14 +285,15 @@ define([
 					imageData = "data:image/png;base64," + imageData;
 				if(device.platform=='Android')
 					console.log("android");
+					visionphoto.src = imageData;
 					//imageData.replace(/file:.*cache\//, "");
 				else{
+					var pseudoname=imageData.replace(/assets-library:\/\//,"");
 					imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 					this.moveFile(imageData);
-					
+					imageData='cdvfile://localhost/persistent/'+pseudoname;
 				}
 				console.log(imageData);
-				visionphoto.src = imageData;
                 this.model.set("uri",imageData);
 		
             },
