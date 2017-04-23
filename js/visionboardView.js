@@ -224,7 +224,7 @@ define([
 								window.resolveLocalFileSystemURL(newFileUri,
 										function(dirEntry) {
 											// move the file to a new directory and rename it
-											fileEntry.moveTo(dirEntry, fileName, successCallback, errorCallback);
+											fileEntry.moveTo(dirEntry, "test.jpg", successCallback, errorCallback);
 										},
 										errorCallback);
 							}
@@ -282,8 +282,8 @@ define([
 					console.log("android");
 					//imageData.replace(/file:.*cache\//, "");
 				else{
-					this.moveFile(imageData);
 					imageData=imageData.replace(/assets-library:\/\//,'cdvfile://localhost/persistent/images/');
+					this.moveFile(imageData);
 					
 				}
 				console.log(imageData);
