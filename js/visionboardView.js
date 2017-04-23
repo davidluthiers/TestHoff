@@ -211,7 +211,7 @@ define([
 					//alert("Success. New Path: " + entry.fullPath);
 					imageData='cdvfile://localhost/persistent'+entry;
 					var visionphoto = document.getElementById('visionphoto');
-					visionphoto.src = imageData;
+					visionphoto.src = imageData.fullPath;
 				}
 				
 				//fileUri=fileUri.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
