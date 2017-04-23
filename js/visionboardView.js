@@ -202,11 +202,15 @@ define([
 				//alert("Success. New Path: " + entry.fullPath);
 			},
 
+			errorCallback:function (error) {
+				console.log("Error:" + error.code);
+				//alert(error.code);
+			},
 			
 			moveFile:function (fileUri) {
 				
 				function errorCallback (error) {
-					console.log("Error:" + error.code);
+					console.log("Error:" + error.code)
 					//alert(error.code);
 				}
 
