@@ -200,12 +200,12 @@ define([
 			successCallback:function (entry) {
 				console.log("New Path: " + entry.fullPath);
 				//alert("Success. New Path: " + entry.fullPath);
-			}
+			},
 
 			errorCallback:function (error) {
 				console.log("Error:" + error.code)
 				//alert(error.code);
-			}
+			},
 			
 			moveFile:function (fileUri) {
 				fileName=fileUri.replace(/assets-library:\/\//,"");
