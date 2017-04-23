@@ -159,7 +159,7 @@ define([
                 if(elemento.get("tool")=="vision"){
                     var index = this.collection.indexOf(elemento);
                     neoindex=index+20;
-                    this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#visionboard" + neoindex +"' data-transition='none'><img class='imagenesminiaturasummary' src='"+ elemento.get("uri") +"' /><h3>"+ elemento.get("title") +"</h3></a><a data-icon='delete' class='deleteEntry elementosfinos' colIndex='"+index+"' data-rel='dialog'' data-transition='none'>Delete</a></li>");
+                    this.$("#summarylist").prepend("<li class='feed' data-icon='false'><p class='fechasummary'>" + elemento.get("date") + "</p><a href='#visionboard" + neoindex +"' data-transition='none'><img class='imagenesminiaturasummary' src='"+ elemento.get("uri") +"' /><h3>"+ elemento.get("title") +"</h3></a><a data-icon='delete' class='deleteEntry elementosfinos' colIndex='"+index+"' data-rel='dialog'' data-transition='none'>Delete</a></li>");
                 }
 	
             },
