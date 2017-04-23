@@ -218,7 +218,7 @@ define([
 				window.resolveLocalFileSystemURL(
 					  fileUri,
 					  function(fileEntry){
-							newFileUri  = 'cdvfile://localhost/persistent/images/';
+							newFileUri  = 'cdvfile://localhost/persistent/';
 							oldFileUri  = fileUri;
 							console.log("resolveLocalFileSystemURL");
 							try{
