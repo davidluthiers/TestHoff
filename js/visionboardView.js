@@ -208,7 +208,7 @@ define([
 				function successCallback (entry) {
 					console.log("New Path: " + entry.fullPath);
 					//alert("Success. New Path: " + entry.fullPath);
-				},
+				}
 				
 				fileName=fileUri.replace(/assets-library:\/\//,"");
 				//fileUri=fileUri.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
