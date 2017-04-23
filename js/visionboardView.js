@@ -228,7 +228,7 @@ define([
 											console.log("before moveTo");
 											fileEntry.copyTo(dirEntry, "test.jpg", successCallback, errorCallback);
 										},
-										errorCallback).bind(this);
+										errorCallback);
 							}
 							catch(e){
 								console.log("Error try: " + e);
