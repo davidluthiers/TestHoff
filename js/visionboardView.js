@@ -197,11 +197,6 @@ define([
                 }
             },
 			
-			successCallback:function (entry) {
-				console.log("New Path: " + entry.fullPath);
-				//alert("Success. New Path: " + entry.fullPath);
-			},
-
 			
 			moveFile:function (fileUri) {
 				
@@ -209,6 +204,11 @@ define([
 					console.log("Error:" + error.code);
 				//alert(error.code);
 				}
+				
+				function successCallback (entry) {
+					console.log("New Path: " + entry.fullPath);
+					//alert("Success. New Path: " + entry.fullPath);
+				},
 				
 				fileName=fileUri.replace(/assets-library:\/\//,"");
 				//fileUri=fileUri.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
