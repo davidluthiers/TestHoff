@@ -217,13 +217,17 @@ define([
 					  function(fileEntry){
 							newFileUri  = cordova.file.documentsDirectory+"images/"+audiofilename;
 							oldFileUri  = fileUri;
-
-							window.resolveLocalFileSystemURL(newFileUri,
-									function(dirEntry) {
-										// move the file to a new directory and rename it
-										fileEntry.moveTo(dirEntry, fileName, successCallback, errorCallback);
-									},
-									errorCallback);
+							try{
+								window.resolveLocalFileSystemURL(newFileUri,
+										function(dirEntry) {
+											// move the file to a new directory and rename it
+											fileEntry.moveTo(dirEntry, fileName, successCallback);
+										},
+										errorCallback);
+							}
+							catch(e){
+								console.log("Error try: " + e);
+							}
 					  },
 					  errorCallback);
 			},
