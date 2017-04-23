@@ -209,9 +209,9 @@ define([
 				function successCallback (entry) {
 					console.log("New Path: " + entry.fullPath);
 					//alert("Success. New Path: " + entry.fullPath);
-					imageData='cdvfile://localhost/persistent'+entry;
+					imageData='cdvfile://localhost/persistent'+entry.fullPath;
 					var visionphoto = document.getElementById('visionphoto');
-					visionphoto.src = imageData.fullPath;
+					visionphoto.src = imageData;
 				}
 				
 				//fileUri=fileUri.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
