@@ -109,10 +109,11 @@ define([
                     var ctx = c.getContext("2d");
                     var img = new Image();
 					img.onload = function(){
-						ctx.drawImage(this,0,0);
+						ctx.drawImage(this,0,0,600,400);
 						//self.model.set("uri",c.toDataURL("image/png"));
-						console.log("Debug: " + c.toDataURL("image/jpeg"));
-						window.plugins.socialsharing.share(self.model.get("title"), null, c.toDataURL("image/jpeg"), null);
+						var picture= c.toDataURL("image/jpeg");
+						console.log("Debug: " + picture);
+						window.plugins.socialsharing.share(self.model.get("title"), null, picture, null);
 					};
                     img.src = this.model.get("uri");
                     
