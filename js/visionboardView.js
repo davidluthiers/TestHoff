@@ -126,23 +126,34 @@ define([
 	
             share: function(){
                 var self=this;
-
-				if(this.model.get("uri").length<2000){
-					self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
-					  //window.open(base64Image);
-					  //console.log("getFileContentAsBase64:"+base64Image); 
-					  window.plugins.socialsharing.share("", null, base64Image, null);
-					  // Then you'll be able to handle the myimage.png file as base64
-					});
-				}
-				else{
-					var simage = self.model.get("uri");
-					//console.log("sharing from gallery: " + simage);
-					window.plugins.socialsharing.share("", null, simage, null);
-				}
+                if(true){
+	
+					if(this.model.get("uri").length<2000){
+						self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
+						  //window.open(base64Image);
+						  console.log("getFileContentAsBase64:"+base64Image); 
+						  window.plugins.socialsharing.share("", null, base64Image, null);
+						  // Then you'll be able to handle the myimage.png file as base64
+						});
+					}
+					else{
+						var simage = self.model.get("uri");
+						console.log("sharing from gallery: " + simage);
+						window.plugins.socialsharing.share("", null, simage, null);
+					}
 
                     
-                
+                }
+				else{
+					try{
+						console.log("SHARE: " + self.model.get("uri"));
+						window.plugins.socialsharing.share(self.model.get("title"), null, self.model.get("uri"), null);
+					}
+					catch(e){
+						alert(e);
+						console.log(e);
+					}
+				}
             },
 	
             getfromgallery:function(){
