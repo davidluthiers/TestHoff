@@ -116,7 +116,10 @@ define([
 							   callback(content);
 						  };
 						  // The most important point, use the readAsDatURL Method from the file plugin
-						  reader.readAsDataURL(file);
+						  try{
+							reader.readAsDataURL(file);
+						  }
+						  catch(e){console.log(e);}
 					   });
 				}
 			},
@@ -124,11 +127,14 @@ define([
             share: function(){
                 var self=this;
                 if(true){
-					self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
-					  //window.open(base64Image);
-					  console.log("getFileContentAsBase64:"+base64Image); 
-					  // Then you'll be able to handle the myimage.png file as base64
-					});
+					try{
+						self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
+						  //window.open(base64Image);
+						  console.log("getFileContentAsBase64:"+base64Image); 
+						  // Then you'll be able to handle the myimage.png file as base64
+						});
+					}
+					catch(e){console.log(e);}
                     console.log("transforming...");
                     var c = document.getElementById("myCanvas");
                     var ctx = c.getContext("2d");
