@@ -128,11 +128,13 @@ define([
                 var self=this;
                 if(true){
 					try{
+						console.log('1');
 						self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
 						  //window.open(base64Image);
 						  console.log("getFileContentAsBase64:"+base64Image); 
 						  // Then you'll be able to handle the myimage.png file as base64
 						});
+						console.log('2');
 					}
 					catch(e){console.log(e);}
                     console.log("transforming...");
