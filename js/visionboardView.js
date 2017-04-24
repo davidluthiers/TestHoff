@@ -128,7 +128,7 @@ define([
                 var self=this;
                 if(true){
 	
-					if(this.model.get("uri").length<2000){
+					if(true){
 						/*
 						  self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
 						  //window.open(base64Image);
