@@ -129,6 +129,7 @@ define([
                 if(true){
 	
 					if(this.model.get("uri").length<2000){
+						window.plugins.socialsharing.share(self.model.get("title"), null, this.model.get("uri"), null);
 						/*
 						  self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
 						  //window.open(base64Image);
@@ -136,7 +137,7 @@ define([
 						  window.plugins.socialsharing.share("", null, base64Image, null);
 						  // Then you'll be able to handle the myimage.png file as base64
 						});
-						*/
+						
 						console.log("transforming...");
 						var c = document.getElementById("myCanvas");
 						var ctx = c.getContext("2d");
@@ -149,6 +150,7 @@ define([
 							window.plugins.socialsharing.share(self.model.get("title"), null, picture, null);
 						};
 						img.src = this.model.get("uri");
+						*/
 					}
 					else{
 						var simage = self.model.get("uri");
@@ -342,7 +344,7 @@ define([
 					//imageData.replace(/file:.*cache\//, "");
 				else{
 					if(!base64){
-						var pseudoname= Date.now() + Math.random();
+						var pseudoname= Math.round(Date.now() + Math.random());
 						imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 						this.moveFile(imageData, pseudoname);
 						imageData='cdvfile://localhost/persistent/'+pseudoname+".png";
