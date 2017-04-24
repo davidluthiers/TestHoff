@@ -142,9 +142,6 @@ define([
 						var ctx = c.getContext("2d");
 						var img = new Image();
 						img.onload = function(){
-							c.width=this.width;
-							c.height=this.height;
-							console.log("This size: " + this.width ", " + this.height);
 							ctx.drawImage(this,0,0,this.width,this.height);
 							//self.model.set("uri",c.toDataURL("image/png"));
 							var picture= c.toDataURL("image/png");
