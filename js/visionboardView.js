@@ -100,10 +100,35 @@ define([
                     });
 	
             },
+			
+			function getFileContentAsBase64(path,callback){
+				window.resolveLocalFileSystemURL(path, gotFile, fail);
+						
+				function fail(e) {
+					  alert('Cannot found requested file');
+				}
+
+				function gotFile(fileEntry) {
+					   fileEntry.file(function(file) {
+						  var reader = new FileReader();
+						  reader.onloadend = function(e) {
+							   var content = this.result;
+							   callback(content);
+						  };
+						  // The most important point, use the readAsDatURL Method from the file plugin
+						  reader.readAsDataURL(file);
+					   });
+				}
+			},
 	
             share: function(){
                 var self=this;
                 if(true){
+					self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
+					  //window.open(base64Image);
+					  console.log("getFileContentAsBase64:"+base64Image); 
+					  // Then you'll be able to handle the myimage.png file as base64
+					});
                     console.log("transforming...");
                     var c = document.getElementById("myCanvas");
                     var ctx = c.getContext("2d");
