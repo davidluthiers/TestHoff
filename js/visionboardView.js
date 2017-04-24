@@ -104,14 +104,15 @@ define([
             share: function(){
                 var self=this;
                 if(true){
-                    console.log("fromgallery, transforming...");
+                    console.log("transforming...");
                     var c = document.getElementById("myCanvas");
                     var ctx = c.getContext("2d");
                     var img = new Image();
-                    img.src = this.model.get("uri");
+                    //img.src = this.model.get("uri").replace("data:image/png;base64,","");
                     ctx.drawImage(img,0,0, img.width, img.height);
                     //self.model.set("uri",c.toDataURL("image/png"));
-					window.plugins.socialsharing.share(self.model.get("title"), null, c.toDataURL("image/jpg"), null);
+					console.log("Debug: " + c.toDataURL("image/jpeg"));
+					window.plugins.socialsharing.share(self.model.get("title"), null, c.toDataURL("image/jpeg"), null);
                 }
 				else{
 					try{
