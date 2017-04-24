@@ -345,7 +345,7 @@ define([
 						var pseudoname= Date.now() + Math.random();
 						imageData=imageData.replace(/assets-library:\/\//,"cdvfile://localhost/assets-library/");
 						this.moveFile(imageData, pseudoname);
-						imageData='cdvfile://localhost/persistent/'+pseudoname+".jpg";
+						imageData='cdvfile://localhost/persistent/'+pseudoname+".png";
 					}
 				}
 				console.log(imageData);
