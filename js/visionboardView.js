@@ -129,7 +129,6 @@ define([
                 if(true){
 	
 					if(this.model.get("uri").length<2000){
-						window.plugins.socialsharing.share(self.model.get("title"), null, this.model.get("uri"), null);
 						/*
 						  self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
 						  //window.open(base64Image);
@@ -137,20 +136,19 @@ define([
 						  window.plugins.socialsharing.share("", null, base64Image, null);
 						  // Then you'll be able to handle the myimage.png file as base64
 						});
-						
+						*/
 						console.log("transforming...");
 						var c = document.getElementById("myCanvas");
 						var ctx = c.getContext("2d");
 						var img = new Image();
 						img.onload = function(){
-							ctx.drawImage(this,0,0);
+							ctx.drawImage(this,0,0,this.width,this.height);
 							//self.model.set("uri",c.toDataURL("image/png"));
 							var picture= c.toDataURL("image/png");
 							console.log("Debug: " + picture);
 							window.plugins.socialsharing.share(self.model.get("title"), null, picture, null);
 						};
 						img.src = this.model.get("uri");
-						*/
 					}
 					else{
 						var simage = self.model.get("uri");
