@@ -103,7 +103,7 @@ define([
 	
             share: function(){
                 var self=this;
-                if(this.model.get("fromgallery")){
+                if(true){
                     console.log("fromgallery, transforming...");
                     var c = document.getElementById("myCanvas");
                     var ctx = c.getContext("2d");
@@ -111,16 +111,18 @@ define([
                     img.src = this.model.get("uri");
                     ctx.drawImage(img,0,0, img.width, img.height);
                     //self.model.set("uri",c.toDataURL("image/png"));
-
+					window.plugins.socialsharing.share(self.model.get("title"), null, c.toDataURL("image/jpg");, null);
                 }
-                try{
-					console.log("SHARE: " + self.model.get("uri"));
-                    window.plugins.socialsharing.share(self.model.get("title"), null, self.model.get("uri"), null);
-                }
-                catch(e){
-                    alert(e);
-					console.log(e);
-                }
+				else{
+					try{
+						console.log("SHARE: " + self.model.get("uri"));
+						window.plugins.socialsharing.share(self.model.get("title"), null, self.model.get("uri"), null);
+					}
+					catch(e){
+						alert(e);
+						console.log(e);
+					}
+				}
             },
 	
             getfromgallery:function(){
