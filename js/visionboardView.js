@@ -127,28 +127,21 @@ define([
             share: function(){
                 var self=this;
                 if(true){
-					try{
-						console.log('1');
+	
+					if(this.model.get("uri").length<2000){
 						self.getFileContentAsBase64(this.model.get("uri"),function(base64Image){
 						  //window.open(base64Image);
 						  console.log("getFileContentAsBase64:"+base64Image); 
+						  window.plugins.socialsharing.share(self.model.get("title"), null, base64Image, null);
 						  // Then you'll be able to handle the myimage.png file as base64
 						});
-						console.log('2');
 					}
-					catch(e){console.log(e);}
-                    console.log("transforming...");
-                    var c = document.getElementById("myCanvas");
-                    var ctx = c.getContext("2d");
-                    var img = new Image();
-					img.onload = function(){
-						ctx.drawImage(this,0,0,600,400);
-						//self.model.set("uri",c.toDataURL("image/png"));
-						var picture= c.toDataURL("image/jpg");
-						console.log("Debug: " + picture);
-						window.plugins.socialsharing.share(self.model.get("title"), null, picture, null);
-					};
-                    img.src = this.model.get("uri");
+					else{
+						var simage = self.model.get("uri");
+						console.log("sharing from gallery: " + simage);
+						window.plugins.socialsharing.share(self.model.get("title"), null, simage, null);
+					}
+
                     
                 }
 				else{
