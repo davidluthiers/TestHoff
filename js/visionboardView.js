@@ -111,7 +111,7 @@ define([
 					img.onload = function(){
 						ctx.drawImage(this,0,0,600,400);
 						//self.model.set("uri",c.toDataURL("image/png"));
-						var picture= c.toDataURL("image/jpeg");
+						var picture= c.toDataURL("image/png");
 						console.log("Debug: " + picture);
 						window.plugins.socialsharing.share(self.model.get("title"), null, picture, null);
 					};
