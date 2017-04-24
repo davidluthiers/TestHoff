@@ -101,7 +101,7 @@ define([
 	
             },
 			
-			function getFileContentAsBase64(path,callback){
+			getFileContentAsBase64: function (path,callback){
 				window.resolveLocalFileSystemURL(path, gotFile, fail);
 						
 				function fail(e) {
