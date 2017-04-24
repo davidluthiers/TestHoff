@@ -108,7 +108,7 @@ define([
                     var c = document.getElementById("myCanvas");
                     var ctx = c.getContext("2d");
                     var img = new Image();
-                    //img.src = this.model.get("uri").replace("data:image/png;base64,","");
+                    img.src = this.model.get("uri");
                     ctx.drawImage(img,0,0, img.width, img.height);
                     //self.model.set("uri",c.toDataURL("image/png"));
 					console.log("Debug: " + c.toDataURL("image/jpeg"));
