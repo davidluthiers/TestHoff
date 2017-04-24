@@ -138,7 +138,7 @@ define([
 						});
 						*/
 						console.log("transforming...");
-						var c = document.getElementById("myVCanvas");
+						var c = document.getElementById("myCanvas");
 						var ctx = c.getContext("2d");
 						var img = new Image();
 						img.onload = function(){
