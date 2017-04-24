@@ -108,11 +108,14 @@ define([
                     var c = document.getElementById("myCanvas");
                     var ctx = c.getContext("2d");
                     var img = new Image();
+					img.onload = function(){
+						ctx.drawImage(this,0,0);
+						//self.model.set("uri",c.toDataURL("image/png"));
+						console.log("Debug: " + c.toDataURL("image/jpeg"));
+						window.plugins.socialsharing.share(self.model.get("title"), null, c.toDataURL("image/jpeg"), null);
+					};
                     img.src = this.model.get("uri");
-                    ctx.drawImage(img,0,0);
-                    //self.model.set("uri",c.toDataURL("image/png"));
-					console.log("Debug: " + c.toDataURL("image/jpeg"));
-					window.plugins.socialsharing.share(self.model.get("title"), null, c.toDataURL("image/jpeg"), null);
+                    
                 }
 				else{
 					try{
