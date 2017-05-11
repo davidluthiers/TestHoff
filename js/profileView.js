@@ -1017,70 +1017,34 @@ define([
 				profile = this.history.get("profile");
 				console.log(profile.get("nickname"));
 				mydate = new Date();	
-				var node;				
+				var node;
+				var picture;
 				try{
 					self= this;
 						console.log("GUARDANDO STATUS:" + profile.get("status"));
 						//mirar si yo tengo el nid
-						if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
-							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
-							
-							node = {
-								nid: profile.get("nid"),
-								title: profile.id,
-								type: "usernode",
-								 
-								field_userid:{
-										"und":[{
-											"value":profile.get("userID")
-										}]
-								},
-								field_email:{
-										"und":[{
-											"value":profile.get("email")
-										}]
-								},
-								field_nickname:{
-										"und":[{
-											"value":profile.get("nickname")
-										}]
-								},
-								field_lastupdated:{
-										"und":[{
-											"value":mydate
-										}]
-								},
-								field_pictureurl:{
-										"und":[{
-											"value":profile.get("picture")
-										}]
-								},
-								field_latitude:{
-										"und":[{
-											"value":profile.get("latitude")
-										}]
-								},
-								field_longitude:{
-										"und":[{
-											"value":profile.get("longitude")
-										}]
-								},
-								field_active:{
-										"und":[{
-											"value":profile.get("active")
-										}]
-								},
-								field_status:{
-										"und":[{
-											"value":profile.get("status")
-										}]
-								}
+						var data = {
+							  "file":{
+								"filename":"my_image.jpg",
+							  }
 							};
-						}
-						else{ 			//No lo tenemos en local (nuevo miembro)
 						
-							node = {
-									title: profile.get("userID"),
+						
+						
+						options = {
+							type:"post",
+							data:data,
+							url: 'http://appv2.hoffman-international.com/' + 'hoffapp/file.json',
+							dataType: 'json',
+							success:function(result){//Foto subida
+								console.log(JSON.stringify(result));
+								
+								if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
+								console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
+								
+								node = {
+									nid: profile.get("nid"),
+									title: profile.id,
 									type: "usernode",
 									 
 									field_userid:{
@@ -1103,11 +1067,16 @@ define([
 												"value":mydate
 											}]
 									},
-									field_pictureurl:{
+									picurl: {
+										"und": [{
+											"fid": result.fid,
+										}]
+									},
+									/*field_pictureurl:{
 											"und":[{
 												"value":profile.get("picture")
 											}]
-									},
+									},*/
 									field_latitude:{
 											"und":[{
 												"value":profile.get("latitude")
@@ -1128,30 +1097,95 @@ define([
 												"value":profile.get("status")
 											}]
 									}
-
 								};
+							}
+							else{ 			//No lo tenemos en local (nuevo miembro)
 							
-						}
-						
-						node_save(node, {
-							success: function(result) {
-								console.log("Saved node #" + result.nid);
-								self.setNID(result.nid);
-								//llamada a node_load puede eliminarse antes de la salida
-								node_load(result.nid, {
-									success: function(node) {
-									console.log("Loaded " + node.title);
-									console.log(node);
+								node = {
+										title: profile.get("userID"),
+										type: "usernode",
+										 
+										field_userid:{
+												"und":[{
+													"value":profile.get("userID")
+												}]
+										},
+										field_email:{
+												"und":[{
+													"value":profile.get("email")
+												}]
+										},
+										field_nickname:{
+												"und":[{
+													"value":profile.get("nickname")
+												}]
+										},
+										field_lastupdated:{
+												"und":[{
+													"value":mydate
+												}]
+										},
+										picurl: {
+											"und": [{
+												"fid": result.fid,
+											}]
+										},
+										/*
+										field_pictureurl:{
+												"und":[{
+													"value":profile.get("picture")
+												}]
+										},*/
+										field_latitude:{
+												"und":[{
+													"value":profile.get("latitude")
+												}]
+										},
+										field_longitude:{
+												"und":[{
+													"value":profile.get("longitude")
+												}]
+										},
+										field_active:{
+												"und":[{
+													"value":profile.get("active")
+												}]
+										},
+										field_status:{
+												"und":[{
+													"value":profile.get("status")
+												}]
+										}
+
+									};
+								
+							}
+								
+								
+								
+								
+							
+								node_save(node, {
+								success: function(result) {
+									console.log("Saved node #" + result.nid);
+									self.setNID(result.nid);
+									//llamada a node_load puede eliminarse antes de la salida
+									node_load(result.nid, {
+										success: function(node) {
+										console.log("Loaded " + node.title);
+										console.log(node);
+										}
+									});
+									if (!afterCoords){
+										console.log("aftercoords false");
+										self.router.profile();
 									}
+								}
 								});
-							if (!afterCoords){
-								console.log("aftercoords false");
-								self.router.profile();
-							}
-							}
-						});
+						  }
+						};
 						
-					
+						$.ajax(options);
 					
 					}
 				catch(e){
