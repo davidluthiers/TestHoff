@@ -614,7 +614,7 @@ define([
 							catch(e){
 								pictureurl="http://i.imgur.com/gOwI77q.png";
 							}
-							if(index>=43 && index < 47)
+							//if(index>=43 && index < 47)
 								pictureurl="http://i.imgur.com/gOwI77q.png";
 							var email = auxprofile.email;
 							var latitude = auxprofile.latitude;
