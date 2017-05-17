@@ -564,11 +564,18 @@ define([
 							}
 							
 							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
+								var pictureurl;
 								var userID = auxprofile.userID;
 								var nombre = auxprofile.nickname.value;
 								//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
-								if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
-									var pictureurl = auxprofile.pictureurl.replace("amp;","");
+								if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != ""){
+										try{
+											pictureurl = auxprofile.pictureurl.replace("amp;","");
+										}
+										catch(e){
+											pictureurl="http://i.imgur.com/gOwI77q.png";
+										}
+								}
 								var email = auxprofile.email;
 								console.log("Mi perfil está almacenado en el servidor, lo actualizo en el dispositivo");
 								profileM=historial.get("profile");
