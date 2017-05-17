@@ -554,9 +554,9 @@ define([
 						data  = self.splitMarkers(data);
 						console.log("After data:");
 						console.log(data);
-						
+						console.log('LENGTH: ' +data.length);
 						for (index = 0; index < data.length; ++index) {
-							
+							console.log("INDEX: " + index);
                             var auxprofile = data[index];
 							if (auxprofile.status.value=='undefined'){
 								auxprofile.status.value = " ";
@@ -591,11 +591,13 @@ define([
 							myprofile.set("near_users", data);
 							historial.get("profile").destroy();
 							historial.create(myprofile);
+							/*
 							console.log("near_users:");
 							console.log(historial.get("profile").get("near_users"));
 							console.log(historial.get("profile"));
 							console.log("auxprofile:");
 							console.log(auxprofile);
+							*/
 							var userID = auxprofile.userID;
 							var nombre = auxprofile.nickname.value;
 							var pictureurl = auxprofile.pictureurl.replace("amp;","");
@@ -686,6 +688,7 @@ define([
 							
                         }
 						
+						console.log("loop ended");
 						
 						setTimeout(function(){
 									window.plugins.spinnerDialog.hide();
