@@ -94,8 +94,11 @@ define([
 							console.log('Ponemos foto de perfil');
 							document.getElementById('useremail').innerHTML = self.profile.email;
 							var textArea = document.createElement('textarea');
-							textArea.innerHTML = self.profile.status.value;
-							document.getElementById('status').innerHTML = textArea.value;
+							statusvar = self.profile.status.value;
+							if (typeof statusvar != 'undefined' && statusvar!= "undefined"){
+								textArea.innerHTML = self.profile.status.value;
+								document.getElementById('status').innerHTML = textArea.value;
+							}
 							document.getElementById('profileHeader').innerHTML = self.profile.nickname.value;
 							
 							var visionphoto = document.getElementById('visionphoto');
