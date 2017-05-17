@@ -576,7 +576,7 @@ define([
 											pictureurl = auxprofile.pictureurl.replace("amp;","");
 										}
 										catch(e){
-											pictureurl="http://i.imgur.com/gOwI77q.png";
+											pictureurl="http://i.imgur.com/Tz9JNSg.png";
 										}
 								}
 								var email = auxprofile.email;
@@ -615,7 +615,7 @@ define([
 								pictureurl = auxprofile.pictureurl.replace("amp;","");
 							}
 							catch(e){
-								pictureurl="http://i.imgur.com/gOwI77q.png";
+								pictureurl="http://i.imgur.com/Tz9JNSg.png";
 							}
 
 							var email = auxprofile.email;
@@ -651,7 +651,7 @@ define([
 								},
 								function(marker) {
 
-									
+									/*
 									marker.setIcon({
 										//'url': pictureurl,
 										'size': {
@@ -659,7 +659,7 @@ define([
 											height: 30
 										}
 									});
-								 
+									*/
 									//marker.showInfoWindow();
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
