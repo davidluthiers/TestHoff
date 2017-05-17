@@ -555,7 +555,7 @@ define([
 						console.log("After data:");
 						console.log(data);
 						console.log('LENGTH: ' +data.length);
-						for (index = 0; index < data.length; ++index) {
+						for (index = 20; index < data.length; ++index) {
 							console.log("INDEX: " + index);
                             var auxprofile = data[index];
 							if (auxprofile.status.value=='undefined'){
@@ -614,8 +614,7 @@ define([
 							catch(e){
 								pictureurl="http://i.imgur.com/gOwI77q.png";
 							}
-							//if(index>=43 && index < 47)
-								pictureurl="http://i.imgur.com/gOwI77q.png";
+
 							var email = auxprofile.email;
 							var latitude = auxprofile.latitude;
 							var longitude = auxprofile.longitude;
