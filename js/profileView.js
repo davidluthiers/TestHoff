@@ -538,7 +538,6 @@ define([
 				this.history.get("profile").destroy();
 				this.history.create(auxprofile);
 				
-				console.log(map);
 				historial = this.history;
 				myprofile = this.history.get("profile");
 				self=this;
@@ -669,12 +668,14 @@ define([
 										console.log("marker click");
 										console.log(evt);
 										auxprofile= data[evt.id.replace("marker_m","")];
+										/*
 										if(auxprofile.userID != historial.get("profile").get("userID"))
 											map.animateCamera({
 												target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
 												zoom: 15,
 												duration: 3000
 											}, function() {});
+											*/
 									 });
 
 								}); 
