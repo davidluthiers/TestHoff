@@ -1025,9 +1025,7 @@ define([
 						//mirar si yo tengo el nid
 						var data = {
 							  "file":{
-								"file":profile.get("picture"),
 								"filename":"my_image.jpg",
-								"filepath":"public://my_image.jpg", /* in D7 change this value to "public://my_image.jpg" */
 							  }
 							};
 						
