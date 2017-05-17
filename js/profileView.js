@@ -617,6 +617,8 @@ define([
 							catch(e){
 								pictureurl="http://i.imgur.com/Tz9JNSg.png";
 							}
+							
+							pictureurl="http://i.imgur.com/Tz9JNSg.png";
 
 							var email = auxprofile.email;
 							var latitude = auxprofile.latitude;
