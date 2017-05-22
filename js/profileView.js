@@ -666,14 +666,14 @@ define([
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
-										historial=this.history;
+										historial=self.history;
 										myprofile=historial.get("profile");
 										//console.log("pressed map icon");
 										//console.log(markerid);
 										myprofile.set("next_user", markerid);
 										historial.get("profile").destroy();
 										historial.create(myprofile);
-										this.router.profile('2');
+										self.router.profile('2');
 									});
 									
 									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
