@@ -672,12 +672,11 @@ define([
 									*/
 									//marker.showInfoWindow();
 
-									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
+									//marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
 										//var markerid = evt.get('myid');
-										//markerClick(markerid);										
-										
-									});
+										//markerClick(markerid);
+									//});
 									/*
 									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
 										console.log("marker click");
