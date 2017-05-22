@@ -674,8 +674,8 @@ define([
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
-										var markerid = evt.get('myid');
-										markerClick(markerid);										
+										//var markerid = evt.get('myid');
+										//markerClick(markerid);										
 										
 									});
 									/*
