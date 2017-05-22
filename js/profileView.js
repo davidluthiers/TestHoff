@@ -532,14 +532,14 @@ define([
 			},
 			
 			markerClick: function(markerid){
-				historial=this.history;
+				/*historial=this.history;
 				myprofile=historial.get("profile");
-				console.log("pressed map icon");
-				console.log(markerid);
+				//console.log("pressed map icon");
+				//console.log(markerid);
 				myprofile.set("next_user", markerid);
 				historial.get("profile").destroy();
-				historial.create(myprofile);
-				//this.router.profile('2');
+				historial.create(myprofile);*/
+				this.router.profile('2');
 			},
 			
 			onMapInit:function(map){
@@ -569,7 +569,7 @@ define([
 						console.log("After data:");
 						console.log(data);
 						console.log('LENGTH: ' +data.length);
-						for (index = 10; index < data.length; ++index) {
+						for (index = 0; index < data.length; ++index) {
 							console.log("INDEX: " + index);
                             var auxprofile = data[index];
 							if (auxprofile.status.value=='undefined'){
