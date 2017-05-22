@@ -531,6 +531,17 @@ define([
 				return data;
 			},
 			
+			markerClick: function(markerid){
+				historial=this.history;
+				myprofile=historial.get("profile");
+				console.log("pressed map icon");
+				console.log(markerid);
+				myprofile.set("next_user", markerid);
+				historial.get("profile").destroy();
+				historial.create(myprofile);
+				this.router.profile('2');
+			},
+			
 			onMapInit:function(map){
 				
 				console.log("onMapInit");
@@ -663,23 +674,8 @@ define([
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
-										historial=self.history;
-										myprofile=historial.get("profile");
-										console.log("pressed map icon");
-										console.log(marker);
-										console.log(evt);
-										var markerid = '';
-										if (device.platform=='Android')
-											markerid = evt.id.replace("marker_m","");
-										else
-											markerid = evt.get('myid');
-										console.log(markerid);
-										console.log(data[markerid].email);
-										myprofile.set("next_user", markerid);
-										historial.get("profile").destroy();
-										historial.create(myprofile);
-										self.router.profile('2');
-										
+										var markerid = evt.get('myid');
+										markerClick(markerid);										
 										
 									});
 									/*
