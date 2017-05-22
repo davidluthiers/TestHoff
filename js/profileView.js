@@ -672,7 +672,7 @@ define([
 										//console.log(markerid);
 										myprofile.set("next_user", markerid);
 										historial.get("profile").destroy();
-										historial.create(myprofile);*/
+										historial.create(myprofile);
 										this.router.profile('2');
 									});
 									
