@@ -539,7 +539,7 @@ define([
 				myprofile.set("next_user", markerid);
 				historial.get("profile").destroy();
 				historial.create(myprofile);
-				this.router.profile('2');
+				//this.router.profile('2');
 			},
 			
 			onMapInit:function(map){
