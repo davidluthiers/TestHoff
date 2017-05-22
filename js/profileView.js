@@ -530,18 +530,7 @@ define([
 				}
 				return data;
 			},
-			
-			markerClick: function(markerid){
-				historial=this.history;
-				myprofile=historial.get("profile");
-				//console.log("pressed map icon");
-				//console.log(markerid);
-				myprofile.set("next_user", markerid);
-				historial.get("profile").destroy();
-				historial.create(myprofile);*/
-				this.router.profile('2');
-			},
-			
+						
 			onMapInit:function(map){
 				
 				console.log("onMapInit");
