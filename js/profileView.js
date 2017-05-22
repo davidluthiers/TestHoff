@@ -577,7 +577,7 @@ define([
 								data[index].status.value = " ";
 							}
 							
-							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
+							/*if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 								var pictureurl;
 								var userID = auxprofile.userID;
 								var nombre = auxprofile.nickname.value;
@@ -613,7 +613,7 @@ define([
 							myprofile.set("near_users", data);
 							historial.get("profile").destroy();
 							historial.create(myprofile);
-							
+							*/
 							/*
 							console.log("near_users:");
 							console.log(historial.get("profile").get("near_users"));
