@@ -695,6 +695,7 @@ define([
 												duration: 3000
 											}, function() {});
 											*/
+									/*
 									 });
 									*/
 								}); 
