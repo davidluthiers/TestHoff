@@ -565,7 +565,7 @@ define([
 								auxprofile.status.value = " ";
 								data[index].status.value = " ";
 							}
-							
+							/*
 							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 								var pictureurl;
 								var userID = auxprofile.userID;
@@ -596,11 +596,13 @@ define([
 								historial.create(profileM);
 								
 							}
+							
 						
 							
 							myprofile.set("near_users", data);
 							historial.get("profile").destroy();
 							historial.create(myprofile);
+							*/
 							/*
 							console.log("near_users:");
 							console.log(historial.get("profile").get("near_users"));
@@ -626,12 +628,12 @@ define([
 							var isactive = auxprofile.active;
 							console.log("Usuario con nombre: "+nombre+", email: " +email);
 							//console.log("picture: " + pictureurl);
-							
+							/*
 							if(historial.get("profile").get("userID") == auxprofile.userID){
 								console.log("Asignando coordenadas propias:");
 								latitude = historial.get("profile").get("latitude");
 								longitude = historial.get("profile").get("longitude");
-							}
+							}*/
 							console.log("Coords: " + latitude + ", " + longitude);
 							
 							const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
@@ -641,12 +643,7 @@ define([
 								  'position': locationLatlng,
 								  'title': nombre,
 								  'icon': {
-									'url': pictureurl,
-									/*'size': {
-										width: 30,
-										height: 30
-									},*/
-									'anchor': [30/2, 30]
+									'url': pictureurl
 								   },
 								  'snippet': historial.get("languages").get("click_here"),
 								  'myid':index
@@ -666,7 +663,7 @@ define([
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
-										historial=self.history;
+										/*historial=self.history;
 										myprofile=historial.get("profile");
 										console.log("pressed map icon");
 										console.log(marker);
@@ -682,9 +679,10 @@ define([
 										historial.get("profile").destroy();
 										historial.create(myprofile);
 										self.router.profile('2');
+										*/
 										
 									});
-									
+									/*
 									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
 										console.log("marker click");
 										console.log(evt);
@@ -698,7 +696,7 @@ define([
 											}, function() {});
 											*/
 									 });
-
+									*/
 								}); 
 							}
 							else{
