@@ -565,7 +565,7 @@ define([
 								auxprofile.status.value = " ";
 								data[index].status.value = " ";
 							}
-							/*
+							
 							if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 								var pictureurl;
 								var userID = auxprofile.userID;
@@ -602,7 +602,7 @@ define([
 							myprofile.set("near_users", data);
 							historial.get("profile").destroy();
 							historial.create(myprofile);
-							*/
+							
 							/*
 							console.log("near_users:");
 							console.log(historial.get("profile").get("near_users"));
@@ -663,7 +663,7 @@ define([
 
 									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
-										/*historial=self.history;
+										historial=self.history;
 										myprofile=historial.get("profile");
 										console.log("pressed map icon");
 										console.log(marker);
@@ -679,7 +679,7 @@ define([
 										historial.get("profile").destroy();
 										historial.create(myprofile);
 										self.router.profile('2');
-										*/
+										
 										
 									});
 									/*
