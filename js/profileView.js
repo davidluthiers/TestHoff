@@ -672,7 +672,7 @@ define([
 									*/
 									//marker.showInfoWindow();
 
-									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
+									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function() {
 										
 										//var markerid = evt.get('myid');
 										//markerClick(markerid);										
