@@ -618,7 +618,7 @@ define([
 								pictureurl="http://i.imgur.com/Tz9JNSg.png";
 							}
 							
-							pictureurl="http://i.imgur.com/Tz9JNSg.png";
+							pictureurl="www/img/user_icon.png";
 
 							var email = auxprofile.email;
 							var latitude = auxprofile.latitude;
