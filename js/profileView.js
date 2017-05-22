@@ -532,14 +532,14 @@ define([
 			},
 			
 			markerClick: function(markerid){
-				/*historial=this.history;
+				historial=this.history;
 				myprofile=historial.get("profile");
 				//console.log("pressed map icon");
 				//console.log(markerid);
 				myprofile.set("next_user", markerid);
 				historial.get("profile").destroy();
 				historial.create(myprofile);*/
-				//this.router.profile('2');
+				this.router.profile('2');
 			},
 			
 			onMapInit:function(map){
@@ -630,7 +630,7 @@ define([
 								pictureurl="http://i.imgur.com/Tz9JNSg.png";
 							}
 							
-							pictureurl="www/img/user_icon30x30.png";
+							//pictureurl="www/img/user_icon30x30.png";
 
 							var email = auxprofile.email;
 							var latitude = auxprofile.latitude;
@@ -671,18 +671,22 @@ define([
 									*/
 									//marker.showInfoWindow();
 
-									//marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
+									marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
 										
-										//var markerid = evt.get('myid');
-										//markerClick(markerid);
-									//});
+										historial=this.history;
+										myprofile=historial.get("profile");
+										//console.log("pressed map icon");
+										//console.log(markerid);
+										myprofile.set("next_user", markerid);
+										historial.get("profile").destroy();
+										historial.create(myprofile);*/
+										this.router.profile('2');
+									});
 									
 									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
 										console.log("marker click");
-										var markerid = evt.get('myid');
 										console.log(evt);
-										console.log(markerid);
-										markerClick(markerid);
+										auxprofile= data[evt.id.replace("marker_m","")];										
 										
 										//auxprofile= data[evt.id.replace("marker_m","")];
 										/*
