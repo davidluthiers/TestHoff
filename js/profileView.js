@@ -677,11 +677,15 @@ define([
 										//var markerid = evt.get('myid');
 										//markerClick(markerid);
 									//});
-									/*
+									
 									marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
 										console.log("marker click");
+										var markerid = evt.get('myid');
 										console.log(evt);
-										auxprofile= data[evt.id.replace("marker_m","")];
+										console.log(markerid);
+										markerClick(markerid);
+										
+										//auxprofile= data[evt.id.replace("marker_m","")];
 										/*
 										if(auxprofile.userID != historial.get("profile").get("userID"))
 											map.animateCamera({
@@ -690,9 +694,9 @@ define([
 												duration: 3000
 											}, function() {});
 											*/
-									/*
+									
 									 });
-									*/
+									
 								}); 
 							}
 							else{
