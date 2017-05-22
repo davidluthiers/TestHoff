@@ -646,7 +646,7 @@ define([
 									 'size': {
 										width: 30,
 										height: 30
-	-									}
+										}
 								   },
 								  'snippet': historial.get("languages").get("click_here"),
 								  'myid':index
