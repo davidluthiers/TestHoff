@@ -777,6 +777,7 @@ define([
 											myprofile=historial.get("profile");
 											//console.log("pressed map icon");
 											//console.log(markerid);
+											markerid = evt.get('myid');
 											myprofile.set("next_user", markerid);
 											historial.get("profile").destroy();
 											historial.create(myprofile);
