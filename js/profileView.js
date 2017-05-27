@@ -650,6 +650,8 @@ define([
 					fillMap(myprofile.get("near_users"));
 				}
 				else{
+					historial = this.history;
+					myprofile = this.history.get("profile");
 					self=this;
 						
 					var params_people = { //active hoffman users
