@@ -645,7 +645,7 @@ define([
 				myprofile = this.history.get("profile");
 				
 				if(myprofile.get("near_users") != ""){ //myprofile.get("near_users") Comprobar si tenemos los datos en local
-					fillMap(myprofile.get("near_users"));
+					this.fillMap(myprofile.get("near_users"));
 				}
 				else{
 					self=this;
