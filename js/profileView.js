@@ -531,7 +531,7 @@ define([
 				return data;
 			},
 			
-			fillMap: function(data){
+			fillMap: function(data,map){
 				historial = this.history;
 				myprofile = this.history.get("profile");
 				self=this;
@@ -639,7 +639,7 @@ define([
 				myprofile = this.history.get("profile");
 				
 				if(myprofile.get("near_users") != ""){ //myprofile.get("near_users") Comprobar si tenemos los datos en local
-					this.fillMap(myprofile.get("near_users"));
+					this.fillMap(myprofile.get("near_users"),map);
 				}
 				else{
 					self=this;
