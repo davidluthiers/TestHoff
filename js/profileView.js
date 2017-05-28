@@ -597,6 +597,7 @@ define([
 								
 								historial=self.history;
 								myprofile=historial.get("profile");
+								markerid = evt.get('myid');
 								myprofile.set("next_user", markerid);
 								historial.get("profile").destroy();
 								historial.create(myprofile);
