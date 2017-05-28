@@ -536,13 +536,7 @@ define([
 				myprofile = this.history.get("profile");
 				self=this;
 				
-				console.log("DATA: ");
-				console.log(data);
 				usersList = [];
-				data  = self.splitMarkers(data);
-				console.log("After data:");
-				console.log(data);
-				console.log('LENGTH: ' +data.length);
 				historial.get("profile").destroy();
 				historial.create(myprofile);
 				for (index = 0; index < data.length; ++index) {
