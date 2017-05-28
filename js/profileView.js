@@ -643,16 +643,8 @@ define([
 				this.history.create(auxprofile);
 				historial = this.history;
 				myprofile = this.history.get("profile");
-				console.log("Near users is: ");
-				console.log(myprofile.get("near_users"));
-				if(typeof myprofile.get("near_users") === 'undefined')
-					console.log('typeof myprofile.get("near_users")');
-				if(myprofile.get("near_users") == 'undefined')
-					console.log('myprofile.get("near_users")');
-				if(myprofile.get("near_users") == "")
-					console.log('myprofile.get("near_users") == ""');
 				
-				if(false){ //myprofile.get("near_users") Comprobar si tenemos los datos en local
+				if(myprofile.get("near_users") != ""){ //myprofile.get("near_users") Comprobar si tenemos los datos en local
 					fillMap(myprofile.get("near_users"));
 				}
 				else{
