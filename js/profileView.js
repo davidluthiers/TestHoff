@@ -543,7 +543,6 @@ define([
 				console.log("After data:");
 				console.log(data);
 				console.log('LENGTH: ' +data.length);
-				myprofile.set("near_users", data);
 				historial.get("profile").destroy();
 				historial.create(myprofile);
 				for (index = 0; index < data.length; ++index) {
@@ -650,6 +649,8 @@ define([
 					console.log('typeof myprofile.get("near_users")');
 				if(myprofile.get("near_users") == 'undefined')
 					console.log('myprofile.get("near_users")');
+				if(myprofile.get("near_users") == "")
+					console.log('myprofile.get("near_users") == ""');
 				
 				if(false){ //myprofile.get("near_users") Comprobar si tenemos los datos en local
 					fillMap(myprofile.get("near_users"));
