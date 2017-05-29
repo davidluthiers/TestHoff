@@ -334,8 +334,8 @@ define([
                     dataType: 'json',
                     url: DRUPAL_SERVER + "user/login.json",
                     data: {
-                        'username': 'admin',
-                        'password': 'asadasa'
+                        'username': 'appuser',
+                        'password': 'appuser'
                     },
                     success: function(data) {
                         if(logintrys>=0){
@@ -450,7 +450,7 @@ define([
                     Drupal.settings.site_path = "http://appv2.hoffman-international.com";
                     Drupal.settings.endpoint = "hoffapp";
 
-                    user_login("admin", "asadasa", {
+                    user_login("appuser", "appuser", {
                         success:function(result){
                             console.log("Login success, result:");
                             console.log(result);
