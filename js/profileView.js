@@ -1142,13 +1142,13 @@ define([
 					console.log("GUARDANDO STATUS:" + profile.get("status"));
 					//mirar si yo tengo el nid
 					var data = {
-						  "file":{
-							//"target_uri":"public://image.jpg",
-							"file":profile.get("picture"),
+						  //"file":{
+							"target_uri":"public://image.jpg",
 							"filename":"my_image.jpg",
-							//"filemime":"image/jpeg",
-							"filepath":"public://my_image.jpg"
-						  }
+							"filemime":"image/jpeg",
+							"file":profile.get("picture")
+							//"filepath":"public://my_image.jpg"
+						  //}
 						};
 					
 					
