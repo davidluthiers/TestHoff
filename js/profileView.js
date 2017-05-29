@@ -1138,9 +1138,25 @@ define([
 				var node;				
 				try{
 					self= this;
-						console.log("GUARDANDO STATUS:" + profile.get("status"));
-						//mirar si yo tengo el nid
-						if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
+					console.log("GUARDANDO STATUS:" + profile.get("status"));
+					//mirar si yo tengo el nid
+					var data = {
+						  "file":{
+							"filename":"my_image.jpg",
+						  }
+						};
+					
+					
+					
+					options = {
+						type:"post",
+						data:data,
+						url: 'http://appv2.hoffman-international.com/' + 'hoffapp/file.json',
+						dataType: 'json',
+						success:function(result){//Foto subida
+							console.log(JSON.stringify(result));
+							
+							if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
 							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
 							
 							node = {
@@ -1168,11 +1184,16 @@ define([
 											"value":mydate
 										}]
 								},
-								field_pictureurl:{
+								picurl: {
+									"und": [{
+										"fid": result.fid,
+									}]
+								},
+								/*field_pictureurl:{
 										"und":[{
 											"value":profile.get("picture")
 										}]
-								},
+								},*/
 								field_latitude:{
 										"und":[{
 											"value":profile.get("latitude")
@@ -1221,11 +1242,17 @@ define([
 												"value":mydate
 											}]
 									},
+									picurl: {
+										"und": [{
+											"fid": result.fid,
+										}]
+									},
+									/*
 									field_pictureurl:{
 											"und":[{
 												"value":profile.get("picture")
 											}]
-									},
+									},*/
 									field_latitude:{
 											"und":[{
 												"value":profile.get("latitude")
@@ -1250,8 +1277,12 @@ define([
 								};
 							
 						}
+							
+							
+							
+							
 						
-						node_save(node, {
+							node_save(node, {
 							success: function(result) {
 								console.log("Saved node #" + result.nid);
 								self.setNID(result.nid);
@@ -1262,22 +1293,24 @@ define([
 									console.log(node);
 									}
 								});
-							if (!afterCoords){
-								console.log("aftercoords false");
-								self.router.profile();
+								if (!afterCoords){
+									console.log("aftercoords false");
+									self.router.profile();
+								}
 							}
-							}
-						});
-						
+							});
+					  }
+					};
 					
-					
+					$.ajax(options);
+				
+						}
+					catch(e){
+						console.log("Error save_node: " + e);
 					}
-				catch(e){
-					console.log("Error save_node: " + e);
-				}
-				
-				
-				console.log("saveonserver");
+					
+					
+					console.log("saveonserver");
 				
 			},
 			
