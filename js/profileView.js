@@ -415,7 +415,7 @@ define([
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople",
+                    url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople2",
                     processData: true,
                     success: function(data) {
 						var flag = false;
@@ -1142,13 +1142,13 @@ define([
 					console.log("GUARDANDO STATUS:" + profile.get("status"));
 					//mirar si yo tengo el nid
 					var data = {
-						  "file":{
-							"file":profile.get("picture"),
+						  //"file":{
 							"target_uri":"public://image.jpg",
 							"filename":"my_image.jpg",
-							"filemime":"image/jpeg"
+							"filemime":"image/jpeg",
+							"file":profile.get("picture")
 							//"filepath":"public://my_image.jpg"
-						  }
+						  //}
 						};
 					
 					
