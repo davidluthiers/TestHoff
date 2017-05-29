@@ -1140,6 +1140,7 @@ define([
 				try{
 					self= this;
 					console.log("GUARDANDO STATUS:" + profile.get("status"));
+					console.log(profile.get("picture"));
 					//mirar si yo tengo el nid
 					var data = {
 						  //"file":{
