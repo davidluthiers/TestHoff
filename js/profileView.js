@@ -1144,8 +1144,10 @@ define([
 					var data = {
 						  "file":{
 							"file":profile.get("picture"),
+							"target_uri":"public://image.jpg",
 							"filename":"my_image.jpg",
-							"filepath":"public://my_image.jpg"
+							"filemime":"image/jpeg"
+							//"filepath":"public://my_image.jpg"
 						  }
 						};
 					
