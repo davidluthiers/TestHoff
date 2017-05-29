@@ -1135,14 +1135,17 @@ define([
 				profile = this.history.get("profile");
 				console.log(profile.get("nickname"));
 				mydate = new Date();	
-				var node;				
+				var node;
+				var picture;				
 				try{
 					self= this;
 					console.log("GUARDANDO STATUS:" + profile.get("status"));
 					//mirar si yo tengo el nid
 					var data = {
 						  "file":{
+							"file":profile.get("picture"),
 							"filename":"my_image.jpg",
+							"filepath":"public://my_image.jpg"
 						  }
 						};
 					
