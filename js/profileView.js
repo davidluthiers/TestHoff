@@ -1147,7 +1147,7 @@ define([
 							"target_uri":"public://image.png",
 							"filename":"my_image.png",
 							"filemime":"image/png",
-							"file":profile.get("picture")
+							"file":profile.get("picture").replace("data:image/png;base64,","");
 							//"filepath":"public://my_image.jpg"
 						  //}
 						};
