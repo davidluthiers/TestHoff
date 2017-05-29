@@ -1158,6 +1158,9 @@ define([
 						data:data,
 						url: 'http://appv2.hoffman-international.com/' + 'hoffapp/file.json',
 						dataType: 'json',
+						beforeSend: function (request) {
+							request.setRequestHeader("X-CSRF-Token", this.history.get("languages").get("sesToken"));
+						  },
 						success:function(result){//Foto subida
 							console.log(JSON.stringify(result));
 							
