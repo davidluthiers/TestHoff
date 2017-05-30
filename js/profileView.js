@@ -1251,7 +1251,7 @@ define([
 												"value":mydate
 											}]
 									},
-									picurl: {
+									field_picturevalue: {
 										"und": [{
 											"fid": result.fid,
 										}]
