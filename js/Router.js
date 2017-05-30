@@ -2270,7 +2270,8 @@ define([
 					nid: "",
 					my_status: "",
 					near_users: "",
-					next_profile: ""
+					next_profile: "",
+					fid: ""
 				});
 				
 				var nodelist= new nodelistModel({
@@ -2366,7 +2367,8 @@ define([
 			nid: "",
 			my_status: "",
 			near_users: "",
-			next_profile: ""
+			next_profile: "",
+			fid: ""
 			
         });
 		

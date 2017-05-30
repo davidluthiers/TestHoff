@@ -1012,10 +1012,10 @@ define([
 											"value":mydate
 										}]
 								},
-								field_pictureurl:{
-										"und":[{
-											"value":profile.get("picture")
-										}]
+								field_picturevalue: {
+									"und": [{
+										"fid": profile.get("fid"),
+									}]
 								},
 								field_latitude:{
 										"und":[{
@@ -1065,10 +1065,10 @@ define([
 												"value":mydate
 											}]
 									},
-									field_pictureurl:{
-											"und":[{
-												"value":profile.get("picture")
-											}]
+									field_picturevalue: {
+										"und": [{
+											"fid": profile.get("fid"),
+										}]
 									},
 									field_latitude:{
 											"und":[{
@@ -1164,7 +1164,9 @@ define([
 						  },
 						success:function(result){//Foto subida
 							console.log("Picture saved: " + JSON.stringify(result));
-							
+							profile.set("fid",result.fid);
+							self.history.get("profile").destroy();
+							self.history.create(profile);
 							if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
 							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
 							
