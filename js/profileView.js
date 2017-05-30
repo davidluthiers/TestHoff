@@ -1193,7 +1193,7 @@ define([
 											"value":mydate
 										}]
 								},
-								picurl: {
+								picturevalue: {
 									"und": [{
 										"fid": result.fid,
 									}]
