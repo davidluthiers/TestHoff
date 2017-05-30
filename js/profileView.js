@@ -439,7 +439,7 @@ define([
 						
 								profileM.set("nickname",nombre);
 								profileM.set("email",email);
-								profileM.set("picture", pictureurl);
+								//profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
 								profileM.set("status",auxprofile.status.value);
@@ -688,7 +688,7 @@ define([
 							
 									profileM.set("nickname",nombre);
 									profileM.set("email",email);
-									profileM.set("picture", pictureurl);
+									//profileM.set("picture", pictureurl);
 									profileM.set("userID",userID);
 									profileM.set("nid",auxprofile.nid);
 									profileM.set("status",auxprofile.status.value);
