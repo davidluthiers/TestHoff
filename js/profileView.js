@@ -1130,44 +1130,9 @@ define([
 				
 			},
 			
-			saveonserver: function(afterCoords){
+			savenodeonserver: function(){
 				
-				profile = this.history.get("profile");
-				console.log(profile.get("nickname"));
-				mydate = new Date();	
-				var node;
-				var picture;				
-				try{
-					self= this;
-					console.log("GUARDANDO STATUS:" + profile.get("status"));
-					console.log(profile.get("picture"));
-					//mirar si yo tengo el nid
-					var data = {
-						  //"file":{
-							"target_uri":"public://my_image" + profile.get("userID") + ".png",
-							"filename":"my_image" + profile.get("userID") + ".png",
-							"filemime":"image/png",
-							"file":profile.get("picture").replace("data:image/png;base64,","")
-							//"filepath":"public://my_image.jpg"
-						  //}
-						};
-					
-					
-					
-					options = {
-						type:"post",
-						data:data,
-						url: 'http://appv2.hoffman-international.com/' + 'hoffapp/file.json',
-						dataType: 'json',
-						beforeSend: function (request) {
-							request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
-						  },
-						success:function(result){//Foto subida
-							console.log("Picture saved: " + JSON.stringify(result));
-							profile.set("fid",result.fid);
-							self.history.get("profile").destroy();
-							self.history.create(profile);
-							if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
+				if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
 							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
 							
 							node = {
@@ -1310,11 +1275,57 @@ define([
 								}
 							}
 							});
-					  }
-					};
-					
-					$.ajax(options);
 				
+			},
+			
+			saveonserver: function(afterCoords){
+				
+				profile = this.history.get("profile");
+				console.log(profile.get("nickname"));
+				mydate = new Date();	
+				var node;
+				var picture;				
+				try{
+					self= this;
+					if(typeof profile.get("fid")=='undefined' || profile.get("fid") == ""){ //No hemos guardado
+						console.log("GUARDANDO STATUS:" + profile.get("status"));
+						console.log(profile.get("picture"));
+						//mirar si yo tengo el nid
+						var data = {
+							  //"file":{
+								"target_uri":"public://my_image" + profile.get("userID") + ".png",
+								"filename":"my_image" + profile.get("userID") + ".png",
+								"filemime":"image/png",
+								"file":profile.get("picture").replace("data:image/png;base64,","")
+								//"filepath":"public://my_image.jpg"
+							  //}
+							};
+						
+						
+						
+						options = {
+							type:"post",
+							data:data,
+							url: 'http://appv2.hoffman-international.com/' + 'hoffapp/file.json',
+							dataType: 'json',
+							beforeSend: function (request) {
+								request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
+							  },
+							success:function(result){//Foto subida
+								console.log("Picture saved: " + JSON.stringify(result));
+								profile.set("fid",result.fid);
+								self.history.get("profile").destroy();
+								self.history.create(profile);
+								
+								savenodeonserver();
+						  }
+						};
+						
+						$.ajax(options);
+					}
+					else{
+						savenodeonserver();
+					}
 						}
 					catch(e){
 						console.log("Error save_node: " + e);
