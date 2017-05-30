@@ -1409,7 +1409,7 @@ define([
 								profileM.set("status",$("#status").val());
 								profileM.set("near_users","");
 								var visionphoto = document.getElementById('visionphoto');
-								profileM.set("picture", visionphoto.src);
+								//profileM.set("picture", visionphoto.src);
 								profileM.set("userID",this.history.get("profile").get("userID"));
 								profileM.set("lastupdated", new Date());
 								this.history.get("profile").destroy();
