@@ -439,7 +439,7 @@ define([
 						
 								profileM.set("nickname",nombre);
 								profileM.set("email",email);
-								//profileM.set("picture", pictureurl);
+								profileM.set("picture", pictureurl);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
 								profileM.set("status",auxprofile.status.value);
@@ -688,7 +688,7 @@ define([
 							
 									profileM.set("nickname",nombre);
 									profileM.set("email",email);
-									//profileM.set("picture", pictureurl);
+									profileM.set("picture", pictureurl);
 									profileM.set("userID",userID);
 									profileM.set("nid",auxprofile.nid);
 									profileM.set("status",auxprofile.status.value);
@@ -1017,6 +1017,11 @@ define([
 										"fid": profile.get("fid"),
 									}]
 								},
+								field_pictureurl:{
+										"und":[{
+											"value":profile.get("picture")
+										}]
+								},
 								field_latitude:{
 										"und":[{
 											"value":profile.get("latitude")
@@ -1069,6 +1074,11 @@ define([
 										"und": [{
 											"fid": profile.get("fid"),
 										}]
+									},
+									field_pictureurl:{
+											"und":[{
+												"value":profile.get("picture")
+											}]
 									},
 									field_latitude:{
 											"und":[{
@@ -1201,11 +1211,11 @@ define([
 										"fid": result.fid,
 									}]
 								},
-								/*field_pictureurl:{
+								field_pictureurl:{
 										"und":[{
 											"value":profile.get("picture")
 										}]
-								},*/
+								},
 								field_latitude:{
 										"und":[{
 											"value":profile.get("latitude")
@@ -1259,12 +1269,12 @@ define([
 											"fid": result.fid,
 										}]
 									},
-									/*
+									
 									field_pictureurl:{
 											"und":[{
 												"value":profile.get("picture")
 											}]
-									},*/
+									},
 									field_latitude:{
 											"und":[{
 												"value":profile.get("latitude")
