@@ -1163,13 +1163,7 @@ define([
 							request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
 						  },
 						success:function(result){//Foto subida
-							console.log(JSON.stringify(result));
-							try{
-							console.log(result);
-							console.log(result.fid);
-							console.log(JSON.stringify(result).fid);
-							}
-							catch(e){console.log(e);}
+							console.log("Picture saved: " + JSON.stringify(result));
 							
 							if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
 							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
