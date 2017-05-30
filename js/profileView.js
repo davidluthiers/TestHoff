@@ -1164,6 +1164,7 @@ define([
 						  },
 						success:function(result){//Foto subida
 							console.log("Picture saved: " + JSON.stringify(result));
+							console.log("YE");
 							profile.set("fid",result.fid);
 							self.history.get("profile").destroy();
 							self.history.create(profile);
