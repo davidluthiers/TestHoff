@@ -981,7 +981,10 @@ define([
 				this.setActive();
 				profile = this.history.get("profile");
 				console.log(profile.get("nickname"));
-				console.log("1 SUBO AL SERVIDOR LA FOTO: " + profile.get("picture").substring(0,30));
+				try{
+					console.log("1 SUBO AL SERVIDOR LA FOTO: " + profile.get("picture").substring(0,80));
+				}
+				catch(e){console.log(e);}
 				mydate = new Date();	
 				var node;				
 				try{
@@ -1151,7 +1154,10 @@ define([
 				mydate = new Date();	
 				var node;
 				var picture;
-				console.log("2 SUBO AL SERVIDOR LA FOTO: " + profile.get("picture").substring(0,30));
+				try{
+					console.log("2 SUBO AL SERVIDOR LA FOTO: " + profile.get("picture").substring(0,80));
+				}
+				catch(e){console.log(e);}
 				try{
 					self= this;
 					console.log("GUARDANDO STATUS:" + profile.get("status"));
