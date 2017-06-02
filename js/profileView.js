@@ -995,18 +995,19 @@ define([
 							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
 							
 							
-						try{
-							self.initializeMap(latitude,longitude);
+							try{
+								self.initializeMap(latitude,longitude);
 
-						}
-						catch(e){
-							console.log("Node save ha fallado, recargamos profile");
-							console.log(e);
-							self.router.profile();
-						}
+							}
+							catch(e){
+								console.log("Node save ha fallado, recargamos profile");
+								console.log(e);
+								self.router.profile();
+							}
 						
 					
 					
+						}
 					}
 				catch(e){
 					console.log("Error save_node: " + e);
