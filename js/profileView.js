@@ -982,6 +982,7 @@ define([
 				this.setActive();
 				profile = this.history.get("profile");
 				console.log(profile.get("nickname"));
+				console.log("1 SUBO AL SERVIDOR LA FOTO: " + profile.get("picture").substring(0,30));
 				mydate = new Date();	
 				var node;				
 				try{
@@ -1150,7 +1151,8 @@ define([
 				console.log(profile.get("nickname"));
 				mydate = new Date();	
 				var node;
-				var picture;				
+				var picture;
+				console.log("2 SUBO AL SERVIDOR LA FOTO: " + profile.get("picture").substring(0,30));
 				try{
 					self= this;
 					console.log("GUARDANDO STATUS:" + profile.get("status"));
@@ -1184,7 +1186,6 @@ define([
 							self.history.create(profile);
 							if(profile.get("nid") != "" && typeof profile.get("nid") != 'undefined'){
 							console.log("Ya tenemos el nid: " + profile.get("nid"));	//Lo tenemos en local
-							
 							node = {
 								nid: profile.get("nid"),
 								title: profile.id,
