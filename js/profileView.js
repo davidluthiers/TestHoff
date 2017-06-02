@@ -440,10 +440,9 @@ define([
 								profileM.set("nickname",nombre);
 								profileM.set("email",email);
 								console.log("RECUPERAMOS PICTUREURL: " + pictureurl);
-								if (pictureurl.length > 150){
-									console.log("Se guarda");
-									profileM.set("picture", pictureurl);
-								}
+
+								profileM.set("picture", pictureurl);
+
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
 								profileM.set("status",auxprofile.status.value);
@@ -482,7 +481,7 @@ define([
 					if (profileM.id == 'profile' || profileM.get("id") == 'profile' || typeof profileM.id == 'undefined'){
 						console.log("profile.id es: " + profileM.id);
 						console.log("profile.get('id') es: " + profileM.get("id"));
-						console.log("DEBUGDEBUGDEBUG userData.authResponse.userID hmtl?: " + userData.authResponse.userID);
+						console.log("userData.authResponse.userID hmtl?: " + userData.authResponse.userID);
 						profileM.id = userData.authResponse.userID;
 						profileM.set("userID",userData.authResponse.userID);
 						try{
@@ -1425,7 +1424,7 @@ define([
 								profileM.set("status",$("#status").val());
 								profileM.set("near_users","");
 								var visionphoto = document.getElementById('visionphoto');
-								//profileM.set("picture", visionphoto.src);
+								profileM.set("picture", visionphoto.src);
 								profileM.set("userID",this.history.get("profile").get("userID"));
 								profileM.set("lastupdated", new Date());
 								this.history.get("profile").destroy();
