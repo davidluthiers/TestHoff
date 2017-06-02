@@ -439,7 +439,11 @@ define([
 						
 								profileM.set("nickname",nombre);
 								profileM.set("email",email);
-								profileM.set("picture", pictureurl);
+								console.log("RECUPERAMOS PICTUREURL: " + pictureurl);
+								if (pictureurl.length > 150){
+									console.log("Se guarda");
+									profileM.set("picture", pictureurl);
+								}
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
 								profileM.set("status",auxprofile.status.value);
