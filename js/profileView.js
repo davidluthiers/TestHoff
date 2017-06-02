@@ -1160,8 +1160,8 @@ define([
 					//mirar si yo tengo el nid
 					var data = {
 						  //"file":{
-							"target_uri":"public://my_image" + profile.get("userID") + ".png",
-							"filename":"my_image" + profile.get("userID") + ".png",
+							"target_uri":"public://my_image" + profile.get("userID") + "debug1" + ".png",
+							"filename":"my_image" + profile.get("userID") + "debug1" + ".png",
 							"filemime":"image/png",
 							"file":profile.get("picture").replace("data:image/png;base64,","")
 							//"filepath":"public://my_image.jpg"
