@@ -445,7 +445,7 @@ define([
 								console.log("RECUPERAMOS PICTUREVALUE: " + auxprofile.picturevalue); //picturevalue_thumb
 								
 								var fbcontainer = document.getElementById('visionphoto');
-								//$("#fbcontainer").attr("style","");
+								$("#fbcontainer").attr("style","");
 								//fbcontainer.height=2000;
 								//fbcontainer.width=2000;
 								fbcontainer.src = auxprofile.picturevalue;
