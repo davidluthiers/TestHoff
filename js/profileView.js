@@ -750,7 +750,7 @@ define([
 								//var pictureurl;
 								try{
 									if(typeof auxprofile.picturevalue_thumb != 'undefined' && auxprofile.picturevalue_thumb != ""){
-										picturenewurl = auxprofile.picturevalue_thumb;
+										picturenewurl = auxprofile.picturevalue;
 									}
 									else{
 										picturenewurl="http://i.imgur.com/Tz9JNSg.png";
