@@ -106,10 +106,10 @@ define([
 							//visionphoto.src = self.profile.pictureurl.replace("amp;","");
 							visionphoto.src = self.profile.picturevalue;
 							console.log(self.profile.picturevalue);
-							if(self.profile.pictureurl.substring(0,4) == "http"){ //La imagen es un link, proviene de facebook/drupal
+							/*if(self.profile.pictureurl.substring(0,4) == "http"){ //La imagen es un link, proviene de facebook/drupal
 								visionphoto.style.height = '50px';
 								visionphoto.style.width = '50px';
-							}
+							}*/
 
 						},400);					
 						
