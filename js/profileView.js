@@ -437,7 +437,7 @@ define([
 								profileM=historial.get("profile");
 								profileM.set("nickname",nombre);
 								profileM.set("email",email);
-								profileM.set("picture_thumb", picturevalue_thumb);
+								profileM.set("picture_thumb", auxprofile.picturevalue_thumb);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
 								profileM.set("status",auxprofile.status.value);
@@ -709,6 +709,7 @@ define([
 									profileM.set("userID",userID);
 									profileM.set("nid",auxprofile.nid);
 									profileM.set("status",auxprofile.status.value);
+									profileM.set("picture_thumb",auxprofile.picturevalue_thumb);
 									
 									var fbcontainer = document.getElementById('fbcontainer');
 									fbcontainer.src = auxprofile.picturevalue;
