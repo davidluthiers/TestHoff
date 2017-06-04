@@ -443,7 +443,7 @@ define([
 								profileM.set("status",auxprofile.status.value);
 								console.log("RECUPERAMOS PICTUREVALUE: " + auxprofile.picturevalue); //picturevalue_thumb
 								
-								var fbcontainer = document.getElementById('fbcontainer');
+								var fbcontainer = document.getElementById('visionphoto');
 								fbcontainer.src = auxprofile.picturevalue;
 								fbcontainer.onload = function() {
 									var canvas = document.getElementById('myCanvas');
@@ -711,7 +711,7 @@ define([
 									profileM.set("status",auxprofile.status.value);
 									profileM.set("picture_thumb",auxprofile.picturevalue_thumb);
 									
-									var fbcontainer = document.getElementById('fbcontainer');
+									var fbcontainer = document.getElementById('visionphoto');
 									fbcontainer.src = auxprofile.picturevalue;
 									fbcontainer.onload = function() {
 										var canvas = document.getElementById('myCanvas');
