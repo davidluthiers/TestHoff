@@ -445,9 +445,9 @@ define([
 								console.log("RECUPERAMOS PICTUREVALUE: " + auxprofile.picturevalue); //picturevalue_thumb
 								
 								var fbcontainer = document.getElementById('visionphoto');
-								$("#fbcontainer").attr("style","");
+								$("#fbcontainer").attr("style","width:2000px;");
 								//fbcontainer.height=2000;
-								//fbcontainer.width=2000;
+								fbcontainer.width=2000;
 								fbcontainer.src = auxprofile.picturevalue;
 								fbcontainer.onload = function() {
 									var canvas = document.getElementById('myCanvas');
@@ -470,7 +470,7 @@ define([
 									profileM.save();
 										
 									historial.create(profileM);
-									self.router.profile(); //Cargamos el mapa
+									//self.router.profile(); //Cargamos el mapa
 								};
 								flag=true;
 								
