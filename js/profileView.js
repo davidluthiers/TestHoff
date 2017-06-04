@@ -445,12 +445,14 @@ define([
 								console.log("RECUPERAMOS PICTUREVALUE: " + auxprofile.picturevalue); //picturevalue_thumb
 								
 								var fbcontainer = document.getElementById('visionphoto');
-								fbcontainer.height=2000;
-								fbcontainer.width=2000;
+								//$("#fbcontainer").attr("style","");
+								//fbcontainer.height=2000;
+								//fbcontainer.width=2000;
 								fbcontainer.src = auxprofile.picturevalue;
 								fbcontainer.onload = function() {
 									var canvas = document.getElementById('myCanvas');
 									console.log("SIZES: " + fbcontainer.width + ", " +fbcontainer.height);
+									console.log("TEST: " + this.width + ", " + this.height);
 									canvas.width = fbcontainer.width;
 									canvas.height = fbcontainer.height;
 									console.log("SIZES: " + canvas.width + ", " +canvas.height);
@@ -468,7 +470,7 @@ define([
 									profileM.save();
 										
 									historial.create(profileM);
-									//self.router.profile(); //Cargamos el mapa
+									self.router.profile(); //Cargamos el mapa
 								};
 								flag=true;
 								
