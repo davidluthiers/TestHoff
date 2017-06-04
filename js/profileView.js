@@ -453,8 +453,8 @@ define([
 									var canvas = document.getElementById('myCanvas');
 									console.log("SIZES: " + fbcontainer.width + ", " +fbcontainer.height);
 									console.log("TEST: " + this.width + ", " + this.height);
-									canvas.width = fbcontainer.width;
-									canvas.height = fbcontainer.height;
+									canvas.width = this.width;
+									canvas.height = this.height;
 									console.log("SIZES: " + canvas.width + ", " +canvas.height);
 									var ctx = canvas.getContext("2d");
 									ctx.clearRect(0, 0, canvas.width, canvas.height);
