@@ -753,14 +753,12 @@ define([
 										picturenewurl = auxprofile.picturevalue_thumb;
 									}
 									else{
-										pictureurl="http://i.imgur.com/Tz9JNSg.png";
+										picturenewurl="http://i.imgur.com/Tz9JNSg.png";
 									}
 								}
 								catch(e){
-									pictureurl="http://i.imgur.com/Tz9JNSg.png";
+									picturenewurl="http://i.imgur.com/Tz9JNSg.png";
 								}
-								
-								var picturenewurl;
 								
 								//pictureurl="www/img/user_icon30x30.png";
 
