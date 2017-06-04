@@ -448,7 +448,7 @@ define([
 								fbcontainer.src = auxprofile.picturevalue;
 								fbcontainer.onload = function() {
 									var canvas = document.getElementById('myCanvas');
-									console.log("SIZES: " + canvas.width + ", " canvas.height);
+									console.log("SIZES: " + canvas.width + ", " +canvas.height);
 									canvas.width = fbcontainer.width;
 									canvas.height = fbcontainer.height;
 									var ctx = canvas.getContext("2d");
