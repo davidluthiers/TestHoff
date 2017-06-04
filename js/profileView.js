@@ -772,6 +772,7 @@ define([
 									longitude = historial.get("profile").get("longitude");
 								}*/
 								console.log("Coords: " + latitude + ", " + longitude);
+								console.log("Picture URL: "+ picturenewurl);
 								
 								const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
 								if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined' )){
