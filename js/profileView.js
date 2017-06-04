@@ -103,9 +103,10 @@ define([
 							
 							var visionphoto = document.getElementById('visionphoto');
 							visionphoto.style.display = 'block'; 
-							visionphoto.src = self.profile.pictureurl.replace("amp;","");
-							console.log(self.profile.pictureurl.substring(0,4));
-							if(self.profile.pictureurl.substring(0,4) == "http"){ //La imagen es un link, proviene de facebook
+							//visionphoto.src = self.profile.pictureurl.replace("amp;","");
+							visionphoto.src = self.profile.picturevalue;
+							console.log(self.profile.picturevalue);
+							if(self.profile.pictureurl.substring(0,4) == "http"){ //La imagen es un link, proviene de facebook/drupal
 								visionphoto.style.height = '50px';
 								visionphoto.style.width = '50px';
 							}
@@ -665,7 +666,7 @@ define([
 					var params_people = { //active hoffman users
 						type: 'GET',
 						dataType: 'jsonp',
-						url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople",
+						url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople2",
 						processData: true,
 						success: function(data) {
 							console.log("DATA: ");
@@ -686,7 +687,7 @@ define([
 									data[index].status.value = " ";
 								}
 								
-								if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
+								/*if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 									var pictureurl;
 									var userID = auxprofile.userID;
 									var nombre = auxprofile.nickname.value;
@@ -731,7 +732,7 @@ define([
 											
 										historial.create(profileM);
 									};
-								}
+								}*/
 								
 							
 								
@@ -744,13 +745,17 @@ define([
 								*/
 								var userID = auxprofile.userID;
 								var nombre = auxprofile.nickname.value;
-								var pictureurl;
+								var picturenewurl;
+								
+								//var pictureurl;
 								try{
-									pictureurl = auxprofile.pictureurl.replace("amp;","");
+									picturenewurl = auxprofile.picturevalue_thumb;
 								}
 								catch(e){
 									pictureurl="http://i.imgur.com/Tz9JNSg.png";
 								}
+								
+								var picturenewurl;
 								
 								//pictureurl="www/img/user_icon30x30.png";
 
@@ -775,7 +780,7 @@ define([
 									  'position': locationLatlng,
 									  'title': nombre,
 									  'icon': {
-										'url': pictureurl,
+										'url': picturenewurl,
 										 'size': {
 											width: 30,
 											height: 30
