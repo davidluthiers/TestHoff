@@ -435,24 +435,38 @@ define([
 							if(historial.get("profile").get("userID") == userID){
 								console.log("Mi perfil está almacenado en el servidor");
 								profileM=historial.get("profile");
-						
-						
 								profileM.set("nickname",nombre);
 								profileM.set("email",email);
-								console.log("RECUPERAMOS PICTUREURL: " + pictureurl);
-
-								profileM.set("picture", pictureurl);
-
+								profileM.set("picture_thumb", picturevalue_thumb);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
 								profileM.set("status",auxprofile.status.value);
+								console.log("RECUPERAMOS PICTUREVALUE: " + auxprofile.picturevalue); //picturevalue_thumb
 								
-								historial.get("profile").destroy();
-								profileM.save();
+								var fbcontainer = document.getElementById('fbcontainer');
+								fbcontainer.src = auxprofile.picturevalue;
+								fbcontainer.onload = function() {
+									var canvas = document.getElementById('myCanvas');
+									canvas.width = fbcontainer.width;
+									canvas.height = fbcontainer.height;
+									var ctx = canvas.getContext("2d");
+									ctx.clearRect(0, 0, canvas.width, canvas.height);
+									ctx.drawImage(fbcontainer, 0, 0);
+									var dataURL = canvas.toDataURL();
+									console.log("downloaded picture: ");
+									console.log(dataURL);
+									profileM.set("picture", dataURL);
 									
-								historial.create(profileM);
+									historial.get("profile").destroy();
+									console.log("EL PERFIL RESULTANTE ES: ");
+									console.log(profileM);
+									profileM.save();
+										
+									historial.create(profileM);
+									self.router.profile(); //Cargamos el mapa
+								};
 								flag=true;
-								self.router.profile(); //Cargamos el mapa
+								
 							}
 						}
 						if(!flag){
@@ -695,12 +709,27 @@ define([
 									profileM.set("userID",userID);
 									profileM.set("nid",auxprofile.nid);
 									profileM.set("status",auxprofile.status.value);
-									historial.get("profile").destroy();
-									profileM.save();
-									self.router.drupaldo(self.saveonserver.bind(self),true);
-										
-									historial.create(profileM);
 									
+									var fbcontainer = document.getElementById('fbcontainer');
+									fbcontainer.src = auxprofile.picturevalue;
+									fbcontainer.onload = function() {
+										var canvas = document.getElementById('myCanvas');
+										canvas.width = fbcontainer.width;
+										canvas.height = fbcontainer.height;
+										var ctx = canvas.getContext("2d");
+										ctx.clearRect(0, 0, canvas.width, canvas.height);
+										ctx.drawImage(fbcontainer, 0, 0);
+										var dataURL = canvas.toDataURL();
+										console.log("downloaded picture: ");
+										console.log(dataURL);
+										profileM.set("picture", dataURL);
+										
+										historial.get("profile").destroy();
+										profileM.save();
+										self.router.drupaldo(self.saveonserver.bind(self),true);
+											
+										historial.create(profileM);
+									};
 								}
 								
 							
@@ -1032,7 +1061,7 @@ define([
 				try{
 					self= this;
 					console.log("GUARDANDO STATUS:" + profile.get("status"));
-					console.log(profile.get("picture"));
+					//console.log(profile.get("picture"));
 					//mirar si yo tengo el nid
 					var data = {
 						  //"file":{
