@@ -146,6 +146,7 @@ define([
 										var visionphoto = document.getElementById('visionphoto');
 										visionphoto.style.display = 'block'; 
 										visionphoto.src = this.profile.get("picture");
+										visionphoto.style.width = '30%';
 										if(this.profile.get("picture").substring(0,4) == "http"){ //La imagen es un link, proviene de facebook
 											visionphoto.style.height = '50px';
 											visionphoto.style.width = '50px';
@@ -445,9 +446,8 @@ define([
 								console.log("RECUPERAMOS PICTUREVALUE: " + auxprofile.picturevalue); //picturevalue_thumb
 								
 								var fbcontainer = document.getElementById('visionphoto');
-								$("#fbcontainer").attr("style","width:2000px;");
 								//fbcontainer.height=2000;
-								fbcontainer.width=2000;
+								//fbcontainer.width=2000;
 								fbcontainer.src = auxprofile.picturevalue;
 								fbcontainer.onload = function() {
 									var canvas = document.getElementById('myCanvas');
@@ -470,7 +470,7 @@ define([
 									profileM.save();
 										
 									historial.create(profileM);
-									//self.router.profile(); //Cargamos el mapa
+									self.router.profile(); //Cargamos el mapa
 								};
 								flag=true;
 								
