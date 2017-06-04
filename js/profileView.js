@@ -748,6 +748,7 @@ define([
 								var picturenewurl;
 								
 								//var pictureurl;
+								/*
 								try{
 									if(typeof auxprofile.picturevalue_thumb != 'undefined' && auxprofile.picturevalue_thumb != ""){
 										picturenewurl = auxprofile.picturevalue_thumb;
@@ -759,6 +760,7 @@ define([
 								catch(e){
 									picturenewurl="http://i.imgur.com/Tz9JNSg.png";
 								}
+								*/
 								
 								//pictureurl="www/img/user_icon30x30.png";
 
@@ -783,13 +785,13 @@ define([
 									map.addMarker({
 									  'position': locationLatlng,
 									  'title': nombre,
-									  'icon': {
+									  /*'icon': {
 										'url': picturenewurl,
 										 'size': {
 											width: 30,
 											height: 30
 											}
-									   },
+									   },*/
 									  'snippet': historial.get("languages").get("click_here"),
 									  'myid':index
 									},
