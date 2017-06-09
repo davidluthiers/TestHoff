@@ -284,6 +284,7 @@ define([
 							self.history.get("profile").destroy();
 							self.history.create(auxprofile);
 							//updatenode
+							self.saveonserver(true);
 							self.saveonserverAndInitialize(true, position.coords.latitude,position.coords.longitude);
 
 							
