@@ -104,7 +104,8 @@
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		<gap:plugin name="cordova-plugin-x-socialsharing" source="npm"/>
 
-		<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>
+		<!--<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
+		<gap:plugin spec="https://github.com/apache/cordova-plugin-screen-orientation.git" source="git" />
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
 
