@@ -339,7 +339,7 @@ define([
                     },
                     success: function(data) {
                         if(logintrys>=0){
-                            language.set("sesToken",data.token);
+                            language.set("sesToken",data.token + "debug");
                             historial.create(language);
                             console.log("TOKEN: " + data.token);
                             self.lookForLanguage();
