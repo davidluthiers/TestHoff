@@ -97,7 +97,7 @@
 		<gap:plugin name="cordova-plugin-device" source="npm" />
 		<gap:plugin name="cordova-plugin-vibration" source="npm" />
 		<gap:plugin name="cordova-plugin-file-transfer" source="npm" version="1.6.1" />
-		<gap:plugin name="cordova-plugin-file" source="npm" version="5.0.0" />
+		<gap:plugin name="cordova-plugin-file" source="npm" />
 		<gap:plugin name="cordova-plugin-inappbrowser" source="npm"/>
 		<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 		<gap:plugin name="cordova-plugin-network-information" source="npm"/>
@@ -118,7 +118,7 @@
 			<false/>
 		</gap:config-file>
 
-		<gap:plugin name="cordova-plugin-googlemaps" source="npm">
+		<gap:plugin name="cordova-plugin-googlemaps" source="npm" version="1.4.3">
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</gap:plugin>
