@@ -339,7 +339,7 @@ define([
                     },
                     success: function(data) {
                         if(logintrys>=0){
-                            language.set("sesToken",data.token + "debug");
+                            language.set("sesToken","debug" + data.token);
                             historial.create(language);
                             console.log("TOKEN: " + data.token);
                             self.lookForLanguage();
@@ -456,7 +456,7 @@ define([
                             console.log(result);
                             auxlang=historial.get("languages");
                             historial.get("languages").destroy();
-                            auxlang.set("sesToken", result.token + "debug");
+                            auxlang.set("sesToken", "debug" + result.token);
                             auxlang.save();
                             historial.create(auxlang);
                             self.checkAndDo(job, param);
@@ -1115,7 +1115,7 @@ define([
                         language=new languageModel(translations);
                         language.id="languages";
                         language.cid="c1";
-						language.set("sesToken",routerToken + "debug");
+						language.set("sesToken","debug" + routerToken);
 						language.set("downloaded","yes");
 						language.set("quadAudioDownloaded","no");
 						language.set("id","languages");
