@@ -512,7 +512,8 @@ define([
 	
                     },
                     error: function(xhr, status, message){
-                        alert(message + ' - ' + xhr + ' - ' + status); //Comentar para el release
+						alert("debug");
+                        alert(message + " - " + xhr + " - " + status); //Comentar para el release
 						self.logAndDo(job, param);
 						Backbone.history.navigate("#auxsummary", {
                         trigger: true
