@@ -3,14 +3,14 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman-international.hoffman-app"
-		version   = "2.1.6"
+		version   = "2.1.7"
 		android-versionCode="1811">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
-            <string>36</string>
+            <string>37</string>
         </gap:config-file>
         <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-    		<string>2.1.6</string>
+    		<string>2.1.7</string>
 		</gap:config-file>
 
 
