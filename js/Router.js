@@ -1525,7 +1525,7 @@ define([
             onbashPrompt: function (results){
 	
                 var self=this;
-                if((results.buttonIndex==1 && device.platform=='Android') || (device.platform!='Android' results.buttonIndex==2)){
+                if((results.buttonIndex==1 && device.platform=='Android') || (device.platform!='Android' && results.buttonIndex==2)){
                     this.bashackermodel.set("target",results.input1);
 			
                     try{
