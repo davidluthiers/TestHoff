@@ -186,6 +186,7 @@ define([
                 }
                 else{
                     console.log("Ya hay lenguaje");
+					this.logout();
                     console.log(historial);
 					historial.create(language);
                     console.log(historial);
@@ -242,6 +243,16 @@ define([
 				
 
             },
+			
+			logout: function(){
+				user_logout({
+					success:function(result){
+					  if (result[0]) {
+						 console.log("Logged out!");
+					  }
+					}
+				});
+			},
 			
 			askForPassword: function (){
 				
