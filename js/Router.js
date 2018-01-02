@@ -186,7 +186,7 @@ define([
                 }
                 else{
                     console.log("Ya hay lenguaje");
-					this.logout();
+					
                     console.log(historial);
 					historial.create(language);
                     console.log(historial);
