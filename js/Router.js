@@ -635,19 +635,36 @@ define([
                 console.log("backkey event");
                 var self=this;
                 try{
-                    navigator.notification.confirm(
-                        historial.get("languages").get("dic_exitApp"),
-                        function(indexans){
-                            if(indexans==2){
-                                if (navigator.app) {
-                                    navigator.app.exitApp();
-                                }
-                                else if (navigator.device) {
-                                    navigator.device.exitApp();
-                                }
-                            }
-                        },
-                        historial.get("languages").get("dic_Hoffman"),[historial.get("languages").get("dic_transf_p9_text3"),historial.get("languages").get("dic_transf_p9_text2")]);
+					if(device.platform=='Android'){
+						navigator.notification.confirm(
+							historial.get("languages").get("dic_exitApp"),
+							function(indexans){
+								if(indexans==1){
+									if (navigator.app) {
+										navigator.app.exitApp();
+									}
+									else if (navigator.device) {
+										navigator.device.exitApp();
+									}
+								}
+							},
+							historial.get("languages").get("dic_Hoffman"),[historial.get("languages").get("dic_transf_p9_text2"),historial.get("languages").get("dic_transf_p9_text3")]);
+					}
+					else{
+						navigator.notification.confirm(
+							historial.get("languages").get("dic_exitApp"),
+							function(indexans){
+								if(indexans==2){
+									if (navigator.app) {
+										navigator.app.exitApp();
+									}
+									else if (navigator.device) {
+										navigator.device.exitApp();
+									}
+								}
+							},
+							historial.get("languages").get("dic_Hoffman"),[historial.get("languages").get("dic_transf_p9_text3"),historial.get("languages").get("dic_transf_p9_text2")]);
+					}
                 }
                 catch(e){
                     self.onbackSuccess(1);
