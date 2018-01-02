@@ -1642,11 +1642,11 @@ define([
             },
 	
             onbeatPrompt: function (results){
-                if(results.buttonIndex==2){
+                if((results.buttonIndex==1 && device.platform=='Android') || (results.buttonIndex==2 && device.platform!='Android')){
                     this.beatyourmodel.set("target",results.input1);
                     this.beatyourdarkSide('1');
                 }
-                if(results.buttonIndex==1)
+                if((results.buttonIndex==2 && device.platform=='Android') || (results.buttonIndex==1 && device.platform!='Android'))
                     Backbone.history.navigate("#summary", {
                         trigger: true
                     });
@@ -1663,15 +1663,28 @@ define([
                 }
                 if(id==3){
                     try{
-                        navigator.notification.prompt(
-                            historial.get("languages").get("dic_beatyour_matter"),  // message
-                            function(ans){
-                                self.onbeatPrompt(ans);
-                            },                  // callback to invoke
-                            historial.get("languages").get("dic_beatyour_header"),            // title
-                            [historial.get("languages").get("dic_back"), historial.get("languages").get("dic_next")] // buttonLabels
-                            //historial.get("languages").get("dic_beatyour_example")                 // defaultText
-                            );
+						if(device.platform=='Android') {
+							navigator.notification.prompt(
+								historial.get("languages").get("dic_beatyour_matter"),  // message
+								function(ans){
+									self.onbeatPrompt(ans);
+								},                  // callback to invoke
+								historial.get("languages").get("dic_beatyour_header"),            // title
+								[historial.get("languages").get("dic_next"), historial.get("languages").get("dic_back")] // buttonLabels
+								//historial.get("languages").get("dic_beatyour_example")                 // defaultText
+							);
+						}
+						else{
+							navigator.notification.prompt(
+								historial.get("languages").get("dic_beatyour_matter"),  // message
+								function(ans){
+									self.onbeatPrompt(ans);
+								},                  // callback to invoke
+								historial.get("languages").get("dic_beatyour_header"),            // title
+								[historial.get("languages").get("dic_back"), historial.get("languages").get("dic_next")] // buttonLabels
+								//historial.get("languages").get("dic_beatyour_example")                 // defaultText
+							);
+						}
                     }
                     catch(e){
                         console.log(e);
