@@ -1542,7 +1542,7 @@ define([
                     }
 			
                 }
-                if((results.buttonIndex==1 && device.platform=='Android') || (device.platform!='Android' results.buttonIndex==2))
+                if((results.buttonIndex==1 && device.platform=='Android') || (device.platform!='Android' && results.buttonIndex==2))
                     Backbone.history.navigate("#summary", {
                         trigger: true
                     });
