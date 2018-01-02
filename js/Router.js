@@ -517,7 +517,7 @@ define([
                                 if(param!="null")
 									job(param);
 								else
-									job();
+									job(); 
 							}
 						}
 	
@@ -1525,7 +1525,7 @@ define([
             onbashPrompt: function (results){
 	
                 var self=this;
-                if(results.buttonIndex==1){
+                if((results.buttonIndex==1 && device.platform=='Android') || (device.platform!='Android' results.buttonIndex==2)){
                     this.bashackermodel.set("target",results.input1);
 			
                     try{
@@ -1542,7 +1542,7 @@ define([
                     }
 			
                 }
-                if(results.buttonIndex==1)
+                if((results.buttonIndex==1 && device.platform=='Android') || (device.platform!='Android' results.buttonIndex==2))
                     Backbone.history.navigate("#summary", {
                         trigger: true
                     });
@@ -1573,15 +1573,28 @@ define([
                 }
                 if(id==3){
                     try{
-                        navigator.notification.prompt(
-                            historial.get("languages").get("dic_bash_matter"),  // message
-                            function(ans){
-                                self.onbashPrompt(ans);
-                            },                  // callback to invoke
-                            historial.get("languages").get("dic_bash_header"),            // title
-                            [historial.get("languages").get("dic_next"),historial.get("languages").get("dic_back")]            // buttonLabels
-                            //historial.get("languages").get("dic_bash_example")                 // defaultText
-                            );
+						if(device.platform=='Android') {
+							navigator.notification.prompt(
+								historial.get("languages").get("dic_bash_matter"),  // message
+								function(ans){
+									self.onbashPrompt(ans);
+								},                  // callback to invoke
+								historial.get("languages").get("dic_bash_header"),            // title
+								[historial.get("languages").get("dic_next"),historial.get("languages").get("dic_back")]            // buttonLabels
+								//historial.get("languages").get("dic_bash_example")                 // defaultText
+								);
+						}
+						else{ //ios
+							navigator.notification.prompt(
+								historial.get("languages").get("dic_bash_matter"),  // message
+								function(ans){
+									self.onbashPrompt(ans);
+								},                  // callback to invoke
+								historial.get("languages").get("dic_bash_header"),            // title
+								[historial.get("languages").get("dic_back"),historial.get("languages").get("dic_next")]            // buttonLabels
+								//historial.get("languages").get("dic_bash_example")                 // defaultText
+								);
+						}
                     }
                     catch(e){
                         console.log(e);
