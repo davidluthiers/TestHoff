@@ -288,7 +288,7 @@ define([
 					}
 					else{
 						navigator.notification.confirm(historial.get("languages").get("dic_passwords_not_match"), function(indexans){self.askForPassword();}, historial.get("languages").get("dic_Hoffman"),[historial.get("languages").get("dic_next")]);
-						//alert(historial.get("languages").get("dic_passwords_not_match"));//passwords_not_match
+						//passwords_not_match
 						
 					}
                 }else{	//if(results.buttonIndex==1) //botón atrás
@@ -304,7 +304,7 @@ define([
 					console.log("setWeeklyNotification");
 					auxdate = new Date();
 					notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
-					//alert("actualizado! 3");
+				
 					try{
 						window.plugin.notification.local.schedule({
 							id:         1,  // A unique id of the notifiction
@@ -523,8 +523,8 @@ define([
 	
                     },
                     error: function(xhr, status, message){
-						alert("debug");
-                        alert(message); //Comentar para el release
+						
+                        console.log(message); //Comentar para el release
 						console.log(xhr + " - " + status);
 						self.logAndDo(job, param);
 						Backbone.history.navigate("#auxsummary", {
