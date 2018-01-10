@@ -34,7 +34,13 @@ define([
             render: function(id, historycollection, router){
                 this.$el.attr('data-role', 'page');
                 this.$el.attr('data-theme', 'a');
-                this.$el.attr('class', 'page');
+				
+				if(id=='2'){
+					this.$el.attr('class', 'page beatfixed');
+				}
+				else{
+					 this.$el.attr('class', 'page');
+				}
 
                 this.collection=historycollection;
 				
