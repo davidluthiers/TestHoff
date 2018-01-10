@@ -413,7 +413,8 @@ define([
 							self.history.create(auxlanguages);
 							if(device.platform!='Android')
 								target='cdvfile://localhost/persistent/audios/';
-							self.my_media = new Media(target+self.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
+							//self.my_media = new Media(target+self.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
+							self.my_media = new Media(url, self.mediasuccess, self.nada, self.onStatus);
 							setTimeout(function() {
 								
 								self.preparar();
