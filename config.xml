@@ -88,7 +88,7 @@
 			<param name="APP_NAME" value="Hoffman" />
 		</gap:plugin>
 		<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
-		<gap:plugin name="cordova-plugin-camera" source="npm" />
+		<gap:plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-dialogs" source="npm" />
 		<gap:plugin name="cordova-plugin-device-motion" source="npm" />
