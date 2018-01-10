@@ -403,7 +403,7 @@ define([
 							console.log("download complete, URL: " + entry.toURL());
 							console.log("entry: ");
 							console.log(entry);
-							url=entry.toURL();
+							url=entry.toInternalURL();
 							
 							//guardamos el nombre del quadAudio
 							auxlanguages = self.history.get("languages");
