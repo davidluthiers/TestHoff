@@ -36,7 +36,7 @@ define([
                 this.$el.attr('data-theme', 'a');
 				
 				if(id=='2'){
-					this.$el.attr('class', 'page beatfixed');
+					this.$el.attr('class', 'beatfixed page');
 				}
 				else{
 					 this.$el.attr('class', 'page');

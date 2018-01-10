@@ -1646,10 +1646,11 @@ define([
                     this.beatyourmodel.set("target",results.input1);
                     this.beatyourdarkSide('1');
                 }
-                if((results.buttonIndex==2 && device.platform=='Android') || (results.buttonIndex==1 && device.platform!='Android'))
+                else{
                     Backbone.history.navigate("#summary", {
                         trigger: true
                     });
+				}
 			
             },
 	
