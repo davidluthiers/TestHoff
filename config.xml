@@ -84,10 +84,10 @@
 		<gap:splash src="splash/ios/splash1334.png" gap:platform="ios" width="750" height="1334"/>
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
-		<gap:plugin name="cordova-plugin-facebook4" spec="git+https://github.com/davidluthiers/cordova-plugin-facebook4.git">
+		<plugin spec="https://github.com/davidluthiers/cordova-plugin-facebook4.git">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
-		</gap:plugin>
+		</plugin>
 		<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
 		<gap:plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
