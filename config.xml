@@ -4,10 +4,10 @@
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman-international.hoffman-app"
 		version   = "2.2.3"
-		android-versionCode="1812">
+		android-versionCode="1813">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
-            <string>44</string>
+            <string>45</string>
         </gap:config-file>
         <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     		<string>2.2.3</string>
@@ -83,7 +83,7 @@
 		<gap:splash src="splash/ios/splash1334.png" gap:platform="ios" width="750" height="1334"/>
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
-		<gap:plugin name="cordova-plugin-facebook4" source="npm" version="1.7.4">
+		<gap:plugin name="cordova-plugin-facebook4" source="npm" version="2.1.0">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</gap:plugin>
