@@ -21,7 +21,7 @@
 		<author href="http://phonegap.com" email="support@phonegap.com">
 			DavidLuthiers
 		</author>
-		<preference name="ANDROID_SDK_VERSION" default="4.+"/>
+		
 		<preference name="android-minSdkVersion" value="15"/>
 		<preference name="phonegap-version" value="cli-6.3.0" />
 		<preference name="orientation" value="portrait" />
