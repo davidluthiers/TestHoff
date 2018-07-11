@@ -22,7 +22,7 @@
 			DavidLuthiers
 		</author>
 		
-		<preference name="android-minSdkVersion" value="15"/>
+		<preference name="android-minSdkVersion" value="16"/>
 		<preference name="phonegap-version" value="cli-8.0.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="false" />
@@ -54,7 +54,8 @@
 		<preference name="disable-cursor" value="false" />
 		<preference name="android-build-tool" value="gradle" />
 		<preference name="SplashShowOnlyFirstTime" value="false" />
-
+		
+		<preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
 
 		<icon src="icon.png" />
@@ -88,11 +89,10 @@
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</gap:plugin>
-		<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+
 		<gap:plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-dialogs" source="npm" />
-		<gap:plugin name="cordova-plugin-device-motion" source="npm" />
 		<gap:plugin name="cordova-plugin-geolocation" source="npm" version="2.4.3"/>
 		<gap:plugin name="cordova-plugin-globalization" source="npm" />
 		<gap:plugin name="cordova-plugin-device" source="npm" />
