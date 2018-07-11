@@ -84,12 +84,12 @@
 		<gap:splash src="splash/ios/splash1334.png" gap:platform="ios" width="750" height="1334"/>
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
-		
+		<!--
 		<gap:plugin name="cordova-plugin-facebook4" source="npm" spec="2.2.0">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</gap:plugin>
-		
+		-->		
 
 		<gap:plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
@@ -111,7 +111,7 @@
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
 		
-		<gap:config-file platform="android" parent="/*" mode="replace">
+		<gap:config-file platform="android" parent="/manifest" target="./res/values/strings.xml" mode="add">
 			<array>
 				<string name="fb_app_id">1504029573151839</string>
 				<string name="fb_app_name">Hoffman</string>
