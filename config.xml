@@ -105,18 +105,15 @@
 		<gap:plugin name="cordova-plugin-network-information" source="npm"/>
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		<gap:plugin name="cordova-plugin-x-socialsharing" source="npm"/>
-		<gap:plugin name="cordova-android-support-gradle-release" source="npm"/>
 
 		<!--<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
 		<gap:plugin spec="https://github.com/apache/cordova-plugin-screen-orientation.git" source="git" />
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
 		
-		<gap:config-file platform="android" parent="/manifest" mode="add">
-			<array>
+		<gap:config-file platform="android" parent="/*" mode="add">
 				<string name="fb_app_id">1504029573151839</string>
 				<string name="fb_app_name">Hoffman</string>
-			</array>
 		</gap:config-file>
 
 		<!-- <gap:config-file platform="android"> <application android:hardwareAccelerated="true" /> </gap:config-file> -->
