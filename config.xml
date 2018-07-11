@@ -13,7 +13,7 @@
     		<string>2.2.4</string>
 		</gap:config-file>
 		
-		<gap:config-file parent="/resources" target="./res/values/strings.xml">
+		<gap:config-file parent="/resources" >
 			<string name="fb_app_id">1504029573151839</string>
 			<string name="fb_app_name">Hoffman</string>
 		</gap:config-file>
