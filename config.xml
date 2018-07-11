@@ -13,12 +13,6 @@
     		<string>2.2.4</string>
 		</gap:config-file>
 		
-		<gap:config-file platform="android" parent="/resources/" target="./res/values/strings.xml">
-			<string name="fb_app_id">1504029573151839</string>
-			<string name="fb_app_name">Hoffman</string>
-		</gap:config-file>
-
-
 		<name>Hoffman App</name>
 		<description>
 			Hoffman Process mobile application.
@@ -116,6 +110,12 @@
 		<gap:plugin spec="https://github.com/apache/cordova-plugin-screen-orientation.git" source="git" />
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
+		
+		
+		<gap:config-file platform="android" parent="/resources/" target="./res/values/strings.xml">
+			<string name="fb_app_id">1504029573151839</string>
+			<string name="fb_app_name">Hoffman</string>
+		</gap:config-file>
 
 		<!-- <gap:config-file platform="android"> <application android:hardwareAccelerated="true" /> </gap:config-file> -->
 		<!--<gap:plugin name="nl.x-services.plugins.backgroundaudio" />-->
