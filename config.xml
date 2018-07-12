@@ -21,8 +21,7 @@
 			DavidLuthiers
 		</author>
 		
-		<preference name="android-minSdkVersion" value="17" />
-		<preference name="android-targetSdkVersion" value="17" />
+		<preference name="android-minSdkVersion" value="26" />
 		<preference name="phonegap-version" value="cli-7.0.1" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="false" />
