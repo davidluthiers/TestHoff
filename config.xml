@@ -110,7 +110,7 @@
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
 		
-		<gap:config-file target="AndroidManifest.xml" parent="/application" mode="replace" >
+		<gap:config-file platform="android" target="AndroidManifest.xml" parent="/application" mode="replace" >
 				<string name="fb_app_id">1504029573151839</string>
 				<string name="fb_app_name">Hoffman</string>
 		</gap:config-file>
