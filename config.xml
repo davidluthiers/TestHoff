@@ -21,7 +21,7 @@
 			DavidLuthiers
 		</author>
 		
-		<preference name="android-minSdkVersion" value="17" />
+		<preference name="android-minSdkVersion" value="26" />
 		<preference name="phonegap-version" value="cli-7.0.1" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="false" />
@@ -84,20 +84,20 @@
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
 		
-		<gap:plugin name="cordova-plugin-facebook4" source="npm" spec="1.7.4">
+		<gap:plugin name="cordova-plugin-facebook4" source="npm" spec="2.2.0">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</gap:plugin>
 				
 
-		<gap:plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
-		<gap:plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
+		<gap:plugin name="cordova-plugin-camera" source="npm" />
+		<gap:plugin name="cordova-plugin-media" source="npm" />
 		<gap:plugin name="cordova-plugin-dialogs" source="npm" />
-		<gap:plugin name="cordova-plugin-geolocation" source="npm" version="2.4.3"/>
+		<gap:plugin name="cordova-plugin-geolocation" source="npm" />
 		<gap:plugin name="cordova-plugin-globalization" source="npm" />
 		<gap:plugin name="cordova-plugin-device" source="npm" />
 		<gap:plugin name="cordova-plugin-vibration" source="npm" />
-		<gap:plugin name="cordova-plugin-file-transfer" source="npm" version="1.6.1" />
+		<gap:plugin name="cordova-plugin-file-transfer" source="npm"  />
 		<gap:plugin name="cordova-plugin-file" source="npm" />
 		<gap:plugin name="cordova-plugin-inappbrowser" source="npm"/>
 		<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
@@ -136,7 +136,7 @@
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</gap:config-file>
 
-		<plugin name="cordova-plugin-media-capture" source="npm" version="1.4.3" >
+		<plugin name="cordova-plugin-media-capture" source="npm"  >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 		</plugin>
 
