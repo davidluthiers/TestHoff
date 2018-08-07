@@ -12,7 +12,8 @@
         <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     		<string>2.2.4</string>
 		</gap:config-file>
-		
+
+
 		<name>Hoffman App</name>
 		<description>
 			Hoffman Process mobile application.
@@ -20,9 +21,7 @@
 		<author href="http://phonegap.com" email="support@phonegap.com">
 			DavidLuthiers
 		</author>
-		
-		<preference name="android-minSdkVersion" value="26" />
-		<preference name="android-targetSdkVersion" value="26" />
+		<preference name="android-minSdkVersion" value="15"/>
 		<preference name="phonegap-version" value="cli-6.3.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="false" />
@@ -52,9 +51,9 @@
 		<preference name="LoadingDialog" value=","/>
 		<preference name="LoadUrlTimeoutValue" value="20000" />
 		<preference name="disable-cursor" value="false" />
+		<preference name="android-build-tool" value="gradle" />
 		<preference name="SplashShowOnlyFirstTime" value="false" />
-		
-		<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+
 
 
 		<icon src="icon.png" />
@@ -85,20 +84,22 @@
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
 		<!--
-		<plugin spec="https://github.com/akhatri/cordova-plugin-facebook4.git">
+		<gap:plugin name="cordova-plugin-facebook4" source="npm" version="2.1.0">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
-		</plugin>-->
-				
-
-		<gap:plugin name="cordova-plugin-camera" source="npm" />
-		<gap:plugin name="cordova-plugin-media" source="npm" />
+		</gap:plugin>
+		-->
+		
+		<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+		<gap:plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
+		<gap:plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-dialogs" source="npm" />
-		<gap:plugin name="cordova-plugin-geolocation" source="npm" />
+		<gap:plugin name="cordova-plugin-device-motion" source="npm" />
+		<gap:plugin name="cordova-plugin-geolocation" source="npm" version="2.4.3"/>
 		<gap:plugin name="cordova-plugin-globalization" source="npm" />
 		<gap:plugin name="cordova-plugin-device" source="npm" />
 		<gap:plugin name="cordova-plugin-vibration" source="npm" />
-		<!--<gap:plugin name="cordova-plugin-file-transfer" source="npm"  /> -->
+		<gap:plugin name="cordova-plugin-file-transfer" source="npm" version="1.6.1" />
 		<gap:plugin name="cordova-plugin-file" source="npm" />
 		<gap:plugin name="cordova-plugin-inappbrowser" source="npm"/>
 		<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
@@ -110,11 +111,6 @@
 		<gap:plugin spec="https://github.com/apache/cordova-plugin-screen-orientation.git" source="git" />
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
-		
-		<!--<gap:config-file parent="/resources" target="./res/values/strings.xml">
-				<string name="fb_app_id">1504029573151839</string>
-				<string name="fb_app_name">Hoffman</string>
-		</gap:config-file>-->
 
 		<!-- <gap:config-file platform="android"> <application android:hardwareAccelerated="true" /> </gap:config-file> -->
 		<!--<gap:plugin name="nl.x-services.plugins.backgroundaudio" />-->
@@ -135,7 +131,7 @@
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</gap:config-file>
 
-		<plugin name="cordova-plugin-media-capture" source="npm"  >
+		<plugin name="cordova-plugin-media-capture" source="npm" version="1.4.3" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 		</plugin>
 
