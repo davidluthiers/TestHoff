@@ -84,11 +84,11 @@
 		<gap:splash src="splash/ios/splash1334.png" gap:platform="ios" width="750" height="1334"/>
 		<gap:splash src="splash/ios/splash2208.png" gap:platform="ios" width="1242" height="2208"/>
 
-		
+		<!--
 		<plugin spec="https://github.com/akhatri/cordova-plugin-facebook4.git">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
-		</plugin>
+		</plugin>-->
 				
 
 		<gap:plugin name="cordova-plugin-camera" source="npm" />
@@ -111,10 +111,10 @@
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
 		
-		<gap:config-file parent="/resources" target="./res/values/strings.xml">
+		<!--<gap:config-file parent="/resources" target="./res/values/strings.xml">
 				<string name="fb_app_id">1504029573151839</string>
 				<string name="fb_app_name">Hoffman</string>
-		</gap:config-file>
+		</gap:config-file>-->
 
 		<!-- <gap:config-file platform="android"> <application android:hardwareAccelerated="true" /> </gap:config-file> -->
 		<!--<gap:plugin name="nl.x-services.plugins.backgroundaudio" />-->
