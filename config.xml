@@ -88,7 +88,7 @@
 		<plugin spec="https://github.com/akhatri/cordova-plugin-facebook4.git">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
-		</gap:plugin>
+		</plugin>
 				
 
 		<gap:plugin name="cordova-plugin-camera" source="npm" />
