@@ -111,7 +111,7 @@
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
 		
-		<config-file parent="/resources" target="./res/values/strings.xml">
+		<gap:config-file parent="/resources" target="./res/values/strings.xml">
 				<string name="fb_app_id">1504029573151839</string>
 				<string name="fb_app_name">Hoffman</string>
 		</gap:config-file>
