@@ -964,7 +964,7 @@ define([
 									$("#fill_profile").attr("style","display:none");
 
 									document.getElementById("displayname").value = response.first_name;
-									if(!typeof response.email == 'undefined' && response.email != 'undefined')
+									if(typeof response.email != 'undefined' && response.email != 'undefined')
 										document.getElementById("useremail").value = response.email;
 									
 									//cargar foto
