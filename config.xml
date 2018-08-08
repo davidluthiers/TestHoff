@@ -148,7 +148,7 @@
 		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
 
 
-		<gap:splash src="splash.png" />
+		<splash src="splash.png" />
 
 		<gap:config-file platform="ios" parent="UIStatusBarHidden">
 			<true/>
