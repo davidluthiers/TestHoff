@@ -1346,7 +1346,10 @@ define([
 								profileM.set("email",$("#useremail").val());
 								console.log("GUARDAMOS STATUS: ");
 								console.log($("#status").val());
-								profileM.set("status",$("#status").val());
+								if ($("#status").val() != 'undefined' && typeof $("#status").val() != 'undefined')
+									profileM.set("status",$("#status").val());
+								else
+									profileM.set("status",'');
 								profileM.set("near_users","");
 								var visionphoto = document.getElementById('visionphoto');
 								profileM.set("picture", visionphoto.src);
