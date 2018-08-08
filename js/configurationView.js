@@ -612,7 +612,7 @@ define([
 						aux2self.language.set("quadAudioDownloaded","no");
 						aux2self.language.set("id","languages");
 						aux2self.language.set("notifications", true);
-						aux2self.language.set("sesToken", "debug" + routerToken); //tokendebug
+						aux2self.language.set("sesToken", routerToken); //tokendebug
                         aux2self.history.create(aux2self.language);
                         aux2self.language.save();
                         aux2self.language.fetch();
