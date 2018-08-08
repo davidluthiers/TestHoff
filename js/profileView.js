@@ -1070,7 +1070,8 @@ define([
 				
 				profile = this.history.get("profile");
 				console.log(profile.get("nickname"));
-				mydate = new Date();	
+				mydate = new Date();
+				console.log("token: " + self.history.get("languages").get("sesToken"));
 				var node;
 				var picture;
 				try{
