@@ -113,8 +113,10 @@ define([
                     console.log("FIRST LOAD");
 					try{
 							navigator.splashscreen.hide();
-							StatusBar.hide();
-							StatusBar.overlaysWebView(false);
+							if(device.platform!='Android'){
+								StatusBar.hide();
+								StatusBar.overlaysWebView(false);
+							}
 					}
 					catch(e){
 						console.log(e);
