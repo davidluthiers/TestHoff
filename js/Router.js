@@ -458,7 +458,10 @@ define([
 		
                 var self=this;
                 if(logintrys==0){
-                    alert("Connection failure, try again later");
+                    //alert("Connection failure, try again later");
+					navigator.notification.confirm("Hoffman App needs an internet connection, try again later", function(indexans){
+											navigator.app.exitApp();
+										}, "Hoffman",["Ok"]);
                 }
                 else{
                     logintrys--;
