@@ -151,6 +151,14 @@
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</gap:config-file>
+		
+		<edit-config file="AndroidManifest.xml" target="/manifest/uses-permission[@android:name='android.permission.RECORD_AUDIO E']" mode="merge">
+			   <uses-permission android:name="android.permission.INTERNET" />
+		</edit-config>
+
+		<edit-config file="AndroidManifest.xml" target="/manifest/uses-permission[@android:name='android.permission.READ_PHONE_STATE']" mode="merge">
+			   <uses-permission android:name="android.permission.INTERNET" />
+		</edit-config>
 
 		<plugin name="cordova-plugin-media-capture" source="npm" version="1.4.3" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
