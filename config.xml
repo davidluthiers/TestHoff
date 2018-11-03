@@ -54,7 +54,6 @@
 		<preference name="android-build-tool" value="gradle" />
 		<preference name="SplashShowOnlyFirstTime" value="false" />
 		<preference name="StatusBarOverlaysWebView" value="false" />
-		<preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
 
 		<icon src="icon.png" />
@@ -103,9 +102,11 @@
 		</gap:plugin>
 		-->
 		
+		<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
 		<gap:plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
 		<gap:plugin name="cordova-plugin-dialogs" source="npm" />
+		<gap:plugin name="cordova-plugin-device-motion" source="npm" />
 		<gap:plugin name="cordova-plugin-geolocation" source="npm" version="2.4.3"/>
 		<gap:plugin name="cordova-plugin-globalization" source="npm" />
 		<gap:plugin name="cordova-plugin-device" source="npm" />
@@ -145,34 +146,12 @@
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</gap:plugin>
-		
-		<gap:config-file parent="/*" mode="delete">
-		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-		</gap:config-file>
-		
-		<gap:config-file parent="/manifest" mode="delete">
-		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-		</gap:config-file>
-		
-		<gap:edit-config file="AndroidManifest.xml" target="/manifest/uses-permission[@android:name='android.permission.RECORD_AUDIO']" mode="delete">
-		</gap:edit-config>
-		<gap:edit-config file="AndroidManifest.xml" target="/manifest/uses-permission[@android:name='android.permission.READ_PHONE_STATE']" mode="delete">
-		</gap:edit-config>
 
-		<gap:edit-config file="AndroidManifest.xml" target="/manifest/uses-permission[@android:name='android.permission.RECORD_AUDIO']" mode="merge">
-			   <uses-permission android:name="android.permission.INTERNET" />
-		</gap:edit-config>
-		<gap:edit-config file="AndroidManifest.xml" target="/manifest/uses-permission[@android:name='android.permission.READ_PHONE_STATE']" mode="merge">
-			   <uses-permission android:name="android.permission.INTERNET" />
-		</gap:edit-config>
-		
-		<gap:config-file parent="/manifest" target="AndroidManifest.xml" mode="delete">
-		  <uses-permission android:name="android.permission.RECORD_AUDIO" />
-		  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+		<gap:config-file platform="android" parent="/*" mode="delete">
+		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</gap:config-file>
-		
+
 		<plugin name="cordova-plugin-media-capture" source="npm" version="1.4.3" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 		</plugin>
