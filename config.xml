@@ -4,7 +4,7 @@
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman-international.hoffman-app"
 		version   = "2.6.4"
-		android-versionCode="1816">
+		android-versionCode="1817">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
             <string>54</string>
