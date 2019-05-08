@@ -570,6 +570,7 @@ define([
 									}
 								};
 				
+				console.log("llamada a node_save");
 				node_save(node, {
 							success: function(result) {
 								console.log("Saved activity node of " + toolactivity + ", " + details + " #" + result.nid);
@@ -1478,8 +1479,8 @@ define([
 				}
 				else{
 					saveActivity('quad', 'written', new Date());
-					this.quadview.render(id, historial,app_router);	
-					this.changePage (this.quadview);
+					//this.quadview.render(id, historial,app_router);	
+					//this.changePage (this.quadview);
 				}
 		
 
