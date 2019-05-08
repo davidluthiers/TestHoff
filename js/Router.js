@@ -540,6 +540,44 @@ define([
                     }
                 });
             },
+			
+			saveActivity: function(toolactivity, details, timestamp){ // saveActivity('quad', 'written', new Date());
+				
+				
+				node = {
+									title: device.uuid + "," + timestamp,
+									type: "appActivity",
+									 
+									field_device:{
+											"und":[{
+												"value":device.uuid
+											}]
+									},
+									field_toolactivity:{
+											"und":[{
+												"value":toolactivity
+											}]
+									},
+									field_details:{
+											"und":[{
+												"value":details
+											}]
+									},
+									field_timestamp:{
+											"und":[{
+												"value":timestamp
+											}]
+									}
+								};
+				
+				node_save(node, {
+							success: function(result) {
+								console.log("Saved activity node of " + toolactivity + ", " + details + " #" + result.nid);
+							}
+							});
+				
+				
+			},
 	
 
             lookForLanguage: function(){
@@ -1439,6 +1477,7 @@ define([
 					
 				}
 				else{
+					saveActivity('quad', 'written', new Date());
 					this.quadview.render(id, historial,app_router);	
 					this.changePage (this.quadview);
 				}
