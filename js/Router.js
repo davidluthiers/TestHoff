@@ -1478,7 +1478,7 @@ define([
 					
 				}
 				else{
-					saveActivity('quad', 'written', new Date());
+					this.saveActivity('quad', 'written', new Date());
 					//this.quadview.render(id, historial,app_router);	
 					//this.changePage (this.quadview);
 				}
