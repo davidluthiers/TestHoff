@@ -544,6 +544,7 @@ define([
 			saveActivity: function(toolactivity, details, timestamp){ // saveActivity('quad', 'written', new Date());
 				options = {
 						type:"post",
+						data: {}
 						url: 'http://appv2.hoffman-international.com/' + 'hoffapp/file.json',
 						dataType: 'json',
 						beforeSend: function (request) {
