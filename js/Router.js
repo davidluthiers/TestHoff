@@ -542,9 +542,15 @@ define([
             },
 			
 			saveActivity: function(toolactivity, details, timestamp){ // saveActivity('quad', 'written', new Date());
+				options = {
+						type:"post",
+						dataType: 'json',
+						beforeSend: function (request) {
+							request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
+						  },
+						success:function(result){
 				
-				
-				node = {
+							node = {
 									title: device.uuid + "," + timestamp,
 									type: "appActivity",
 									 
@@ -570,13 +576,16 @@ define([
 									}
 								};
 				
-				console.log("llamada a node_save");
-				node_save(node, {
+						console.log("llamada a node_save");
+						node_save(node, {
 							success: function(result) {
 								console.log("Saved activity node of " + toolactivity + ", " + details + " #" + result.nid);
 							}
 							});
+					}
+				};
 				
+				$.ajax(options);
 				
 			},
 	
