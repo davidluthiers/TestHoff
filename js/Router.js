@@ -544,6 +544,7 @@ define([
 			saveActivity: function(toolactivity, details, timestamp){ // saveActivity('quad', 'written', new Date());
 				options = {
 						type:"post",
+						url: 'http://appv2.hoffman-international.com/' + 'hoffapp/file.json',
 						dataType: 'json',
 						beforeSend: function (request) {
 							request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
