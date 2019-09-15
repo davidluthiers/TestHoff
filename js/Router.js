@@ -554,7 +554,7 @@ define([
 				
 							node = {
 									title: device.uuid + "," + timestamp,
-									type: "appActivity",
+									type: "appactivity",
 									 
 									field_device:{
 											"und":[{
