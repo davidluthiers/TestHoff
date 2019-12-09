@@ -541,7 +541,13 @@ define([
                 });
             },
 			
-			saveActivity: function(toolactivity, details, timestamp){ // saveActivity('quad', 'written', new Date());
+			saveActivity: function(activity){
+								
+				app_router.drupaldo(app_router.uploadActivity.bind(this),activity,true);
+				
+			},
+			
+			uploadActivity: function(activity){
 								
 				node = {
 						title: device.uuid + "," + timestamp,
@@ -554,17 +560,17 @@ define([
 						},
 						field_toolactivity:{
 								"und":[{
-									"value":toolactivity
+									"value":activity.tool
 								}]
 						},
 						field_details:{
 								"und":[{
-									"value":details
+									"value":activity.details
 								}]
 						},
 						field_timestamp:{
 								"und":[{
-									"value":timestamp
+									"value":activity.time
 								}]
 						}
 					};
@@ -1476,9 +1482,16 @@ define([
 					
 				}
 				else{
-					this.saveActivity('quad', 'written', new Date());
-					//this.quadview.render(id, historial,app_router);	
-					//this.changePage (this.quadview);
+					var activity = {
+						tool: 'quad',
+						details: 'written',
+						time: new Date()
+					}
+				
+					this.saveActivity(activity);
+					
+					this.quadview.render(id, historial,app_router);	
+					this.changePage (this.quadview);
 				}
 		
 
