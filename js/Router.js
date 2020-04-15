@@ -562,7 +562,7 @@ define([
 			uploadActivity: function(activity){
 								
 				node = {
-						title: device.uuid + "," + timestamp,
+						title: device.uuid + "," + activity.time,
 						type: "appactivity",
 						 
 						field_device:{
