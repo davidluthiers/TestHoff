@@ -649,6 +649,7 @@ define([
                 Backbone.history.navigate("#summary", {
                     trigger: true
                 });
+				this.router.recordActivity('quad', this.model.get("version"), new Date());
             },
 	
             checkboxevt: function (){
