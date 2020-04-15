@@ -1495,7 +1495,7 @@ define([
 				}
 				else{
 				
-					this.recordActivity('quad', 'written', new Date());
+					//this.recordActivity('quad', 'written', new Date());
 					
 					this.quadview.render(id, historial,app_router);	
 					this.changePage (this.quadview);

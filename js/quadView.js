@@ -289,6 +289,7 @@ define([
 	
                 this.model.set("finished", true);
                 this.savemodel();
+				this.router.recordActivity('quad', this.model.get("version"), new Date());
                 Backbone.history.navigate("#summary", {
                     trigger: true
                 });
