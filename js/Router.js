@@ -541,6 +541,18 @@ define([
                 });
             },
 			
+			recordActivity: function(vtool,vdetails,vtime){
+								
+				var activity = {
+						tool: vtool,
+						details: vdetails,
+						time: vtime
+					}
+				
+				this.saveActivity(activity);
+				
+			},
+			
 			saveActivity: function(activity){
 								
 				app_router.drupaldo(app_router.uploadActivity.bind(this),activity,true);
@@ -1482,13 +1494,8 @@ define([
 					
 				}
 				else{
-					var activity = {
-						tool: 'quad',
-						details: 'written',
-						time: new Date()
-					}
 				
-					this.saveActivity(activity);
+					this.recordActivity('quad', 'written', new Date());
 					
 					this.quadview.render(id, historial,app_router);	
 					this.changePage (this.quadview);
