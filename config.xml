@@ -147,7 +147,7 @@
 			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</gap:plugin>
 		
-		<gap:config-file platform="android" parent="/*" mode="merge">
+		<gap:config-file platform="android" parent="/manifest">
 		  <application android:usesCleartextTraffic="true" />
 		</gap:config-file>
 
