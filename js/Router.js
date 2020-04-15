@@ -590,7 +590,7 @@ define([
 				console.log("llamada a node_save");
 				node_save(node, {
 					success: function(result) {
-						console.log("Saved activity node of " + toolactivity + ", " + details + " #" + result.nid);
+						console.log("Saved activity node of " + activity.tool + ", " + activity.details + " #" + result.nid);
 					}
 					});
 				
