@@ -150,7 +150,7 @@ define([
 				var self=this;
 				var params_images = {
 					type: 'GET',
-					dataType: 'jsonp',
+					dataType: 'json',
 					url: "http://appv2.hoffman-international.com/hoffapp/"+ "dark-side",
 					processData: true,
 					success: function(data) {
