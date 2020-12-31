@@ -55,7 +55,7 @@
 		<preference name="SplashShowOnlyFirstTime" value="false" />
 		<preference name="StatusBarOverlaysWebView" value="false" />
 		<preference name="android.useAndroidX" value="true" />
-		<preference name="android.enableJetifier" value="false" />
+		<preference name="android.enableJetifier" value="true" />
 		<preference name="AndroidXEnabled" value="true" />
 
 
