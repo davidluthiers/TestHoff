@@ -119,6 +119,8 @@
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		<gap:plugin name="cordova-plugin-x-socialsharing" source="npm"/>
 		<gap:plugin name="cordova-plugin-statusbar" source="npm" />
+		<gap:plugin name="cordova-plugin-androidx" source="npm" />
+		<gap:plugin name="cordova-plugin-androidx-adapter" source="npm" />
 
 		<!--<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
 		<gap:plugin spec="https://github.com/apache/cordova-plugin-screen-orientation.git" source="git" />
@@ -176,6 +178,8 @@
 		<access origin="*" launch-external="yes"/>
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
 			<application android:usesCleartextTraffic="true" />
+			<application android:useAndroidX="true" />
+			<application android:enableJetifier="true" />
 		</edit-config>
 
 
