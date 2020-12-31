@@ -176,6 +176,7 @@
 		<access origin="*" launch-external="yes"/>
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
 			<application android:usesCleartextTraffic="true" />
+			<application android:multiDexEnabled="true" />
 		</edit-config>
 
 
