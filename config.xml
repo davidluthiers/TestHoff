@@ -120,7 +120,7 @@
 		<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
 		<gap:plugin name="cordova-plugin-network-information" source="npm"/>
 		<gap:plugin name="cordova-plugin-spinner-dialog" source="npm"/>
-		<gap:plugin name="cordova-plugin-x-socialsharing" source="npm"/>
+		<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.6.8"/>
 		<gap:plugin name="cordova-plugin-statusbar" source="npm" />
 		<gap:plugin name="cordova-plugin-androidx" source="npm" />
 		<gap:plugin name="cordova-plugin-androidx-adapter" source="npm" />
