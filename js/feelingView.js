@@ -242,7 +242,7 @@ define([
                 var params_languages = { //active languages
                     context: this,
                     type: 'GET',
-                    dataType: 'jsonp',
+                    dataType: 'json',
                     url: "http://appv2.hoffman-international.com/hoffapp/actions_" + self.history.get("languages").get("languageAC"),
                     processData: true,
                     success: function(data) {
