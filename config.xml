@@ -101,11 +101,12 @@
 		<splash src="/www/splash/ios/splash1334.png" platform="ios" width="750" height="1334"/>
 		<splash src="/www/splash/ios/splash2208.png" platform="ios" width="1242" height="2208"/>
 
-		
+		<!--
 		<plugin name="cordova-plugin-facebook4" source="npm">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</plugin>
+		-->
 		
 		
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
