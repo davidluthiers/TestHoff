@@ -54,9 +54,9 @@
 		<preference name="android-build-tool" value="gradle" />
 		<preference name="SplashShowOnlyFirstTime" value="false" />
 		<preference name="StatusBarOverlaysWebView" value="false" />
-		<preference name="android.useAndroidX" value="false" />
-		<preference name="android.enableJetifier" value="false" />
-		<preference name="AndroidXEnabled" value="false" />
+		<preference name="android.useAndroidX" value="true" />
+		<preference name="android.enableJetifier" value="true" />
+		<preference name="AndroidXEnabled" value="true" />
 
 
 		<icon src="/www/icon.png" />
@@ -123,8 +123,8 @@
 		<plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		<plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.6.8"/>
 		<plugin name="cordova-plugin-statusbar" source="npm" />
-		<!--<plugin name="cordova-plugin-androidx" source="npm" />
-		<plugin name="cordova-plugin-androidx-adapter" source="npm" />-->
+		<plugin name="cordova-plugin-androidx" source="npm" />
+		<plugin name="cordova-plugin-androidx-adapter" source="npm" />
 
 		<!--<plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
