@@ -1477,6 +1477,7 @@ define([
                     model: this.quadmodel
                 });
 				if(id=='1' && this.quadmodel.get("version")=="Spoken"){
+					this.recordActivity('quad', 'spoken', new Date());
 					try{
                         if(device.platform!='Android')
                             window.plugins.spinnerDialog.show(historial.get("languages").get("dic_loading"), "", function () {
@@ -1495,7 +1496,7 @@ define([
 				}
 				else{
 				
-					//this.recordActivity('quad', 'written', new Date());
+					this.recordActivity('quad', 'written', new Date());
 					
 					this.quadview.render(id, historial,app_router);	
 					this.changePage (this.quadview);
@@ -1598,6 +1599,7 @@ define([
                 this.feeling= new feelingView({
                     model: this.feelingmodel
                 });
+				this.recordActivity('feeling', '', new Date());
                 this.feeling.render(id,historial, app_router);
                 this.changePage (this.feeling);
 		
@@ -1692,6 +1694,7 @@ define([
                     this.bashackerV= new bashackerView({
                         model: this.bashackermodel
                     });
+					this.recordActivity('bash', '', new Date());
                     this.bashackerV.render(id,historial);
                     this.changePage (this.bashackerV);
                 }
@@ -1701,6 +1704,7 @@ define([
             pattern:function (id){
 	
                 this.pattern= new patternView();
+				this.recordActivity('pattern', '', new Date());
                 this.pattern.render(id,historial);
                 this.changePage (this.pattern);
 			
@@ -1766,6 +1770,7 @@ define([
                     this.beatyour= new beatyourdarkView({
                         model: this.beatyourmodel
                     });
+					this.recordActivity('beat', '', new Date());
                     this.beatyour.render(id,historial, app_router);
                     this.changePage (this.beatyour);
                 }
@@ -1818,6 +1823,7 @@ define([
                 this.vicious = new viciousView({
                     model: this.viciousmodel
                 });
+				this.recordActivity('vicious', '', new Date());
                 this.vicious.render(id, historial);
                 this.changePage (this.vicious);
 	
@@ -1832,6 +1838,7 @@ define([
                 this.transference= new transferenceView({
                     model: this.transferencemodel
                 });
+				this.recordActivity('transference', this.transferencemodel.get("version"), new Date());
                 this.transference.render(id, historial); //en el render notify siempre pasa a true
                 this.changePage (this.transference);
 	   
@@ -1931,6 +1938,7 @@ define([
                 this.visionboard= new visionboardView({
                     model: this.visionmodel
                 });
+				this.recordActivity('visionboard', '', new Date());
                 this.visionboard.render(id,historial);
                 this.changePage (this.visionboard);
 		
@@ -2017,13 +2025,13 @@ define([
                 this.journalV= new journalView({
                     model: this.journalmodel
                 });
+				this.recordActivity('journal', '', new Date());
                 this.journalV.render(id,historial);
                 this.changePage (this.journalV);
         
             },
 			
 			renderRec1:function(id){
-				
 				this.recyclingV.render(id,historial, app_router);				
 				this.changePage (this.recyclingV);
 			},
@@ -2091,7 +2099,7 @@ define([
 					mylanguage.set("audioName",historial.get("nodelist").get(id));
 					mylanguage.save();
 					historial.create(mylanguage);
-					
+					this.recordActivity('recycling', historial.get("nodelist").get(id), new Date());
 					console.log(historial.get("nodelist").get(id));
 					Backbone.history.navigate("#recycling2", {
                         trigger: true
@@ -2124,6 +2132,7 @@ define([
 						historial.get("nodelist").destroy();
 						mylanguage.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
 						mynodelist.set(id,data.field_audio.und[0].uri.split("private://")[1]);
+						this.recordActivity('recycling', data.field_audio.und[0].uri.split("private://")[1], new Date());
 						mylanguage.save();
 						mynodelist.save();
 						historial.create(mylanguage);
@@ -2193,10 +2202,12 @@ define([
 						historial.get("nodelist").destroy();
 						mylanguage.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
 						mynodelist.set(id,data.field_audio.und[0].uri.split("private://")[1]);
+						this.recordActivity('meditations', data.field_audio.und[0].uri.split("private://")[1], new Date());
 						mylanguage.save();
 						mynodelist.save();
 						historial.create(mylanguage);
 						historial.create(mynodelist);
+						
 						
                         Backbone.history.navigate("#meditations2", {
                         trigger: true
@@ -2269,7 +2280,7 @@ define([
                     collection: historial
                 });
 
-	
+				this.recordActivity('history','', new Date());
                 this.historypage.render();
 
                 this.changePage (this.historypage);
@@ -2303,6 +2314,7 @@ define([
                 var self=this;
 		
                 this.configuration= new configurationView();
+				this.recordActivity('configuration', historial.get("languages").get("languageAC"), new Date());
                 this.configuration.render('0',historial, app_router);
                 this.changePage (this.configuration);
 
@@ -2328,7 +2340,7 @@ define([
                 else{
                     if(id=='0') id='3';
                 }
-				
+				this.recordActivity('connect', '', new Date());
                 this.profileV.render(id,historial, app_router);
 		
                 this.changePage (this.profileV);
