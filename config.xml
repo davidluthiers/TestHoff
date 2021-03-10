@@ -87,10 +87,12 @@
 		</plugin>
 		-->
 		
+		<!--
 		<config-file parent="/resources" target="./res/values/strings.xml">
 				<string name="fb_app_id">1504029573151839</string>
 				<string name="fb_app_name">Hoffman</string>
 		</config-file>
+		-->
 
 		<splash src="/www/splash/ios/Default.png"       platform="ios"     width="320" height="480" />
 		<splash src="/www/splash/ios/Default@2x.png"       platform="ios"     width="640" height="960" />
@@ -155,10 +157,12 @@
 			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</plugin>
 
+		<!--
 		<config-file platform="android" parent="/*" mode="delete">
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
+		-->
 
 		<plugin name="cordova-plugin-media-capture" source="npm" version="1.4.3" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
@@ -168,6 +172,7 @@
 
 		<splash src="/www/splash.png" />
 
+		<!--
 		<config-file platform="ios" parent="UIStatusBarHidden">
 			<true/>
 		</config-file>
@@ -175,15 +180,18 @@
 		<config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
 			<false/>
 		</config-file>
-
+		-->
 
 		<preference name="SplashScreenDelay" value="15000" />
 
 		<allow-navigation href="*" />
 		<access origin="*" launch-external="yes"/>
+		
+		<!--
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
 			<application android:usesCleartextTraffic="true" />
 		</edit-config>
+		-->
 
 
 	</widget>
