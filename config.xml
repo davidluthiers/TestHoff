@@ -126,7 +126,7 @@
 		<gap:plugin name="cordova-plugin-androidx-adapter" source="npm" />
 
 		<!--<gap:plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
-		<gap:plugin spec="https://github.com/apache/cordova-plugin-screen-orientation.git" source="git" />
+		<gap:plugin name="cordova-plugin-screen-orientation" source="npm" />
 		<gap:plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<gap:plugin name="cordova-plugin-insomnia" source="npm"/>
 
