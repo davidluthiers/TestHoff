@@ -388,7 +388,7 @@ define([
             },
 			
             drupaldo: function(job, param, fromsummary){
-				if(typeof device === "undefined"){ //PC VERSION
+				if (false){ //if(typeof Device === "undefined"){ //PC VERSION
 					console.log("drupaldo pcversion, executing job");
 					if(param!="null")
 						job(param);
