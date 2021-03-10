@@ -15,6 +15,10 @@
   "homepage": "https://www.hoffman-international.com/",
   "cordova": {
     "plugins": {
+      "cordova-plugin-facebook4": {
+        "APP_ID": "1504029573151839",
+        "APP_NAME": "Hoffman"
+      },
 	  "cordova-plugin-googlemaps": {
         "API_KEY_FOR_ANDROID": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0",
         "API_KEY_FOR_IOS": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0"
