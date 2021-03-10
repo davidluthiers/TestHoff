@@ -162,8 +162,7 @@
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 		</plugin>
 
-		<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
-
+		<gap:plugin name="cordova-plugin-local-notification" source="npm"/>
 
 		<splash src="/www/splash.png" />
 
