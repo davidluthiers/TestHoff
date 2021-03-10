@@ -1,0 +1,16 @@
+{
+  "name": "Hoffman App",
+  "version": "3.0.0",
+  "description": "Hoffman Process mobile application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidluthiers/TestHoff.git"
+  },
+  "author": "DavidLuthiers",
+  "license": "ISC",
+  "homepage": "https://www.hoffman-international.com/"
+}

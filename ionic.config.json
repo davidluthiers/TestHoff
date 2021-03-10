@@ -1,0 +1,7 @@
+{
+  "name": "Hoffman App",
+  "type": "custom",
+  "integrations": {
+    "cordova": {}
+  }
+}
