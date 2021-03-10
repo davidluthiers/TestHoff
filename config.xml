@@ -141,12 +141,14 @@
 		</config-file>
 		-->
 		
+		<!--
 		<edit-config file="*-Info.plist" platform="ios" mode="merge" target="UIStatusBarHidden">
 			<true />
 		</edit-config>
 		<edit-config file="*-Info.plist" platform="ios" mode="merge" target="UIViewControllerBasedStatusBarAppearance">
 			<false />
 		</edit-config>
+		-->
 		
 		<plugin name="cordova-plugin-googlemaps" source="npm" version="1.4.0">
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
