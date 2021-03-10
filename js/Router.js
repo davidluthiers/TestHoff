@@ -178,8 +178,7 @@ define([
                     historial.create(language);
                     this.changetheme();
                     if(typeof device === "undefined"){
-                        //this.login();
-						self.drupaldo(self.lookForLanguage,"null");
+                        this.login();
                     }
                     else
 						self.drupaldo(self.lookForLanguage,"null");
