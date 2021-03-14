@@ -498,11 +498,7 @@ define([
             },
 
             checkAndDo: function(job, param){
-	
-				if (historial.get("languages").get("sesToken")=="none"){
-					self.logAndDo(job, param);
-				}
-				else{
+
 					var self=this;
 				
 					Drupal.settings.site_path = "http://appv2.hoffman-international.com";
@@ -544,7 +540,6 @@ define([
 							});
 						}
 					});
-				}
             },
 			
 			recordActivity: function(vtool,vdetails,vtime){
