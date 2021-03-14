@@ -135,6 +135,7 @@
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
 		<plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<plugin name="cordova-plugin-insomnia" source="npm"/>
+		<plugin name="cordova-plugin-ionic-webview" source="npm"/>
 
 		<!-- <config-file platform="android"> <application android:hardwareAccelerated="true" /> </config-file> -->
 		<!--<plugin name="nl.x-services.plugins.backgroundaudio" />
@@ -189,6 +190,7 @@
 		<preference name="SplashScreenDelay" value="15000" />
 
 		<allow-navigation href="*" />
+		<allow-intent href="*" />
 		<access origin="*" launch-external="yes"/>
 		
 		<!--
