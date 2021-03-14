@@ -158,18 +158,18 @@
 			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</plugin>
 
-		
+		<!--
 		<config-file platform="android" parent="/*" mode="delete">
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
-		
+		-->
 
 		<plugin name="cordova-plugin-media-capture" source="npm" version="1.4.3" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 		</plugin>
 
-		<!-- <plugin name="cordova-plugin-local-notification" source="npm"/> -->
+		<plugin name="cordova-plugin-local-notification" source="npm"/>
 
 		<splash src="/www/splash.png" />
 
