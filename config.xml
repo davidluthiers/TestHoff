@@ -114,7 +114,7 @@
 		<plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
 		<plugin name="cordova-plugin-dialogs" source="npm" />
 		<plugin name="cordova-plugin-device-motion" source="npm" />
-		<plugin name="cordova-plugin-geolocation" source="npm">
+		<plugin name="cordova-plugin-geolocation" source="npm" version="4.1">
 		  <variable name="GPS_REQUIRED" value="false" />
 		</plugin>
 		<plugin name="cordova-plugin-globalization" source="npm" />
