@@ -177,11 +177,11 @@ define([
                     language.set("quadAudio", false);
                     historial.create(language);
                     this.changetheme();
-					if (true){//(typeof device === "undefined"){
+					if (typeof device === "undefined"){
                         this.login();
                     }
                     else
-						self.drupaldo(self.lookForLanguage,"null");
+						self.logAndDo(self.lookForLanguage,"null");
 					
 					
 					//this.loginandgetlanguage("en"); //el modelo en la coleccion es visible instantáneamente tras introducirlo CUANDO NO ESTÁ? DE ANTES, loginandgetlanguage ya no existe
