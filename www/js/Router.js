@@ -178,8 +178,7 @@ define([
                     historial.create(language);
                     this.changetheme();
                     if(typeof device === "undefined"){
-                        //this.login();
-						self.drupaldo(self.lookForLanguage,"null");
+                        this.login();
                     }
                     else
 						self.drupaldo(self.lookForLanguage,"null");
@@ -388,7 +387,7 @@ define([
             },
 			
             drupaldo: function(job, param, fromsummary){
-				if (false){ //if(typeof Device === "undefined"){ //PC VERSION
+				if(typeof Device === "undefined"){ //PC VERSION
 					console.log("drupaldo pcversion, executing job");
 					if(param!="null")
 						job(param);
