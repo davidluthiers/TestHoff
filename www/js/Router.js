@@ -387,7 +387,7 @@ define([
             },
 			
             drupaldo: function(job, param, fromsummary){
-				if(typeof Device === "undefined"){ //PC VERSION
+				if (false){//(typeof Device === "undefined"){ //PC VERSION
 					console.log("drupaldo pcversion, executing job");
 					if(param!="null")
 						job(param);
@@ -455,7 +455,7 @@ define([
             },
 	
             logAndDo: function(job, param){
-		
+				console.log("logAndDo");
                 var self=this;
                 if(logintrys==0){
                     //alert("Connection failure, try again later");
@@ -497,48 +497,53 @@ define([
             },
 
             checkAndDo: function(job, param){
-		
-                var self=this;
-			
-                Drupal.settings.site_path = "http://appv2.hoffman-international.com";
-                Drupal.settings.endpoint = "hoffapp";
-                innerlog.add("Executing checkAndDo:\n");
-				console.log("checkAndDo");
-                system_connect({
-                    success: function(result) {
-                        innerlog.add("success\n");
-                        var account = Drupal.user;
-                        console.log(account);
-                        if(typeof account.roles[1] === "undefined")
-                            hoffuser=account.roles[2];
-                        else
-                            hoffuser=account.roles[1];
-					
-                        console.log("Checking connection: " + hoffuser);
-				
-                        if(hoffuser=="anonymous user" || historial.get("languages").get("sesToken")=="none"){
-                            self.logAndDo(job, param);
-                        }
-                        else{
-                            if(hoffuser=="authenticated user"){
-                                if(param!="null")
-									job(param);
-								else
-									job(); 
-							}
-						}
 	
-                    },
-                    error: function(xhr, status, message){
+				if (historial.get("languages").get("sesToken")=="none"){
+					self.logAndDo(job, param);
+				}
+				else{
+					var self=this;
+				
+					Drupal.settings.site_path = "http://appv2.hoffman-international.com";
+					Drupal.settings.endpoint = "hoffapp";
+					innerlog.add("Executing checkAndDo:\n");
+					console.log("checkAndDo");
+					system_connect({
+						success: function(result) {
+							innerlog.add("success\n");
+							var account = Drupal.user;
+							console.log(account);
+							if(typeof account.roles[1] === "undefined")
+								hoffuser=account.roles[2];
+							else
+								hoffuser=account.roles[1];
 						
-                        console.log(message); //Comentar para el release
-						console.log(xhr + " - " + status);
-						self.logAndDo(job, param);
-						Backbone.history.navigate("#auxsummary", {
-                        trigger: true
-						});
-                    }
-                });
+							console.log("Checking connection: " + hoffuser);
+					
+							if(hoffuser=="anonymous user" || historial.get("languages").get("sesToken")=="none"){
+								self.logAndDo(job, param);
+							}
+							else{
+								if(hoffuser=="authenticated user"){
+									if(param!="null")
+										job(param);
+									else
+										job(); 
+								}
+							}
+		
+						},
+						error: function(xhr, status, message){
+							
+							console.log(message); //Comentar para el release
+							console.log(xhr + " - " + status);
+							self.logAndDo(job, param);
+							Backbone.history.navigate("#auxsummary", {
+							trigger: true
+							});
+						}
+					});
+				}
             },
 			
 			recordActivity: function(vtool,vdetails,vtime){
