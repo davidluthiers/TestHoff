@@ -114,7 +114,9 @@
 		<plugin name="cordova-plugin-media" source="npm" version="2.4.1"/>
 		<plugin name="cordova-plugin-dialogs" source="npm" />
 		<plugin name="cordova-plugin-device-motion" source="npm" />
-		<plugin name="cordova-plugin-geolocation" source="npm" />
+		<plugin name="cordova-plugin-geolocation" source="npm">
+		  <variable name="GPS_REQUIRED" value="false" />
+		</plugin>
 		<plugin name="cordova-plugin-globalization" source="npm" />
 		<plugin name="cordova-plugin-device" source="npm" />
 		<plugin name="cordova-plugin-vibration" source="npm" />
@@ -162,7 +164,6 @@
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="delete">
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-		  <uses-feature android:name="android.hardware.location.gps"android:required="false" /> 
 		</config-file>
 		
 
