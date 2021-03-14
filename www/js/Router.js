@@ -177,7 +177,7 @@ define([
                     language.set("quadAudio", false);
                     historial.create(language);
                     this.changetheme();
-					if (typeof device === "undefined"){
+					if (false){ //(typeof device === "undefined"){
                         this.login();
                     }
                     else
@@ -387,7 +387,7 @@ define([
             },
 			
             drupaldo: function(job, param, fromsummary){
-				if (typeof device === "undefined"){ //PC VERSION
+				if (false){//(typeof device === "undefined"){ //PC VERSION
 					console.log("drupaldo pcversion, executing job");
 					if(param!="null")
 						job(param);
