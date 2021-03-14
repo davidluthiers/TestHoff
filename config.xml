@@ -164,6 +164,11 @@
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="delete">
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		  <uses-feature android:name="android.hardware.location.gps" android:required="true" />
+		</config-file>
+		
+		<config-file platform="android" parent="/*" target="AndroidManifest.xml">
+		  <uses-feature android:name="android.hardware.location.gps" android:required="true" />
 		</config-file>
 		
 
