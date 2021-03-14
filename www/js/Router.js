@@ -177,7 +177,7 @@ define([
                     language.set("quadAudio", false);
                     historial.create(language);
                     this.changetheme();
-                    if(typeof device === "undefined"){
+					if (true){//(typeof device === "undefined"){
                         this.login();
                     }
                     else
@@ -387,7 +387,7 @@ define([
             },
 			
             drupaldo: function(job, param, fromsummary){
-				if (false){//(typeof Device === "undefined"){ //PC VERSION
+				if (typeof device === "undefined"){ //PC VERSION
 					console.log("drupaldo pcversion, executing job");
 					if(param!="null")
 						job(param);
@@ -404,7 +404,8 @@ define([
 					try{
 						if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
 							if(typeof fromsummary!="undefined" && fromsummary){
-								//No hacer nada								
+								//No hacer nada							
+								console.log("Es aquí?");								
 							}
 							else{
 								try{
