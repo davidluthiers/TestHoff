@@ -164,9 +164,10 @@
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
 		
-		<edit-config platform="android" file="app/src/main/AndroidManifest.xml" mode="overwrite" target="/manifest/uses-feature[@android:name='android.hardware.location.gps']">
-			<uses-feature android:name="android.hardware.location.gps" />
-		</edit-config>
+		
+		<custom-config-file parent="/*" target="AndroidManifest.xml"> 
+			<uses-feature android:name="android.hardware.location.gps"android:required="false" /> 
+		</custom-config-file> 
 		
 
 		<plugin name="cordova-plugin-media-capture" source="npm" version="1.4.3" >
