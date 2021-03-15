@@ -2116,6 +2116,8 @@ define([
                 var self=this;
                 var AUDIO_NID = id;
 			
+				this.recordActivity('recycling', data.field_audio.und[0].uri.split("private://")[1], new Date());
+				
                 var params_audio_node = {
                     type: 'GET',
                     dataType: 'jsonp',
@@ -2133,7 +2135,6 @@ define([
 						historial.get("nodelist").destroy();
 						mylanguage.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
 						mynodelist.set(id,data.field_audio.und[0].uri.split("private://")[1]);
-						this.recordActivity('recycling', data.field_audio.und[0].uri.split("private://")[1], new Date());
 						mylanguage.save();
 						mynodelist.save();
 						historial.create(mylanguage);
@@ -2186,6 +2187,10 @@ define([
 				console.log("getAudionameMedi");
                 var self=this;
                 var AUDIO_NID = id;
+				
+				this.recordActivity('meditations', data.field_audio.und[0].uri.split("private://")[1], new Date());
+				
+				
                 var params_audio_node = {
                     type: 'GET',
                     dataType: 'jsonp',
@@ -2203,7 +2208,6 @@ define([
 						historial.get("nodelist").destroy();
 						mylanguage.set("audioName",data.field_audio.und[0].uri.split("private://")[1]);
 						mynodelist.set(id,data.field_audio.und[0].uri.split("private://")[1]);
-						this.recordActivity('meditations', data.field_audio.und[0].uri.split("private://")[1], new Date());
 						mylanguage.save();
 						mynodelist.save();
 						historial.create(mylanguage);
