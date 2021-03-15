@@ -2116,7 +2116,7 @@ define([
                 var self=this;
                 var AUDIO_NID = id;
 			
-				this.recordActivity('recycling', data.field_audio.und[0].uri.split("private://")[1], new Date());
+				this.recordActivity('recycling', id, new Date());
 				
                 var params_audio_node = {
                     type: 'GET',
@@ -2188,7 +2188,7 @@ define([
                 var self=this;
                 var AUDIO_NID = id;
 				
-				this.recordActivity('meditations', data.field_audio.und[0].uri.split("private://")[1], new Date());
+				this.recordActivity('meditations',id, new Date());
 				
 				
                 var params_audio_node = {
