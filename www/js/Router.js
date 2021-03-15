@@ -2116,7 +2116,6 @@ define([
                 var self=this;
                 var AUDIO_NID = id;
 			
-				this.recordActivity('recycling', id, new Date());
 				
                 var params_audio_node = {
                     type: 'GET',
@@ -2172,7 +2171,7 @@ define([
 					mylanguage.set("audioName",historial.get("nodelist").get(id));
 					mylanguage.save();
 					historial.create(mylanguage);
-					
+					this.recordActivity('meditation', historial.get("nodelist").get(id), new Date());
 					console.log(historial.get("nodelist").get(id));
 					Backbone.history.navigate("#meditations2", {
                         trigger: true
@@ -2187,8 +2186,6 @@ define([
 				console.log("getAudionameMedi");
                 var self=this;
                 var AUDIO_NID = id;
-				
-				this.recordActivity('meditations',id, new Date());
 				
 				
                 var params_audio_node = {
