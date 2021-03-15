@@ -181,7 +181,7 @@ define([
                         this.login();
                     }
                     else
-						self.logAndDo(self.lookForLanguage,"null");
+						self.drupaldo(self.lookForLanguage,"null");
 					
 					
 					//this.loginandgetlanguage("en"); //el modelo en la coleccion es visible instantáneamente tras introducirlo CUANDO NO ESTÁ? DE ANTES, loginandgetlanguage ya no existe
