@@ -115,7 +115,7 @@
 		<plugin name="cordova-plugin-dialogs" source="npm" />
 		<plugin name="cordova-plugin-device-motion" source="npm" />
 		<plugin name="cordova-plugin-geolocation" source="npm" version="4.0.2">
-		  <variable name="GPS_REQUIRED" value="false" />
+		  <variable name="GPS_REQUIRED" value="true" />
 		</plugin>
 		<plugin name="cordova-plugin-globalization" source="npm" />
 		<plugin name="cordova-plugin-device" source="npm" />
