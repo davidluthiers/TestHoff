@@ -330,7 +330,8 @@ define([
 					  
 					  // Options
 					  { enableHighAccuracy: true,
-						timeout: 10000	  
+						timeout: 10000,
+						maximumAge: 300000						
 						}
 					  
 					);
