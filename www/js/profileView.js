@@ -426,7 +426,7 @@ define([
                             var auxprofile = data[index];
 							console.log("auxprofile:");
 							console.log(auxprofile)
-							var userID = auxprofile.userID;
+							var userID = auxprofile.userid;
 							var nombre = auxprofile.nickname.value;
 							//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
 							if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
@@ -572,7 +572,7 @@ define([
 						data[index].status.value = " ";
 					}
 					
-					if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
+					if(historial.get("profile").get("userID") == auxprofile.userid){ //Encontramos el nodo propio del usuario
 						if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != ""){
 								try{
 									pictureurl = auxprofile.pictureurl.replace("amp;","");
@@ -582,7 +582,7 @@ define([
 								}
 						}
 					}
-					var userID = auxprofile.userID;
+					var userID = auxprofile.userid;
 					var nombre = auxprofile.nickname.value;
 					var pictureurl;
 					try{
@@ -750,7 +750,7 @@ define([
 								console.log("auxprofile:");
 								console.log(auxprofile);
 								*/
-								var userID = auxprofile.userID;
+								var userID = auxprofile.userid;
 								var nombre = auxprofile.nickname.value;
 								var picturenewurl;
 								
