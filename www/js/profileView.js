@@ -94,9 +94,9 @@ define([
 							console.log('Ponemos foto de perfil');
 							document.getElementById('useremail').innerHTML = self.profile.email;
 							var textArea = document.createElement('textarea');
-							statusvar = self.profile.status.value;
+							statusvar = self.profile.status;
 							if (typeof statusvar != 'undefined' && statusvar!= "undefined"){
-								textArea.innerHTML = self.profile.status.value;
+								textArea.innerHTML = self.profile.status;
 								document.getElementById('status').innerHTML = textArea.value;
 							}
 							document.getElementById('profileHeader').innerHTML = self.profile.nickname.value;
@@ -443,7 +443,7 @@ define([
 								profileM.set("picture_thumb", auxprofile.picturevalue_thumb);
 								profileM.set("userID",userID);
 								profileM.set("nid",auxprofile.nid);
-								profileM.set("status",auxprofile.status.value);
+								profileM.set("status",auxprofile.status);
 								console.log("RECUPERAMOS PICTUREVALUE: " + auxprofile.picturevalue); //picturevalue_thumb
 								
 								var fbcontainer = document.getElementById('visionphoto');
@@ -567,9 +567,9 @@ define([
 				for (index = 0; index < data.length; ++index) {
 					console.log("INDEX: " + index);
 					var auxprofile = data[index];
-					if (auxprofile.status.value=='undefined'){
-						auxprofile.status.value = " ";
-						data[index].status.value = " ";
+					if (auxprofile.status=='undefined'){
+						auxprofile.status = " ";
+						data[index].status = " ";
 					}
 					
 					if(historial.get("profile").get("userID") == auxprofile.userid){ //Encontramos el nodo propio del usuario
@@ -689,9 +689,9 @@ define([
 							for (index = 0; index < data.length; ++index) {
 								console.log("INDEX: " + index);
 								var auxprofile = data[index];
-								if (auxprofile.status.value=='undefined'){
-									auxprofile.status.value = " ";
-									data[index].status.value = " ";
+								if (auxprofile.status=='undefined'){
+									auxprofile.status = " ";
+									data[index].status = " ";
 								}
 								
 								/*if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
@@ -716,7 +716,7 @@ define([
 									profileM.set("picture", pictureurl);
 									profileM.set("userID",userID);
 									profileM.set("nid",auxprofile.nid);
-									profileM.set("status",auxprofile.status.value);
+									profileM.set("status",auxprofile.status);
 									profileM.set("picture_thumb",auxprofile.picturevalue_thumb);
 									
 									var fbcontainer = document.getElementById('visionphoto');
