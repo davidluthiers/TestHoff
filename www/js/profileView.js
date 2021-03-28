@@ -418,7 +418,7 @@ define([
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'json',
-                    url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople2?display_id=services_1&filters[field_userid_value]=" + historial.get("profile").get("userID"),
+                    url: "http://http://appv2.hoffman-international.com/hoffapp/views/hoffpeople2?display_id=services_1&filters[field_userid_value]=" + historial.get("profile").get("userID"),
                     processData: true,
                     success: function(data) {
 						var flag = false;
