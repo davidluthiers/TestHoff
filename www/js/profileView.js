@@ -426,7 +426,7 @@ define([
                             var auxprofile = data[index];
 							console.log("auxprofile:");
 							console.log(auxprofile)
-							var userID = auxprofile.userid;
+							var userID = auxprofile.userID;
 							var nombre = auxprofile.nickname.value;
 							//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
 							if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
@@ -503,9 +503,9 @@ define([
 					if (profileM.id == 'profile' || profileM.get("id") == 'profile' || typeof profileM.id == 'undefined'){
 						console.log("profile.id es: " + profileM.id);
 						console.log("profile.get('id') es: " + profileM.get("id"));
-						console.log("userData.authResponse.userid hmtl?: " + userData.authResponse.userid);
-						profileM.id = userData.authResponse.userid;
-						profileM.set("userID",userData.authResponse.userid);
+						console.log("userData.authResponse.userID hmtl?: " + userData.authResponse.userID);
+						profileM.id = userData.authResponse.userID;
+						profileM.set("userID",userData.authResponse.userID);
 						try{
 							historial.get("profile").destroy();
 						}
@@ -572,7 +572,7 @@ define([
 						data[index].status.value = " ";
 					}
 					
-					if(historial.get("profile").get("userID") == auxprofile.userid){ //Encontramos el nodo propio del usuario
+					if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 						if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != ""){
 								try{
 									pictureurl = auxprofile.pictureurl.replace("amp;","");
@@ -582,7 +582,7 @@ define([
 								}
 						}
 					}
-					var userID = auxprofile.userid;
+					var userID = auxprofile.userID;
 					var nombre = auxprofile.nickname.value;
 					var pictureurl;
 					try{
@@ -694,9 +694,9 @@ define([
 									data[index].status.value = " ";
 								}
 								
-								/*if(historial.get("profile").get("userID") == auxprofile.userid){ //Encontramos el nodo propio del usuario
+								/*if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
 									var pictureurl;
-									var userID = auxprofile.userid;
+									var userID = auxprofile.userID;
 									var nombre = auxprofile.nickname.value;
 									//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
 									if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != ""){
@@ -750,7 +750,7 @@ define([
 								console.log("auxprofile:");
 								console.log(auxprofile);
 								*/
-								var userID = auxprofile.userid;
+								var userID = auxprofile.userID;
 								var nombre = auxprofile.nickname.value;
 								var picturenewurl;
 								
@@ -778,7 +778,7 @@ define([
 								console.log("Usuario con nombre: "+nombre+", email: " +email);
 								//console.log("picture: " + pictureurl);
 								/*
-								if(historial.get("profile").get("userID") == auxprofile.userid){
+								if(historial.get("profile").get("userID") == auxprofile.userID){
 									console.log("Asignando coordenadas propias:");
 									latitude = historial.get("profile").get("latitude");
 									longitude = historial.get("profile").get("longitude");
@@ -835,7 +835,7 @@ define([
 											
 											//auxprofile= data[evt.id.replace("marker_m","")];
 											/*
-											if(auxprofile.userid != historial.get("profile").get("userID"))
+											if(auxprofile.userID != historial.get("profile").get("userID"))
 												map.animateCamera({
 													target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
 													zoom: 15,
@@ -927,10 +927,10 @@ define([
 					if (profileM.id == 'profile' || profileM.get("id") == 'profile' || typeof profileM.id == 'undefined'){
 						console.log("profile.id es: " + profileM.id);
 						console.log("profile.get('id') es: " + profileM.get("id"));
-						console.log("DEBUGDEBUGDEBUG userData.authResponse.userid hmtl?: " + userData.authResponse.userid);
+						console.log("DEBUGDEBUGDEBUG userData.authResponse.userID hmtl?: " + userData.authResponse.userID);
 						profileM.set("nid",historial.get("profile").get("nid")); //guardamos el ID del nodo en nuestro server
-						profileM.id = userData.authResponse.userid;
-						profileM.set("userID",userData.authResponse.userid);
+						profileM.id = userData.authResponse.userID;
+						profileM.set("userID",userData.authResponse.userID);
 						profileM.set("active", "yes");
 						try{
 							historial.get("profile").destroy();
