@@ -600,6 +600,7 @@ define([
 					console.log("Usuario con nombre: "+nombre+", email: " +email);
 
 					console.log("Coords: " + latitude + ", " + longitude);
+					console.log("isactive: " + isactive + ", usersList[userID]: " + usersList[userID] + ", typeof usersList[userID]: " + typeof usersList[userID]);
 					
 					const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
 					if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined' )){
