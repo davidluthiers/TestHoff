@@ -674,7 +674,7 @@ define([
 							
 						var params_people = { //active hoffman users
 							type: 'GET',
-							dataType: 'jsonp',
+							dataType: 'json',
 							url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople2",
 							processData: true,
 							success: function(data) {
