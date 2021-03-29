@@ -657,232 +657,236 @@ define([
 				
 				console.log("onMapInit");
 				
-				var auxprofile = this.history.get("profile");
-				auxprofile.set("info","facebook");
-				auxprofile.save();
-				this.history.get("profile").destroy();
-				this.history.create(auxprofile);
-				historial = this.history;
-				myprofile = this.history.get("profile");
-				
-				if(false){//myprofile.get("near_users") != ""){ //myprofile.get("near_users") Comprobar si tenemos los datos en local
-					this.fillMap(myprofile.get("near_users"),map);
-				}
-				else{
-					self=this;
-						
-					var params_people = { //active hoffman users
-						type: 'GET',
-						dataType: 'jsonp',
-						url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople2",
-						processData: true,
-						success: function(data) {
-							console.log("DATA: ");
-							console.log(data);
-							usersList = [];
-							data  = self.splitMarkers(data);
-							console.log("After data:");
-							console.log(data);
-							console.log('LENGTH: ' +data.length);
-							myprofile.set("near_users", data);
-							historial.get("profile").destroy();
-							historial.create(myprofile);
-							for (index = 0; index < data.length; ++index) {
-								console.log("INDEX: " + index);
-								var auxprofile = data[index];
-								if (auxprofile.status=='undefined'){
-									auxprofile.status = " ";
-									data[index].status = " ";
-								}
-								
-								/*if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
-									var pictureurl;
-									var userID = auxprofile.userID;
-									var nombre = auxprofile.nickname.value;
-									//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
-									if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != ""){
-											try{
-												pictureurl = auxprofile.pictureurl.replace("amp;","");
-											}
-											catch(e){
-												pictureurl="http://i.imgur.com/Tz9JNSg.png";
-											}
-									}
-									var email = auxprofile.email;
-									console.log("Mi perfil está almacenado en el servidor, lo actualizo en el dispositivo");
-									profileM=historial.get("profile");
+				try{
+					var auxprofile = this.history.get("profile");
+					auxprofile.set("info","facebook");
+					auxprofile.save();
+					this.history.get("profile").destroy();
+					this.history.create(auxprofile);
+					historial = this.history;
+					myprofile = this.history.get("profile");
+					
+					if(false){//myprofile.get("near_users") != ""){ //myprofile.get("near_users") Comprobar si tenemos los datos en local
+						this.fillMap(myprofile.get("near_users"),map);
+					}
+					else{
+						self=this;
 							
-									profileM.set("nickname",nombre);
-									profileM.set("email",email);
-									profileM.set("picture", pictureurl);
-									profileM.set("userID",userID);
-									profileM.set("nid",auxprofile.nid);
-									profileM.set("status",auxprofile.status);
-									profileM.set("picture_thumb",auxprofile.picturevalue_thumb);
+						var params_people = { //active hoffman users
+							type: 'GET',
+							dataType: 'jsonp',
+							url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople2",
+							processData: true,
+							success: function(data) {
+								console.log("DATA: ");
+								console.log(data);
+								usersList = [];
+								data  = self.splitMarkers(data);
+								console.log("After data:");
+								console.log(data);
+								console.log('LENGTH: ' +data.length);
+								myprofile.set("near_users", data);
+								historial.get("profile").destroy();
+								historial.create(myprofile);
+								for (index = 0; index < data.length; ++index) {
+									console.log("INDEX: " + index);
+									var auxprofile = data[index];
+									if (auxprofile.status=='undefined'){
+										auxprofile.status = " ";
+										data[index].status = " ";
+									}
 									
-									var fbcontainer = document.getElementById('visionphoto');
-									fbcontainer.src = auxprofile.picturevalue;
-									fbcontainer.onload = function() {
-										var canvas = document.getElementById('myCanvas');
-										canvas.width = fbcontainer.width;
-										canvas.height = fbcontainer.height;
-										var ctx = canvas.getContext("2d");
-										ctx.clearRect(0, 0, canvas.width, canvas.height);
-										ctx.drawImage(fbcontainer, 0, 0);
-										var dataURL = canvas.toDataURL();
-										console.log("downloaded picture: ");
-										console.log(dataURL);
-										profileM.set("picture", dataURL);
+									/*if(historial.get("profile").get("userID") == auxprofile.userID){ //Encontramos el nodo propio del usuario
+										var pictureurl;
+										var userID = auxprofile.userID;
+										var nombre = auxprofile.nickname.value;
+										//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
+										if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != ""){
+												try{
+													pictureurl = auxprofile.pictureurl.replace("amp;","");
+												}
+												catch(e){
+													pictureurl="http://i.imgur.com/Tz9JNSg.png";
+												}
+										}
+										var email = auxprofile.email;
+										console.log("Mi perfil está almacenado en el servidor, lo actualizo en el dispositivo");
+										profileM=historial.get("profile");
+								
+										profileM.set("nickname",nombre);
+										profileM.set("email",email);
+										profileM.set("picture", pictureurl);
+										profileM.set("userID",userID);
+										profileM.set("nid",auxprofile.nid);
+										profileM.set("status",auxprofile.status);
+										profileM.set("picture_thumb",auxprofile.picturevalue_thumb);
 										
-										historial.get("profile").destroy();
-										profileM.save();
-										self.router.drupaldo(self.saveonserver.bind(self),true);
+										var fbcontainer = document.getElementById('visionphoto');
+										fbcontainer.src = auxprofile.picturevalue;
+										fbcontainer.onload = function() {
+											var canvas = document.getElementById('myCanvas');
+											canvas.width = fbcontainer.width;
+											canvas.height = fbcontainer.height;
+											var ctx = canvas.getContext("2d");
+											ctx.clearRect(0, 0, canvas.width, canvas.height);
+											ctx.drawImage(fbcontainer, 0, 0);
+											var dataURL = canvas.toDataURL();
+											console.log("downloaded picture: ");
+											console.log(dataURL);
+											profileM.set("picture", dataURL);
 											
-										historial.create(profileM);
-									};
-								}*/
+											historial.get("profile").destroy();
+											profileM.save();
+											self.router.drupaldo(self.saveonserver.bind(self),true);
+												
+											historial.create(profileM);
+										};
+									}*/
+									
 								
-							
-								
-								/*
-								console.log("near_users:");
-								console.log(historial.get("profile").get("near_users"));
-								console.log(historial.get("profile"));
-								console.log("auxprofile:");
-								console.log(auxprofile);
-								*/
-								var userID = auxprofile.userid;
-								var nombre = auxprofile.nickname.value;
-								var picturenewurl;
-								
-								//var pictureurl;
-								/*
-								try{
-									if(typeof auxprofile.picturevalue_thumb != 'undefined' && auxprofile.picturevalue_thumb != ""){
-										picturenewurl = auxprofile.picturevalue_thumb;
+									
+									/*
+									console.log("near_users:");
+									console.log(historial.get("profile").get("near_users"));
+									console.log(historial.get("profile"));
+									console.log("auxprofile:");
+									console.log(auxprofile);
+									*/
+									var userID = auxprofile.userid;
+									var nombre = auxprofile.nickname.value;
+									var picturenewurl;
+									
+									//var pictureurl;
+									/*
+									try{
+										if(typeof auxprofile.picturevalue_thumb != 'undefined' && auxprofile.picturevalue_thumb != ""){
+											picturenewurl = auxprofile.picturevalue_thumb;
+										}
+										else{
+											picturenewurl="http://i.imgur.com/Tz9JNSg.png";
+										}
 									}
-									else{
+									catch(e){
 										picturenewurl="http://i.imgur.com/Tz9JNSg.png";
 									}
-								}
-								catch(e){
-									picturenewurl="http://i.imgur.com/Tz9JNSg.png";
-								}
-								*/
-								
-								//pictureurl="www/img/user_icon30x30.png";
+									*/
+									
+									//pictureurl="www/img/user_icon30x30.png";
 
-								var email = auxprofile.email;
-								var latitude = auxprofile.latitude;
-								var longitude = auxprofile.longitude;
-								var isactive = auxprofile.active;
-								console.log("Usuario con nombre: "+nombre+", email: " +email);
-								//console.log("picture: " + pictureurl);
-								/*
-								if(historial.get("profile").get("userID") == auxprofile.userID){
-									console.log("Asignando coordenadas propias:");
-									latitude = historial.get("profile").get("latitude");
-									longitude = historial.get("profile").get("longitude");
-								}*/
-								console.log("Coords: " + latitude + ", " + longitude);
-								console.log("Picture URL: "+ picturenewurl);
-								
-								const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
-								if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined' )){
-									usersList[userID] = "used";
-									map.addMarker({
-									  'position': locationLatlng,
-									  'title': nombre,
-									  /*'icon': {
-										'url': picturenewurl,
-										 'size': {
-											width: 30,
-											height: 30
-											}
-									   },*/
-									  'snippet': historial.get("languages").get("click_here"),
-									  'myid':index
-									},
-									function(marker) {
-
-										/*
-										marker.setIcon({
-											//'url': pictureurl,
-											'size': {
+									var email = auxprofile.email;
+									var latitude = auxprofile.latitude;
+									var longitude = auxprofile.longitude;
+									var isactive = auxprofile.active;
+									console.log("Usuario con nombre: "+nombre+", email: " +email);
+									//console.log("picture: " + pictureurl);
+									/*
+									if(historial.get("profile").get("userID") == auxprofile.userID){
+										console.log("Asignando coordenadas propias:");
+										latitude = historial.get("profile").get("latitude");
+										longitude = historial.get("profile").get("longitude");
+									}*/
+									console.log("Coords: " + latitude + ", " + longitude);
+									console.log("Picture URL: "+ picturenewurl);
+									
+									const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
+									if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined' )){
+										usersList[userID] = "used";
+										map.addMarker({
+										  'position': locationLatlng,
+										  'title': nombre,
+										  /*'icon': {
+											'url': picturenewurl,
+											 'size': {
 												width: 30,
 												height: 30
-											}
-										});
-										*/
-										//marker.showInfoWindow();
+												}
+										   },*/
+										  'snippet': historial.get("languages").get("click_here"),
+										  'myid':index
+										},
+										function(marker) {
 
-										marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
-											
-											historial=self.history;
-											myprofile=historial.get("profile");
-											//console.log("pressed map icon");
-											//console.log(markerid);
-											markerid = evt.get('myid');
-											myprofile.set("next_user", markerid);
-											historial.get("profile").destroy();
-											historial.create(myprofile);
-											self.router.profile('2');
-										});
-										
-										marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
-											console.log("marker click");
-											console.log(evt);
-											auxprofile= data[evt.id.replace("marker_m","")];										
-											
-											//auxprofile= data[evt.id.replace("marker_m","")];
 											/*
-											if(auxprofile.userID != historial.get("profile").get("userID"))
-												map.animateCamera({
-													target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
-													zoom: 15,
-													duration: 3000
-												}, function() {});
-												*/
-										
-										 });
-										
-									}); 
-								}
-								else{
-									console.log("Este nodo ya está en el mapa");
+											marker.setIcon({
+												//'url': pictureurl,
+												'size': {
+													width: 30,
+													height: 30
+												}
+											});
+											*/
+											//marker.showInfoWindow();
+
+											marker.addEventListener(plugin.google.maps.event.INFO_CLICK, function(evt) {
+												
+												historial=self.history;
+												myprofile=historial.get("profile");
+												//console.log("pressed map icon");
+												//console.log(markerid);
+												markerid = evt.get('myid');
+												myprofile.set("next_user", markerid);
+												historial.get("profile").destroy();
+												historial.create(myprofile);
+												self.router.profile('2');
+											});
+											
+											marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
+												console.log("marker click");
+												console.log(evt);
+												auxprofile= data[evt.id.replace("marker_m","")];										
+												
+												//auxprofile= data[evt.id.replace("marker_m","")];
+												/*
+												if(auxprofile.userID != historial.get("profile").get("userID"))
+													map.animateCamera({
+														target: {lat: auxprofile.latitude, lng: auxprofile.longitude},
+														zoom: 15,
+														duration: 3000
+													}, function() {});
+													*/
+											
+											 });
+											
+										}); 
+									}
+									else{
+										console.log("Este nodo ya está en el mapa");
+									}
+									
 								}
 								
+								console.log("loop ended");
+								
+								setTimeout(function(){
+											window.plugins.spinnerDialog.hide();
+											window.plugins.spinnerDialog.hide();
+											window.plugins.spinnerDialog.hide();
+								},1000);
+								
+								
+								/*
+								map.animateCamera({
+									target: {lat: latitude, lng: longitude},
+									zoom: 4,
+									duration: 3000
+								}, function() {});
+								*/
+								
+								
+							},
+							error: function(code) {
+								console.log("petada intentando descargar personas", code);
+								window.plugins.spinnerDialog.hide();
 							}
-							
-							console.log("loop ended");
-							
-							setTimeout(function(){
-										window.plugins.spinnerDialog.hide();
-										window.plugins.spinnerDialog.hide();
-										window.plugins.spinnerDialog.hide();
-							},1000);
-							
-							
-							/*
-							map.animateCamera({
-								target: {lat: latitude, lng: longitude},
-								zoom: 4,
-								duration: 3000
-							}, function() {});
-							*/
-							
-							
-						},
-						error: function(code) {
-							console.log("petada intentando descargar personas", code);
-							window.plugins.spinnerDialog.hide();
-						}
-					};
+						};
 
-					$.ajax(params_people);
+						$.ajax(params_people);
 
+					}
 				}
-				
+				catch(e){
+					console.log("Error mapinit " + e);
+				}
 			},
 			
 			checkboxevt: function (){
