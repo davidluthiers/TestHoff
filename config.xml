@@ -156,7 +156,7 @@
 		</edit-config>
 		-->
 		
-		<plugin name="cordova-plugin-googlemaps" source="npm" version="1.4.0">
+		<plugin name="cordova-plugin-googlemaps" source="npm">
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 			<param name="API_KEY_FOR_IOS" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</plugin>
