@@ -99,7 +99,7 @@ define([
 								textArea.innerHTML = self.profile.status;
 								document.getElementById('status').innerHTML = textArea.value;
 							}
-							document.getElementById('profileHeader').innerHTML = self.profile.nickname.value;
+							document.getElementById('profileHeader').innerHTML = self.profile.nickname;
 							
 							var visionphoto = document.getElementById('visionphoto');
 							visionphoto.style.display = 'block'; 
@@ -428,7 +428,7 @@ define([
 							console.log("auxprofile:");
 							console.log(auxprofile)
 							var userID = auxprofile.userid;
-							var nombre = auxprofile.nickname.value;
+							var nombre = auxprofile.nickname;
 							//console.log("auxprofile.pictureurl: " + auxprofile.pictureurl);
 							if(typeof auxprofile.pictureurl != 'undefined' && auxprofile.pictureurl != "")
 								var pictureurl = auxprofile.pictureurl.replace("amp;","");
@@ -584,7 +584,7 @@ define([
 						}
 					}
 					var userID = auxprofile.userid;
-					var nombre = auxprofile.nickname.value;
+					var nombre = auxprofile.nickname;
 					var pictureurl;
 					try{
 						pictureurl = auxprofile.pictureurl.replace("amp;","");
@@ -753,7 +753,7 @@ define([
 									console.log(auxprofile);
 									*/
 									var userID = auxprofile.userid;
-									var nombre = auxprofile.nickname.value;
+									var nombre = auxprofile.nickname;
 									var picturenewurl;
 									
 									//var pictureurl;
