@@ -788,7 +788,7 @@ define([
 									}*/
 									console.log("Coords: " + latitude + ", " + longitude);
 									console.log("Picture URL: "+ picturenewurl);
-									console.log("isactive: " + isactive + ", usersList[userID]: " + usersList[userID] + ", typeof usersList[userID]: " + typeof usersList[userID]);
+									console.log("isactive: " + isactive + ", userID: " + userID +", usersList[userID]: " + usersList[userID] + ", typeof usersList[userID]: " + typeof usersList[userID]);
 									
 									const locationLatlng = new plugin.google.maps.LatLng(latitude,longitude);
 									if(isactive == "yes" && (usersList[userID] != "used" || typeof usersList[userID] == 'undefined' )){
