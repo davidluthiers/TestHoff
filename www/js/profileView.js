@@ -329,7 +329,7 @@ define([
 					  },
 					  
 					  // Options
-					  { enableHighAccuracy: true,
+					  { enableHighAccuracy: false,
 						timeout: 10000,
 						maximumAge: 300000						
 						}
