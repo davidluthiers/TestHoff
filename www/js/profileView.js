@@ -753,7 +753,7 @@ define([
 									console.log("auxprofile:");
 									console.log(auxprofile);
 									*/
-									var userID = auxprofile.userid;
+									var userID = auxprofile.userID;
 									var nombre = auxprofile.nickname;
 									var picturenewurl;
 									
