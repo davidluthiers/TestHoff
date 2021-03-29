@@ -1244,12 +1244,12 @@ define([
 								console.log("Saved node #" + result.nid);
 								self.setNID(result.nid);
 								//llamada a node_load puede eliminarse antes de la salida
-								node_load(result.nid, {
+								/*node_load(result.nid, {
 									success: function(node) {
 									console.log("Loaded " + node.title);
 									console.log(node);
 									}
-								});
+								});*/
 								if (!afterCoords){
 									console.log("aftercoords false");
 									self.router.profile();
