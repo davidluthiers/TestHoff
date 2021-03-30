@@ -823,6 +823,7 @@ define([
 												
 												historial=self.history;
 												myprofile=historial.get("profile");
+												console.log(evt);
 												//console.log("pressed map icon");
 												//console.log(markerid);
 												markerid = evt.get('myid');
@@ -835,7 +836,7 @@ define([
 											marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
 												console.log("marker click");
 												console.log(evt);
-												auxprofile= data[evt.id.replace("marker_m","")];										
+												//auxprofile= data[evt.id.replace("marker_m","")];										
 												
 												//auxprofile= data[evt.id.replace("marker_m","")];
 												/*
