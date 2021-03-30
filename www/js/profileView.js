@@ -824,6 +824,7 @@ define([
 												historial=self.history;
 												myprofile=historial.get("profile");
 												console.log(evt);
+												console.log(marker.get('myid'));
 												//console.log("pressed map icon");
 												//console.log(markerid);
 												markerid = evt.get('myid');
@@ -837,7 +838,7 @@ define([
 												console.log("marker click");
 												console.log(evt);
 												//auxprofile= data[evt.id.replace("marker_m","")];										
-												
+												console.log(marker.get('myid'));
 												//auxprofile= data[evt.id.replace("marker_m","")];
 												/*
 												if(auxprofile.userID != historial.get("profile").get("userID"))
