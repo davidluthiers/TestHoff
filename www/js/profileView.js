@@ -839,6 +839,7 @@ define([
 												console.log(evt);
 												//auxprofile= data[evt.id.replace("marker_m","")];										
 												console.log(marker.get('myid'));
+												auxprofile= data[marker.get('myid')];
 												//auxprofile= data[evt.id.replace("marker_m","")];
 												/*
 												if(auxprofile.userID != historial.get("profile").get("userID"))
