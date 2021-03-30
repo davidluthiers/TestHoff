@@ -624,7 +624,7 @@ define([
 								
 								historial=self.history;
 								myprofile=historial.get("profile");
-								markerid = evt.get('myid');
+								markerid = marker.get('myid');
 								myprofile.set("next_user", markerid);
 								historial.get("profile").destroy();
 								historial.create(myprofile);
@@ -634,7 +634,7 @@ define([
 							marker.addEventListener(plugin.google.maps.event.MARKER_CLICK, function(evt) {
 								console.log("marker click");
 								console.log(evt);
-								auxprofile= data[evt.id.replace("marker_m","")];																	
+								auxprofile= data[marker.get('myid')];																	
 							 });
 							
 						}); 
@@ -827,7 +827,7 @@ define([
 												console.log(marker.get('myid'));
 												//console.log("pressed map icon");
 												//console.log(markerid);
-												markerid = evt.get('myid');
+												markerid = marker.get('myid');
 												myprofile.set("next_user", markerid);
 												historial.get("profile").destroy();
 												historial.create(myprofile);
