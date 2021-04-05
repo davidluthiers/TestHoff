@@ -96,10 +96,10 @@ define([
 							var textArea = document.createElement('textarea');
 							statusvar = self.profile.status;
 							if (typeof statusvar != 'undefined' && statusvar!= "undefined"){
-								textArea.innerHTML = self.profile.status;
+								textArea.innerHTML = self.profile.status.value;
 								document.getElementById('status').innerHTML = textArea.value;
 							}
-							document.getElementById('profileHeader').innerHTML = self.profile.nickname;
+							document.getElementById('profileHeader').innerHTML = self.profile.nickname.value;
 							
 							var visionphoto = document.getElementById('visionphoto');
 							visionphoto.style.display = 'block'; 
