@@ -94,7 +94,7 @@ define([
 							console.log('Ponemos foto de perfil');
 							document.getElementById('useremail').innerHTML = self.profile.email;
 							var textArea = document.createElement('textarea');
-							statusvar = self.profile.status;
+							statusvar = self.profile.status.value;
 							if (typeof statusvar != 'undefined' && statusvar!= "undefined"){
 								textArea.innerHTML = self.profile.status.value;
 								document.getElementById('status').innerHTML = textArea.value;
