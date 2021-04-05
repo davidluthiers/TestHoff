@@ -130,7 +130,7 @@ define([
 				
 							this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 							
-							if(this.profile.get("nickname").value!="" && this.profile.get("userID")!="" && this.profile.get("email")!="" && this.profile.get("nid") != "" && typeof this.profile.get("nid") != 'undefined'){ //Están todos los datos obligatorios
+							if(this.profile.get("nickname")!="" && this.profile.get("userID")!="" && this.profile.get("email")!="" && this.profile.get("nid") != "" && typeof this.profile.get("nid") != 'undefined'){ //Están todos los datos obligatorios
 						
 								console.log("Cargando datos del profile");
 								this.$("#fill_profile").attr("style","display:none");
@@ -139,7 +139,7 @@ define([
 								
 								setTimeout(function(){
 										this.profile = historycollection.get("profile");
-										document.getElementById("displayname").value = this.profile.get("nickname").value;
+										document.getElementById("displayname").value = this.profile.get("nickname");
 										document.getElementById("useremail").value = this.profile.get("email");
 										document.getElementById("status").value = this.profile.get("status");
 										console.log('Ponemos foto de perfil');
@@ -256,7 +256,7 @@ define([
 						}
 					}
 				}
-				console.log("Profile llega como: " + this.profile.get("nickname").value + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
+				console.log("Profile llega como: " + this.profile.get("nickname") + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
 
             },
 
@@ -1038,7 +1038,7 @@ define([
 				
 				this.setActive();
 				profile = this.history.get("profile");
-				console.log(profile.get("nickname").value);
+				console.log(profile.get("nickname"));
 				try{
 					console.log("1 SUBO AL SERVIDOR LA FOTO: " + profile.get("picture").substring(0,80));
 				}
@@ -1079,7 +1079,7 @@ define([
 			saveonserver: function(afterCoords){
 				
 				profile = this.history.get("profile");
-				console.log(profile.get("nickname").value);
+				console.log(profile.get("nickname"));
 				mydate = new Date();
 				console.log("token: " + self.history.get("languages").get("sesToken"));
 				var node;
@@ -1138,7 +1138,7 @@ define([
 								},
 								field_nickname:{
 										"und":[{
-											"value":profile.get("nickname").value
+											"value":profile.get("nickname")
 										}]
 								},
 								field_lastupdated:{
@@ -1196,7 +1196,7 @@ define([
 									},
 									field_nickname:{
 											"und":[{
-												"value":profile.get("nickname").value
+												"value":profile.get("nickname")
 											}]
 									},
 									field_lastupdated:{
