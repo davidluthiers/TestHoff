@@ -256,12 +256,7 @@ define([
 						}
 					}
 				}
-				try{
-					console.log("Profile llega como: " + this.profile.get("nickname").value + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
-				}
-				catch(e){
-					console.log("Profile error (nulo): " + this.profile);
-				}
+				console.log("Profile llega como: " + this.profile.get("nickname").value + ', ' + this.profile.get("userID") +  ', ' + this.profile.get("email"));
 
             },
 
