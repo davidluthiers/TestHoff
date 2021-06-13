@@ -120,7 +120,7 @@
 		<plugin name="cordova-plugin-globalization" source="npm" />
 		<plugin name="cordova-plugin-device" source="npm" />
 		<plugin name="cordova-plugin-vibration" source="npm" />
-		<plugin name="cordova-plugin-file-transfer" source="npm" version="1.6.1" />
+		<!--<plugin name="cordova-plugin-file-transfer" source="npm" version="1.6.1" />-->
 		<!--<plugin name="cordova-plugin-file" source="npm" />-->
 		<plugin name="cordova-plugin-inappbrowser" source="npm"/>
 		<plugin name="cordova-plugin-splashscreen" source="npm"/>
