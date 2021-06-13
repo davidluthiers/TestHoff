@@ -3,14 +3,14 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman-international.hoffman-app"
-		version   = "3.0.2"
+		version   = "3.0.3"
 		android-versionCode="1818">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
-            <string>57</string>
+            <string>58</string>
         </gap:config-file>
         <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-    		<string>3.0.2</string>
+    		<string>3.0.3</string>
 		</gap:config-file>
 		
 
@@ -74,6 +74,7 @@
 		<icon src="/www/icons/ios/120.png"  platform="ios"          width="120" height="120" />
 		<icon src="/www/icons/ios/144.png"  platform="ios"          width="144" height="144" />
 		<icon src="/www/icons/ios/152.png"  platform="ios"          width="152" height="152" />
+		<icon src="/www/icons/ios/167.png" platform="ios"          width="167" height="167" />
 		<icon src="/www/icons/ios/1024.png" platform="ios"          width="1024" height="1024" />
 		<icon src="/www/icons/android/36.png"   platform="android"      qualifier="ldpi" />
 		<icon src="/www/icons/android/48.png"   platform="android"      qualifier="mdpi" />
