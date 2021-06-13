@@ -7,7 +7,7 @@
 		android-versionCode="1818">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
-            <string>55</string>
+            <string>56</string>
         </gap:config-file>
         <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     		<string>3.0.0</string>
