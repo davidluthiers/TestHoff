@@ -3,14 +3,14 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman-international.hoffman-app"
-		version   = "3.0.4"
+		version   = "3.0.5"
 		android-versionCode="1818">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
-            <string>59</string>
+            <string>60</string>
         </gap:config-file>
         <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-    		<string>3.0.4</string>
+    		<string>3.0.5</string>
 		</gap:config-file>
 		
 
@@ -171,7 +171,9 @@
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
 		
-		<config-file overwrite="true" parent="NSLocationWhenInUseUsageDescription" platform="ios" target="*-Info.plist"> <string>Allow the app to know your location</string> </config-file>
+		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
+			<string>Required to send machine location.</string>
+		</edit-config>
 		
 		<plugin name="cordova-plugin-media-capture" source="npm" version="1.4.3" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
