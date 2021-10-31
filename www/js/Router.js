@@ -1246,6 +1246,8 @@ define([
             changetheme:function (){
 	
                 var mysheet=document.styleSheets[5];
+				console.log("mysheet");
+				console.log(mysheet);
 		
                 if(typeof historial.get("languages").get("theme")==='undefined'){ //theme predefinido
 		
@@ -1339,6 +1341,8 @@ define([
 		
 		
                 var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules;
+				console.log("myrules");
+				console.log(myrules);
                 for (i=0; i<myrules.length; i++){
                     if(myrules[i].selectorText==".ui-btn-up-a" ||
                         myrules[i].selectorText==".ui-btn-up-b" ||

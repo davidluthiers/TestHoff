@@ -42,6 +42,9 @@
 		<preference name="KeyboardDisplayRequiresUserAction" value="false" />
 		<preference name="HideKeyboardFormAccessoryBar" value="false" />
 		<preference name="SuppressesIncrementalRendering" value="false" />
+		
+		<preference name="scheme" value="app" />
+		<preference name="hostname" value="localhost" />
 
 		<preference name="android-installLocation" value="internalOnly" />
 		<preference name="ErrorUrl" value=""/>
@@ -110,7 +113,7 @@
 		</plugin>
 		
 		
-		
+		<plugin name="cordova-plugin-wkwebview-file-xhr" source="npm"/>
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 		<plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<plugin name="cordova-plugin-media" source="npm"/>
