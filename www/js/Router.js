@@ -599,7 +599,7 @@ define([
 	
 
             lookForLanguage: function(){
-
+				console.log("lookForLanguage");
                 try{
                     navigator.globalization.getLocaleName(
                         function (locale) {
