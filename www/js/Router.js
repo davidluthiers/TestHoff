@@ -173,10 +173,16 @@ define([
 				}
                 if((language.get("downloaded")=="no" && !language.get("Checkversion")) || typeof language.get("dic_hoffman_connect") == 'undefined'){ //si no tienes lenguaje te lo intentas descargar
                     console.log("No hay lenguaje");
+					console.log(language);
+					console.log(historial);
                     language.set("languageAC", "en-GB");
+					console.log("language.set");
                     language.set("quadAudio", false);
                     historial.create(language);
+					console.log("historial.create");
+					
                     this.changetheme();
+					console.log("changetheme");
 					if (false){ //(typeof device === "undefined"){
                         this.login();
                     }
