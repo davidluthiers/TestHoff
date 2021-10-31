@@ -122,7 +122,7 @@
 		<plugin name="cordova-plugin-device" source="npm" />
 		<plugin name="cordova-plugin-vibration" source="npm" />
 		<plugin name="cordova-plugin-file-transfer-ios-fix" source="npm" />
-		<plugin name="cordova-plugin-file" source="npm" />
+		<plugin name="cordova-plugin-file" source="npm" version="6.0.2"/>
 		<plugin name="cordova-plugin-inappbrowser" source="npm"/>
 		<plugin name="cordova-plugin-splashscreen" source="npm"/>
 		<plugin name="cordova-plugin-network-information" source="npm"/>
