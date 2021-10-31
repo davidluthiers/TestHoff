@@ -1247,7 +1247,7 @@ define([
 	
                 var mysheet=document.styleSheets[5];
 				console.log("mysheet");
-				console.log(mysheet);
+				console.log(document.styleSheets);
 		
                 if(typeof historial.get("languages").get("theme")==='undefined'){ //theme predefinido
 		
