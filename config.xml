@@ -145,6 +145,7 @@
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
 		<plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<plugin name="cordova-plugin-insomnia" source="npm"/>
+		<plugin name="cordova-plugin-wkwebview-file-xhr" version="3.0.0" />
 
 
 		<!-- <config-file platform="android"> <application android:hardwareAccelerated="true" /> </config-file> -->
@@ -204,12 +205,13 @@
 
 		<preference name="SplashScreenDelay" value="15000" />
 		
-		<!--
-		<preference name="AllowUntrustedCerts"  value="true" />
+		
+		<preference name="AllowUntrustedCerts" value="on" />
 		<preference name="InterceptRemoteRequests" value="all" />
-		<preference name="allowFileAccessFromFileURLs" value="true" />
-		<preference name="allowUniversalAccessFromFileURLs" value="true" />
-		-->
+		<!--<preference name="NativeXHRLogging" value="full" />-->
+		<preference name="allowFileAccessFromFileURLs" value="on" />
+		<preference name="allowUniversalAccessFromFileURLs" value="on" />
+
 
 		<allow-navigation href="*" />
 		<access origin="*" launch-external="yes"/>
