@@ -42,11 +42,6 @@
 		<preference name="KeyboardDisplayRequiresUserAction" value="false" />
 		<preference name="HideKeyboardFormAccessoryBar" value="false" />
 		<preference name="SuppressesIncrementalRendering" value="false" />
-		
-		<!--
-		<preference name="scheme" value="app" />
-		<preference name="hostname" value="localhost" />
-		-->
 
 		<preference name="android-installLocation" value="internalOnly" />
 		<preference name="ErrorUrl" value=""/>
@@ -62,7 +57,6 @@
 		<preference name="android.useAndroidX" value="false" />
 		<preference name="android.enableJetifier" value="false" />
 		<preference name="AndroidXEnabled" value="false" />
-
 
 		<icon src="/www/icon.png" />
 		<icon src="/www/icons/ios/29.png"   platform="ios"          width="29" height="29" />
@@ -115,7 +109,7 @@
 		</plugin>
 		
 		
-		<!--<plugin name="cordova-plugin-wkwebview-file-xhr" source="npm"/>-->
+		<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 		<plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<plugin name="cordova-plugin-media" source="npm"/>
@@ -199,6 +193,11 @@
 		-->
 
 		<preference name="SplashScreenDelay" value="15000" />
+		
+		<preference name="AllowUntrustedCerts"  value="true" />
+		<preference name="InterceptRemoteRequests" value="all" />
+		<preference name="allowFileAccessFromFileURLs" value="true" />
+		<preference name="allowUniversalAccessFromFileURLs" value="true" />
 
 		<allow-navigation href="*" />
 		<access origin="*" launch-external="yes"/>
