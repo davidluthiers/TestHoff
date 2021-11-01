@@ -181,7 +181,7 @@ define([
                     historial.create(language);
 					console.log("historial.create");
 					
-                    this.changetheme();
+                    //this.changetheme();
 					console.log("changetheme");
 					if (false){ //(typeof device === "undefined"){
                         this.login();
