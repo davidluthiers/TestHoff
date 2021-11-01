@@ -57,6 +57,9 @@
 		<preference name="android.useAndroidX" value="false" />
 		<preference name="android.enableJetifier" value="false" />
 		<preference name="AndroidXEnabled" value="false" />
+		
+		<preference name="scheme" value="app" />
+		<preference name="hostname" value="localhost" />
 
 		<icon src="/www/icon.png" />
 		<icon src="/www/icons/ios/29.png"   platform="ios"          width="29" height="29" />
