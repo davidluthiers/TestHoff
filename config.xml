@@ -60,6 +60,13 @@
 		
 		<preference name="scheme" value="app" />
 		<preference name="hostname" value="localhost" />
+		<preference name="WKWebViewOnly" value="true" />
+		
+		<feature name="CDVWKWebViewEngine">
+		  <param name="ios-package" value="CDVWKWebViewEngine" />
+		</feature>
+
+		<preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
 
 		<icon src="/www/icon.png" />
 		<icon src="/www/icons/ios/29.png"   platform="ios"          width="29" height="29" />
@@ -126,7 +133,7 @@
 		<plugin name="cordova-plugin-vibration" source="npm" />
 		<plugin name="cordova-plugin-file-transfer-ios-fix" source="npm" />
 		<plugin name="cordova-plugin-inappbrowser" source="npm"/>
-		<plugin name="cordova-plugin-splashscreen" source="npm"/>
+		<plugin name="cordova-plugin-splashscreen" source="npm" version="6.0.0"/>
 		<plugin name="cordova-plugin-network-information" source="npm"/>
 		<plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		<plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.6.8"/>
@@ -138,7 +145,7 @@
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
 		<plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<plugin name="cordova-plugin-insomnia" source="npm"/>
-		<plugin name="cordova-plugin-ionic-webview" source="npm"/>
+		<plugin name="cordova-plugin-wkwebview-engine" source="npm" version="1.2.2"/>
 
 		<!-- <config-file platform="android"> <application android:hardwareAccelerated="true" /> </config-file> -->
 		<!--<plugin name="nl.x-services.plugins.backgroundaudio" />
