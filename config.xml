@@ -109,7 +109,7 @@
 		</plugin>
 		
 		
-		<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>
+		<!--<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>-->
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 		<plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<plugin name="cordova-plugin-media" source="npm"/>
@@ -194,10 +194,12 @@
 
 		<preference name="SplashScreenDelay" value="15000" />
 		
+		<!--
 		<preference name="AllowUntrustedCerts"  value="true" />
 		<preference name="InterceptRemoteRequests" value="all" />
 		<preference name="allowFileAccessFromFileURLs" value="true" />
 		<preference name="allowUniversalAccessFromFileURLs" value="true" />
+		-->
 
 		<allow-navigation href="*" />
 		<access origin="*" launch-external="yes"/>
