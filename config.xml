@@ -145,8 +145,8 @@
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
 		<plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<plugin name="cordova-plugin-insomnia" source="npm"/>
-		<plugin name="cordova-plugin-wkwebview-file-xhr" version="3.0.0" />
-		<plugin name="cordova-plugin-wkwebviewxhrfix" />
+		<!--<plugin name="cordova-plugin-wkwebview-file-xhr" version="3.0.0" />-->
+		<plugin name="@ahovakimyan/cordova-plugin-wkwebviewxhrfix" source="npm"/>
 
 
 		<!-- <config-file platform="android"> <application android:hardwareAccelerated="true" /> </config-file> -->
