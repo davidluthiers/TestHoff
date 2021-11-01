@@ -511,41 +511,48 @@ define([
 					Drupal.settings.endpoint = "hoffapp";
 					innerlog.add("Executing checkAndDo:\n");
 					console.log("checkAndDo");
-					system_connect({
-						success: function(result) {
-							innerlog.add("success\n");
-							var account = Drupal.user;
-							console.log(account);
-							if(typeof account.roles[1] === "undefined")
-								hoffuser=account.roles[2];
-							else
-								hoffuser=account.roles[1];
-						
-							console.log("Checking connection: " + hoffuser);
-					
-							if(hoffuser=="anonymous user" || historial.get("languages").get("sesToken")=="none"){
-								self.logAndDo(job, param);
-							}
-							else{
-								if(hoffuser=="authenticated user"){
-									if(param!="null")
-										job(param);
-									else
-										job(); 
-								}
-							}
-		
-						},
-						error: function(xhr, status, message){
+					console.log(system_connect);
+					try{
+						system_connect({
+							success: function(result) {
+								innerlog.add("success\n");
+								var account = Drupal.user;
+								console.log(account);
+								if(typeof account.roles[1] === "undefined")
+									hoffuser=account.roles[2];
+								else
+									hoffuser=account.roles[1];
 							
-							console.log(message); //Comentar para el release
-							console.log(xhr + " - " + status);
-							self.logAndDo(job, param);
-							Backbone.history.navigate("#auxsummary", {
-							trigger: true
-							});
-						}
-					});
+								console.log("Checking connection: " + hoffuser);
+						
+								if(hoffuser=="anonymous user" || historial.get("languages").get("sesToken")=="none"){
+									self.logAndDo(job, param);
+								}
+								else{
+									if(hoffuser=="authenticated user"){
+										if(param!="null")
+											job(param);
+										else
+											job(); 
+									}
+								}
+			
+							},
+							error: function(xhr, status, message){
+								
+								console.log(message); //Comentar para el release
+								console.log(xhr + " - " + status);
+								self.logAndDo(job, param);
+								Backbone.history.navigate("#auxsummary", {
+								trigger: true
+								});
+							}
+						});
+					}
+					catch(e){
+						console.log("Error");
+						console.log(e);
+					}
             },
 			
 			recordActivity: function(vtool,vdetails,vtime){
