@@ -614,6 +614,7 @@ define([
             lookForLanguage: function(){
 				console.log("lookForLanguage");
                 try{
+					/*
                     navigator.globalization.getLocaleName(
                         function (locale) {
                             console.log('locale: ' + locale.value);
@@ -626,6 +627,12 @@ define([
                             alert('Error getting locale language\n');
                         }
                         );
+					*/
+					app_router.languageTag = Intl.getCurrentLocale();
+					console.log('locale: ' + app_router.languageTag);
+					app_router.languageVar="";
+
+					app_router.LookLanguages();
                 }
                 catch(e){
                     console.log("Desktop version, downloading 'en-GB'");
