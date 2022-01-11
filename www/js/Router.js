@@ -515,26 +515,32 @@ define([
 					try{
 						system_connect({
 							success: function(result) {
-								innerlog.add("success\n");
-								var account = Drupal.user;
-								console.log(account);
-								if(typeof account.roles[1] === "undefined")
-									hoffuser=account.roles[2];
-								else
-									hoffuser=account.roles[1];
+								try{
+									console.log("checkAndDo success");
+									innerlog.add("success\n");
+									var account = Drupal.user;
+									console.log(account);
+									if(typeof account.roles[1] === "undefined")
+										hoffuser=account.roles[2];
+									else
+										hoffuser=account.roles[1];
+								
+									console.log("Checking connection: " + hoffuser);
 							
-								console.log("Checking connection: " + hoffuser);
-						
-								if(hoffuser=="anonymous user" || historial.get("languages").get("sesToken")=="none"){
-									self.logAndDo(job, param);
-								}
-								else{
-									if(hoffuser=="authenticated user"){
-										if(param!="null")
-											job(param);
-										else
-											job(); 
+									if(hoffuser=="anonymous user" || historial.get("languages").get("sesToken")=="none"){
+										self.logAndDo(job, param);
 									}
+									else{
+										if(hoffuser=="authenticated user"){
+											if(param!="null")
+												job(param);
+											else
+												job(); 
+										}
+									}
+								}
+								catch(e){
+									console.log("checkAndDo success ERROR " + e);
 								}
 			
 							},
