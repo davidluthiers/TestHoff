@@ -207,11 +207,11 @@
 		<preference name="SplashScreenDelay" value="15000" />
 		
 		
-		<preference name="AllowUntrustedCerts" value="on" />
+		<preference name="AllowUntrustedCerts" value="true" />
 		<preference name="InterceptRemoteRequests" value="all" />
 		<!--<preference name="NativeXHRLogging" value="full" />-->
-		<preference name="allowFileAccessFromFileURLs" value="on" />
-		<preference name="allowUniversalAccessFromFileURLs" value="on" />
+		<preference name="allowFileAccessFromFileURLs" value="true" />
+		<preference name="allowUniversalAccessFromFileURLs" value="true" />
 
 
 		<allow-navigation href="*" />
