@@ -215,7 +215,8 @@
 
 
 		<allow-navigation href="*" />
-		<access origin="*" launch-external="yes"/>
+		<!--<access origin="*" launch-external="yes"/>-->
+		<access origin="http://appv2.hoffman-international.com" />
 		
 
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
