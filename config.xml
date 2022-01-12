@@ -120,8 +120,8 @@
 		
 		
 		<!--<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>-->
-		<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>
-		<plugin name="cordova-plugin-wkwebview-file-xhr" source="npm" version="3.0.0" /> 
+		<!--<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>-->
+		<!--<plugin name="cordova-plugin-wkwebview-file-xhr" source="npm" version="3.0.0" /> -->
 		
 		
 		<plugin name="cordova-plugin-whitelist" source="npm" version="1.3.4"/>
