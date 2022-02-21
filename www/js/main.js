@@ -10,14 +10,18 @@
             "underscore": "underscoreplugin",
             "backbone": "backbone",
 			"localStorage": "backbone.localStorage",
-			"text": "textplugin" {
-				//Valid values are 'node', '', or 'rhino'
-				env: 'xhr'
-			},
+			"text": "textplugin",
 			"fastclick": "fastclick",
 			"paper": "paper"
 
         },
+		
+		config: {
+			 text: {
+				//Valid values are 'node', 'xhr', or 'rhino'
+				env: 'xhr'
+			 }
+		},
 
         // Sets the configuration for your third party scripts that are not AMD compatible
         shim: {
