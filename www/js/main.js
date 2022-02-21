@@ -30,6 +30,13 @@
 				console.log(xhr);
 				console.log(url);
 				
+				try{	
+					console.log(1);
+					console.log(cordova.file.applicationDirectory);
+					console.log(cordova.file.applicationStorageDirectory);
+				}
+				catch(e){console.log(e);};
+				
 
 				}
 			 }
