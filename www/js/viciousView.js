@@ -6,14 +6,14 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!../Templates/viciousN1.html',
-    'text!../Templates/vicious0.html',
-    'text!../Templates/vicious1.html',
-    'text!../Templates/vicious2.html',
-    'text!../Templates/vicious3.html',
-    'text!../Templates/vicioushistory.html',
+    'text!Templates/viciousN1.html',
+    'text!Templates/vicious0.html',
+    'text!Templates/vicious1.html',
+    'text!Templates/vicious2.html',
+    'text!Templates/vicious3.html',
+    'text!Templates/vicioushistory.html',
     'paper',
-    'text!../Templates/headerandpanel.html',
+    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
     ], function($, _, Backbone, viciousN1, vicious0, vicious1, vicious2, vicious3, vicioushistory, paper, headerandpanel){

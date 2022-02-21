@@ -6,13 +6,13 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!../Templates/beatyour0.html',
-    'text!../Templates/beatyour1.html',
-    'text!../Templates/beatyour2.html',
-    'text!../Templates/beatyourhistory.html',
+    'text!Templates/beatyour0.html',
+    'text!Templates/beatyour1.html',
+    'text!Templates/beatyour2.html',
+    'text!Templates/beatyourhistory.html',
     'beatyourModel',
     'languageModel',
-    'text!../Templates/headerandpanel.html',
+    'text!Templates/headerandpanel.html',
     'paper',
     'jquerymobile'
   

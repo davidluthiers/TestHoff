@@ -6,10 +6,10 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!../Templates/pattern0.html',
-    'text!../Templates/pattern1.html',
+    'text!Templates/pattern0.html',
+    'text!Templates/pattern1.html',
     'paper',
-    'text!../Templates/headerandpanel.html',
+    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
     ], function($, _, Backbone, pattern0, pattern1, paper, headerandpanel){

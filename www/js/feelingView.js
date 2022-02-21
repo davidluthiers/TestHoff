@@ -6,11 +6,11 @@ define([
     'konva.min',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!../Templates/feeling.html',
-    'text!../Templates/feelinghistory.html',
+    'text!Templates/feeling.html',
+    'text!Templates/feelinghistory.html',
     'feelingModel',
     'list',
-    'text!../Templates/headerandpanel.html',
+    'text!Templates/headerandpanel.html',
     'jquerymobile'
 
     ], function($, _, Backbone, Konva, feeling, feelinghistory, feelingModel, list, headerandpanel){

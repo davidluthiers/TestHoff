@@ -6,17 +6,17 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!../Templates/quad0.html',
-    'text!../Templates/quad1.html',
-    'text!../Templates/quad2.html',
-    'text!../Templates/quad3.html',
-    'text!../Templates/quad4.html',
-    'text!../Templates/quad5.html',
-    'text!../Templates/quadhistory.html',
-    'text!../Templates/quadAudioHistory.html',
-    'text!../Templates/summary.html',
+    'text!Templates/quad0.html',
+    'text!Templates/quad1.html',
+    'text!Templates/quad2.html',
+    'text!Templates/quad3.html',
+    'text!Templates/quad4.html',
+    'text!Templates/quad5.html',
+    'text!Templates/quadhistory.html',
+    'text!Templates/quadAudioHistory.html',
+    'text!Templates/summary.html',
     'quadModel',
-    'text!../Templates/headerandpanel.html',
+    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
     ], function($, _, Backbone, quad0, quad1, quad2, quad3, quad4, quad5, quadhistory, quadAudioHistory, summary, quadModel, headerandpanel){
