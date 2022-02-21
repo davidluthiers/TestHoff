@@ -29,9 +29,8 @@
 				//url = window.WkWebView.convertFilePath(url);
 				console.log(xhr);
 				console.log(url);
-				console.log(webView.url);
-				console.log(cordova.file.applicationDirectory);
-				console.log(cordova.file.applicationStorageDirectory);
+				
+
 				}
 			 }
 		},
@@ -76,6 +75,18 @@ require([ "jquery", "underscore", "backbone", "Router"], function( $, _, Backbon
 	require( [ "jquerymobile" , "underscore"], function() {
 		// Instantiates a new Backbone.js Mobile Router
 		
+		try{	
+			console.log(1);
+			console.log(cordova.file.applicationDirectory);
+			console.log(cordova.file.applicationStorageDirectory);
+		}
+		catch(e){console.log(e);};
+		
+		try{
+			console.log(2);
+			console.log(webView.url);
+		}
+		catch(e){console.log(e);};
 		
 		Router.initialize();
 		//App.initialize();
