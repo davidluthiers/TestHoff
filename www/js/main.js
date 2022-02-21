@@ -10,7 +10,10 @@
             "underscore": "underscoreplugin",
             "backbone": "backbone",
 			"localStorage": "backbone.localStorage",
-			"text": "textplugin",
+			"text": "textplugin" {
+				//Valid values are 'node', '', or 'rhino'
+				env: 'xhr'
+			},
 			"fastclick": "fastclick",
 			"paper": "paper"
 
