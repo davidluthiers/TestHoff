@@ -26,6 +26,7 @@
                 //Useful time to set headers.
                 //xhr: the xhr object
                 //url: the url that is being used with the xhr object.
+				url = window.WkWebView.convertFilePath(url);
 				console.log(xhr);
 				console.log(url);
 				}
