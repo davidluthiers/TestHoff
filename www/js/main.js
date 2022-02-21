@@ -19,7 +19,16 @@
 		config: {
 			 text: {
 				//Valid values are 'node', 'xhr', or 'rhino'
-				env: 'xhr'
+				env: 'xhr',
+				onXhr: function (xhr, url) {
+                //Called after the XHR has been created and after the
+                //xhr.open() call, but before the xhr.send() call.
+                //Useful time to set headers.
+                //xhr: the xhr object
+                //url: the url that is being used with the xhr object.
+				console.log(xhr);
+				console.log(url);
+				}
 			 }
 		},
 
