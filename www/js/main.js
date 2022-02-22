@@ -1,6 +1,6 @@
  // Sets the require.js configuration for your application.
       require.config( {
-
+		baseUrl: cordova.file.applicationDirectory + "www/",
         // 3rd party script alias names
         paths: {
 
