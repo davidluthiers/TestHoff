@@ -26,9 +26,11 @@
                 //Useful time to set headers.
                 //xhr: the xhr object
                 //url: the url that is being used with the xhr object.
-				//url = window.WkWebView.convertFilePath(url);
-				console.log(xhr);
+				// file:///var/containers/Bundle/Application/84C0747B-3CD8-4CF7-AC6D-31C5EBE7FD8D/Hoffman%20App.app/ + js/Templates/profile2.html
+				url = cordova.file.applicationDirectory + "www/" + url;
+				//console.log(xhr);
 				console.log(url);
+				console.log(window.WkWebView.convertFilePath(url));
 				
 				try{	
 					console.log(1);
@@ -81,7 +83,7 @@ require([ "jquery", "underscore", "backbone", "Router"], function( $, _, Backbon
 			}
 	require( [ "jquerymobile" , "underscore"], function() {
 		// Instantiates a new Backbone.js Mobile Router
-		
+		/*
 		try{	
 			console.log(1);
 			console.log(cordova.file.applicationDirectory);
@@ -94,6 +96,7 @@ require([ "jquery", "underscore", "backbone", "Router"], function( $, _, Backbon
 			console.log(webView.url);
 		}
 		catch(e){console.log(e);};
+		*/
 		
 		Router.initialize();
 		//App.initialize();
