@@ -21,6 +21,9 @@ define([
 					this.$el.attr('class', 'page');
 
 					compiledTemplate = _.template( summary );
+					
+					console.log("compiledTemplate");
+					console.log(compiledTemplate);
 		
 					this.collection=historycollection;
 		
