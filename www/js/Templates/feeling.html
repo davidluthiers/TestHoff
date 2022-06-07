@@ -1,43 +1,43 @@
-<div data-role="content">
-    <div class="hojacuaderno">
-   <div class="headerhojacuaderno feeling" data-role="header">
+<div data-role='content'>
+    <div class='hojacuaderno'>
+   <div class='headerhojacuaderno feeling' data-role='header'>
        <h3>
          <%= dic_feeling_header %>
        </h3>
       </div>
-	  <div style="text-align: center;">  
-		<label id="selectedfeeling" class="textocentrado"> <%= dic_feeling_phrase %> </label>
+	  <div style='text-align: center;'>  
+		<label id='selectedfeeling' class='textocentrado'> <%= dic_feeling_phrase %> </label>
 	  </div>
-	<div data-role="content">
-	<label class="textocentrado" id="textIfeel"><%= dic_feeling_phrase %></label>
-	<div id="feelingco">
-		<input id="feelinput" class="search" placeholder="<%= dic_feeling_p0_placeholder %>" />
-	  <ul id="extralist" class="feelingclass" data-role="listview" data-divider-theme="b" data-inset="true">
-		<li id='customfeeling' data-icon="plus"><a id='newfeeling' class='newfeeling' feelingtype=''></a></li>
+	<div data-role='content'>
+	<label class='textocentrado' id='textIfeel'><%= dic_feeling_phrase %></label>
+	<div id='feelingco'>
+		<input id='feelinput' class='search' placeholder='<%= dic_feeling_p0_placeholder %>' />
+	  <ul id='extralist' class='feelingclass' data-role='listview' data-divider-theme='b' data-inset='true'>
+		<li id='customfeeling' data-icon='plus'><a id='newfeeling' class='newfeeling' feelingtype=''></a></li>
 	 </ul>
-	  <ul id="feelinglist" class="list feelingclass" data-divider-theme="b" data-inset="true">
+	  <ul id='feelinglist' class='list feelingclass' data-divider-theme='b' data-inset='true'>
 	 </ul>
     </div>
-	<div id="container" style="overflow-x:initial;"></div>
+	<div id='container' style='overflow-x:initial;'></div>
 	
-	<a id="linkortool" class="colorverde" data-role="button" data-transition="none" style="visibility:hidden;">
+	<a id='linkortool' class='colorverde' data-role='button' data-transition='none' style='visibility:hidden;'>
       <%= goTo_link %>
        </a>
-	<div style="text-align: center;">  
-		<label id="actionDesc" class="actionDesc"> </label>
+	<div style='text-align: center;'>  
+		<label id='actionDesc' class='actionDesc'> </label>
 	  </div>
-	<a id="shareb" class="colorverde" data-role="button" data-transition="none" style="visibility:hidden;">
-		 <img src="img/shareandroid.png" width="40" height="40"> <br/>
+	<a id='shareb' class='colorverde' data-role='button' data-transition='none' style='visibility:hidden;'>
+		 <img src='img/shareandroid.png' width='40' height='40'> <br/>
       <%= dic_share %>
        </a>
    </div>
    </div>
    </div>
-   <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
-   	<a id="goAgain" class="botonprev" data-role="button" style="display:none;" data-transition="none">
+   <div data-theme='a' data-role='footer' data-position='fixed' data-tap-toggle='false'>
+   	<a id='goAgain' class='botonprev' data-role='button' style='display:none;' data-transition='none'>
 	    <%= dic_transf_p9_text5 %>
    	</a>
-        <a class="stopAnim botonnext" data-role="button" rel="external" data-transition="none" href="#auxsummary">
+        <a class='stopAnim botonnext' data-role='button' rel='external' data-transition='none' href='#auxsummary'>
 	    <%= dic_finish %>
    	</a>
     </div>

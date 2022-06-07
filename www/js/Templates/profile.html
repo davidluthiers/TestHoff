@@ -1,53 +1,53 @@
-<div data-role="content"> 
-    <div class="hojacuaderno" data-controltype="htmlblock">
-	    <div class="headerhojacuaderno history" data-role="header">
+<div data-role='content'> 
+    <div class='hojacuaderno' data-controltype='htmlblock'>
+	    <div class='headerhojacuaderno history' data-role='header'>
 			<h3>
 				<%= dic_profile %>
 			</h3>
 		</div>
-		<div data-role="content">
+		<div data-role='content'>
 		
-			<label id="fill_profile">
+			<label id='fill_profile'>
 				<%= dic_fill_profile %>
 			</label>
 		
-			<img id="visionphoto" style="" src="img/user_icon.png" />
-			<img id="fbcontainer" style="width:30%; display: none;" />
-			<canvas id="myCanvas" style="display: none;"></canvas> 
-			<a id="loadfromfacebook" data-role="button" data-icon="facebook" data-iconpos="left" data-theme=""  ><%= dic_load_facebook %></a>
-			<a id="getgalleryphoto" data-role="button" data-theme=""><%= dic_select_gallery %></a>
+			<img id='visionphoto' style='' src='img/user_icon.png' />
+			<img id='fbcontainer' style='width:30%; display: none;' />
+			<canvas id='myCanvas' style='display: none;'></canvas> 
+			<a id='loadfromfacebook' data-role='button' data-icon='facebook' data-iconpos='left' data-theme=''  ><%= dic_load_facebook %></a>
+			<a id='getgalleryphoto' data-role='button' data-theme=''><%= dic_select_gallery %></a>
 			
-			<div data-role="fieldcontain" class="noborder" data-controltype="textinput" >
-				<label for="displayname">
+			<div data-role='fieldcontain' class='noborder' data-controltype='textinput' >
+				<label for='displayname'>
 				  <%= dic_display_name %>
 				</label>
-				<input name="" id="displayname" value=""/>
+				<input name='' id='displayname' value=''/>
 			</div>
-			<div data-role="fieldcontain" class="noborder" data-controltype="textinput" >
-				<label for="useremail">
+			<div data-role='fieldcontain' class='noborder' data-controltype='textinput' >
+				<label for='useremail'>
 					<%= dic_email %>
 				</label>
-				<input name="" id="useremail" type="email" value=""/>
+				<input name='' id='useremail' type='email' value=''/>
 			</div>
 			
-			<div data-role="fieldcontain" class="noborder" data-controltype="textinput" >
-				<label for="status">
+			<div data-role='fieldcontain' class='noborder' data-controltype='textinput' >
+				<label for='status'>
 				  <%= dic_status %>
 				</label>
-				<textarea name="" id="status" ></textarea>
+				<textarea name='' id='status' ></textarea>
 			</div>
 			
-			<a id="toggle_profile" class="deactivate disable_profile" data-role="button" data-icon="alert" data-iconpos="left" data-theme="" ><%= dic_deactivate_profile %></a>
-			<a id="toggle_profile" class="activate" data-role="button" data-icon="alert" data-iconpos="left" data-theme="" ><%= dic_activate_profile %></a>
+			<a id='toggle_profile' class='deactivate disable_profile' data-role='button' data-icon='alert' data-iconpos='left' data-theme='' ><%= dic_deactivate_profile %></a>
+			<a id='toggle_profile' class='activate' data-role='button' data-icon='alert' data-iconpos='left' data-theme='' ><%= dic_activate_profile %></a>
 		
 		</div>
    </div>
 </div>
-<div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
-	<a id="back_to_map" class="botonprev" data-role="button" data-transition="none" data-icon="arrow-l">
+<div data-theme='a' data-role='footer' data-position='fixed' data-tap-toggle='false'>
+	<a id='back_to_map' class='botonprev' data-role='button' data-transition='none' data-icon='arrow-l'>
 		<%= dic_back %>
 	</a>
-	<a id="botonnext" class="botonnext" data-role="button" data-transition="none" data-icon="arrow-r" data-iconpos="right">
+	<a id='botonnext' class='botonnext' data-role='button' data-transition='none' data-icon='arrow-r' data-iconpos='right'>
 		<%= dic_vision_p1_text3 %>
 	</a>
 </div>

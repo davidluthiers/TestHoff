@@ -1,33 +1,33 @@
-<div data-role="content">  
-  <div class="hojacuaderno">
-      <div class="headerhojacuaderno headerquad" data-role="header">
+<div data-role='content'>  
+  <div class='hojacuaderno'>
+      <div class='headerhojacuaderno headerquad' data-role='header'>
        <h2>
         <%= dic_quad_header %>
        </h2>
       </div>
-   <div data-role="content">
-   <label class="fasequad"> <%= dic_quad_p5_title %> </label>
-   <div data-role="fieldcontain" data-controltype="textarea" class="primerLcuaderno writtingarea">
-    <label for="quadInputS">
+   <div data-role='content'>
+   <label class='fasequad'> <%= dic_quad_p5_title %> </label>
+   <div data-role='fieldcontain' data-controltype='textarea' class='primerLcuaderno writtingarea'>
+    <label for='quadInputS'>
      <%= dic_quad_pS_text1 %>
     </label>
-    <textarea class="writtingtextarea" rows="9" name="" id="quadInputS" class="mandatory" placeholder="<%= dic_quad_pS_placeholder1 %>"><%= answer1 %></textarea>
+    <textarea class='writtingtextarea' rows='9' name='' id='quadInputS' class='mandatory' placeholder='<%= dic_quad_pS_placeholder1 %>'><%= answer1 %></textarea>
    </div>
-   <div data-role="content" class="sinmargin">
+   <div data-role='content' class='sinmargin'>
 	  
-      <a id="playSoundButton" class="colorverde" data-role="button" data-mini="true"> 
-	 	 <span class="ui-btn-text"><%= dic_play %></span>     
+      <a id='playSoundButton' class='colorverde' data-role='button' data-mini='true'> 
+	 	 <span class='ui-btn-text'><%= dic_play %></span>     
 	 </a>
-     <div data-role="content" class="sinmargin">
+     <div data-role='content' class='sinmargin'>
 	
-      <h3 class="timeTag"> <%= dic_time %> </h3>
-      <div data-role="fieldcontain" id="songPositionControl">
-			<label for="songPosition" id="songCurrentTime" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini ui-slider-input">0:00</label>
-			<input type="range" value="0" min="0" data-highlight="true" data-mini="true" id="songPosition" style="display: none;" />
+      <h3 class='timeTag'> <%= dic_time %> </h3>
+      <div data-role='fieldcontain' id='songPositionControl'>
+			<label for='songPosition' id='songCurrentTime' class='ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini ui-slider-input'>0:00</label>
+			<input type='range' value='0' min='0' data-highlight='true' data-mini='true' id='songPosition' style='display: none;' />
 		</div>
-		 <h3 class="timeTag"> <%= dic_volume %> </h3>
-      <div data-role="fieldcontain" id="volumePositionControl">
-       <input value="10" min="0" max="10" data-highlight="true" data-mini="true" name="volText" id="volText" type="range" />
+		 <h3 class='timeTag'> <%= dic_volume %> </h3>
+      <div data-role='fieldcontain' id='volumePositionControl'>
+       <input value='10' min='0' max='10' data-highlight='true' data-mini='true' name='volText' id='volText' type='range' />
       </div>
 	  
      </div>
@@ -35,10 +35,10 @@
   </div>
   </div>
 </div>
-<div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
-        <a class="stopaudio botonprev backtolist" data-role="button" data-transition="none" data-icon="arrow-l">
+<div data-theme='a' data-role='footer' data-position='fixed' data-tap-toggle='false'>
+        <a class='stopaudio botonprev backtolist' data-role='button' data-transition='none' data-icon='arrow-l'>
     <%= dic_back %>  </a>
-  <a class="botonnext save" data-role="button" data-transition="none" data-icon="arrow-r" data-iconpos="right">
+  <a class='botonnext save' data-role='button' data-transition='none' data-icon='arrow-r' data-iconpos='right'>
     <%= dic_vision_p1_text3 %>
    </a>
     </div>

@@ -1,27 +1,27 @@
-<div data-role="content">  
-  <div class="hojacuaderno">
-      <div class="headerhojacuaderno visionboard" data-role="header">
-       <h2 class="textocentrado">
+<div data-role='content'>  
+  <div class='hojacuaderno'>
+      <div class='headerhojacuaderno visionboard' data-role='header'>
+       <h2 class='textocentrado'>
         <%= title %>
        </h2>
       </div>
-   <div data-role="content">
-	<span class="fechavision"><%= date %></span>   
-   <img id="sunsetbig" src="<%= uri %>" />
-   <span id="visiontext" class="visiondescription">
+   <div data-role='content'>
+	<span class='fechavision'><%= date %></span>   
+   <img id='sunsetbig' src='<%= uri %>' />
+   <span id='visiontext' class='visiondescription'>
         <%= description %>
         </span>
-		<a id="shareb" data-role="button" data-theme="">
-		 <img src="img/shareandroid.png" width="40" height="40"><br/>
+		<a id='shareb' data-role='button' data-theme=''>
+		 <img src='img/shareandroid.png' width='40' height='40'><br/>
       <%= dic_share %>
        </a>
-		<ul id="sharelist"></ul>
-		<canvas id="myVCanvas" width="1200" height="920" style="display:none;"  />
+		<ul id='sharelist'></ul>
+		<canvas id='myVCanvas' width='1200' height='920' style='display:none;'  />
    </div>
   </div>
   </div> 
-  <div data-theme="a" data-role="footer" data-position="fixed" data-tap-toggle="false">
-        <a class="botonstart" data-role="button" data-transition="none" href="#visionboard0">
+  <div data-theme='a' data-role='footer' data-position='fixed' data-tap-toggle='false'>
+        <a class='botonstart' data-role='button' data-transition='none' href='#visionboard0'>
     <%= dic_back %>
    </a>
     </div>

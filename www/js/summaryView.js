@@ -31,13 +31,6 @@ define([
 					result= historycollection.get("languages").toJSON();
 					compiledheaderandpanel=_.template( headerandpanel );
 					
-					console.log("compiledTemplate");
-					console.log(summary);
-					console.log(compiledTemplate(result));
-					
-					console.log("result");
-					console.log(result);
-					
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 		
 					this.$(".dic_help").hide();

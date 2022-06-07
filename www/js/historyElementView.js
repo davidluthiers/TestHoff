@@ -10,7 +10,6 @@ define([
   
 ], function($, _, Backbone){
 
-	element = "";
 
   historyElementView = Backbone.View.extend({
   
@@ -21,6 +20,7 @@ define([
 	this.$el.attr('data-icon', 'false');
 	this.$el.attr('style', 'background:none;');
 
+	element = "";
 
     compiledTemplate = _.template( element );
 		
