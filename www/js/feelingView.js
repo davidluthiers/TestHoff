@@ -634,7 +634,26 @@ define([
                         layer = new Konva.Layer();
 						
 						console.log("wheel");
+						try{
 						console.log(stage.getWidth() / 2);
+						}
+						catch(e){
+                            console.log(e);
+                        }
+						try{
+						console.log("round");
+						console.log(Math.round(stage.getWidth() / 2));
+						}
+						catch(e){
+                            console.log(e);
+                        }
+						try{
+						console.log("stage");
+						console.log(stage);
+						}
+						catch(e){
+                            console.log(e);
+                        }
 						console.log(WHEEL_RADIUS + 20);
                         wheel = new Konva.Group({
                             x: stage.getWidth() / 2,
