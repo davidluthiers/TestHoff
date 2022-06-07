@@ -1976,10 +1976,16 @@ define([
             },
 	
             auxsummary:function () {
+				
+				try{
+					this.summaryV= new summaryView();
+					this.summaryV.render(historial);
+					this.changePage (this.summaryV);
+				}
+				catch(e){
+					console.log(e);
+				}
 		
-                this.summaryV= new summaryView();
-                this.summaryV.render(historial);
-                this.changePage (this.summaryV);
 				try{
 						navigator.splashscreen.hide();
 				}
