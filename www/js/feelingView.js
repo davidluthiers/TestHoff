@@ -601,8 +601,8 @@ define([
 
                         // pointer
                         var intersectedWedge = layer.getIntersection({
-                            x: stage.getWidth()/2,
-                            y: stage.getHeight()/2
+                            x: stage.width()/2,
+                            y: stage.height()/2
                             });
 
                         if (intersectedWedge && (!activeWedge || activeWedge._id !== intersectedWedge._id)) {
@@ -637,14 +637,14 @@ define([
                             
 							console.log("wheel");
 							try{
-							console.log(stage.getWidth() / 2);
+							console.log(stage.width() / 2);
 							}
 							catch(e){
 								console.log(e);
 							}
 							try{
 							console.log("round");
-							console.log(Math.round(stage.getWidth() / 2));
+							console.log(Math.round(stage.width() / 2));
 							}
 							catch(e){
 								console.log(e);
@@ -658,7 +658,7 @@ define([
 							}
 							console.log(WHEEL_RADIUS + 20);
 							wheel = new Konva.Group({
-								x: stage.getWidth() / 2,
+								x: stage.width() / 2,
 								y: WHEEL_RADIUS + 20
 							});
 
@@ -676,7 +676,7 @@ define([
 								lineJoin: 'round',
 								angle: 30,
 								radius: 30,
-								x: stage.getWidth() / 2,
+								x: stage.width() / 2,
 								y: 20,
 								rotation: -105,
 								shadowColor: 'black',
