@@ -20,7 +20,7 @@ define([
 					this.$el.attr('data-theme', 'a');
 					this.$el.attr('class', 'page');
 
-					compiledTemplate = summary; //_.template( summary );
+					compiledTemplate = _.template( summary );
 					
 					console.log("compiledTemplate");
 					console.log(compiledTemplate);
@@ -30,7 +30,7 @@ define([
 					var self=this;
 					historycollection.get("languages").set("helppanel","");
 					result= historycollection.get("languages").toJSON();
-					compiledheaderandpanel= headerandpanel; //_.template( headerandpanel );
+					compiledheaderandpanel=_.template( headerandpanel );
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 		
 					this.$(".dic_help").hide();
