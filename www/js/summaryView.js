@@ -20,10 +20,7 @@ define([
 					this.$el.attr('data-theme', 'a');
 					this.$el.attr('class', 'page');
 
-					compiledTemplate = _.template( summary );
-					
-					console.log("compiledTemplate");
-					console.log(compiledTemplate);
+					compiledTemplate = _.template( summary );		
 		
 					this.collection=historycollection;
 		
@@ -31,6 +28,14 @@ define([
 					historycollection.get("languages").set("helppanel","");
 					result= historycollection.get("languages").toJSON();
 					compiledheaderandpanel=_.template( headerandpanel );
+					
+					console.log("compiledTemplate");
+					console.log(summary);
+					console.log(compiledTemplate(result));
+					
+					console.log("result");
+					console.log(result);
+					
 					this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 		
 					this.$(".dic_help").hide();
