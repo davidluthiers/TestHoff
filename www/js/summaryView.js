@@ -35,6 +35,7 @@ define([
 					this.feedcount=0;
 					console.log("colección");
 					console.log(this.collection);
+					console.log(this.$el);
 					//console.log(self.collection.reverse());
 					if(self.collection.length>0)
 						for(iter=self.collection.length-1;iter>=0;iter--){
