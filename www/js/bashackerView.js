@@ -7,18 +7,17 @@ define([
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'bashackerModel',
-    'text!Templates/bashacker0.html',
-    'text!Templates/bashacker1.html',
-    'text!Templates/bashackerhistory.html',
     'historyModel',
     'paper',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, bashackerModel, bashacker0, bashacker1, bashackerhistory, historyModel, paper, headerandpanel){
+    ], function($, _, Backbone, bashackerModel, historyModel, paper){
 
-
-
+		bashacker0 = "";
+		bashacker1 = "";
+		bashackerhistory = "";
+		headerandpanel = "";
+		
         bashackerView = Backbone.View.extend({
    
             events:{

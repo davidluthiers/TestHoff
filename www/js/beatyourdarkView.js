@@ -6,19 +6,18 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!Templates/beatyour0.html',
-    'text!Templates/beatyour1.html',
-    'text!Templates/beatyour2.html',
-    'text!Templates/beatyourhistory.html',
     'beatyourModel',
     'languageModel',
-    'text!Templates/headerandpanel.html',
     'paper',
     'jquerymobile'
   
-    ], function($, _, Backbone, beatyour0, beatyour1, beatyour2, beatyourhistory, beatyourModel, languageModel, headerandpanel, paper){
+    ], function($, _, Backbone, beatyourModel, languageModel, paper){
 
-
+		beatyour0 = "";
+		beatyour1 = "";
+		beatyour2 = "";
+		beatyourhistory = "";
+		headerandpanel = "";
 
         beatyourdarkView = Backbone.View.extend({
   

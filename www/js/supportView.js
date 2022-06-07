@@ -6,13 +6,12 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!Templates/support.html',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, support, headerandpanel){
+    ], function($, _, Backbone){
 
-
+		support = "";
+		headerandpanel = "";
 
         supportView = Backbone.View.extend({
    

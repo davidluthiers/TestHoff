@@ -5,17 +5,16 @@ define([
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'hearingModel',
-    'text!Templates/recycling0.html',
-    'text!Templates/recycling1.html',
-    'text!Templates/recycling2.html',
-    'text!Templates/recyclinghistory.html',
-    'text!Templates/summary.html',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, hearingModel, recycling0, recycling1, recycling2, recyclinghistory, summary, headerandpanel){
+    ], function($, _, Backbone, hearingModel){
 
-
+		recycling0 = "";
+		recycling1 = "";
+		recycling2 = "";
+		recyclinghistory = "";
+		summary = "";
+		headerandpanel = "";
 
         recyclingView = Backbone.View.extend({
   

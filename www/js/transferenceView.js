@@ -6,25 +6,25 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!Templates/transference0.html',
-    'text!Templates/transference1.html',
-    'text!Templates/transference2.html',
-    'text!Templates/transference3.html',
-    'text!Templates/transference4.html',
-    'text!Templates/transference5.html',
-    'text!Templates/transference6.html',
-    'text!Templates/transference7.html',
-    'text!Templates/transference8.html',
-    'text!Templates/transference9.html',
-    'text!Templates/transferencehistory.html',
-    'text!Templates/transferencehistorylong.html',
-    'text!Templates/summary.html',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, transference0, transference1, transference2, transference3, transference4, transference5, transference6, transference7, transference8, transference9, transferencehistory, transferencehistorylong, summary, headerandpanel){
+    ], function($, _, Backbone){
 
-
+		transference0 = "";
+		transference1 = "";
+		transference2 = "";
+		transference3 = "";
+		transference4 = "";
+		transference5 = "";
+		transference6 = "";
+		transference7 = "";
+		transference8 = "";
+		transference9 = "";
+		transferencehistory = "";
+		transferencehistorylong = "";
+		summary = "";
+		headerandpanel = "";
+		
 
         transferenceView = Backbone.View.extend({
   

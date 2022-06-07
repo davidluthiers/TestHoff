@@ -7,14 +7,13 @@ define([
     'languageModel',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!Templates/configuration.html',
-    'text!Templates/languageSel.html',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, languageModel, configuration, languageSel, headerandpanel){
+    ], function($, _, Backbone, languageModel){
 
-
+		configuration = "";
+		languageSel = "";
+		headerandpanel = "";
 
         configurationView = Backbone.View.extend({
   

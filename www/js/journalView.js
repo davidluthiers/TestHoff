@@ -12,9 +12,12 @@ define([
     'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, journal, journaladd, journalshow, headerandpanel){
+    ], function($, _, Backbone){
 
-
+		journal = "";
+		journaladd = "";
+		journalshow = "";
+		headerandpanel = "";
 
         journalView = Backbone.View.extend({
   

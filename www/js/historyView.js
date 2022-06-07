@@ -4,14 +4,13 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!Templates/history.html',
     'historyElementView',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, history, historyElementView, headerandpanel){
+    ], function($, _, Backbone, historyElementView){
 
-
+		history = "";
+		headerandpanel = "";
 
         historyView = Backbone.View.extend({
    

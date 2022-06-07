@@ -6,17 +6,16 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!Templates/visionboard0.html',
-    'text!Templates/visionboard1.html',
-    'text!Templates/visionboard2.html',
     'visionModel',
-    'text!Templates/summary.html',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, visionboard0, visionboard1, visionboard2, visionModel, summary, headerandpanel){
-
-
+    ], function($, _, Backbone,visionModel){
+		
+		visionboard0 = "";
+		visionboard1 = "";
+		visionboard2 = "";
+		summary = "";
+		headerandpanel = "";
 
         visionboardView = Backbone.View.extend({
   

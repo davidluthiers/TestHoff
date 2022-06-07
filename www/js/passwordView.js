@@ -6,13 +6,12 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!Templates/passwordP.html',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, passwordP, headerandpanel){
+    ], function($, _, Backbone){
 
-
+		passwordP = "";
+		headerandpanel = "";
 
         passwordView = Backbone.View.extend({
   

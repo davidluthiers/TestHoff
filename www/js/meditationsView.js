@@ -5,17 +5,16 @@ define([
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'hearingModel',
-    'text!Templates/meditations0.html',
-    'text!Templates/meditations1.html',
-    'text!Templates/meditations2.html',
-    'text!Templates/meditationshistory.html',
-    'text!Templates/summary.html',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, hearingModel, meditations0, meditations1, meditations2, meditationshistory, summary, headerandpanel){
+    ], function($, _, Backbone, hearingModel){
 
-
+		meditations0 = "";
+		meditations1 = "";
+		meditations2 = "";
+		meditationshistory = "";
+		summary = "";
+		headerandpanel = "";
 
         meditationsView = Backbone.View.extend({
   

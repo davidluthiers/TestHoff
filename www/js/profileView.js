@@ -6,16 +6,15 @@ define([
     'backbone',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!Templates/profile.html',
-	'text!Templates/profile2.html',
-	'text!Templates/profileDoNotShow.html',
-	'text!Templates/map.html',
-    'text!Templates/headerandpanel.html',
     'jquerymobile'
   
-    ], function($, _, Backbone, profileT, profileT2, profileDoNotShow, map, headerandpanel){
+    ], function($, _, Backbone){
 
-
+		profileT = "";
+		profileT2 = "";
+		profileDoNotShow = "";
+		map = "";
+		headerandpanel = "";		
 
         profileView = Backbone.View.extend({
   
