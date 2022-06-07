@@ -633,97 +633,101 @@ define([
                         }
                         layer = new Konva.Layer();
 						
-						console.log("wheel");
-						try{
-						console.log(stage.getWidth() / 2);
-						}
-						catch(e){
-                            console.log(e);
-                        }
-						try{
-						console.log("round");
-						console.log(Math.round(stage.getWidth() / 2));
-						}
-						catch(e){
-                            console.log(e);
-                        }
-						try{
-						console.log("stage");
-						console.log(stage);
-						}
-						catch(e){
-                            console.log(e);
-                        }
-						console.log(WHEEL_RADIUS + 20);
-                        wheel = new Konva.Group({
-                            x: stage.getWidth() / 2,
-                            y: WHEEL_RADIUS + 20
-                        });
+						setTimeout(function() {
+                            
+							console.log("wheel");
+							try{
+							console.log(stage.getWidth() / 2);
+							}
+							catch(e){
+								console.log(e);
+							}
+							try{
+							console.log("round");
+							console.log(Math.round(stage.getWidth() / 2));
+							}
+							catch(e){
+								console.log(e);
+							}
+							try{
+							console.log("stage");
+							console.log(stage);
+							}
+							catch(e){
+								console.log(e);
+							}
+							console.log(WHEEL_RADIUS + 20);
+							wheel = new Konva.Group({
+								x: stage.getWidth() / 2,
+								y: WHEEL_RADIUS + 20
+							});
 
-                        for(var n = 0; n < NUM_WEDGES; n++) {
-                            addWedge(n, context);
-                        }
-                        pointer = new Konva.Wedge({
-                            fillRadialGradientStartPoint: 0,
-                            fillRadialGradientStartRadius: 0,
-                            fillRadialGradientEndPoint: 0,
-                            fillRadialGradientEndRadius: 30,
-                            fillRadialGradientColorStops: [0, 'white', 1, 'red'],
-                            stroke: 'white',
-                            strokeWidth: 2,
-                            lineJoin: 'round',
-                            angle: 30,
-                            radius: 30,
-                            x: stage.getWidth() / 2,
-                            y: 20,
-                            rotation: -105,
-                            shadowColor: 'black',
-                            shadowOffset: {
-                                x:3,
-                                y:3
-                            },
-                            shadowBlur: 2,
-                            shadowOpacity: 0.5
-                        });
+							for(var n = 0; n < NUM_WEDGES; n++) {
+								addWedge(n, context);
+							}
+							pointer = new Konva.Wedge({
+								fillRadialGradientStartPoint: 0,
+								fillRadialGradientStartRadius: 0,
+								fillRadialGradientEndPoint: 0,
+								fillRadialGradientEndRadius: 30,
+								fillRadialGradientColorStops: [0, 'white', 1, 'red'],
+								stroke: 'white',
+								strokeWidth: 2,
+								lineJoin: 'round',
+								angle: 30,
+								radius: 30,
+								x: stage.getWidth() / 2,
+								y: 20,
+								rotation: -105,
+								shadowColor: 'black',
+								shadowOffset: {
+									x:3,
+									y:3
+								},
+								shadowBlur: 2,
+								shadowOpacity: 0.5
+							});
 
-                        // add components to the stage
-                        layer.add(wheel);
-                        layer.add(pointer);
-                        stage.add(layer);
+							// add components to the stage
+							layer.add(wheel);
+							layer.add(pointer);
+							stage.add(layer);
 
-                        pointerTween = new Konva.Tween({
-                            node: pointer,
-                            duration: 0.1,
-                            easing: Konva.Easings.EaseInOut,
-                            y: 30
-                        });
+							pointerTween = new Konva.Tween({
+								node: pointer,
+								duration: 0.1,
+								easing: Konva.Easings.EaseInOut,
+								y: 30
+							});
 
-                        pointerTween.finish();
+							pointerTween.finish();
 
-                        var radiusPlus2 = WHEEL_RADIUS + 2;
-
-
-                        layer.draw();
-
-                        // bind events
+							var radiusPlus2 = WHEEL_RADIUS + 2;
 
 
-                        var anim = new Konva.Animation(animate, layer);
-						self.anim=anim;
+							layer.draw();
 
-                        //document.getElementById('debug').appendChild(layer.hitCanvas._canvas);
+							// bind events
 
-                        // wait one second and then spin the wheel
 
-                        setTimeout(function() {
-                            anim.start();
-                        }, 1000);
-                        setTimeout(function() {
-                            try{
-                                anim.stop();
-                            }
-                            catch(e){}
-                        }, 15000);
+							var anim = new Konva.Animation(animate, layer);
+							self.anim=anim;
+
+							//document.getElementById('debug').appendChild(layer.hitCanvas._canvas);
+
+							// wait one second and then spin the wheel
+
+							setTimeout(function() {
+								anim.start();
+							}, 1000);
+							setTimeout(function() {
+								try{
+									anim.stop();
+								}
+								catch(e){}
+							}, 15000);
+
+                        }, 2000);
                     }
 	  
                     init(self);
