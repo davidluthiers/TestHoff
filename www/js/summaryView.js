@@ -32,6 +32,7 @@ define([
                 this.$(".dic_help").hide();
                 this.visioncount=0;
                 this.feedcount=0;
+				console.log("colección");
                 console.log(this.collection);
                 //console.log(self.collection.reverse());
                 if(self.collection.length>0)

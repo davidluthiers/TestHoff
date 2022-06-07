@@ -2469,6 +2469,7 @@ define([
                     transition: 'none'
                 });
                 console.log("cambio de página");
+				console.log(view.$el);
 				setTimeout(function(){
                     FastClick.attach(document.body);
                 },1500);
