@@ -20,7 +20,7 @@ define([
 	this.$el.attr('data-icon', 'false');
 	this.$el.attr('style', 'background:none;');
 
-	element = "";
+	element = "                 <a data-transition='none' class='toolbutton'>                                  </a> 				<p class='fechasummarytools'> 11/3/2013 &nbsp; 22:12 </p>";
 
     compiledTemplate = _.template( element );
 		
