@@ -93,10 +93,17 @@ define([
 							elemento.save();
 						}
 					}
-					console.log('Fecha feed:');
-					console.log(elemento.get("fecha"));
-					console.log('Date feed:');
-					console.log(elemento.get("date"));
+					try{
+						console.log('Fecha feed:');
+						console.log(elemento.get("fecha"));
+					}
+					catch(e){console.log('Fecha feed error: ')+e}
+					try{
+						console.log('Date feed:');
+						console.log(elemento.get("date"));
+					}
+					catch(e){console.log('Fecha date error: ')+e}
+					
                     this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" +
                         elemento.get("fecha") + "</p><a href='#visionboard" + neoindex +
                         "' data-transition='none'><img class='imagenesminiaturasummary' src='" + elemento.get("uri") +"' /><h3>"+ elemento.get("title") + " - " + elemento.get("description") +
@@ -164,7 +171,7 @@ define([
                             break;
                     }
 				 
-                    this.$("#listasummarytools").append("<li data-theme='c' style='background:none;' data-icon='false'><p class='fechasummarytools'>" + elemento.get("date") + "</p><a href='#" + this.toolstring + neoindex2 + "' data-transition='none' class='" + this.myclass + " toolbutton'>" + this.title + "</a></li>");
+                    this.$("#listasummarytools").append("<li data-theme='c' style='background:none !important;' data-icon='false'><p class='fechasummarytools'>" + elemento.get("date") + "</p><a href='#" + this.toolstring + neoindex2 + "' data-transition='none' class='" + this.myclass + " toolbutton'>" + this.title + "</a></li>");
                 }
 	
 	
