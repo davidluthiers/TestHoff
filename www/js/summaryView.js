@@ -93,9 +93,12 @@ define([
 							elemento.save();
 						}
 					}
-					
+					console.log('Fecha feed:');
+					console.log(elemento.get("fecha"));
+					console.log('Date feed:');
+					console.log(elemento.get("date"));
                     this.$("#summarylist").append("<li class='feed' data-icon='false'><p class='fechasummary'>" +
-                        elemento.get("date") + "</p><a href='#visionboard" + neoindex +
+                        elemento.get("fecha") + "</p><a href='#visionboard" + neoindex +
                         "' data-transition='none'><img class='imagenesminiaturasummary' src='" + elemento.get("uri") +"' /><h3>"+ elemento.get("title") + " - " + elemento.get("description") +
                         "</h3></a></li>");
                 }
