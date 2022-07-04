@@ -22,11 +22,23 @@ define([
 		
 	initialize:function (){
 	
-
-	
 	self=this;
-	this.fecha= new Date();
 	
+	try{
+		self2=this;
+		
+		self.fecha= new Date().toLocaleString().slice(0, -3);
+		
+		console.log("Fecha calculada: " + self.fecha);
+		
+		self2.set("date",self.fecha);
+		
+	}catch(e){
+		console.log("Error fecha: " + e);
+	}
+	
+	
+	/*
 	try{
 		self2=this;
 		navigator.globalization.dateToString(
@@ -39,8 +51,8 @@ define([
 				);}
 				catch(err) {
 				}
-			
-
+	*/	
+		
 	
 	}
 	
