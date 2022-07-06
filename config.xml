@@ -155,10 +155,7 @@
 			<access origin="*.hoffman-international.*" />
 		 </platform>
 		 
-		 <platform name="android">
-			<preference name="AndroidInsecureFileModeEnabled" value="true" />
-			<access origin="*" />
-		 </platform>
+		 <access origin="*.hoffman-international.*" />
 
 
 		<!-- <config-file platform="android"> <application android:hardwareAccelerated="true" /> </config-file> -->
