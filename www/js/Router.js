@@ -484,7 +484,11 @@ define([
                             auxlang.set("sesToken", result.token); //tokendebug
                             auxlang.save();
                             historial.create(auxlang);
-                            self.checkAndDo(job, param);
+                            //self.checkAndDo(job, param);
+							if(param!="null")
+								job(param);
+							else
+								job(); 
 							
                         },
                         error:function(xhr, status, message){
