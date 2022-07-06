@@ -527,7 +527,7 @@ define([
 								
 									console.log("Checking connection: " + hoffuser);
 							
-									if((hoffuser=="anonymous user" && device.platform!='Android') || historial.get("languages").get("sesToken")=="none"){
+									if((historial.get("languages").get("sesToken")=="none"){
 										self.logAndDo(job, param);
 									}
 									else{
