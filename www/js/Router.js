@@ -526,8 +526,9 @@ define([
 										hoffuser=account.roles[1];
 								
 									console.log("Checking connection: " + hoffuser);
+									console.log("Plataforma: " + device.platform);
 							
-									if((historial.get("languages").get("sesToken")=="none"){
+									if(historial.get("languages").get("sesToken")=="none"){
 										self.logAndDo(job, param);
 									}
 									else{
