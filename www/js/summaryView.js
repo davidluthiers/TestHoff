@@ -167,7 +167,7 @@ define([
                             break;
                     }
 				 
-                    this.$("#listasummarytools").append("<li data-theme='c' style='background:none !important;' data-icon='false'><p class='fechasummarytools'>" + elemento.get("date") + "</p><a href='#" + this.toolstring + neoindex2 + "' data-transition='none' class='" + this.myclass + " toolbutton'>" + this.title + "</a></li>");
+                    this.$("#listasummarytools").append("<li data-theme='c' style='background:none;' data-icon='false'><p class='fechasummarytools'>" + elemento.get("date") + "</p><a href='#" + this.toolstring + neoindex2 + "' data-transition='none' class='" + this.myclass + " toolbutton'>" + this.title + "</a></li>");
                 }
 	
 	

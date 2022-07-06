@@ -1834,6 +1834,10 @@ margin-top: 10px;
 			background: url('../img/Textures/AE0436.png') repeat !important;
 		}
 		
+		.ui-btn-up-c{
+			background: none !important;
+		}
+		
 		.miscontroles [role="application"]{
 margin-left: 157px !important;
 position: relative;
