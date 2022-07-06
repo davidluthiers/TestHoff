@@ -58,6 +58,7 @@
 		<preference name="android.useAndroidX" value="false" />
 		<preference name="android.enableJetifier" value="false" />
 		<preference name="AndroidXEnabled" value="false" />
+		<preference name="AndroidInsecureFileModeEnabled" value="true" />
 		
 		
 		
