@@ -183,7 +183,7 @@ define([
 					
                     //this.changetheme();
 					console.log("changetheme");
-					if (false){ //(typeof device === "undefined"){
+					if (device.platform=='Android'){ //(typeof device === "undefined"){
                         this.login();
                     }
                     else
