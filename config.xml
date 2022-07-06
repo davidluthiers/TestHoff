@@ -155,6 +155,7 @@
 		 </platform>
 		 
 		 <platform name="android">
+			<preference name="AndroidInsecureFileModeEnabled" value="true" />
 			<access origin="*" />
 		 </platform>
 
