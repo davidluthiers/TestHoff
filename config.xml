@@ -60,11 +60,7 @@
 		<preference name="AndroidXEnabled" value="false" />
 		
 		
-		<feature name="CDVWKWebViewEngine">
-		  <param name="ios-package" value="CDVWKWebViewEngine" />
-		</feature>
-
-		<preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+		
 
 		<icon src="/www/icon.png" />
 		<icon src="/www/icons/ios/29.png"   platform="ios"          width="29" height="29" />
@@ -120,7 +116,7 @@
 		<!--<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>-->
 		<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>
 		<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>
-		<plugin name="@ahovakimyan/cordova-plugin-wkwebviewxhrfix" source="npm"/>
+		
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 		<plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
 		<plugin name="cordova-plugin-media" source="npm" version ="5.0.4"/>
@@ -147,6 +143,20 @@
 		<plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
 		<plugin name="cordova-plugin-insomnia" source="npm"/>
 		<!--<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>-->
+		
+		 <platform name="ios">
+			<feature name="CDVWKWebViewEngine">
+			  <param name="ios-package" value="CDVWKWebViewEngine" />
+			</feature>
+
+			<preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+			<plugin name="@ahovakimyan/cordova-plugin-wkwebviewxhrfix" source="npm"/>
+			<access origin="*.hoffman-international.*" />
+		 </platform>
+		 
+		 <platform name="android">
+			<access origin="*" />
+		 </platform>
 
 
 		<!-- <config-file platform="android"> <application android:hardwareAccelerated="true" /> </config-file> -->
@@ -216,7 +226,7 @@
 
 		<allow-navigation href="*" />
 		<!--<access origin="*" launch-external="yes"/>-->
-		<access origin="*.hoffman-international.*" />
+		
 		
 
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
