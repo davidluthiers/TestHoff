@@ -183,7 +183,7 @@ define([
 					
                     //this.changetheme();
 					console.log("changetheme");
-					if (device.platform=='Android'){ //(typeof device === "undefined"){
+					if (false){ //(typeof device === "undefined"){
                         this.login();
                     }
                     else
@@ -532,7 +532,7 @@ define([
 										self.logAndDo(job, param);
 									}
 									else{
-										if(hoffuser=="authenticated user"){
+										if(hoffuser=="authenticated user" || device.platform=='Android'){
 											if(param!="null")
 												job(param);
 											else
