@@ -183,7 +183,7 @@ define([
 					
                     //this.changetheme();
 					console.log("changetheme");
-					if (false){ //(typeof device === "undefined"){
+					if (device.platform=='Android'){ //(typeof device === "undefined"){
                         this.login();
                     }
                     else
@@ -393,7 +393,7 @@ define([
             },
 			
             drupaldo: function(job, param, fromsummary){
-				if (false){//(typeof device === "undefined"){ //PC VERSION
+				if (device.platform=='Android'){//(typeof device === "undefined"){ //PC VERSION
 					console.log("drupaldo pcversion, executing job");
 					if(param!="null")
 						job(param);
@@ -484,7 +484,11 @@ define([
                             auxlang.set("sesToken", result.token); //tokendebug
                             auxlang.save();
                             historial.create(auxlang);
-                            self.checkAndDo(job, param);
+                            //self.checkAndDo(job, param);
+							if(param!="null")
+								job(param);
+							else
+								job(); 
 							
                         },
                         error:function(xhr, status, message){
