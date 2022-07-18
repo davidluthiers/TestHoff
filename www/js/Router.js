@@ -517,6 +517,8 @@ define([
 							success: function(result) {
 								try{
 									console.log("checkAndDo success");
+									console.log("result");
+									console.log(result);
 									innerlog.add("success\n");
 									var account = Drupal.user;
 									console.log(account);
