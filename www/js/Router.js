@@ -481,7 +481,7 @@ define([
                             console.log(result);
 							console.log("logAndDo debug drupal.user");
 							console.log(Drupal.user);
-							console.log(jdrupal.user);
+							console.log(jDrupal.user);
                             auxlang=historial.get("languages");
                             historial.get("languages").destroy();
                             auxlang.set("sesToken", result.token); //tokendebug
@@ -515,7 +515,7 @@ define([
 					innerlog.add("Executing checkAndDo:\n");
 					console.log("checkAndDo drupal.user:");
 					console.log(Drupal.user);
-					console.log(jdrupal.user);
+					console.log(jDrupal.user);
 					try{
 						system_connect({
 							success: function(result) {
@@ -526,6 +526,7 @@ define([
 									innerlog.add("success\n");
 									var account = Drupal.user;
 									console.log(account);
+									console.log(jDrupal.user);
 									if(typeof account.roles[1] === "undefined")
 										hoffuser=account.roles[2];
 									else
