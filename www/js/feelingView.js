@@ -289,9 +289,6 @@ define([
                 var params_languages = { //active languages
                     type: 'GET',
                     dataType: 'json',
-					beforeSend: function (request) {
-                        request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
-                    },
                     url: "http://appv2.hoffman-international.com/hoffapp/feelings_" + self.history.get("languages").get("languageAC"),
                     processData: true,
                     success: function(data) {
