@@ -481,6 +481,7 @@ define([
                             console.log(result);
 							console.log("logAndDo debug drupal.user");
 							console.log(Drupal.user);
+							console.log(jdrupal.user);
                             auxlang=historial.get("languages");
                             historial.get("languages").destroy();
                             auxlang.set("sesToken", result.token); //tokendebug
@@ -514,6 +515,7 @@ define([
 					innerlog.add("Executing checkAndDo:\n");
 					console.log("checkAndDo drupal.user:");
 					console.log(Drupal.user);
+					console.log(jdrupal.user);
 					try{
 						system_connect({
 							success: function(result) {
