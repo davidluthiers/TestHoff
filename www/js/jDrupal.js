@@ -2922,10 +2922,14 @@ function user_login(name, pass, options) {
             // Now that we are logged in, we need to get a new CSRF token, and
             // then make a system connect call.
             jDrupal.user = data.user;
+			console.log("jDrupal user_login data.user: ");
+			console.log(data.user);
             jDrupal.sessid = null;
             services_get_csrf_token({
                 success: function(token) {
                   try {
+					console.log("jDrupal user_login services_get_csrf_token data.user: ");
+					console.log(data.user);
                     if (options.success) {
                       system_connect({
                           success: function(result) {
@@ -3038,7 +3042,7 @@ function user_logout(options) {
     });
   }
   catch (error) {
-    console.log('user_login - ' + error);
+    console.log('user_logout - ' + error);
   }
 }
 
