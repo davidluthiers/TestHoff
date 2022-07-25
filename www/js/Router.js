@@ -342,7 +342,7 @@ define([
                 //if(device.platform=='Android'){
                 $.ajaxSetup({
                     xhrFields: {
-                        withCredentials: false
+                        withCredentials: true
                     }
                 });
                 //}
