@@ -1832,6 +1832,7 @@ function services_get_csrf_token(options) {
     if (jDrupal.sessid) { token = jDrupal.sessid; }
     if (token) {
       if (options.success) { options.success(token); }
+	  console.log("return MALO");
       return;
     }
 
@@ -1851,7 +1852,7 @@ function services_get_csrf_token(options) {
 
     // Token Request Success Handler
     token_request.onload = function(e) {
-      //try {
+      try {
         if (token_request.readyState == 4) {
           var title = token_request.status + ' - ' +
             http_status_code_title(token_request.status);
@@ -1860,6 +1861,7 @@ function services_get_csrf_token(options) {
           }
           else { // OK
             // Set jDrupal.sessid with the token, then return the token to the success function.
+			console.log("jDrupal token OK");
             token = token_request.responseText.trim();
             jDrupal.sessid = token;
             if (options.success) { options.success(token); }
@@ -1868,10 +1870,10 @@ function services_get_csrf_token(options) {
         else {
           console.log('services_get_csrf_token - readyState - ' + token_request.readyState);
         }
-      //}
-      //catch (error) {
-      //  console.log('services_get_csrf_token - token_request. onload - ' + error);
-      //}
+      }
+      catch (error) {
+        console.log('services_get_csrf_token - token_request. onload - ' + error);
+      }
     };
 
     // Open the token request.
@@ -2584,7 +2586,7 @@ function system_connect(options) {
       services_get_csrf_token({
           success: function(token) {
             //try {
-              if (options.debug) { console.log('Grabbed new token.'); }
+              if (true) { console.log('Grabbed new token.'); }
               // Now that we have a token, make the system connect call.
               jDrupal.csrf_token = true;
               jDrupal.services.call(system_connect);
@@ -2609,7 +2611,7 @@ function system_connect(options) {
     }
     else {
       // We already have a token, make the system connect call.
-      if (options.debug) { console.log('Token already available.'); }
+      if (true) { console.log('Token already available.'); }
       jDrupal.services.call(system_connect);
     }
 //  }
