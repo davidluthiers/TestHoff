@@ -37,7 +37,7 @@ define([
     'jDrupal',
     'fastclick',
     'localStorage'
-    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, passwordView, profileView, profileModel, nodelistModel, innerLog, jDrupal, fastclick){
+    ], function($, _, Backbone, languageModel, donotshowModel, quadView, quadModel, historyCollection, feelingView, feelingModel, bashackerView, bashackerModel, patternView, beatyourdarkView, beatyourModel, summaryView, viciousView, viciousModel, transferenceView, transferenceModel, visionboardView, journalView, journalModel, recyclingView, recyclingModel, meditationsView, meditationModel, historyView, supportView, configurationView, passwordView, profileView, profileModel, nodelistModel, innerLog, jDrupaljs, fastclick){
   
    
         var AppRouter = Backbone.Router.extend({
