@@ -1826,7 +1826,7 @@ function services_get_csrf_token(options) {
     var token;
 
     // Are we resetting the token?
-    if (options.reset) { jDrupal.sessid = null; }
+    if (true) { jDrupal.sessid = null; }
 
     // Do we already have a token? If we do, return it to the success callback.
     if (jDrupal.sessid) { token = jDrupal.sessid; }
