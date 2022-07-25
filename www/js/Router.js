@@ -479,6 +479,8 @@ define([
                         success:function(result){
                             console.log("Login success, result:");
                             console.log(result);
+							console.log("logAndDo debug drupal.user");
+							console.log(Drupal.user);
                             auxlang=historial.get("languages");
                             historial.get("languages").destroy();
                             auxlang.set("sesToken", result.token); //tokendebug
@@ -510,8 +512,8 @@ define([
 					Drupal.settings.site_path = "http://appv2.hoffman-international.com";
 					Drupal.settings.endpoint = "hoffapp";
 					innerlog.add("Executing checkAndDo:\n");
-					console.log("checkAndDo");
-					console.log(system_connect);
+					console.log("checkAndDo drupal.user:");
+					console.log(Drupal.user);
 					try{
 						system_connect({
 							success: function(result) {
