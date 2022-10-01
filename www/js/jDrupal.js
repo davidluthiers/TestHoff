@@ -1832,8 +1832,7 @@ function services_get_csrf_token(options) {
     // Do we already have a token? If we do, return it to the success callback.
     if (jDrupal.sessid) { token = jDrupal.sessid; }
     if (token) {
-      if (options.success) { options.success(token); }
-	  console.log("return MALO");
+      if (options.success) { console.log("Token: " + token); options.success(token); }
       return;
     }
 
@@ -2612,7 +2611,7 @@ function system_connect(options) {
     }
     else {
       // We already have a token, make the system connect call.
-      if (true) { console.log('Token already available.'); }
+      if (!jDrupal.csrf_token) { console.log('Token already available.'); }
       jDrupal.services.call(system_connect);
     }
 //  }
