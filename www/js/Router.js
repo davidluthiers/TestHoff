@@ -404,8 +404,8 @@ define([
 					logintrys=6;
 					var self=this;
 					console.log("drupaldo");
-					console.log(job);
-					console.log(param);
+					//console.log(job);
+					//console.log(param);
 
 					try{
 						if(navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){
@@ -535,11 +535,11 @@ define([
 									console.log("Checking connection: " + hoffuser);
 									console.log("Plataforma: " + device.platform);
 							
-									if(historial.get("languages").get("sesToken")=="none"){
+									if(hoffuser=="anonymous user" || historial.get("languages").get("sesToken")=="none"){
 										self.logAndDo(job, param);
 									}
 									else{
-										if(hoffuser=="authenticated user" || device.platform=='Android'){
+										if(hoffuser=="authenticated user"){
 											if(param!="null")
 												job(param);
 											else
