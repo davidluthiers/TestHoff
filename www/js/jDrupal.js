@@ -1620,6 +1620,7 @@ jDrupal.services.call = function(options) {
   //try {
 
     options.debug = true;
+	jDrupal.settings.debug = true;
 
     // Make sure the settings have been provided for Services.
     if (!services_ready()) {
