@@ -2582,11 +2582,11 @@ function system_connect(options) {
     };
 
     // If we don't have a token, grab one first.
-    if (true) {
+    if (!jDrupal.csrf_token) {
       services_get_csrf_token({
           success: function(token) {
             //try {
-              if (true) { console.log('Grabbed new token.'); }
+              if (jDrupal.settings.debug) { console.log('Grabbed new token.'); }
               // Now that we have a token, make the system connect call.
               jDrupal.csrf_token = true;
               jDrupal.services.call(system_connect);
