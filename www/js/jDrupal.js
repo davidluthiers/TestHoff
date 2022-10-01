@@ -2583,7 +2583,7 @@ function system_connect(options) {
     };
 
     // If we don't have a token, grab one first.
-    if (!jDrupal.csrf_token) {
+    if (true) {
       services_get_csrf_token({
           success: function(token) {
             //try {
