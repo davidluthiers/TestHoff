@@ -479,7 +479,7 @@ padding-bottom: 4px;
 .ui-btn-right, .ui-btn-left, .panelbutton { /* botones alineados y de panel con color verde y sombra */
     
        width: 26%;
-    background: url('../img/Textures/verdeboton.png') repeat !important !important;
+    background: url('../img/Textures/verdeboton.png') repeat !important;
 	-webkit-box-shadow: 0 1px 8px /*{global-box-shadow-size}*/ rgba(11,16,10,0.4) /*{global-box-shadow-color}*/;
     
         }
@@ -628,7 +628,7 @@ right: 3.7%;
  }
 		
 			.colorverde {   
-    background: url('../img/Textures/verdeboton.png') repeat !important;
+    background: url('../img/Textures/verdeboton.png') repeat;
 			  
 
         }
@@ -638,7 +638,7 @@ right: 3.7%;
 
         }
 		.support {   
-    background: url('../img/Textures/verdeboton.png') repeat !important;
+    background: url('../img/Textures/verdeboton.png') repeat;
 			
 
         }
@@ -767,7 +767,7 @@ height:0px !important;
 
         }
 
-		.botonnavegacion .ui-btn-inner{background: url('../img/Textures/verdeboton.png') repeat !important;}
+		.botonnavegacion .ui-btn-inner{background: url('../img/Textures/verdeboton.png') repeat;}
 
 .headerhojacuaderno  .ui-title{
 font-family: 'ITCNewBaskervilleStdRoman';
@@ -781,7 +781,7 @@ padding-top:0.3em;
 
 	
 [data-role="footer"] [data-role="button"]{
-background: url('../img/Textures/verdeboton.png') repeat !important;
+background: url('../img/Textures/verdeboton.png') repeat;
 border: 0;
 font-size:154%;
 }
@@ -1300,8 +1300,8 @@ width: 98%;
 	
 
 
-#songPositionControl .ui-btn-active {background: url('../img/Textures/verdeboton.png') repeat !important;}
-#volumePositionControl .ui-btn-active {background: url('../img/Textures/verdeboton.png') repeat !important;}
+#songPositionControl .ui-btn-active {background: url('../img/Textures/verdeboton.png') repeat;}
+#volumePositionControl .ui-btn-active {background: url('../img/Textures/verdeboton.png') repeat;}
 
 #songPositionControl {
     		padding-left: 1%;
@@ -1473,7 +1473,7 @@ top:-8px;
 		
 		
 		.activate{
-			background: url('../img/Textures/verdeboton.png') repeat !important;
+			background: url('../img/Textures/verdeboton.png') repeat;
 		}
 		
 		#listsusnegas li, #listsusnegas .ui-icon-alt{
@@ -1487,11 +1487,11 @@ top:-8px;
 		
 		#listsuscual li, #listsuscual .ui-icon-alt{
 
-	background: url('../img/Textures/verdeboton.png') repeat !important;
+	background: url('../img/Textures/verdeboton.png') repeat;
 		}
 		
 		.ui-btn-up-a {
-		background: url('../img/Textures/verdeboton.png') repeat !important;
+		background: url('../img/Textures/verdeboton.png') repeat;
 		
 		font-weight: bold;
 		color: #ffffff /*{a-bup-color}*/;
@@ -1511,7 +1511,7 @@ top:-8px;
 		}
 		
 		.ui-btn-up-b { /*Tabbar colors*/
-		background: url('../img/Textures/verdeboton.png') repeat !important;
+		background: url('../img/Textures/verdeboton.png') repeat;
 		border:0px;
 		}
 		
@@ -1792,7 +1792,7 @@ margin-top: 10px;
 		}
 		
 		.miscontroles .ui-slider-label ~ .ui-slider-label{
-		background: url('../img/Textures/verdeboton.png') repeat !important;
+		background: url('../img/Textures/verdeboton.png') repeat;
 		}
 		
 		#volumetag{
@@ -1827,7 +1827,7 @@ margin-top: 10px;
 		}
 		
 		#theme2, #theme2 .ui-btn-inner{
-			background: url('../img/Textures/verdeboton.png') repeat !important !important;
+			background: url('../img/Textures/verdeboton.png') repeat !important;
 		}
 		
 		#theme3, #theme3 .ui-btn-inner{
@@ -1896,7 +1896,7 @@ padding-left:0px!important;
 		
         
         input[type="radio"] + label
-    { background: url('../img/Textures/verdeboton.png') repeat !important
+    { background: url('../img/Textures/verdeboton.png') repeat
     }
         
          .helpmenu { /*A borrar cuando haya maquetado las páginas de Transfer*/

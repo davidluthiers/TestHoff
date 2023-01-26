@@ -941,6 +941,164 @@ define([
                 $.ajax(params_languages);
 	
             },
+			
+			resetTheme: function(){
+				aux=historial.get("languages");
+				
+				this.green="url('../img/Textures/verdeboton.png') repeat";
+				this.border="1px solid #8EAC4F";
+				aux.set("theme","Classic");
+		
+				this.feeltex="url('../img/Textures/feelingw.png') repeat";
+				this.quadtex="url('../img/Textures/quad.png') repeat";
+				this.bashtex="url('../img/Textures/bashacker.png') repeat";
+				this.quotes="url('../img/Textures/quotes.png') repeat";
+				this.patttex="url('../img/Textures/pattern.png') repeat";
+				this.beattex="url('../img/Textures/beat.png') repeat";
+				this.recytex="url('../img/Textures/005496.png') repeat";
+				this.meditex="url('../img/Textures/84D0F0.png') repeat";
+				this.victex="url('../img/Textures/vicious.png') repeat";
+				this.trantex="url('../img/Textures/transfer.png') repeat";
+				this.visitex="url('../img/Textures/vision.png') repeat";
+				this.jourtex="url('../img/Textures/journal.png') repeat";
+				this.supporttex="url('../img/Textures/verdeboton.png') repeat";
+				this.greypanel="url('../img/Textures/vicious.png') repeat";
+				this.midgray="url('../img/Textures/midgray.png') repeat";
+				this.panelback="url('../img/Textures/vicious.png') repeat";
+				this.fondo="url('../img/Textures/666666.png') repeat";
+				
+				historial.create(aux);
+                console.log("Variables creades");
+                var mysheet=document.styleSheets[5];
+		
+                var myrules=mysheet.cssRules? mysheet.cssRules: mysheet.rules;
+                for (i=0; i<myrules.length; i++){
+                    if(myrules[i].selectorText==".ui-btn-up-a" ||
+                        myrules[i].selectorText==".ui-btn-up-b" ||
+                        myrules[i].selectorText==".ui-btn-hover-a" ||
+                        myrules[i].selectorText==".ui-btn-hover-b" ) {
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.green;
+                        targetrule.style.border=this.border;
+                    }
+                    if(myrules[i].selectorText==".ui-btn-right, .ui-btn-left, .panelbutton"){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.green;
+                        targetrule.style.border=this.border;
+                    }
+                    if(myrules[i].selectorText=='[data-role="footer"] [data-role="button"]'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.green;
+                        targetrule.style.border=this.border;
+                    }
+                    if(myrules[i].selectorText=='.donotshowagain label'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.green;
+                        targetrule.style.border=this.border;
+                    }
+                    if(myrules[i].selectorText=='[data-role="footer"]'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.fondo;
+                    }
+                    if(myrules[i].selectorText=='#theme1, #theme1 .ui-btn-inner'){
+                        targetrule=myrules[i];
+                        targetrule.style.background="url('../img/Textures/00598E.png') repeat";
+                        targetrule.style.border="none";
+                    }
+                    if(myrules[i].selectorText=='#theme2, #theme2 .ui-btn-inner'){
+                        targetrule=myrules[i];
+                        targetrule.style.background="background: url('../img/Textures/verdeboton.png') repeat";
+                        targetrule.style.border="none";
+                    }
+                    if(myrules[i].selectorText=='#theme3, #theme3 .ui-btn-inner'){
+                        targetrule=myrules[i];
+                        targetrule.style.background="url('../img/Textures/008F86.png') repeat";
+                        targetrule.style.border="none";
+                    }
+                    if(myrules[i].selectorText=='.recycling'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.recytex;
+                        console.log("recycling");
+                    }
+                    if(myrules[i].selectorText=='.meditations'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.meditex;
+                        console.log("meditations");
+                    }
+                    if(myrules[i].selectorText=='.grisclaro'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.panelback;
+                    }
+                    if(myrules[i].selectorText=='.ui-body-a, .ui-overlay-a, .menuheader'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.fondo;
+                    }
+                    if(myrules[i].selectorText=='.helpblock'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.panelback;
+                    }
+                    if(myrules[i].selectorText=='.midgray'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.midgray;
+                    }
+                    if(myrules[i].selectorText=='#listapanel'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.panelback;
+                    }
+                    if(myrules[i].selectorText=='.feeling'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.feeltex;
+                    }
+                    if(myrules[i].selectorText=='.quad, .headerquad'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.quadtex;
+                    }
+                    if(myrules[i].selectorText=='.bashacker'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.bashtex;
+                    }
+                    if(myrules[i].selectorText=='.quotes'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.quotes;
+                    }
+
+                    if(myrules[i].selectorText=='.patternr'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.patttex;
+                    }
+                    if(myrules[i].selectorText=='.beatyour'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.beattex;
+                    }
+                    if(myrules[i].selectorText=='.vicious'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.victex;
+                    }
+                    if(myrules[i].selectorText=='.visionboard'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.visitex;
+                    }
+                    if(myrules[i].selectorText=='.transfer'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.trantex;
+                    }
+                    if(myrules[i].selectorText=='.history'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.jourtex;
+                    }
+                    if(myrules[i].selectorText=='.support' || myrules[i].selectorText=='.configuration'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.supporttex;
+                    }
+                    if(myrules[i].selectorText=='.miscontroles .ui-slider-label' ||
+                        myrules[i].selectorText=='.miscontroles .ui-slider-label ~ .ui-slider-label'){
+                        targetrule=myrules[i];
+                        targetrule.style.background=this.green;
+                    }
+						
+				
+                }
+			},
 	
             checkDateUpdate: function(option){
 	
@@ -1256,7 +1414,7 @@ define([
                         self.setWeeklyNotification();
                         self.checkquadAudio();
                         self.savelanguageversion();
-				
+						self.resetTheme();
 				
                     },
                     error: function(code) {
