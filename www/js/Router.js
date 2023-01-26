@@ -2025,6 +2025,9 @@ define([
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'jsonp',
+					beforeSend: function (request) {
+                        request.setRequestHeader("X-CSRF-Token", historial.get("languages").get("sesToken"));
+                    },
                     url: "http://appv2.hoffman-international.com/hoffapp/share_app",
                     processData: true,
                     success: function(data) {
