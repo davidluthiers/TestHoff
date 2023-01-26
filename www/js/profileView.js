@@ -82,6 +82,7 @@ define([
 								var mapDiv = document.getElementById("map_module_map");
 								this.map = plugin.google.maps.Map.getMap(mapDiv);
 								this.map.remove();
+								$(document).find("._gmaps_cdv_").removeClass("_gmaps_cdv_");
 							}
 							catch(e){
 								console.log("Error: " + e);
@@ -1286,6 +1287,7 @@ define([
 					var mapDiv = document.getElementById("map_module_map");
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
 					this.map.remove();
+					$(document).find("._gmaps_cdv_").removeClass("_gmaps_cdv_");
 					this.history.get("profile").destroy();
 					profile.set("active", "no");
 					profile.save();
@@ -1425,6 +1427,7 @@ define([
 					this.map = plugin.google.maps.Map.getMap(mapDiv);
 					window.plugins.spinnerDialog.show(null, null, function () {  console.log("callback");} );
 					this.map.remove();
+					$(document).find("._gmaps_cdv_").removeClass("_gmaps_cdv_");
 					
 					setTimeout(function(){
 						Backbone.history.navigate("#summary", {
