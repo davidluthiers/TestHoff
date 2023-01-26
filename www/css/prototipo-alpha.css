@@ -426,11 +426,7 @@ input[type="text"] {		/* input type transparentes para que se vea la hoja de cua
 		}
 	
 	#suggestionbutton .ui-btn-text{
-		margin-left: -8px;
-	}
-	
-	#suggestionbutton{
-		border: 1px solid #8EAC4F;
+	margin-left: -8px;
 	}
 	
 	.deleteEntry{
@@ -727,7 +723,6 @@ height:0px !important;
 		.menuheader .panelbutton{
 		line-height: 100%;
 		min-width: 91px;	
-		border: 1px solid #8EAC4F;
 		}
 		
 		.menuheader .ui-btn-inner{
@@ -772,7 +767,7 @@ height:0px !important;
 
         }
 
-		.botonnavegacion .ui-btn-inner{background: url('../img/Textures/verdeboton.png') repeat !important; border: 1px solid #8EAC4F;}
+		.botonnavegacion .ui-btn-inner{background: url('../img/Textures/verdeboton.png') repeat !important;}
 
 .headerhojacuaderno  .ui-title{
 font-family: 'ITCNewBaskervilleStdRoman';
@@ -786,7 +781,8 @@ padding-top:0.3em;
 
 	
 [data-role="footer"] [data-role="button"]{
-background: url('../img/Textures/verdeboton.png') repeat !important; border: 1px solid #8EAC4F;
+background: url('../img/Textures/verdeboton.png') repeat !important;
+border: 0;
 font-size:154%;
 }
 
