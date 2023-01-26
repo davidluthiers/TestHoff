@@ -2024,7 +2024,7 @@ define([
 				window.plugins.spinnerDialog.show();
 				var params_people = { //active hoffman users
                     type: 'GET',
-                    dataType: 'jsonp',
+                    dataType: 'application/json',
 					beforeSend: function (request) {
                         request.setRequestHeader("X-CSRF-Token", historial.get("languages").get("sesToken"));
                     },
