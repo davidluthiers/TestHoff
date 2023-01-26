@@ -642,7 +642,7 @@ define([
                         }
                         );
 					*/
-					app_router.languageTag = navigator.languages;
+					app_router.languageTag = navigator.languages[0];
 					console.log('locale: ' + app_router.languageTag);
 					app_router.languageVar="";
 
