@@ -192,7 +192,7 @@ define([
 						auxprofile.save();
 						this.collection.get("profile").destroy();
 						this.collection.create(auxprofile);
-						document.getElementById('loadingt').show();
+						$('#loadingt').show();
                         navigator.camera.getPicture(function(imageData){
                             self.onPhotoDataSuccess(imageData, true);
                         }, this.onFail, {
@@ -335,7 +335,7 @@ define([
 	
             onPhotoDataSuccess: function(imageData, base64){
 				console.log("onPhotoDataSuccess, imagedata: ");
-				document.getElementById('loadingt').hide();
+				$('#loadingt').hide();
 				console.log(imageData);
 				console.log(base64);
                 var visionphoto = document.getElementById('visionphoto');
@@ -361,7 +361,7 @@ define([
             },
 	
             onFail: function(message){
-				document.getElementById('loadingt').hide();
+				$('#loadingt').hide();
             //alert('Failed because: ' + message);
 	
             }
