@@ -2320,7 +2320,7 @@ define([
 	
 	
             historyload:function () {
-                historial.fetch();
+                //historial.fetch();
 
                 this.historypage= new historyView({
                     collection: historial
