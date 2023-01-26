@@ -642,7 +642,7 @@ define([
                         }
                         );
 					*/
-					app_router.languageTag = Intl.getCurrentLocale();
+					app_router.languageTag = navigator.languages;
 					console.log('locale: ' + app_router.languageTag);
 					app_router.languageVar="";
 
@@ -650,6 +650,7 @@ define([
                 }
                 catch(e){
                     console.log("Desktop version, downloading 'en-GB'");
+					console.log(e);
 					app_router.languageVar="";
                     app_router.languageTag="en-GB"; //"en-GB";	"pt_BR";
                     app_router.LookLanguages();
