@@ -169,8 +169,7 @@ define([
 											this.map = plugin.google.maps.Map.getMap(mapDiv);
 											this.map.remove();
 											
-											document.body.classList.remove("_gmaps_cdv_");
-											document.body.parent().classList.remove("_gmaps_cdv_");
+											$(document).find("._gmaps_cdv_").removeClass("_gmaps_cdv_");
 										}
 										catch(e){
 											console.log("Error: " + e);
