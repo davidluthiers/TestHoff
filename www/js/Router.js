@@ -2321,6 +2321,8 @@ define([
 	
             historyload:function () {
                 //historial.fetch();
+				
+				console.log("historyload");
 
                 this.historypage= new historyView({
                     collection: historial
