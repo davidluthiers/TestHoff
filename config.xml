@@ -218,7 +218,7 @@
 		</edit-config>
 		
 		<edit-config file="/AndroidManifest.xml" target="/manifest/application/provider" mode="merge">
-			<receiver android:exported="true" />
+			<provider android:exported="true" />
 		</edit-config>
 		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
