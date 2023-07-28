@@ -195,6 +195,32 @@
 			<activity android:exported="true"/>
 		</edit-config>  
 		
+		<platform name="android"> 
+			<config-file parent="/*" target="AndroidManifest.xml" mode ="add"> 
+				<service android:name="com.adobe.phonegap.push.FCMService" android:exported="true"> 
+					<intent-filter> 
+						<action android:name="com.google.firebase.MESSAGING_EVENT" /> 
+					</intent-filter> 
+				</service> 
+			</config-file> 
+		</platform>
+		
+		<edit-config file="/AndroidManifest.xml" target="/manifest/application/activity" mode="merge">
+			<activity android:exported="true"/>
+		</edit-config> 
+		
+		<edit-config file="/AndroidManifest.xml" target="/manifest/application/service" mode="merge">
+			<service android:exported="true" />
+		</edit-config>
+		
+		<edit-config file="/AndroidManifest.xml" target="/manifest/application/receiver" mode="merge">
+			<receiver android:exported="true" />
+		</edit-config>
+		
+		<edit-config file="/AndroidManifest.xml" target="/manifest/application/provider" mode="merge">
+			<receiver android:exported="true" />
+		</edit-config>
+		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
 			<string>Required to send machine location.</string>
 		</edit-config>
