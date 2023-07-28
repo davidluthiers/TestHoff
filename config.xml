@@ -192,15 +192,15 @@
 		</config-file>
 		
 		<platform name="android">
-		  <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+		  <config-file file="/AndroidManifest.xml" mode="merge" target="/manifest/application">
 			<application android:exported="true" />
-		  </edit-config>
-		  <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[intent-filter]">
+		  </config-file>
+		  <config-file file="/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[intent-filter]">
 			<activity android:exported="true" />
-		  </edit-config>
-		  <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/receiver[intent-filter]">
+		  </config-file>
+		  <config-file file="/AndroidManifest.xml" mode="merge" target="/manifest/application/receiver[intent-filter]">
 			<receiver android:exported="true" />
-		  </edit-config>
+		  </config-file>
 		</platform>
 		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
