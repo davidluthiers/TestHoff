@@ -134,8 +134,7 @@
 		<plugin name="cordova-plugin-splashscreen" source="npm" version="6.0.0"/>
 		<plugin name="cordova-plugin-network-information" source="npm"/>
 		<plugin name="cordova-plugin-spinner-dialog" source="npm"/>
-		<!-- <plugin name="shx-cordova-plugin-x-socialsharing" source="npm" /> -->
-		<plugin spec="https://github.com/davidluthiers/SocialSharing_exported.git" />
+		<plugin name="shx-cordova-plugin-x-socialsharing" source="npm" />
 		<plugin name="cordova-plugin-statusbar" source="npm" />
 		<!--<plugin name="cordova-plugin-androidx" source="npm" />
 		<plugin name="cordova-plugin-androidx-adapter" source="npm" />-->
