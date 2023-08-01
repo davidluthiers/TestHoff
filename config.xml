@@ -61,10 +61,6 @@
 		<preference name="AndroidXEnabled" value="false" />
 		<preference name="AndroidInsecureFileModeEnabled" value="true" />
 		
-		<feature name="SocialSharing">
-		  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-		</feature>
-		
 		
 		
 
@@ -138,7 +134,7 @@
 		<plugin name="cordova-plugin-splashscreen" source="npm" version="6.0.0"/>
 		<plugin name="cordova-plugin-network-information" source="npm"/>
 		<plugin name="cordova-plugin-spinner-dialog" source="npm"/>
-		<plugin name="cordova-plugin-x-socialsharing" source="npm"/>
+		<plugin name="socialsharing_exported" source="npm"/>
 		<plugin name="cordova-plugin-statusbar" source="npm" />
 		<!--<plugin name="cordova-plugin-androidx" source="npm" />
 		<plugin name="cordova-plugin-androidx-adapter" source="npm" />-->
@@ -195,14 +191,9 @@
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
 		
-		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="merge">
-		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-		</config-file>
-		
 		<edit-config file="/AndroidManifest.xml" target="/manifest/application/activity" mode="merge">
 			<activity android:exported="true"/>
 		</edit-config>  
-		
 		
 		<platform name="android"> 
 			<config-file parent="/*" target="AndroidManifest.xml" mode ="add"> 
@@ -228,6 +219,10 @@
 		
 		<edit-config file="/AndroidManifest.xml" target="/manifest/application/provider" mode="merge">
 			<provider android:exported="true" />
+		</edit-config>
+		
+		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/receiver[@android:name='nl.xservices.plugins.ShareChooserPendingIntent']">
+				<activity android:exported="true" />
 		</edit-config>
 		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
