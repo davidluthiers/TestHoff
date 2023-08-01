@@ -195,6 +195,14 @@
 			<activity android:exported="true"/>
 		</edit-config>  
 		
+		<config-file parent="/*" target="AndroidManifest.xml" >
+		  <receiver android:name="nl.xservices.plugins.ShareChooserPendingIntent" android:enabled="true" android:exported="true">
+			<intent-filter>
+			  <action android:name="android.intent.action.SEND"/>
+			</intent-filter>
+		  </receiver>
+		</config-file>
+		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
 			<string>Required to send machine location.</string>
 		</edit-config>
