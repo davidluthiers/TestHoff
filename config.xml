@@ -60,6 +60,7 @@
 		<preference name="android.enableJetifier" value="false" />
 		<preference name="AndroidXEnabled" value="false" />
 		<preference name="AndroidInsecureFileModeEnabled" value="true" />
+		<preference name="AndroidXEnabled" value="true" />
 		
 		<feature name="SocialSharing">
 		  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
@@ -138,10 +139,10 @@
 		<plugin name="cordova-plugin-splashscreen" source="npm" version="6.0.0"/>
 		<plugin name="cordova-plugin-network-information" source="npm"/>
 		<plugin name="cordova-plugin-spinner-dialog" source="npm"/>
-		<plugin name="socialsharing_exported" source="npm"/>
+		<plugin name="cordova-plugin-x-socialsharing-android12" source="npm"/>
 		<plugin name="cordova-plugin-statusbar" source="npm" />
-		<!--<plugin name="cordova-plugin-androidx" source="npm" />
-		<plugin name="cordova-plugin-androidx-adapter" source="npm" /> -->
+		<plugin name="cordova-plugin-androidx" source="npm" />
+		<plugin name="cordova-plugin-androidx-adapter" source="npm" />
 
 		<!--<plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
