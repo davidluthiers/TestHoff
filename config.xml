@@ -191,18 +191,6 @@
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
 		
-		<platform name="android">
-		  <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
-			<application android:exported="true" />
-		  </edit-config>
-		  <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[intent-filter]">
-			<activity android:exported="true" />
-		  </edit-config>
-		  <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/receiver[intent-filter]">
-			<receiver android:exported="true" />
-		  </edit-config>
-		</platform>
-		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
 			<string>Required to send machine location.</string>
 		</edit-config>
