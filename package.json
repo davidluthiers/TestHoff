@@ -28,5 +28,8 @@
         "GPS_REQUIRED": "true"
       }
     }
-  }
+  },
+  "dependencies": {
+	"cordova-android": "10.0.0"
+	}
 }
