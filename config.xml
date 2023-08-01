@@ -21,8 +21,8 @@
 		<author href="http://phonegap.com" email="support@phonegap.com">
 			DavidLuthiers
 		</author>
-		<preference name="android-minSdkVersion" value="29"/>
-		<preference name="android-targetSdkVersion" value="29"/>
+		<preference name="android-minSdkVersion" value="31"/>
+		<preference name="android-targetSdkVersion" value="31"/>
 		<preference name="phonegap-version" value="cli-9.0.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="true" />
@@ -190,6 +190,22 @@
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
+		
+		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/activity" mode="merge">
+			<activity android:exported="true"/>
+		</edit-config> 
+		
+		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/service" mode="merge">
+			<service android:exported="true" />
+		</edit-config>
+		
+		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/receiver" mode="merge">
+			<receiver android:exported="true" />
+		</edit-config>
+		
+		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/provider" mode="merge">
+			<provider android:exported="true" />
+		</edit-config>
 		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
 			<string>Required to send machine location.</string>
