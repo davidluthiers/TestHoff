@@ -221,10 +221,6 @@
 			<provider android:exported="true" />
 		</edit-config>
 		
-		<edit-config file="/AndroidManifest.xml" mode="merge" target="/manifest/application/receiver[@android:name='nl.xservices.plugins.ShareChooserPendingIntent']">
-				<activity android:exported="true" />
-		</edit-config>
-		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
 			<string>Required to send machine location.</string>
 		</edit-config>
