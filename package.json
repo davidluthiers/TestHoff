@@ -1,6 +1,6 @@
 {
   "name": "Hoffman App",
-  "version": "3.0.0",
+  "version": "3.0.8",
   "description": "Hoffman Process mobile application.",
   "main": "index.js",
   "scripts": {

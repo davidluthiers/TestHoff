@@ -4,7 +4,7 @@
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman_international.hoffman_app"
 		version   = "3.0.8"
-		android-versionCode="1818">
+		android-versionCode="1912">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
             <string>63</string>
@@ -21,7 +21,8 @@
 		<author href="http://phonegap.com" email="support@phonegap.com">
 			DavidLuthiers
 		</author>
-		<preference name="android-minSdkVersion" value="28"/>
+		<preference name="android-minSdkVersion" value="29"/>
+		<preference name="android-targetSdkVersion" value="31"/>
 		<preference name="phonegap-version" value="cli-9.0.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="true" />
