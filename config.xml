@@ -195,13 +195,15 @@
 			<activity android:exported="true"/>
 		</edit-config>  
 		
-		<config-file parent="/*" target="AndroidManifest.xml" >
-		  <receiver android:name="nl.xservices.plugins.ShareChooserPendingIntent" android:enabled="true" android:exported="true">
-			<intent-filter>
-			  <action android:name="android.intent.action.SEND"/>
-			</intent-filter>
-		  </receiver>
-		</config-file>
+		<platform name="android"> 
+			<config-file parent="/*" target="AndroidManifest.xml" mode ="add"> 
+				<service android:name="com.adobe.phonegap.push.FCMService" android:exported="false"> 
+					<intent-filter> 
+						<action android:name="com.google.firebase.MESSAGING_EVENT" /> 
+					</intent-filter> 
+				</service> 
+			</config-file> 
+		</platform>
 		
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
 			<string>Required to send machine location.</string>
