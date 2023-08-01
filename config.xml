@@ -191,15 +191,19 @@
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		</config-file>
 		
-		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/activity" mode="merge">
+		<edit-config file="/AndroidManifest.xml" target="/manifest/application/activity" mode="merge">
 			<activity android:exported="true"/>
 		</edit-config>  
 
-		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/provider" mode="merge">
+		<edit-config file="/AndroidManifest.xml" target="/manifest/application/service" mode="merge">
+			<service android:exported="true" />
+		</edit-config>
+
+		<edit-config file="/AndroidManifest.xml" target="/manifest/application/provider" mode="merge">
 			<provider android:exported="true" />
 		</edit-config>
 
-		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/receiver" mode="merge">
+		<edit-config file="/AndroidManifest.xml" target="/manifest/application/receiver" mode="merge">
 			<receiver android:exported="true" />
 		</edit-config>
 		
