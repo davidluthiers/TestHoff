@@ -627,8 +627,9 @@ define([
 	
 
             lookForLanguage: function(){
-				console.log("lookForLanguage");
+				
                 try{
+					console.log("lookForLanguage");
 					/*
                     navigator.globalization.getLocaleName(
                         function (locale) {

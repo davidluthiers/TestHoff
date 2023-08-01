@@ -242,7 +242,7 @@
 
 
 		<allow-navigation href="*" />
-		<!--<access origin="*" launch-external="yes"/>-->
+		<access origin="*" launch-external="yes"/>
 		
 		
 

@@ -2934,7 +2934,9 @@ function user_login(name, pass, options) {
                       system_connect({
                           success: function(result) {
                             try {
-                              if (options.success) { options.success(data); }
+                              if (options.success) { options.success(data); 
+								jDrupal.user = result.user; //Android 11
+							  }
                             }
                             catch (error) {
                               console.log(
