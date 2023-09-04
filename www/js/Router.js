@@ -187,7 +187,6 @@ define([
                         this.login();
                     }
                     else{
-						self.drupaldo(self.lookForLanguage,"null");
 						setTimeout(function() {
 							self.drupaldo(self.lookForLanguage,"null");
 						}, 20000);
