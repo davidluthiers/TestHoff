@@ -186,9 +186,12 @@ define([
 					if (false){ //(typeof device === "undefined"){
                         this.login();
                     }
-                    else
+                    else{
 						self.drupaldo(self.lookForLanguage,"null");
-					
+						setTimeout(function() {
+							self.drupaldo(self.lookForLanguage,"null");
+						}, 20000);
+					}
 					
 					//this.loginandgetlanguage("en"); //el modelo en la coleccion es visible instantáneamente tras introducirlo CUANDO NO ESTÁ? DE ANTES, loginandgetlanguage ya no existe
 					
@@ -249,7 +252,7 @@ define([
                             console.log(e);
                         }
                     }
-                }, 10000);
+                }, 30000);
 				
 
             },
@@ -2632,7 +2635,7 @@ define([
 	
                 setTimeout(function() {
 					self.principal();
-                }, 20000);
+                }, 30000);
 
 	
             },
