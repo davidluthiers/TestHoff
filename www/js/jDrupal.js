@@ -2563,7 +2563,7 @@ function system_connect(options) {
       path: 'system/connect.json',
       success: function(data) {
         try {
-          //jDrupal.user = data.user;
+          jDrupal.user = data.user;
 		  console.log("jdrupal data:");
 		  console.log(data);
           if (options.success) { options.success(data); }
@@ -2935,7 +2935,7 @@ function user_login(name, pass, options) {
                           success: function(result) {
                             try {
                               if (options.success) { 
-								jDrupal.user = result.user; //Android 11
+								//jDrupal.user = result.user; //Android 11
 								options.success(data); 
 							  }
                             }
