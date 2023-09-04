@@ -2632,11 +2632,7 @@ define([
  
                 loaded = false;
 	
-	
-				setTimeout(function() {
-					self.principal();
-                }, 20000);
-                
+                self.principal();
 
 	
             },
