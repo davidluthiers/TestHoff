@@ -2630,7 +2630,9 @@ define([
  
                 loaded = false;
 	
-                self.principal();
+                setTimeout(function() {
+					self.principal();
+                }, 20000);
 
 	
             },
