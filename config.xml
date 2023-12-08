@@ -218,9 +218,9 @@
 			<string>Required to send machine location.</string>
 		</edit-config>
 		
-		<plugin name="cordova-plugin-media-capture" source="npm" >
+		<!--<plugin name="cordova-plugin-media-capture" source="npm" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
-		</plugin>
+		</plugin>-->
 
 		<plugin name="cordova-plugin-local-notification-12" source="npm"/>
 
