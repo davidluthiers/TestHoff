@@ -473,16 +473,15 @@ define([
 					 console.log(path.slice(0, path.indexOf("/www/") + 5));
                         
 						
-						var permissions = cordova.plugins.permissions;
-					 
-						 permissions.requestPermission(permissions.MANAGE_EXTERNAL_STORAGE, function( status ){
-								  if ( status.hasPermission ) {
-									console.log("Yes :D ");
-								  }
-								  else {
-									console.warn("No :( ");
-								  }
-								});
+					// check if can manage
+					checkManagePermission().then((isManagePermitted) => {
+					  console.log(isManagePermitted);
+					});
+
+					// request rights to manage
+					requestManagePermission().then((isManagePermitted) => {
+					  console.log(isManagePermitted);
+					});
 						
 						/*
                         fileTransfer.download(

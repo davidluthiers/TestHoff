@@ -142,7 +142,7 @@
 		<plugin name="cordova-plugin-statusbar" source="npm" />
 		<plugin name="cordova-plugin-androidx" source="npm" />
 		<plugin name="cordova-plugin-androidx-adapter" source="npm" />
-		<plugin name="cordova-plugin-android-permissions" source="npm" />
+		<plugin name="manage-external-storage" source="npm" />
 
 		<!--<plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
@@ -199,6 +199,8 @@
 		
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="merge">
 		  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+		  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		</config-file>
 		
 		
