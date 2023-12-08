@@ -193,6 +193,7 @@
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="delete">
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		</config-file>
 		
 		
