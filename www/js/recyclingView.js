@@ -471,41 +471,20 @@ define([
 					 console.log(target);
 					 var path = window.location.pathname;
 					 console.log(path.slice(0, path.indexOf("/www/") + 5));
-					 
-					 var permissions = cordova.plugins.permissions;
-					 
-					 permissions.requestPermission(permissions.MANAGE_EXTERNAL_STORAGE, function( status ){
-							  if ( status.hasPermission ) {
-								console.log("Yes :D ");
-							  }
-							  else {
-								console.warn("No :( ");
-							  }
-							});
-					  }
-					});
-					 
-					 /*
-					 permissions.hasPermission(permissions.MANAGE_EXTERNAL_STORAGE, function( status ){
-					  if ( status.hasPermission ) {
-						console.log("Yes :D ");
-					  }
-					  else {
-						console.warn("No :( ");
-						permissions.requestPermission(permissions.MANAGE_EXTERNAL_STORAGE, function( status ){
-							  if ( status.hasPermission ) {
-								console.log("Yes :D ");
-							  }
-							  else {
-								console.warn("No :( ");
-							  }
-							});
-					  }
-					});
-					
-					*/
                         
-					/*
+						
+						var permissions = cordova.plugins.permissions;
+					 
+						 permissions.requestPermission(permissions.MANAGE_EXTERNAL_STORAGE, function( status ){
+								  if ( status.hasPermission ) {
+									console.log("Yes :D ");
+								  }
+								  else {
+									console.warn("No :( ");
+								  }
+								});
+						
+						/*
                         fileTransfer.download(
                             uri,
                             target,
@@ -549,7 +528,9 @@ define([
                                 }
                             }
                             );
-                    */
+							
+							*/
+                    
                 //}
                 }
 		
