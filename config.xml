@@ -109,7 +109,7 @@
 		<splash src="/www/splash/ios/splash1334.png" platform="ios" width="750" height="1334"/>
 		<splash src="/www/splash/ios/splash2208.png" platform="ios" width="1242" height="2208"/>
 
-		<plugin name="cordova-plugin-file" source="npm" version="7.0.0"/>
+		<plugin name="cordova-plugin-file" source="npm" />
 		
 		<plugin name="cordova-plugin-ns0m-file-transfer" source="npm" version="2.0.0-8"/>
 		
