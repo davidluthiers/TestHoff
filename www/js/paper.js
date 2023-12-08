@@ -3192,7 +3192,7 @@ var Item = Base.extend(Callback, {
 			bottomRight = bounds.getBottomRight().ceil()
 			size = new Size(bottomRight.subtract(topLeft)),
 			canvas = CanvasProvider.getCanvas(size),
-			ctx = canvas.getContext('2d'),
+			ctx = canvas.getContext('2d', { willReadFrequently: true }),
 			matrix = new Matrix().scale(scale).translate(topLeft.negate());
 		ctx.save();
 		matrix.applyToContext(ctx);
@@ -4245,7 +4245,7 @@ var Raster = Item.extend({
 			param.image = image;
 		} else if (this._canvas) {
 			var canvas = param.canvas = CanvasProvider.getCanvas(this._size);
-			canvas.getContext('2d').drawImage(this._canvas, 0, 0);
+			canvas.getContext('2d', { willReadFrequently: true }).drawImage(this._canvas, 0, 0);
 		}
 		return this._clone(new Raster(param), insert);
 	},
@@ -4328,7 +4328,7 @@ var Raster = Item.extend({
 
 	getContext: function() {
 		if (!this._context)
-			this._context = this.getCanvas().getContext('2d');
+			this._context = this.getCanvas().getContext('2d', { willReadFrequently: true });
 		if (arguments[0]) {
 			this._image = null;
 			this._changed(129);
@@ -9996,7 +9996,7 @@ var CanvasView = View.extend({
 						+ canvas);
 			canvas = CanvasProvider.getCanvas(size);
 		}
-		this._context = canvas.getContext('2d');
+		this._context = canvas.getContext('2d', { willReadFrequently: true });
 		this._eventCounters = {};
 		this._ratio = 1;
 		if (PaperScope.getAttribute(canvas, 'hidpi') !== 'off') {
@@ -10835,7 +10835,7 @@ var CanvasProvider = {
 		} else {
 			canvas = document.createElement('canvas');
 		}
-		var ctx = canvas.getContext('2d');
+		var ctx = canvas.getContext('2d', { willReadFrequently: true });
 		if (canvas.width === width && canvas.height === height) {
 			if (init)
 				ctx.clearRect(0, 0, width + 1, height + 1);
@@ -10850,12 +10850,12 @@ var CanvasProvider = {
 	},
 
 	getContext: function(width, height) {
-		return this.getCanvas(width, height).getContext('2d');
+		return this.getCanvas(width, height).getContext('2d', { willReadFrequently: true });
 	},
 
 	release: function(obj) {
 		var canvas = obj.canvas ? obj.canvas : obj;
-		canvas.getContext('2d').restore();
+		canvas.getContext('2d', { willReadFrequently: true }).restore();
 		this.canvases.push(canvas);
 	}
 };
