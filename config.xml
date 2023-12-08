@@ -142,6 +142,7 @@
 		<plugin name="cordova-plugin-statusbar" source="npm" />
 		<plugin name="cordova-plugin-androidx" source="npm" />
 		<plugin name="cordova-plugin-androidx-adapter" source="npm" />
+		<plugin name="cordova-plugin-android-permissions" source="npm" />
 
 		<!--<plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
