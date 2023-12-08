@@ -51,6 +51,7 @@
                   "deps": [ "underscore", "jquery" ],
                   "exports": "Backbone"  //attaches "Backbone" to the window object
             },
+			'backbone.localStorage': { deps: ['backbone'], exports: 'Backbone' },
 			"underscore":{
 				exports: '_'
 				}
