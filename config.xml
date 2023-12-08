@@ -196,6 +196,10 @@
 		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		</config-file>
 		
+		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="merge">
+		  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+		</config-file>
+		
 		
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity" xmlns:android="http://schemas.android.com/apk/res/android">
 			<activity android:exported="true" />
