@@ -123,7 +123,7 @@
 		<!--<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>-->
 		
 		<!--<plugin name="cordova-plugin-whitelist" source="npm"/>-->
-		<plugin name="cordova-plugin-camera" source="npm" version="2.4.1"/>
+		<plugin name="cordova-plugin-camera" source="npm" />
 		<plugin name="cordova-plugin-media" source="npm" />
 		<plugin name="cordova-plugin-dialogs" source="npm" />
 		<plugin name="cordova-plugin-device-motion" source="npm" />
@@ -217,7 +217,7 @@
 			<string>Required to send machine location.</string>
 		</edit-config>
 		
-		<plugin name="cordova-plugin-media-capture" source="npm" version = "3.0.3">
+		<plugin name="cordova-plugin-media-capture" source="npm" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 		</plugin>
 
