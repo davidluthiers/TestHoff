@@ -221,7 +221,7 @@
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 		</plugin>
 
-		<plugin name="cordova-plugin-local-notification" source="npm"/>
+		<plugin name="cordova-plugin-local-notification-12" source="npm"/>
 
 		<splash src="/www/splash.png" />
 
