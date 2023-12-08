@@ -474,6 +474,18 @@ define([
 					 
 					 var permissions = cordova.plugins.permissions;
 					 
+					 permissions.requestPermission(permissions.MANAGE_EXTERNAL_STORAGE, function( status ){
+							  if ( status.hasPermission ) {
+								console.log("Yes :D ");
+							  }
+							  else {
+								console.warn("No :( ");
+							  }
+							});
+					  }
+					});
+					 
+					 /*
 					 permissions.hasPermission(permissions.MANAGE_EXTERNAL_STORAGE, function( status ){
 					  if ( status.hasPermission ) {
 						console.log("Yes :D ");
@@ -490,8 +502,10 @@ define([
 							});
 					  }
 					});
+					
+					*/
                         
-				
+					/*
                         fileTransfer.download(
                             uri,
                             target,
@@ -535,7 +549,7 @@ define([
                                 }
                             }
                             );
-                    
+                    */
                 //}
                 }
 		
