@@ -547,7 +547,7 @@ define([
 											else
 												job(); 
 										//}
-									}
+									//}
 								}
 								catch(e){
 									console.log("checkAndDo success ERROR " + e);
