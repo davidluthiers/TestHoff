@@ -575,7 +575,7 @@ define([
                             destinationCanvas = document.createElement("canvas");
                             destinationCanvas.width = canvasid.width;
                             destinationCanvas.height = canvasid.height;
-                            destCtx = destinationCanvas.getContext('2d');
+                            destCtx = destinationCanvas.getContext('2d', { willReadFrequently: true });
                             destCtx.fillStyle = "#FFFFFF";
                             destCtx.fillRect(0,0,canvasid.width,canvasid.height);
                             destCtx.drawImage(canvasid, 0, 0);
