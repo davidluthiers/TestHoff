@@ -473,14 +473,8 @@ define([
 					 console.log(path.slice(0, path.indexOf("/www/") + 5));
                         
 						
-					// check if can manage
-					checkManagePermission().then((isManagePermitted) => {
-					  console.log(isManagePermitted);
-					});
-
-					// request rights to manage
-					requestManagePermission().then((isManagePermitted) => {
-					  console.log(isManagePermitted);
+					cordova.plugins.manageStorage.requestPermission(function(result){
+							console.log(result);//here you can check the permission
 					});
 						
 						/*

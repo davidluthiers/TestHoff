@@ -142,7 +142,7 @@
 		<plugin name="cordova-plugin-statusbar" source="npm" />
 		<plugin name="cordova-plugin-androidx" source="npm" />
 		<plugin name="cordova-plugin-androidx-adapter" source="npm" />
-		<plugin name="manage-external-storage" source="npm" />
+		<plugin name="cordova.manage.external.storage" source="npm" />
 
 		<!--<plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
