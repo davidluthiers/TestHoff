@@ -511,6 +511,11 @@ define([
 								
 								//Test
 								selfR.my_media = new Media(uri, selfR.mediasuccess, selfR.nada, selfR.onStatus);
+								setTimeout(function() {
+                                    selfR.preparar();
+									$("#downloadAndPlay .ui-btn-text").text(selfR.history.get("languages").get("dic_play"));
+                                    $("#downloadAndPlay").attr("id","playSoundButton");
+								}, 300);
 								
                                 try{
                                     window.plugins.spinnerDialog.hide();
