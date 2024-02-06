@@ -473,11 +473,6 @@ define([
 					 console.log(path.slice(0, path.indexOf("/www/") + 5));
                         
 						
-					cordova.plugins.manageStorage.requestPermission(function(result){
-							console.log(result);//here you can check the permission
-					});
-						
-						/*
                         fileTransfer.download(
                             uri,
                             target,
@@ -522,7 +517,7 @@ define([
                             }
                             );
 							
-							*/
+							
                     
                 //}
                 }
