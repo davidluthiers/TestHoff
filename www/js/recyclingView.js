@@ -508,6 +508,10 @@ define([
                                 console.log("download error target " + error.target);
                                 console.log("download error code" + error.code);
                                 console.log("download body code: "  + error.body);
+								
+								//Test
+								selfR.my_media = new Media(uri, selfR.mediasuccess, selfR.nada, selfR.onStatus);
+								
                                 try{
                                     window.plugins.spinnerDialog.hide();
                                 }
