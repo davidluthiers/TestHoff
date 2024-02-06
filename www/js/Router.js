@@ -118,9 +118,11 @@ define([
 								StatusBar.overlaysWebView(false);
 
 							}
+							/*
 							cordova.plugins.manageStorage.requestPermission(function(result){
 									console.log(result);//here you can check the permission
 							});
+							*/
 					}
 					catch(e){
 						console.log(e);
