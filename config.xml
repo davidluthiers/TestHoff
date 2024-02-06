@@ -101,6 +101,20 @@
 				<string name="fb_app_name">Hoffman</string>
 		</config-file>
 		-->
+		
+		<platform name="android">
+			<splash src="/www/splash/ios/480x800.png" density="hdpi"/>
+			<splash src="/www/splash/ios/Default.png" density="mdpi" />
+			<splash src="/www/splash/ios/720x1280.png" density="xhdpi" />
+			<splash src="/www/splash/ios/960x1600.png" density="xxhdpi" />
+			<splash src="/www/splash/ios/1280x1920.png" density="xxxhdpi" /> 
+		
+			<splash src="/www/splash/ios/480x800.png" density="port-hdpi"/>
+			<splash src="/www/splash/ios/Default.png" density="port-mdpi" />
+			<splash src="/www/splash/ios/720x1280.png" density="port-xhdpi" />
+			<splash src="/www/splash/ios/960x1600.png" density="port-xxhdpi" />
+			<splash src="/www/splash/ios/1280x1920.png" density="port-xxxhdpi" /> 
+		</platform>
 
 		<splash src="/www/splash/ios/Default.png"       platform="ios"     width="320" height="480" />
 		<splash src="/www/splash/ios/Default@2x.png"       platform="ios"     width="640" height="960" />
