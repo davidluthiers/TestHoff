@@ -102,7 +102,7 @@
 		</config-file>
 		-->
 		
-		<preference name="AndroidWindowSplashScreenAnimatedIcon" value="/www/icon.png" />
+		<preference name="AndroidWindowSplashScreenAnimatedIcon" value="/www/icon.xml" />
 
 		<splash src="/www/splash/ios/Default.png"       platform="ios"     width="320" height="480" />
 		<splash src="/www/splash/ios/Default@2x.png"       platform="ios"     width="640" height="960" />
