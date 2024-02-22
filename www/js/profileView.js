@@ -385,9 +385,9 @@ define([
 				   console.log("Map: ");
 				   console.log(map);
 				   
-				   self.onMapInit(self.map);
+				   //self.onMapInit(self.map);
 
-				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map)});
+				   this.map.addEventListener(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map)});
 				}
 				catch(e){
 					console.log("Map error: " + e);
@@ -759,7 +759,7 @@ define([
 									console.log(auxprofile);
 									*/
 									var userID = auxprofile.userID;
-									var nombre = auxprofile.nickname;
+									var nombre = auxprofile.nickname.value;
 									var picturenewurl;
 									
 									//var pictureurl;
