@@ -384,6 +384,8 @@ define([
 				 
 				   console.log("Map: ");
 				   console.log(map);
+				   
+				   self.onMapInit(self.map);
 
 				   this.map.on(plugin.google.maps.event.MAP_READY, function() {self.onMapInit(self.map)});
 				}
