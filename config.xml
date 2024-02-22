@@ -185,12 +185,14 @@
 		-->
 		
 		<plugin name="cordova-plugin-googlemaps" source="npm">
-			<param name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
-			<param name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
+			<param name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
+			<param name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
+			<param name="GOOGLE_MAPS_PLAY_SERVICES_VERSION" value="18.2.0" />
 		</plugin>
 		
-		<preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
-		<preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
+		<preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
+		<preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc" />
+		<preference name="GOOGLE_MAPS_PLAY_SERVICES_VERSION" value="18.2.0" />
 
 		
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="delete">

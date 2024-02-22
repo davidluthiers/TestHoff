@@ -20,8 +20,9 @@
         "APP_NAME": "Hoffman"
       },
 	  "cordova-plugin-googlemaps": {
-        "GOOGLE_MAPS_ANDROID_API_KEY": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0",
-        "GOOGLE_MAPS_IOS_API_KEY": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0"
+        "GOOGLE_MAPS_ANDROID_API_KEY": "AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc",
+        "GOOGLE_MAPS_IOS_API_KEY": "AIzaSyC0fwDnwcpSCSvICSvsWJ_GdTIGHMLm7Dc",
+		"GOOGLE_MAPS_PLAY_SERVICES_VERSION":"18.2.0"
       },
 	  "cordova-plugin-geolocation": {
         "GPS_REQUIRED": "true"
