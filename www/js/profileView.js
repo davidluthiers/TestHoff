@@ -1490,7 +1490,7 @@ define([
                     }, this.onFail, {
                         quality: 50,
                         correctOrientation: true,
-						allowEdit: true
+						allowEdit: false
                     });
 				}
             },
@@ -1521,7 +1521,7 @@ define([
 							destinationType: 0, //Camera.DestinationType.DATA_URL,
                             correctOrientation: true,
                             sourceType: 0,
-							allowEdit: true
+							allowEdit: false
                         });
 					}
                 }

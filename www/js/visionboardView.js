@@ -200,7 +200,7 @@ define([
 							destinationType: 0, //Camera.DestinationType.DATA_URL,
                             correctOrientation: true,
                             sourceType: 0,
-							allowEdit: true,
+							allowEdit: false,
 							encodingType: navigator.camera.EncodingType.PNG
                         });
 					}
@@ -316,7 +316,7 @@ define([
 						}, this.onFail, {
 							quality: 50,
 							correctOrientation: true,
-							allowEdit: true
+							allowEdit: false
 						});
 					else{
 						console.log("Encoding: " + navigator.camera.EncodingType.PNG);
@@ -325,7 +325,7 @@ define([
 						}, this.onFail, {
 							quality: 50,
 							correctOrientation: true,
-							allowEdit: true,
+							allowEdit: false,
 							destinationType: 2,
 							encodingType: navigator.camera.EncodingType.PNG
 						});
