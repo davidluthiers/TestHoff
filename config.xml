@@ -125,7 +125,7 @@
 		<!--<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>-->
 		
 		<!--<plugin name="cordova-plugin-whitelist" source="npm"/>-->
-		<plugin name="cordova-plugin-camera" source="npm" />
+		<plugin name="cordova-plugin-camera-perm" source="npm" />
 		<plugin name="cordova-plugin-media" source="npm" />
 		<plugin name="cordova-plugin-dialogs" source="npm" />
 		<plugin name="cordova-plugin-device-motion" source="npm" />
@@ -202,7 +202,7 @@
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="merge">
 		  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
 		  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-		 <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		</config-file>
 		
 		
