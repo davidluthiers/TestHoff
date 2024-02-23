@@ -184,15 +184,13 @@
 		</edit-config>
 		-->
 		
-		<plugin name="cordova-plugin-googlemaps" source="npm">
+		<plugin name="@parrino/cordova-plugin-googlemaps" source="npm">
 			<param name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 			<param name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
-			<param name="GOOGLE_MAPS_PLAY_SERVICES_VERSION" value="16.0.1" />
 		</plugin>
 		
 		<preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		<preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
-		<preference name="GOOGLE_MAPS_PLAY_SERVICES_VERSION" value="16.1.0" />
 
 		
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="delete">
