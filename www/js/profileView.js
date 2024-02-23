@@ -1449,6 +1449,8 @@ define([
 				
                 var visionphoto = document.getElementById('visionphoto');
                 visionphoto.style.display = 'block'; 
+				console.log(imageData);
+				console.log(base64);
 				if(base64)
 					imageData = "data:image/png;base64," + imageData;
 				visionphoto.src = imageData;
