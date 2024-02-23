@@ -1463,6 +1463,13 @@ define([
 		
             },
 			
+			onFail: function(message){
+			
+				console.log("ERROR");
+				console.log(message);
+		
+            },
+			
 			addphotovision: function(){
                 self = this;
                 if (!navigator.camera) {
@@ -1507,7 +1514,9 @@ define([
 						
                         navigator.camera.getPicture(function(imageData){
                             self.onPhotoDataSuccess(imageData, true);
-                        }, this.onFail, {
+                        }, function(message){
+                            self.onFail(message);
+                        }, {
                             quality: 50,
 							destinationType: 0, //Camera.DestinationType.DATA_URL,
                             correctOrientation: true,
