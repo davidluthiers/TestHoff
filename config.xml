@@ -202,7 +202,7 @@
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="merge">
 		  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
 		  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+		 <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
 		</config-file>
 		
 		
