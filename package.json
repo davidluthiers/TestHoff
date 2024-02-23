@@ -19,7 +19,7 @@
         "APP_ID": "1504029573151839",
         "APP_NAME": "Hoffman"
       },
-	  "@parrino/cordova-plugin-googlemaps": {
+	  "cordova-plugin-googlemaps": {
         "GOOGLE_MAPS_ANDROID_API_KEY": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0",
         "GOOGLE_MAPS_IOS_API_KEY": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0"
       },
