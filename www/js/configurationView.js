@@ -121,17 +121,18 @@ define([
                 notifLang= this.history.get("languages");
                 if($("#checkbox").attr("data-icon")=="checkbox-on"){ //La lógica parece estar al revés, pero es que el evento de click llega antes de que cambie el estado del elemento
                     notifLang.set("notifications",false);
-                    try{
+                    /*try{
                         window.plugin.notification.local.cancelAll();
                     }
                     catch(e){}
+					*/
                 }
                 else{
                     notifLang.set("notifications",true);
 			
                     auxdate = new Date();
                     notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
-                    try{
+                    /*try{
                         window.plugin.notification.local.schedule({
 							id:         1,  // A unique id of the notifiction
 							firstAt:       notifdate,    // This expects a date object
@@ -146,7 +147,7 @@ define([
                     }
                     catch(e){
                         console.log(e);
-                    }
+                    }*/
                 }
 		
                 this.history.get("languages").destroy();

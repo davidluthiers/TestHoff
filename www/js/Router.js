@@ -321,7 +321,7 @@ define([
 					auxdate = new Date();
 					notifdate = new Date(auxdate.getTime()+604800000);	//604800000 = 1 semana en milisecs
 				
-					try{
+					/*try{
 						window.plugin.notification.local.schedule({
 							id:         1,  // A unique id of the notifiction
 							at:       notifdate,    // This expects a date object
@@ -336,7 +336,7 @@ define([
 					}
 					catch(e){
 						console.log("setWeeklyNotification error: " + e);
-					}
+					}*/
 				}
 	
             },
