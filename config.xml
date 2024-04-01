@@ -4,7 +4,7 @@
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman_international.hoffman_app"
 		version   = "3.0.8"
-		android-versionCode="1936">
+		android-versionCode="1937">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
             <string>63</string>
@@ -233,7 +233,7 @@
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
 		</plugin>-->
 
-		<plugin name="cordova-plugin-local-notification-12" source="npm"/>
+		<!--<plugin name="cordova-plugin-local-notification-12" source="npm"/>-->
 
 		<splash src="/www/splash.png" />
 
