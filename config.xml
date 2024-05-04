@@ -4,7 +4,7 @@
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman_international.hoffman_app"
 		version   = "3.0.8"
-		android-versionCode="1937">
+		android-versionCode="1938">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
             <string>63</string>
@@ -200,12 +200,14 @@
 		</config-file>
 		
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="merge">
-		  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
-		  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-		  <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
-		  <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+		   <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 		</config-file>
+		
+		  <!--<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+		  <uses-permission android:name="android.permission.USE_EXACT_ALARM" />-->
+		  <!--<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+		  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
 		
 		
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity" xmlns:android="http://schemas.android.com/apk/res/android">
