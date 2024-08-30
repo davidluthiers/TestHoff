@@ -59,8 +59,8 @@
 		<preference name="android.useAndroidX" value="false" />
 		<preference name="android.enableJetifier" value="false" />
 		<preference name="AndroidXEnabled" value="true" />
-		<preference name="AndroidInsecureFileModeEnabled" value="true" />
-		<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+		<!--<preference name="AndroidInsecureFileModeEnabled" value="true" />
+		<preference name="AndroidPersistentFileLocation" value="Compatibility" />-->
 
 		
 		
@@ -102,7 +102,7 @@
 		</config-file>
 		-->
 		
-		<preference name="AndroidWindowSplashScreenAnimatedIcon" value="icon.xml" />
+		<!--<preference name="AndroidWindowSplashScreenAnimatedIcon" value="icon.xml" /> -->
 
 		<splash src="/www/splash/ios/Default.png"       platform="ios"     width="320" height="480" />
 		<splash src="/www/splash/ios/Default@2x.png"       platform="ios"     width="640" height="960" />
@@ -142,8 +142,8 @@
 		<plugin name="cordova-plugin-spinner-dialog" source="npm"/>
 		<plugin name="cordova-plugin-x-socialsharing" source="npm" />
 		<plugin name="cordova-plugin-statusbar" source="npm" />
-		<plugin name="cordova-plugin-androidx" source="npm" />
-		<plugin name="cordova-plugin-androidx-adapter" source="npm" />
+		<!--<plugin name="cordova-plugin-androidx" source="npm" />-->
+		<!--<plugin name="cordova-plugin-androidx-adapter" source="npm" />-->
 		<plugin name="cordova.manage.external.storage" source="npm" />
 
 		<!--<plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
@@ -209,10 +209,11 @@
 		  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
 		
-		
+		<!--
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity" xmlns:android="http://schemas.android.com/apk/res/android">
 			<activity android:exported="true" />
 		</edit-config>
+		-->
 		<!--
 		<edit-config file="app/src/main/AndroidManifest.xml" target="/manifest/application/activity" mode="merge">
 			<activity android:exported="true"/>
@@ -263,10 +264,11 @@
 		<access origin="*" launch-external="yes"/>
 		
 		
-
+		<!--
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
 			<application android:usesCleartextTraffic="true" />
 		</edit-config>
+		-->
 	
 
 
