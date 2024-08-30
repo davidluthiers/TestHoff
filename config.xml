@@ -2,7 +2,7 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
-		id        = "com.hoffman_international.hoffman_app"
+		id        = "com.hoffman-international.hoffman-app"
 		version   = "3.0.8"
 		android-versionCode="1938">
 
