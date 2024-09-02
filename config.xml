@@ -22,7 +22,7 @@
 			DavidLuthiers
 		</author>
 		<preference name="android-minSdkVersion" value="30"/>
-		<preference name="android-targetSdkVersion" value="34"/>
+		<preference name="android-targetSdkVersion" value="33"/>
 		<preference name="phonegap-version" value="cli-9.0.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="true" />
@@ -66,7 +66,7 @@
 		
 		
 
-		<icon src="/www/icon.png" />
+		<icon src="icon.png" />
 		<icon src="/www/icons/ios/29.png"   platform="ios"          width="29" height="29" />
 		<icon src="/www/icons/ios/40.png"   platform="ios"          width="40" height="40" />
 		<icon src="/www/icons/ios/50.png"   platform="ios"          width="50" height="50" />
@@ -121,8 +121,8 @@
 		</plugin>
 		
 		<!--IMPORTANTE: ACTIVAR ESTOS DOS PLUGINS PARA iOS-->
-		<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>
-		<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>
+		<!--<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>-->
+		<!--<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>-->
 		
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 		<plugin name="cordova-plugin-camera-perma" source="npm" />
