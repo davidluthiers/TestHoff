@@ -152,7 +152,7 @@
 		<plugin name="cordova-plugin-insomnia" source="npm"/>
 		<!--<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>-->
 		
-		<plugin name="cordova-plugin-transport-security" source="npm"/>
+		<plugin name="cordovax-edit-ats" source="npm"/>
 		
 		 <platform name="ios">
 			<feature name="CDVWKWebViewEngine">
@@ -274,6 +274,7 @@
 		<allow-navigation href="*" />
 		<access origin="*" launch-external="yes" allows-arbitrary-loads-in-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true'/>
 		
+		<hook src="js/editPlist.js" type="after_platform_add" />
 		
 		<!--
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
