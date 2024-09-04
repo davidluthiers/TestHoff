@@ -152,6 +152,8 @@
 		<plugin name="cordova-plugin-insomnia" source="npm"/>
 		<!--<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>-->
 		
+		<plugin name="cordova-plugin-transport-security" source="npm"/>
+		
 		 <platform name="ios">
 			<feature name="CDVWKWebViewEngine">
 			  <param name="ios-package" value="CDVWKWebViewEngine" />
@@ -162,7 +164,7 @@
 			<access origin="*.hoffman-international.*" />
 		 </platform>
 		 
-		 <access origin="*.hoffman-international.*" />
+		 <!--<access origin="*.hoffman-international.*" />-->
 
 
 		<!-- <config-file platform="android"> <application android:hardwareAccelerated="true" /> </config-file> -->
@@ -232,13 +234,14 @@
 			<string>Required to send machine location.</string>
 		</edit-config>
 		
-		
+		<!--
 		<edit-config file="*-Info.plist" target="NSAppTransportSecurity" mode="merge">
 			<dict>
 			  <key>NSAllowsArbitraryLoads</key>
 			  <true/>
 			</dict>
 		 </edit-config>
+		 -->
 		
 		<!--<plugin name="cordova-plugin-media-capture" source="npm" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
