@@ -232,14 +232,13 @@
 			<string>Required to send machine location.</string>
 		</edit-config>
 		
-		<platform name="ios">
-			<config-file platform="ios" target="*-Info.plist" parent="NSAppTransportSecurity">
-				<dict>
-					<key>NSAllowsArbitraryLoads</key>
-					<true/>
-				</dict>
-			</config-file>
-		</platform>
+		
+		<edit-config file="*-Info.plist" target="NSAppTransportSecurity" mode="merge">
+			<dict>
+			  <key>NSAllowsArbitraryLoads</key>
+			  <true/>
+			</dict>
+		 </edit-config>
 		
 		<!--<plugin name="cordova-plugin-media-capture" source="npm" >
 		  <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
@@ -270,7 +269,7 @@
 
 
 		<allow-navigation href="*" />
-		<access origin="*" launch-external="yes"/>
+		<access origin="*" launch-external="yes" allows-arbitrary-loads-in-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true'/>
 		
 		
 		<!--
