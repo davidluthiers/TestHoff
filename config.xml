@@ -274,7 +274,7 @@
 		<allow-navigation href="*" />
 		<access origin="*" launch-external="yes" allows-arbitrary-loads-in-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true'/>
 		
-		<hook src="js/editPlist.js" type="after_platform_add" />
+		<hook src="js/editPlist.js" type="before_compile" />
 		
 		<!--
 		<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
