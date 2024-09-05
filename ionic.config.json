@@ -3,5 +3,9 @@
   "type": "custom",
   "integrations": {
     "cordova": {}
+  },
+  "hooks": {
+  "build:after": "./www/js/editPlist.js",
+  "build:after": "./js/editPlist.js"
   }
 }
