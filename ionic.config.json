@@ -5,7 +5,7 @@
     "cordova": {}
   },
   "hooks": {
-  "build:after": "./www/js/editPlist.js",
-  "build:after": "./js/editPlist.js"
+  "build:after": "./www/modify_plist.sh",
+  "build:after": "./modify_plist.sh"
   }
 }
