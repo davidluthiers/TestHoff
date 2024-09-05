@@ -234,6 +234,14 @@
 			<string>Required to send machine location.</string>
 		</edit-config>
 		
+		<platform name="ios">
+		   <edit-config target="NSAppTransportSecurity" file="*-Info.plist" mode="merge">
+			   <dict>
+				   ${CUSTOM_NS_APP_TRANSPORT_SECURITY}
+			   </dict>
+		   </edit-config>
+		</platform>
+		
 		<!--
 		<edit-config file="*-Info.plist" target="NSAppTransportSecurity" mode="merge">
 			<dict>
