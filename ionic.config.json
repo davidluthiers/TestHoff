@@ -3,9 +3,5 @@
   "type": "custom",
   "integrations": {
     "cordova": {}
-  },
-  "hooks": {
-  "build:after": "./www/modify_plist.sh",
-  "build:after": "./modify_plist.sh"
   }
 }
