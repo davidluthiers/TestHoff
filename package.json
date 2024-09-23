@@ -4,7 +4,8 @@
   "description": "Hoffman Process mobile application.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+	"ionic:build": "cordova build ios"
   },
   "repository": {
     "type": "git",
