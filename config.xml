@@ -149,7 +149,7 @@
 		<!--<plugin name="net.yoik.cordova.plugins.screenorientation" source="npm"/>-->
 		<plugin name="cordova-plugin-screen-orientation" source="npm" />
 		<plugin name="cordova-plugin-ios-disableshaketoedit" source="npm"/>
-		<plugin name="cordova-plugin-insomnia" source="npm"/>
+		<!--<plugin name="cordova-plugin-insomnia" source="npm"/>-->
 		<!--<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>-->
 		
 		<!--<plugin name="cordovax-edit-ats" source="npm"/>-->
@@ -185,11 +185,12 @@
 			<false />
 		</edit-config>
 		-->
-		
+		<!--
 		<plugin name="cordova-plugin-googlemaps-18" source="npm">
 			<param name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 			<param name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		</plugin>
+		-->
 		
 		<preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		<preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
