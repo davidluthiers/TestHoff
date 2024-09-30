@@ -115,10 +115,12 @@
 		
 		<plugin name="cordova-plugin-ns0m-file-transfer" source="npm" version="2.0.0-8"/>
 		
+		<!--
 		<plugin name="cordova-plugin-facebook-connect" source="npm">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</plugin>
+		-->
 		
 		<!--IMPORTANTE: ACTIVAR ESTOS DOS PLUGINS PARA iOS-->
 		<plugin name="cordova-plugin-ionic-webview" source="npm" />
