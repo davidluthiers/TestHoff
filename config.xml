@@ -122,7 +122,7 @@
 		
 		<!--IMPORTANTE: ACTIVAR ESTOS DOS PLUGINS PARA iOS-->
 		<plugin name="cordova-plugin-ionic-webview" source="npm" />
-		<!--<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>-->
+		<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm"/>
 		
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 		<plugin name="cordova-plugin-camera-perma" source="npm" />
