@@ -15,6 +15,11 @@
   "license": "ISC",
   "homepage": "https://www.hoffman-international.com/",
   "cordova": {
+    "plugins": {
+	  "cordova-plugin-geolocation": {
+        "GPS_REQUIRED": "true"
+      }
+    }
   },
   "dependencies": {
 	"cordova-ios": "6.2.0"
