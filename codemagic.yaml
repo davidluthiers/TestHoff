@@ -2,10 +2,10 @@ workflows:
     ios-workflow-id:
         name: Codemagic Sample Workflow
         instance_type: mac_mini_m2
-environment:
+  environment:
     vars:
-      XCODE_WORKSPACE: "platforms/ios/YOUR_APP.xcworkspace"
-      XCODE_SCHEME: "YOUR_SCHEME"
+      XCODE_WORKSPACE: "swiftly.xcworkspace"
+      XCODE_SCHEME: "swiftly"
   scripts:
     - name: Install npm dependencies and update Cordova version
       script: | 
