@@ -30,6 +30,6 @@
     }
   },
   "dependencies": {
-	"cordova-ios": "6.2.0"
+	"cordova-ios": "6.3.0"
 	}
 }
