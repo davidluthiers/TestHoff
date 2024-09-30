@@ -2,3 +2,60 @@ workflows:
     ios-workflow-id:
         name: Codemagic Sample Workflow
         instance_type: mac_mini_m2
+environment:
+    vars:
+      XCODE_WORKSPACE: "platforms/ios/YOUR_APP.xcworkspace"
+      XCODE_SCHEME: "YOUR_SCHEME"
+  scripts:
+    - name: Install npm dependencies and update Cordova version
+      script: | 
+        npm install
+        npm ci # equivalent of npm install for CI systems.
+               # Requires package-lock.json or npm-shrinkwrap.json to be present
+        cvm install 9.0.0
+        cvm use 9.0.0
+    -  name: Setup Cordova iOS platform
+       script: | 
+         ionic cordova platform remove ios --nosave
+         ionic cordova platform add ios \
+           --confirm \
+           --no-interactive \
+           --noresources
+    - name: Cocoapods installation
+        script: | 
+          cd platforms/ios && pod install
+    - name: Update dependencies and copy web assets to native project
+      script: | 
+        # if you don't need to update native dependencies, use this:
+        # npx cap copy
+        #
+        # to update native dependencies, use this command:
+        npx cap sync
+    - name: Set up code signing settings on Xcode project
+      script: | 
+        xcode-project use-profiles
+    - name: Build ipa for distribution
+      script: | 
+        package_type=$(defaults read ~/export_options.plist method)
+        identity=$(defaults read ~/export_options.plist signingCertificate)
+        team=$(defaults read ~/export_options.plist teamID)
+        profile=$(find '/Users/builder/Library/MobileDevice/Provisioning Profiles' -name "*.mobileprovision")
+        profile_uuid=$(grep UUID -A1 -a "$profile" | grep -io "[-A-F0-9]\{36\}")
+
+        cat <<EOF > build.json
+          {
+            "ios": {
+              "release": {
+                "codeSignIdentity": "$identity",
+                "developmentTeam": "$team",
+                "packageType": "$package_type",
+                "provisioningProfile": "$profile_uuid"
+              }
+            }
+          }EOF
+        cordova build ios --release --device --buildConfig='build.json'
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
