@@ -1,0 +1,4 @@
+workflows:
+    ios-workflow-id:
+        name: Codemagic Sample Workflow
+        instance_type: mac_mini_m2
