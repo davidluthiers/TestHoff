@@ -18,7 +18,8 @@
     "plugins": {
 	  "cordova-plugin-fbsdk": {
         "APP_ID": "1504029573151839",
-        "APP_NAME": "Hoffman"
+        "APP_NAME": "Hoffman",
+		"CLIENT_TOKEN": "7812633e56df4fa88b9d2d80477578de"
       },
 	  "cordova-plugin-googlemaps-latest": {
         "GOOGLE_MAPS_ANDROID_API_KEY": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0",

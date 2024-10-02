@@ -119,6 +119,7 @@
 		<plugin name="cordova-plugin-fbsdk" source="npm">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
+			<param name="CLIENT_TOKEN" value="7812633e56df4fa88b9d2d80477578de" />
 		</plugin>
 		
 		
