@@ -116,7 +116,7 @@
 		<plugin name="cordova-plugin-ns0m-file-transfer" source="npm" version="2.0.0-8"/>
 		
 		
-		<plugin name="cordova-plugin-fbsdk" source="npm" version="4.1.1">
+		<plugin name="cordova-plugin-fbsdk" source="npm" version="4.0.2">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 			<param name="CLIENT_TOKEN" value="7812633e56df4fa88b9d2d80477578de" />
