@@ -16,7 +16,7 @@
   "homepage": "https://www.hoffman-international.com/",
   "cordova": {
     "plugins": {
-	  "cordova-plugin-facebook-connect": {
+	  "cordova-plugin-fbsdk": {
         "APP_ID": "1504029573151839",
         "APP_NAME": "Hoffman"
       },

@@ -89,7 +89,7 @@
 		<icon src="/www/icons/android/96.png"   platform="android"      qualifier="xhdpi" />
 		
 		
-		<plugin spec="https://github.com/akhatri/cordova-plugin-facebook4.git">
+		<plugin spec="cordova-plugin-fbsdk">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</plugin>
