@@ -89,11 +89,11 @@
 		<icon src="/www/icons/android/96.png"   platform="android"      qualifier="xhdpi" />
 		
 		
-		<plugin spec="cordova-plugin-fbsdk">
+		<!--<plugin spec="https://github.com/akhatri/cordova-plugin-facebook4.git">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</plugin>
-		
+		-->
 		
 		<!--
 		<config-file parent="/resources" target="./res/values/strings.xml">
@@ -115,12 +115,12 @@
 		
 		<plugin name="cordova-plugin-ns0m-file-transfer" source="npm" version="2.0.0-8"/>
 		
-		<!--
-		<plugin name="cordova-plugin-facebook-connect" source="npm">
+		
+		<plugin name="cordova-plugin-fbsdk" source="npm">
 			<param name="APP_ID" value="1504029573151839" />
 			<param name="APP_NAME" value="Hoffman" />
 		</plugin>
-		-->
+		
 		
 		<!--IMPORTANTE: ACTIVAR ESTOS DOS PLUGINS PARA iOS-->
 		<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>
