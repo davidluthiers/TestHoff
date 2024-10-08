@@ -124,7 +124,7 @@
 		
 		
 		<!--IMPORTANTE: ACTIVAR ESTOS DOS PLUGINS PARA iOS-->
-		<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.0"/>
+		<plugin name="cordova-plugin-ionic-webview" source="npm" version="5.0.1"/>
 		<plugin name="@globules-io/cordova-plugin-ios-xhr" source="npm" />
 		
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
