@@ -1921,9 +1921,11 @@ define([
             },
 	
             onbeatPrompt: function (results){
+				var self=this;
                 if((results.buttonIndex==1 && device.platform=='Android') || (results.buttonIndex==2 && device.platform!='Android')){
-                    this.beatyourmodel.set("target",results.input1);
-                    this.beatyourdarkSide('1');
+					self.beatyourmodel = new beatyourModel();
+                    self.beatyourmodel.set("target",results.input1);
+                    self.beatyourdarkSide('1');
                 }
                 else{
                     Backbone.history.navigate("#summary", {
@@ -1975,10 +1977,10 @@ define([
                     }
                 }
                 else{
-                    if(id!='1' && id!='2')
-                        this.beatyourmodel = new beatyourModel();
+                    //if(id!='1' && id!='2')
+                        //this.beatyourmodel = new beatyourModel();
                     this.beatyour= new beatyourdarkView({
-                        model: this.beatyourmodel
+                        model: self.beatyourmodel
                     });
 					this.recordActivity('beat', '', new Date());
                     this.beatyour.render(id,historial, app_router);
