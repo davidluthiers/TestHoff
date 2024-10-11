@@ -1847,7 +1847,7 @@ define([
 				var self=this;
 				
                 try{
-                    navigator.notification.confirm(historial.get("languages").get("dic_bash_disclaimer"), self.bashacker('0'), historial.get("languages").get("dic_Hoffman"),["Ok"]);
+                    navigator.notification.confirm(historial.get("languages").get("dic_bash_disclaimer"), function(indexans){self.bashacker('0');}, historial.get("languages").get("dic_Hoffman"),["Ok"]);
                 }
                 catch(e){
                     self.bashacker('0');
