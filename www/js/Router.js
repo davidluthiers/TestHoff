@@ -1845,6 +1845,7 @@ define([
 	
             bashackerDisclaimer:function (){
 				var self=this;
+				self.bashackermodel= new bashackerModel();
 				
                 try{
                     navigator.notification.confirm(historial.get("languages").get("dic_bash_disclaimer"), function(indexans){self.bashacker('0');}, historial.get("languages").get("dic_Hoffman"),["Ok"]);
@@ -1898,10 +1899,10 @@ define([
                     }
                 }
                 else{
-                    if(id!='1')
-                        this.bashackermodel= new bashackerModel();
+                    //if(id!='1')
+                       // this.bashackermodel= new bashackerModel();
                     this.bashackerV= new bashackerView({
-                        model: this.bashackermodel
+                        model: self.bashackermodel
                     });
 					this.recordActivity('bash', '', new Date());
                     this.bashackerV.render(id,historial);
