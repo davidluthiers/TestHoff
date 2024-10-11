@@ -1844,13 +1844,13 @@ define([
 	
 	
             bashackerDisclaimer:function (){
-		
+				var self=this;
+				
                 try{
-                    navigator.notification.confirm(historial.get("languages").get("dic_bash_disclaimer"), function(indexans){}, historial.get("languages").get("dic_Hoffman"),["Ok"]);
-                    this.bashacker('0');
+                    navigator.notification.confirm(historial.get("languages").get("dic_bash_disclaimer"), self.bashacker('0'), historial.get("languages").get("dic_Hoffman"),["Ok"]);
                 }
                 catch(e){
-                    this.bashacker('0');
+                    self.bashacker('0');
                     console.log(e);
                 }
 	
