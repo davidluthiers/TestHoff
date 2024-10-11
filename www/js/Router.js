@@ -1977,8 +1977,8 @@ define([
                     }
                 }
                 else{
-                    //if(id!='1' && id!='2')
-                        //this.beatyourmodel = new beatyourModel();
+                    if(id=='0')
+                        this.beatyourmodel = new beatyourModel();
                     this.beatyour= new beatyourdarkView({
                         model: self.beatyourmodel
                     });
