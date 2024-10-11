@@ -239,7 +239,10 @@ define([
                     catch(e){}
 
                     try{
-                        this.my_media.play();
+                        self.my_media.play();
+						setTimeout(function(){
+							self.my_media.stop();
+						},2000);
 						window.plugins.insomnia.allowSleepAgain();
                     }
                     catch(e){}
