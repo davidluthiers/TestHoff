@@ -90,6 +90,7 @@ define([
 			
                     });
 		
+					/*
                     try{
                         var url = "http://appv2.hoffman-international.com/sites/default/files/TaDa.mp3";
                         console.log("url: " + url);
@@ -98,7 +99,7 @@ define([
                     catch(e){
                         console.log("Intento de cargar media en PC fallido");
                     }
-		
+					*/
 		
 		
                 }
@@ -239,10 +240,12 @@ define([
                     catch(e){}
 
                     try{
+						/*
                         self.my_media.play();
 						setTimeout(function(){
 							self.my_media.stop();
 						},2000);
+						*/
 						window.plugins.insomnia.allowSleepAgain();
                     }
                     catch(e){}
