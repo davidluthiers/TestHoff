@@ -235,7 +235,8 @@ define([
                     this.cancelaccelerometer(1);
                     clearInterval(self.bashBarInterval);
                     try{
-                        navigator.notification.vibrate(2500);
+                        //navigator.notification.vibrate(2500);
+						navigator.vibrate(3000);
                     }
                     catch(e){}
 
