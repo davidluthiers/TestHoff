@@ -466,10 +466,10 @@ define([
 									var ctx = canvas.getContext("2d");
 									ctx.clearRect(0, 0, canvas.width, canvas.height);
 									ctx.drawImage(fbcontainer, 0, 0);
-									var dataURL = canvas.toDataURL();
+									//var dataURL = canvas.toDataURL();
 									console.log("downloaded picture: ");
-									console.log(dataURL);
-									profileM.set("picture", dataURL);
+									//console.log(dataURL);
+									profileM.set("picture", fbcontainer.src);
 									
 									historial.get("profile").destroy();
 									console.log("EL PERFIL RESULTANTE ES: ");
@@ -1000,7 +1000,7 @@ define([
 												var ctx = canvas.getContext("2d");
 												ctx.clearRect(0, 0, canvas.width, canvas.height);
 												ctx.drawImage(fbcontainer, 0, 0);
-												var dataURL = canvas.toDataURL();
+												var dataURL = fbcontainer.src; //canvas.toDataURL();
 												console.log("FB picture: ");
 												console.log(dataURL);
 												visionphoto.src = dataURL;
