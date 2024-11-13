@@ -81,8 +81,8 @@ define([
 							try{
 								var mapDiv = document.getElementById("map_module_map");
 								this.map = plugin.google.maps.Map.getMap(mapDiv);
-								this.map.remove();
-								$(document).find("._gmaps_cdv_").removeClass("_gmaps_cdv_");
+								//this.map.remove();
+								//$(document).find("._gmaps_cdv_").removeClass("_gmaps_cdv_");
 							}
 							catch(e){
 								console.log("Error: " + e);
