@@ -15,20 +15,6 @@
   "license": "ISC",
   "homepage": "https://www.hoffman-international.com/",
   "cordova": {
-    "plugins": {
-	  "cordova-plugin-fbsdk@4.0.2": {
-        "APP_ID": "1504029573151839",
-        "APP_NAME": "Hoffman",
-		"CLIENT_TOKEN": "7812633e56df4fa88b9d2d80477578de"
-      },
-	  "cordova-plugin-googlemaps-latest": {
-        "GOOGLE_MAPS_ANDROID_API_KEY": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0",
-        "GOOGLE_MAPS_IOS_API_KEY": "AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0"
-      },
-	  "cordova-plugin-geolocation": {
-        "GPS_REQUIRED": "true"
-      }
-    }
   },
   "dependencies": {
 	"cordova-ios": "6.2.0"
