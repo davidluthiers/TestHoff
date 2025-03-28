@@ -3,14 +3,14 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman-international.hoffman-app"
-		version   = "3.1.3"
+		version   = "3.1.4"
 		android-versionCode="1938">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
-            <string>64</string>
+            <string>65</string>
         </gap:config-file>
         <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-    		<string>3.1.3</string>
+    		<string>3.1.4</string>
 		</gap:config-file>
 		
 
@@ -237,9 +237,10 @@
 		</edit-config>
 		-->
 		
+		<!--
 		<edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
 			<string>Required to send machine location.</string>
-		</edit-config>
+		</edit-config>-->
 		
 		<!--
 		<platform name="ios">
