@@ -300,7 +300,7 @@ define([
                             //$("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
 						
                         }
-						 self.serverfeelings.sort((a, b) => {
+						self.serverfeelings.sort((a, b) => {
 						  if (a.type < b.type) {
 							return -1;
 						  }
@@ -310,6 +310,11 @@ define([
 
 						  return 0;
 						});
+						
+						for (index = 0; index < data.length; ++index) {
+                            $("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
+                        }
+						
                         var customFeelings = self.history.get("languages").get("customFeelings");
                         for (index = 0; index < customFeelings.length; ++index) {
                             $("#feelinglist").append("<li feelingtype='" + customFeelings[index][1] + "'><h3 class='feelingsel' >" + customFeelings[index][0] + "</h3></li>");
