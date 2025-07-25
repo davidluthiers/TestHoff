@@ -297,9 +297,19 @@ define([
                         for (index = 0; index < data.length; ++index) {
                             self.serverfeelings[index] = data[index];
                             self.serverfeelings[index].type=self.serverfeelings[index].type[0];
-                            $("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
+                            //$("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
 						
                         }
+						 self.serverfeelings.sort((a, b) => {
+						  if (a.type < b.type) {
+							return -1;
+						  }
+						  if (a.type > b.type) {
+							return 1;
+						  }
+
+						  return 0;
+						});
                         var customFeelings = self.history.get("languages").get("customFeelings");
                         for (index = 0; index < customFeelings.length; ++index) {
                             $("#feelinglist").append("<li feelingtype='" + customFeelings[index][1] + "'><h3 class='feelingsel' >" + customFeelings[index][0] + "</h3></li>");
