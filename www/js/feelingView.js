@@ -134,9 +134,11 @@ define([
 				};
 
 				self.feelList = new list("feelingco", options);
+				/*
 				self.feelList.sort('feelingsel', {
 					order: "asc"
 				});
+				*/
 				try{
 					window.plugins.spinnerDialog.hide();
 				}
@@ -297,11 +299,13 @@ define([
                         for (index = 0; index < data.length; ++index) {
                             self.serverfeelings[index] = data[index];
                             self.serverfeelings[index].type=self.serverfeelings[index].type[0];
-                            //$("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
+                            $("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
 						
                         }
+						
 						console.log("sin ordenar");
 						console.log(self.serverfeelings);
+						/*
 						self.serverfeelings.sort((a, b) => {
 						  if (a.type < b.type) {
 							return -1;
@@ -322,6 +326,7 @@ define([
 						for (index = 0; index < data.length; ++index) {
                             $("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
                         }
+						*/
 						
                         var customFeelings = self.history.get("languages").get("customFeelings");
                         for (index = 0; index < customFeelings.length; ++index) {
@@ -334,9 +339,11 @@ define([
                         };
 
                         self.feelList = new list("feelingco", options);
-                        self.feelList.sort('feelingsel', {
+                        /*
+						self.feelList.sort('feelingsel', {
                             order: "asc"
                         });
+						*/
                         try{
                             window.plugins.spinnerDialog.hide();
                         }
