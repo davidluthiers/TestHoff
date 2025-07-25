@@ -300,6 +300,8 @@ define([
                             //$("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
 						
                         }
+						console.log("sin ordenar");
+						console.log(self.serverfeelings);
 						self.serverfeelings.sort((a, b) => {
 						  if (a.type < b.type) {
 							return -1;
@@ -307,9 +309,15 @@ define([
 						  if (a.type > b.type) {
 							return 1;
 						  }
-
 						  return 0;
 						});
+						
+						console.log("ordenado");
+						console.log(self.serverfeelings);
+						
+						self.serverfeelings.sort();
+						console.log("segundo ordenado");
+						console.log(self.serverfeelings);
 						
 						for (index = 0; index < data.length; ++index) {
                             $("#feelinglist").append("<li feelingtype='" + self.serverfeelings[index].type + "'><h3 class='feelingsel' >" + self.serverfeelings[index].feeling.replace("href", "origin") + "</h3></li>");
