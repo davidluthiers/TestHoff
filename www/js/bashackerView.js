@@ -91,9 +91,9 @@ define([
                     });
 		
                     try{
-                        var url = "http://appv2.hoffman-international.com/sites/default/files/TaDa.mp3";
+                        var url = "http://app.hoffmaninstitute.co.uk/sites/default/files/TaDa.mp3";
                         console.log("url: " + url);
-                        self.my_media = new Media("http://appv2.hoffman-international.com/sites/default/files/TaDa.mp3", self.mediasuccess, self.nada, self.onStatus);
+                        self.my_media = new Media("http://app.hoffmaninstitute.co.uk/sites/default/files/TaDa.mp3", self.mediasuccess, self.nada, self.onStatus);
                     }
                     catch(e){
                         console.log("Intento de cargar media en PC fallido");

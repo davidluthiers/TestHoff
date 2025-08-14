@@ -175,7 +175,7 @@ define([
 					var params_audio_node = {
 						type: 'GET',
 						dataType: 'jsonp',
-						url: "http://appv2.hoffman-international.com/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
+						url: "http://app.hoffmaninstitute.co.uk/hoffapp/" + "node/" + AUDIO_NID + ".jsonp",
 						processData: true,
 						success: function(data) {
 							console.log("Tengo el Quad audioName");
@@ -385,7 +385,7 @@ define([
                             console.log(progressEvent.loaded / progressEvent.total);
                         }
                     };
-                    var uri = encodeURI("http://appv2.hoffman-international.com/system/files/"+audiofilename);
+                    var uri = encodeURI("http://app.hoffmaninstitute.co.uk/system/files/"+audiofilename);
                     
 					target = "";
 					

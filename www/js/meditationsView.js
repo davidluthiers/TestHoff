@@ -109,7 +109,7 @@ define([
 								beforeSend: function (request) {
 									request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
 								},
-								url: "http://appv2.hoffman-international.com/hoffapp/" + "active-languages.jsonp",
+								url: "http://app.hoffmaninstitute.co.uk/hoffapp/" + "active-languages.jsonp",
 								processData: true,
 								success: function(data) {
 									self.languages= data;
@@ -300,7 +300,7 @@ define([
                 var params_audios = {
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://appv2.hoffman-international.com/hoffapp/" + "audios.jsonp",
+                    url: "http://app.hoffmaninstitute.co.uk/hoffapp/" + "audios.jsonp",
                     processData: true,
                     success: function(data) {
                         data.forEach(self.fillrecyclinglist, self);
@@ -396,7 +396,7 @@ define([
                             console.log(progressEvent.loaded / progressEvent.total);
                         }
                     };
-                    var uri = encodeURI("http://appv2.hoffman-international.com/system/files/"+audiofilename);
+                    var uri = encodeURI("http://app.hoffmaninstitute.co.uk/system/files/"+audiofilename);
 					target ="";
                    /* if(device.platform!='Android'){	//iOS
                         self.my_media = new Media(uri, self.mediasuccess, self.nada, self.onStatus);

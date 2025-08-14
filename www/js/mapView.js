@@ -39,7 +39,7 @@ define([
                 var params_centers = {
                     type: 'GET',
                     dataType: 'jsonp',
-                    url: "http://appv2.hoffman-international.com/hoffapp/" + "institutes.jsonp",
+                    url: "http://app.hoffmaninstitute.co.uk/hoffapp/" + "institutes.jsonp",
                     processData: true,
                     success: function(data) {
                         console.log("centers: ", data);

@@ -1,7 +1,7 @@
 
 	  // SERVER CONNECTION
 	  // General settings
-	  var DRUPAL_SERVER = "http://appv2.hoffman-international.com/hoffapp/";
+	  var DRUPAL_SERVER = "http://app.hoffmaninstitute.co.uk/hoffapp/";
 	  var LANGUAGE = "es";
 
 

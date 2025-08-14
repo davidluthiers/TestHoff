@@ -424,7 +424,7 @@ define([
 				var params_people = { //active hoffman users
                     type: 'GET',
                     dataType: 'json',
-                    url: "http://appv2.hoffman-international.com/hoffapp/views/hoffpeople2?display_id=services_1&filters[field_userid_value]=" + historial.get("profile").get("userID"),
+                    url: "http://app.hoffmaninstitute.co.uk/hoffapp/views/hoffpeople2?display_id=services_1&filters[field_userid_value]=" + historial.get("profile").get("userID"),
                     processData: true,
                     success: function(data) {
 						var flag = false;
@@ -681,7 +681,7 @@ define([
 						var params_people = { //active hoffman users
 							type: 'GET',
 							dataType: 'json',
-							url: "http://appv2.hoffman-international.com/hoffapp/hoffpeople2",
+							url: "http://app.hoffmaninstitute.co.uk/hoffapp/hoffpeople2",
 							processData: true,
 							success: function(data) {
 								console.log("DATA: ");
@@ -1113,7 +1113,7 @@ define([
 					options = {
 						type:"post",
 						data:data,
-						url: 'http://appv2.hoffman-international.com/' + 'hoffapp/file.json',
+						url: 'http://app.hoffmaninstitute.co.uk/' + 'hoffapp/file.json',
 						dataType: 'json',
 						beforeSend: function (request) {
 							request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
