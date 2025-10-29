@@ -341,7 +341,8 @@ define([
                 var visionphoto = document.getElementById('visionphoto');
                 //visionphoto.style.display = 'block'; 
 				if(base64)
-					imageData = "data:image/png;base64," + imageData;
+					//imageData = "data:image/png;base64," + imageData;
+					imageData = imageData;
 				if(device.platform=='Android' || base64){
 					console.log("android");
 					visionphoto.src = imageData;
