@@ -208,9 +208,8 @@
 		</config-file>
 		
 		<edit-config
-		  file="app/src/main/AndroidManifest.xml"
 		  mode="merge"
-		  target="/manifest"
+		  target="AndroidManifest.xml"
 		  xmlns:android="http://schemas.android.com/apk/res/android"
 		  xmlns:tools="http://schemas.android.com/tools">
 
