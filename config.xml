@@ -199,7 +199,7 @@
 		<preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		-->
 		
-		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="delete">
+		<config-file file="app/src/main/AndroidManifest.xml" platform="android" parent="/*" target="/manifest" mode="delete" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -207,21 +207,11 @@
 		  <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
 		</config-file>
 		
-		<edit-config
-		  mode="merge"
-		  target="AndroidManifest.xml"
-		  xmlns:android="http://schemas.android.com/apk/res/android"
-		  xmlns:tools="http://schemas.android.com/tools">
 
-		  <uses-permission
-			android:name="android.permission.READ_MEDIA_IMAGES"
-			tools:node="remove" />
-
-		  <uses-permission
-			android:name="android.permission.READ_MEDIA_VIDEO"
-			tools:node="remove" />
-
-		</edit-config>
+		
+		<config-file platform="android" parent="android" target="app/build.gradle">
+		  <uses-sdk tools:overrideLibrary="android.permission.READ_MEDIA_IMAGES,android.permission.READ_MEDIA_VIDEO"/>
+		</config-file>
 		
 		<!--
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="merge">
