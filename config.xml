@@ -199,7 +199,7 @@
 		<preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyDIJqM7uVgLddZvsJ1L31kpw9pZ24tbzY0" />
 		-->
 		
-		<config-file file="app/src/main/AndroidManifest.xml" platform="android" parent="/*" target="/manifest" mode="delete" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+		<config-file file="app/src/main/AndroidManifest.xml" platform="android" parent="/*" target="AndroidManifest.xml" mode="delete">
 		  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 		  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
