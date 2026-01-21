@@ -3,8 +3,8 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.hoffman_international.hoffman_app"
-		version   = "3.1.5"
-		android-versionCode="1945">
+		version   = "3.1.6"
+		android-versionCode="1946">
 
 		<gap:config-file platform="ios" parent="CFBundleVersion">
             <string>63</string>
@@ -134,9 +134,9 @@
 		<plugin name="cordova-plugin-media" source="npm" />
 		<plugin name="cordova-plugin-dialogs" source="npm" />
 		<plugin name="cordova-plugin-device-motion" source="npm" />
-		<plugin name="cordova-plugin-geolocation" source="npm" version="2.4.3">
+		<!--<plugin name="cordova-plugin-geolocation" source="npm" version="2.4.3">
 		  <variable name="GPS_REQUIRED" value="true" />
-		</plugin>
+		</plugin>-->
 		<!--<plugin name="cordova-plugin-globalization" source="npm" />-->
 		<plugin name="cordova-plugin-device" source="npm" />
 		<plugin name="cordova-plugin-vibration" source="npm" />
@@ -206,6 +206,23 @@
 		  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 		  <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
 		</config-file>
+		
+		<edit-config
+		  file="app/src/main/AndroidManifest.xml"
+		  mode="merge"
+		  target="/manifest"
+		  xmlns:android="http://schemas.android.com/apk/res/android"
+		  xmlns:tools="http://schemas.android.com/tools">
+
+		  <uses-permission
+			android:name="android.permission.READ_MEDIA_IMAGES"
+			tools:node="remove" />
+
+		  <uses-permission
+			android:name="android.permission.READ_MEDIA_VIDEO"
+			tools:node="remove" />
+
+		</edit-config>
 		
 		<!--
 		<config-file platform="android" parent="/*" target="AndroidManifest.xml" mode="merge">
