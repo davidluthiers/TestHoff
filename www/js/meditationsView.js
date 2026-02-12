@@ -50,7 +50,7 @@ define([
 						setTimeout(function(){
 							$('#checkboxes1').change(function() {
 									console.log("Change");
-									self.checkboxevt();
+									selfM.checkboxevt();
 								});
 							},400);	
                         break;
@@ -72,25 +72,25 @@ define([
 			
                 var self=this;
                 historycollection.get("languages").set("helppanel",historycollection.get("languages").get("dic_meditations_helppanel"));
-                result= _.extend(historycollection.get("languages").toJSON(),self.model.toJSON());
+                result= _.extend(historycollection.get("languages").toJSON(),selfM.model.toJSON());
                 compiledheaderandpanel=_.template( headerandpanel );
                 this.$el.empty().append(compiledTemplate(result)).append(compiledheaderandpanel(result));
 			
 		
                 if(id=='1'){
 					//Lo siguiente usaría siempre la lista guardada y nunca se actualizaría
-					//typeof self.history.get("languages").get("cachedList2") !== 'undefined'
+					//typeof selfM.history.get("languages").get("cachedList2") !== 'undefined'
 					
                    	if(this.model.get("cachedList2") || navigator.connection.type==Connection.NONE || navigator.connection.type==Connection.UNKNOWN){//si ya he cargado la lista usando este modelo Ó no tengo internet
-						if(!this.model.get("cachedList2") && !self.history.get("languages").get("cachedList2")){
+						if(!this.model.get("cachedList2") && !selfM.history.get("languages").get("cachedList2")){
 							alert("No internet connection");
 						}
 						else{
 							console.log("Con este modelo ya ha descargado la lista, no vuelvo a descargarla");
-							self.languages=self.history.get("languages").get("cachedLanguages");
+							selfM.languages=selfM.history.get("languages").get("cachedLanguages");
 							
 							$(document).one('pageshow', function (event, ui) {
-								self.history.get("languages").get("cachedList2").forEach(self.fillrecyclinglist, self);
+								selfM.history.get("languages").get("cachedList2").forEach(selfM.fillrecyclinglist, self);
 								try{
 									window.plugins.spinnerDialog.hide();
 								}
@@ -107,19 +107,19 @@ define([
 								type: 'GET',
 								dataType: 'jsonp',
 								beforeSend: function (request) {
-									request.setRequestHeader("X-CSRF-Token", self.history.get("languages").get("sesToken"));
+									request.setRequestHeader("X-CSRF-Token", selfM.history.get("languages").get("sesToken"));
 								},
 								url: "http://app.hoffmaninstitute.co.uk/hoffapp/" + "active-languages.jsonp",
 								processData: true,
 								success: function(data) {
-									self.languages= data;
-									self.history.get("languages").set("cachedLanguages", data);
-									self.getaudios();
+									selfM.languages= data;
+									selfM.history.get("languages").set("cachedLanguages", data);
+									selfM.getaudios();
 								},
 								error: function(code) {
 									console.log("petada, intento loguear", code);
 									
-									self.login();
+									selfM.login();
 								}
 							};
 									
@@ -139,21 +139,21 @@ define([
                 if(id=='2'){
                     this.audioplaying=false;
                     counter=0;
-                    while(self.history.get("languages").get("audioName")=='invalid' && counter <2000){
+                    while(selfM.history.get("languages").get("audioName")=='invalid' && counter <2000){
                         //wait
-                        console.log(self.history.get("languages").get("audioName"));
+                        console.log(selfM.history.get("languages").get("audioName"));
                         counter++;
                     }
                     this.$(".panelbutton").hide();
                     this.$(".dic_help").hide();
                     console.log("Tengo el audio filename");
-                    this.model.set("audioName",self.history.get("languages").get("audioName"));
+                    this.model.set("audioName",selfM.history.get("languages").get("audioName"));
 					
 					var keyflag= true;
 
 					for (i=0; i<this.history.get("nodelist").get("files").length; i++){
-						console.log("Compruebo si " + this.history.get("nodelist").get("files")[i] + " es igual a " + self.history.get("languages").get("audioName"));
-						if(this.history.get("nodelist").get("files")[i] == self.history.get("languages").get("audioName")){
+						console.log("Compruebo si " + this.history.get("nodelist").get("files")[i] + " es igual a " + selfM.history.get("languages").get("audioName"));
+						if(this.history.get("nodelist").get("files")[i] == selfM.history.get("languages").get("audioName")){
 							console.log("Supuestamente tengo el fichero guardado");
 							this.nodownload();
 							keyflag = false;
@@ -164,9 +164,9 @@ define([
 					if(keyflag)
 						this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName"));
 					
-					//window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+self.history.get("languages").get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
+					//window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory+"audios/"+selfM.history.get("languages").get("audioName"), this.nodownload.bind(this), this.router.drupaldo(this.createMedia.bind(this),this.history.get("languages").get("audioName")));
 					
-                    //self.createMedia(this.history.get("languages").get("audioName"));
+                    //selfM.createMedia(this.history.get("languages").get("audioName"));
 					setTimeout(function() {
 					   $(".ui-slider-track a").removeAttr("href");
 					}, 1500); 
@@ -228,14 +228,14 @@ define([
 				catch(e){
 					console.log(e);
 				}
-				console.log("Compruebo si existe el fichero: " + target +self.model.get("audioName"));
+				console.log("Compruebo si existe el fichero: " + target +selfM.model.get("audioName"));
 				
 				
 				 
-				self.my_media = new Media(target+this.model.get("audioName"), self.mediasuccess, self.nada, self.onStatus);
+				selfM.my_media = new Media(target+this.model.get("audioName"), selfM.mediasuccess, selfM.nada, selfM.onStatus);
 				setTimeout(function() {
-					self.preparar();
-					$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
+					selfM.preparar();
+					$("#downloadAndPlay .ui-btn-text").text(selfM.history.get("languages").get("dic_play"));
 					$("#downloadAndPlay").attr("id","playSoundButton");
 					try{
 						window.plugins.spinnerDialog.hide();
@@ -303,14 +303,14 @@ define([
                     url: "http://app.hoffmaninstitute.co.uk/hoffapp/" + "audios.jsonp",
                     processData: true,
                     success: function(data) {
-                        data.forEach(self.fillrecyclinglist, self);
-						auxLang=self.history.get("languages");
-						self.history.get("languages").destroy();
+                        data.forEach(selfM.fillrecyclinglist, self);
+						auxLang=selfM.history.get("languages");
+						selfM.history.get("languages").destroy();
 						auxLang.set("cachedList2",data);
-						self.history.create(auxLang)
+						selfM.history.create(auxLang)
 						auxLang.save();
 						auxLang.fetch();
-						self.model.set("cachedList2",true);
+						selfM.model.set("cachedList2",true);
                         try{
                             window.plugins.spinnerDialog.hide();
                         }
@@ -372,11 +372,11 @@ define([
 				var self=this;
                 try{
                     if(device.platform!='Android')
-                        window.plugins.spinnerDialog.show(self.history.get("languages").get("dic_loading"), "", function () {
+                        window.plugins.spinnerDialog.show(selfM.history.get("languages").get("dic_loading"), "", function () {
                             console.log("callback");
                         });
                     else
-                        window.plugins.spinnerDialog.show(self.history.get("languages").get("dic_loading"), "0 %", function () {
+                        window.plugins.spinnerDialog.show(selfM.history.get("languages").get("dic_loading"), "0 %", function () {
                             console.log("callback");
                         });
                 }
@@ -388,22 +388,22 @@ define([
                 try{
                     var fileTransfer = new FileTransfer();
                     fileTransfer.onprogress = function(progressEvent) {
-                        if (progressEvent.lengthComputable && ((progressEvent.loaded / progressEvent.total)*100)>(self.progress+25)) {
+                        if (progressEvent.lengthComputable && ((progressEvent.loaded / progressEvent.total)*100)>(selfM.progress+25)) {
                             window.plugins.spinnerDialog.hide();
-                            window.plugins.spinnerDialog.show(self.history.get("languages").get("dic_loading"), Math.round((progressEvent.loaded / progressEvent.total)*100) + " %", function () {
+                            window.plugins.spinnerDialog.show(selfM.history.get("languages").get("dic_loading"), Math.round((progressEvent.loaded / progressEvent.total)*100) + " %", function () {
                                 console.log("callback");
                             });
-                            self.progress=Math.round((progressEvent.loaded / progressEvent.total)*100);
+                            selfM.progress=Math.round((progressEvent.loaded / progressEvent.total)*100);
                             console.log(progressEvent.loaded / progressEvent.total);
                         }
                     };
                     var uri = encodeURI("http://app.hoffmaninstitute.co.uk/system/files/"+audiofilename);
 					target ="";
                    /* if(device.platform!='Android'){	//iOS
-                        self.my_media = new Media(uri, self.mediasuccess, self.nada, self.onStatus);
+                        selfM.my_media = new Media(uri, selfM.mediasuccess, selfM.nada, selfM.onStatus);
                         setTimeout(function() {
-                            self.preparar();
-							$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
+                            selfM.preparar();
+							$("#downloadAndPlay .ui-btn-text").text(selfM.history.get("languages").get("dic_play"));
                             $("#downloadAndPlay").attr("id","playSoundButton");
                             try{
                                 window.plugins.spinnerDialog.hide();
@@ -432,16 +432,16 @@ define([
                                 console.log(entry);
                                 url=entry.toInternalURL();
 								console.log("iOS url: " + url);
-                                self.my_media = new Media(url, self.mediasuccess, self.nada, self.onStatus);
+                                selfM.my_media = new Media(url, selfM.mediasuccess, selfM.nada, selfM.onStatus);
                                 setTimeout(function() {
-                                    self.preparar();
-									$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
+                                    selfM.preparar();
+									$("#downloadAndPlay .ui-btn-text").text(selfM.history.get("languages").get("dic_play"));
                                     $("#downloadAndPlay").attr("id","playSoundButton");
-									auxfiles = self.history.get("nodelist");
-									self.history.get("nodelist").destroy();
+									auxfiles = selfM.history.get("nodelist");
+									selfM.history.get("nodelist").destroy();
 									auxfiles2= auxfiles.get("files");
 									auxfiles2.push(audiofilename);
-									self.history.create(auxfiles)
+									selfM.history.create(auxfiles)
 									auxfiles.save();
 									auxfiles.fetch();
                                     try{
@@ -458,10 +458,10 @@ define([
                                 console.log("download error target " + error.target);
                                 console.log("download error code" + error.code);
                                 console.log("download body code: "  + error.body);
-							   self.my_media = new Media(uri, self.mediasuccess, self.nada, self.onStatus);
+							   selfM.my_media = new Media(uri, selfM.mediasuccess, selfM.nada, selfM.onStatus);
 								setTimeout(function() {
-                                    self.preparar();
-									$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
+                                    selfM.preparar();
+									$("#downloadAndPlay .ui-btn-text").text(selfM.history.get("languages").get("dic_play"));
                                     $("#downloadAndPlay").attr("id","playSoundButton");
 								}, 300);
                                 try{
@@ -485,7 +485,7 @@ define([
             fillrecyclinglist:function(elemento) {
 			
                 var self=this;
-                console.log(self.languages);
+                console.log(selfM.languages);
 				
 				lista=$("#recyclinglist");
 			
@@ -502,10 +502,10 @@ define([
                         if(typeof this.history.get("nodelist").get(elemento.nid) != 'undefined'){//Si tengo el nodo descargado
 							console.log("Elemento cacheado: ");
 							console.log($("#recyclinglist"));
-							lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='check' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(self.languages,elemento.language) +" </p>    </div><span style='background-color: rgba(0,0,0,.3);' class='ui-icon ui-icon-check ui-icon-shadow'>&nbsp;</span></div></li>");
+							lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='check' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(selfM.languages,elemento.language) +" </p>    </div><span style='background-color: rgba(0,0,0,.3);' class='ui-icon ui-icon-check ui-icon-shadow'>&nbsp;</span></div></li>");
 						}
 						else{
-							lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-down-white' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(self.languages,elemento.language) +" </p>    </div><span style='background-color: rgba(0,0,0,.3); background-image: url('../img/Icons/arrowdownwhite.png') !important; background-position: 0px -2px;	background-size: 18px 18px;' class='ui-icon-arrow-down-white ui-icon ui-icon-shadow'>&nbsp;</span></div></li>");
+							lista.prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-down-white' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>  <p class='ui-li-desc languagedesc'> "+ this.functiontovaluetovalue(selfM.languages,elemento.language) +" </p>    </div><span style='background-color: rgba(0,0,0,.3); background-image: url('../img/Icons/arrowdownwhite.png') !important; background-position: 0px -2px;	background-size: 18px 18px;' class='ui-icon-arrow-down-white ui-icon ui-icon-shadow'>&nbsp;</span></div></li>");
 						}
                         //$("#recyclinglist").listview("refresh");
                     }
@@ -513,15 +513,15 @@ define([
 				
                         if(prefijo==this.history.get("languages").get("languageAC").split("_")[0] || prefijo==this.history.get("languages").get("languageAC").split("-")[0]){ //si comparten prefijo se añaden al final
                             if(typeof this.history.get("nodelist").get(elemento.nid) != 'undefined'){
-								lista.append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='check' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>   <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(self.languages,elemento.language)+" </p>   </div><span style='background-color: rgba(0,0,0,.3);' class='ui-icon ui-icon-check ui-icon-shadow'>&nbsp;</span></div></li>");
+								lista.append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='check' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>   <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(selfM.languages,elemento.language)+" </p>   </div><span style='background-color: rgba(0,0,0,.3);' class='ui-icon ui-icon-check ui-icon-shadow'>&nbsp;</span></div></li>");
 							}
 							else{
-								lista.append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-down-white' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>   <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(self.languages,elemento.language)+" </p>   </div><span style='background-color: rgba(0,0,0,.3); background-image: url('../img/Icons/arrowdownwhite.png') !important; background-position: 0px -2px;	background-size: 18px 18px;' class='ui-icon-arrow-down-white ui-icon ui-icon-shadow'>&nbsp;</span></div></li>");
+								lista.append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-down-white' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>   <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(selfM.languages,elemento.language)+" </p>   </div><span style='background-color: rgba(0,0,0,.3); background-image: url('../img/Icons/arrowdownwhite.png') !important; background-position: 0px -2px;	background-size: 18px 18px;' class='ui-icon-arrow-down-white ui-icon ui-icon-shadow'>&nbsp;</span></div></li>");
 							}
                             //$("#recyclinglist").listview("refresh");
                         }
                     /*else{ //si son de otras lenguas se añaden a la lista secundaria
-						$(".secondaryrec").prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>    <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(self.languages,elemento.language) +" </p>  </div><span class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
+						$(".secondaryrec").prepend("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='a' class='getaudioLI ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-a'><div class='ui-btn-inner ui-li'><div class='ui-btn-text'>       <a hrefA='#getMediaudio" + elemento.nid + "' audioName= '" + elemento.nid + "'   data-transition='none' class='getaudio ui-link-inherit'>    <h3 class='ui-li-heading'  audioName= '" + elemento.nid + "'  >"+elemento.node_title+"</h3>       </a>       <p class='ui-li-desc audioDesc'> "+elemento.description+" </p>    <p class='ui-li-desc languagedesc'> "+this.functiontovaluetovalue(selfM.languages,elemento.language) +" </p>  </div><span class='ui-icon ui-icon-arrow-r ui-icon-shadow'>&nbsp;</span></div></li>");
 					}*/ //He comentado este bloque porque me parece innecesario añadir audios de lenguas completamente distintas y retrasa la carga de la lista
 				
                     }
@@ -556,9 +556,9 @@ define([
 	
             preparar2: function(){
                 var self=this;
-                //self.preparar();
+                //selfM.preparar();
                 setTimeout(function() {
-                    self.preparar();
+                    selfM.preparar();
                 }, 1500);
 			
 	
@@ -566,7 +566,7 @@ define([
 	
             recslidestart:function() {
 			
-                self.isSeeking=true;
+                selfM.isSeeking=true;
                 console.log("recslidestart");
                 var newPos = parseInt($("#songPosition").val(), 10);
                 var newMins = Math.floor(newPos/60,10);
@@ -576,7 +576,7 @@ define([
 	
             recslidestop:function() {
 	
-                self.isSeeking=false;
+                selfM.isSeeking=false;
                 console.log("recslidestop, seekTo: " + parseInt($("#songPosition").val(), 10));
                 this.my_media.seekTo(parseInt($("#songPosition").val(), 10)*1000);
                 var newPos = parseInt($("#songPosition").val(), 10);
@@ -602,13 +602,13 @@ define([
                 $("#songPosition").attr("max", dur);
                 $("#volText").val(vol);
                 $("#curText").val("0:00");
-                self.isSeeking=false;
+                selfM.isSeeking=false;
                 this.durflag=true;
                 this.my_media.play();
                 this.my_media.stop();
 				setTimeout(function() {
 					if(device.platform!='Android')
-						self.my_media.stop();
+						selfM.my_media.stop();
 				}, 200); 
                 this.mediaTimer = setInterval(function () {
 	
@@ -621,16 +621,16 @@ define([
                         }
                     }
 			
-                    self.my_media.getCurrentPosition(
+                    selfM.my_media.getCurrentPosition(
                         // success callback
                         function (position) {
                             if (position > -1) {
                                 console.log("position: " + position);
-                                self.position=Math.round(position);
-                                var cur = self.position;
+                                selfM.position=Math.round(position);
+                                var cur = selfM.position;
                                 var curMins = Math.floor(cur/60,10);
                                 var curSecs = Math.round(cur - curMins*60);
-                                if(self.isSeeking){
+                                if(selfM.isSeeking){
                                     console.log("is seeking and slider is: " + $("#songPosition").data("seekTime"));
                                     $("#songCurrentTime").html($("#songPosition").data("seekTime"));
                                 } else {
@@ -672,11 +672,11 @@ define([
                     }
                     catch(e){}
                     this.audioplaying=true;
-                    $("#playSoundButton .ui-btn-text").text(self.history.get("languages").get("dic_playing"));
+                    $("#playSoundButton .ui-btn-text").text(selfM.history.get("languages").get("dic_playing"));
                 } else {
                     this.my_media.pause();
                     this.audioplaying=false;
-                    $("#playSoundButton .ui-btn-text").text(self.history.get("languages").get("dic_paused"));
+                    $("#playSoundButton .ui-btn-text").text(selfM.history.get("languages").get("dic_paused"));
                 }
                 $("#playSoundButton").button('refresh');
                 if(isNaN(this.my_media.getDuration())){
