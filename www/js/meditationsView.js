@@ -147,13 +147,13 @@ define([
                     this.$(".panelbutton").hide();
                     this.$(".dic_help").hide();
                     console.log("Tengo el audio filename");
-                    this.model.set("audioName",this.history.get("languages").get("audioName"));
+                    this.model.set("audioName",self.history.get("languages").get("audioName"));
 					
 					var keyflag= true;
 
 					for (i=0; i<this.history.get("nodelist").get("files").length; i++){
-						console.log("Compruebo si " + this.history.get("nodelist").get("files")[i] + " es igual a " + this.history.get("languages").get("audioName"));
-						if(this.history.get("nodelist").get("files")[i] == this.history.get("languages").get("audioName")){
+						console.log("Compruebo si " + this.history.get("nodelist").get("files")[i] + " es igual a " + self.history.get("languages").get("audioName"));
+						if(this.history.get("nodelist").get("files")[i] == self.history.get("languages").get("audioName")){
 							console.log("Supuestamente tengo el fichero guardado");
 							this.nodownload();
 							keyflag = false;
@@ -296,7 +296,7 @@ define([
 	
             getaudios: function(){
 	
-			var self = this;
+	
                 var params_audios = {
                     type: 'GET',
                     dataType: 'jsonp',
@@ -361,6 +361,7 @@ define([
 	
             createMedia:function(audiofilename) {
 			
+			   self=this;
 				try{
 					window.plugins.spinnerDialog.hide();
 				}
@@ -421,6 +422,7 @@ define([
 						 target=cordova.file.externalDataDirectory+"audios/"+audiofilename;
 					 }
 
+						var path = window.location.pathname;
                         fileTransfer.download(
                             uri,
                             target,
@@ -456,6 +458,12 @@ define([
                                 console.log("download error target " + error.target);
                                 console.log("download error code" + error.code);
                                 console.log("download body code: "  + error.body);
+							   self.my_media = new Media(uri, self.mediasuccess, self.nada, self.onStatus);
+								setTimeout(function() {
+                                    self.preparar();
+									$("#downloadAndPlay .ui-btn-text").text(self.history.get("languages").get("dic_play"));
+                                    $("#downloadAndPlay").attr("id","playSoundButton");
+								}, 300);
                                 try{
                                     window.plugins.spinnerDialog.hide();
                                 }
