@@ -40,7 +40,7 @@ define([
 				
 				this.history=historycollection;
                 
-				var self=this;
+				selfM=this;
 				this.router=router;
 		
                 switch(id)
@@ -70,7 +70,7 @@ define([
                 }
 				
 			
-                var self=this;
+                selfM=this;
                 historycollection.get("languages").set("helppanel",historycollection.get("languages").get("dic_meditations_helppanel"));
                 result= _.extend(historycollection.get("languages").toJSON(),selfM.model.toJSON());
                 compiledheaderandpanel=_.template( headerandpanel );
@@ -90,7 +90,7 @@ define([
 							selfM.languages=selfM.history.get("languages").get("cachedLanguages");
 							
 							$(document).one('pageshow', function (event, ui) {
-								selfM.history.get("languages").get("cachedList2").forEach(selfM.fillrecyclinglist, self);
+								selfM.history.get("languages").get("cachedList2").forEach(selfM.fillrecyclinglist, selfM);
 								try{
 									window.plugins.spinnerDialog.hide();
 								}
@@ -210,7 +210,7 @@ define([
 	                
 				console.log("nodownload, fichero de audio ya existente");
 				console.log(this.model);
-				self=this;
+				selfM=this;
 				
 				target = "";
 				
@@ -303,7 +303,7 @@ define([
                     url: "http://app.hoffmaninstitute.co.uk/hoffapp/" + "audios.jsonp",
                     processData: true,
                     success: function(data) {
-                        data.forEach(selfM.fillrecyclinglist, self);
+                        data.forEach(selfM.fillrecyclinglist, selfM);
 						auxLang=selfM.history.get("languages");
 						selfM.history.get("languages").destroy();
 						auxLang.set("cachedList2",data);
@@ -361,7 +361,7 @@ define([
 	
             createMedia:function(audiofilename) {
 			
-			   self=this;
+			   selfM=this;
 				try{
 					window.plugins.spinnerDialog.hide();
 				}
@@ -369,7 +369,7 @@ define([
 					console.log(e);
 				}
 			
-				var self=this;
+			
                 try{
                     if(device.platform!='Android')
                         window.plugins.spinnerDialog.show(selfM.history.get("languages").get("dic_loading"), "", function () {
@@ -484,7 +484,7 @@ define([
 	
             fillrecyclinglist:function(elemento) {
 			
-                var self=this;
+                selfM=this;
                 console.log(selfM.languages);
 				
 				lista=$("#recyclinglist");
@@ -555,7 +555,7 @@ define([
             },
 	
             preparar2: function(){
-                var self=this;
+                selfM=this;
                 //selfM.preparar();
                 setTimeout(function() {
                     selfM.preparar();
@@ -587,7 +587,7 @@ define([
 	
             preparar: function(){
 	
-                var self=this;
+                selfM=this;
                 var dur = this.my_media.getDuration();
                 console.log(dur);
                 if(isNaN(dur)){
@@ -654,7 +654,7 @@ define([
 	
             playfun: function(){
 	
-                var self=this;
+                selfM=this;
 
                 try{
                     var dur = this.my_media.getDuration();
