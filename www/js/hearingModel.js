@@ -19,7 +19,8 @@ define([
 			"description":"",
 			"audioName":"",
 			"answer":"",
-			"cachedList":false
+			"cachedList":false,
+			"cachedList2":false
 			
 			
 		}
